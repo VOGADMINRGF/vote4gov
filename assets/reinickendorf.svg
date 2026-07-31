@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Reinickendorf als lokaler Prüfstein</title>
+  <desc id="desc">Abstrakte nächtliche Stadt- und Parklandschaft mit markiertem Ausgangspunkt in Reinickendorf.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#07142d"/>
+      <stop offset="0.62" stop-color="#0c2348"/>
+      <stop offset="1" stop-color="#06101e"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="72%" cy="45%" r="42%">
+      <stop offset="0" stop-color="#2671ff" stop-opacity=".55"/>
+      <stop offset=".5" stop-color="#1664ff" stop-opacity=".12"/>
+      <stop offset="1" stop-color="#1664ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="ground" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#020711"/>
+      <stop offset=".55" stop-color="#071426"/>
+      <stop offset="1" stop-color="#091a31"/>
+    </linearGradient>
+    <filter id="blur"><feGaussianBlur stdDeviation="18"/></filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <rect width="1600" height="900" fill="url(#glow)"/>
+  <circle cx="1180" cy="285" r="155" fill="none" stroke="#6d9eff" stroke-opacity=".22" stroke-width="2"/>
+  <circle cx="1180" cy="285" r="245" fill="none" stroke="#6d9eff" stroke-opacity=".11" stroke-width="2"/>
+  <path d="M0 600 C260 510 475 555 700 520 C950 480 1200 500 1600 410 L1600 900 L0 900Z" fill="url(#ground)"/>
+  <g fill="#0b1d34">
+    <path d="M690 420h98v210h-98zM807 370h130v260H807zM950 450h80v180h-80zM1048 330h150v300h-150zM1215 410h102v220h-102zM1335 360h125v270h-125z"/>
+    <path d="M745 390h-16v-55h16zM1120 300h-18v-70h18zM1398 330h-18v-82h18z"/>
+  </g>
+  <g fill="#4f78b6" opacity=".52">
+    <path d="M715 455h17v12h-17zm34 0h17v12h-17zm84-40h20v13h-20zm38 0h20v13h-20zm0 42h20v13h-20zm208-76h22v14h-22zm43 0h22v14h-22zm-43 48h22v14h-22zm43 48h22v14h-22zm118-22h18v13h-18zm42 0h18v13h-18zm90-49h19v13h-19zm40 0h19v13h-19z"/>
+  </g>
+  <g fill="#071729">
+    <path d="M0 640c90-82 175-86 255-8 82-110 190-94 260 16v252H0z"/>
+    <circle cx="120" cy="570" r="88"/><circle cx="235" cy="588" r="104"/><circle cx="385" cy="570" r="92"/>
+  </g>
+  <g stroke="#254d7f" stroke-width="3" opacity=".7">
+    <path d="M560 690C800 610 1040 610 1470 525" fill="none"/>
+    <path d="M600 755C900 685 1160 690 1550 600" fill="none"/>
+  </g>
+  <g transform="translate(1168 236)">
+    <ellipse cx="12" cy="152" rx="92" ry="24" fill="#1664ff" opacity=".28" filter="url(#blur)"/>
+    <path d="M12 0c-62 0-112 49-112 109 0 83 112 177 112 177s112-94 112-177C124 49 74 0 12 0Z" fill="#1664ff"/>
+    <circle cx="12" cy="107" r="44" fill="#f8fbff"/>
+    <circle cx="12" cy="107" r="16" fill="#1664ff"/>
+  </g>
+  <g transform="translate(1010 725)">
+    <rect width="420" height="82" rx="41" fill="#041020" fill-opacity=".84" stroke="#6f99db" stroke-opacity=".28"/>
+    <circle cx="42" cy="41" r="7" fill="#39d87d"/>
+    <text x="66" y="36" fill="#f4f7ff" font-family="Inter,Arial,sans-serif" font-size="22" font-weight="700">Reinickendorf</text>
+    <text x="66" y="59" fill="#9eb0ca" font-family="Inter,Arial,sans-serif" font-size="14">Der erste lokale Prüfstein</text>
+  </g>
+</svg>
