@@ -3,13 +3,19 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Vote4Gov ist die öffentliche, überprüfbare Bewerbung von Ricky Gerd Fleischer um Verantwortung — parteilos, grenzübergreifend und offen für Widerspruch." />
-    <meta name="theme-color" content="#030711" />
+    <meta
+      name="description"
+      content="Vote4Gov.eu ist die öffentliche, überprüfbare Bewerbung von Ricky Gerd Fleischer um eine neue Form demokratischer Verantwortung — parteilos, europäisch gedacht und weltweit offen."
+    />
+    <meta name="theme-color" content="#020611" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="de_DE" />
-    <meta property="og:title" content="Vote4Gov — Glaub mir nicht. Prüf es." />
-    <meta property="og:description" content="Ricky Gerd Fleischer, VoiceOpenGov, eDebatte und eine neue Form überprüfbarer Repräsentation." />
-    <title>Vote4Gov — Ricky Gerd Fleischer</title>
+    <meta property="og:title" content="Vote4Gov.eu — Glaub mir nicht. Prüf es." />
+    <meta
+      property="og:description"
+      content="Ricky Gerd Fleischer über Vote4Gov, VoiceOpenGov, eDebatte und eine Politik, die Verantwortung sichtbar macht."
+    />
+    <title>Vote4Gov.eu — Ricky Gerd Fleischer</title>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="/styles.css" />
     <script src="/script.js" defer></script>
@@ -18,9 +24,9 @@
     <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
     <header class="site-header" data-header>
-      <a class="brand" href="#top" aria-label="Vote4Gov Startseite">
-        <span>vote<span>4</span>gov</span>
-        <small>Öffentliche Bewerbung</small>
+      <a class="brand" href="#top" aria-label="Vote4Gov.eu Startseite">
+        <span class="brand-word">vote<span>4</span>gov</span>
+        <small>.eu · öffentliche Bewerbung</small>
       </a>
 
       <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-button>
@@ -29,20 +35,25 @@
       </button>
 
       <nav class="site-nav" id="site-nav" aria-label="Hauptnavigation" data-nav>
-        <a href="#prinzip">Prinzip</a>
-        <a href="#person">Person</a>
-        <a href="#architektur">Architektur</a>
-        <a href="#transparenz">Transparenz</a>
-        <a class="nav-cta" href="#mitmachen">Mitmachen</a>
+        <a href="#warum">Warum</a>
+        <a href="#anders">Was anders wird</a>
+        <a href="#system">Das System</a>
+        <a href="#reinickendorf">Reinickendorf</a>
+        <a class="nav-cta" href="#kontakt">Kontakt</a>
       </nav>
     </header>
 
     <main id="main">
       <section class="hero" id="top" aria-labelledby="hero-title">
-        <div class="hero-orbit" aria-hidden="true"></div>
+        <div class="hero-world" aria-hidden="true">
+          <span class="orbit orbit-one"></span>
+          <span class="orbit orbit-two"></span>
+          <span class="world-line"></span>
+        </div>
+
         <div class="page-shell hero-grid">
           <div class="hero-copy reveal">
-            <p class="eyebrow">Eine neue Form öffentlicher Verantwortung</p>
+            <p class="eyebrow">Eine öffentliche Bewerbung um Verantwortung</p>
             <h1 id="hero-title">Ich möchte nicht, dass du mir glaubst.</h1>
             <p class="hero-punchline">Ich möchte, dass du alles prüfen kannst.</p>
             <p class="hero-intro">
@@ -51,23 +62,24 @@
               miteinander verbunden werden. Deshalb entwickle ich <strong>VoiceOpenGov</strong> und <strong>eDebatte</strong>.
             </p>
             <div class="hero-actions">
-              <a class="button button-primary" href="#prinzip">Die Bewerbung lesen</a>
-              <a class="button button-ghost" href="#transparenz">Prüfbarkeit ansehen</a>
+              <a class="button button-primary" href="#warum">Warum Vote4Gov.eu?</a>
+              <a class="button button-ghost" href="#kontakt">Mit mir sprechen</a>
             </div>
             <div class="hero-principles" aria-label="Grundprinzipien">
               <span>parteilos</span>
-              <span>grenzübergreifend</span>
-              <span>offen für Widerspruch</span>
+              <span>europäisch gedacht</span>
+              <span>weltweit offen</span>
             </div>
           </div>
 
           <aside class="hero-person reveal" aria-label="Ricky Gerd Fleischer">
-            <div class="portrait-frame">
-              <img src="/assets/portrait.svg" alt="Porträt von Ricky Gerd Fleischer im Anzug" />
+            <div class="hero-portrait">
+              <img src="/assets/hero-portrait.svg" alt="Ricky Gerd Fleischer im Anzug" />
             </div>
-            <div class="person-caption">
-              <p>Ricky Gerd Fleischer</p>
+            <div class="hero-signature">
+              <strong>Ricky Gerd Fleischer</strong>
               <span>Initiator von VoiceOpenGov und eDebatte</span>
+              <span>Vater · parteilos · Berlin · Europa</span>
             </div>
           </aside>
         </div>
@@ -80,7 +92,7 @@
         </div>
       </section>
 
-      <section class="skeptic section page-shell" id="prinzip" aria-labelledby="skeptic-title">
+      <section class="skeptic section page-shell" aria-labelledby="skeptic-title">
         <div class="section-number reveal">01</div>
         <div class="skeptic-grid">
           <div class="reveal">
@@ -90,8 +102,9 @@
           <div class="skeptic-copy reveal">
             <p class="lead">Verständlich.</p>
             <p>
-              Deshalb gibt es hier keine fertige Wahrheit, kein Parteibuch als Ersatz für Argumente und keinen
-              Vertrauensvorschuss. Es gibt Quellen, offene Fragen, Widerspruch, Entscheidungen und einen sichtbaren Arbeitsstand.
+              Deshalb findest du hier keine fertige Wahrheit, kein Parteibuch als Ersatz für Argumente und keinen
+              Vertrauensvorschuss. Du findest Quellen, offene Fragen, Widerspruch, Entscheidungen und einen sichtbaren
+              Arbeitsstand.
             </p>
             <blockquote>
               Eine Bewerbung um Verantwortung beginnt nicht mit dem Anspruch, recht zu haben. Sie beginnt mit der Pflicht,
@@ -101,103 +114,219 @@
         </div>
       </section>
 
-      <section class="application section" aria-labelledby="application-title">
-        <div class="page-shell application-grid">
-          <div class="application-copy reveal">
-            <p class="section-kicker">Meine Bewerbung</p>
-            <h2 id="application-title">Nicht um ein Amtsschild. Um die höchste Form demokratischer Verantwortung.</h2>
-            <p>
-              Ich bewerbe mich darum, die repräsentative Stimme der Menschen zu sein — in einem bestehenden Amt oder in einer
-              Form, die wir neu schaffen müssen, wenn die alten Kategorien nicht mehr ausreichen.
-            </p>
-            <p>
-              Nicht als Besitzer einer Wahrheit. Nicht als Vertreter einer Partei. Sondern als parteiloser Repräsentant, der
-              Wissen, Interessen, Entscheidungen und Verantwortung öffentlich miteinander verbindet.
-            </p>
+      <section class="domain section" id="warum" aria-labelledby="domain-title">
+        <div class="page-shell domain-grid">
+          <div class="domain-mark reveal" aria-hidden="true">
+            <span>vote</span><strong>4</strong><span>gov</span><small>.eu</small>
           </div>
-          <div class="application-mandate reveal">
-            <span class="mandate-label">Das Mandat</span>
-            <strong>Verstehen.</strong>
-            <strong>Einordnen.</strong>
-            <strong>Mitentscheiden.</strong>
-            <p>Für jeden Menschen. Über Grenzen, Sprachen und Systeme hinweg.</p>
+          <div class="domain-copy reveal">
+            <p class="section-kicker">Warum Vote4Gov.eu?</p>
+            <h2 id="domain-title">Nicht weil ich möchte, dass du mich alle vier Jahre wählst.</h2>
+            <p class="domain-lead">Sondern weil du dauerhaft mitentscheiden können sollst, wie wir regiert werden.</p>
+            <p>
+              Vote4Gov steht nicht nur für die Wahl einer Person. Es steht für die Wahl einer besseren Form des Regierens:
+              nachvollziehbar, kontinuierlich und offen für Korrektur. Die Endung <strong>.eu</strong> ist dabei kein Limit.
+              Europa ist der erste sinnvolle gemeinsame Raum, weil kommunale, regionale, nationale und europäische
+              Entscheidungen längst ineinandergreifen.
+            </p>
+            <p class="domain-statement">Europa ist unser Ausgangspunkt. Die Welt ist nicht unsere Grenze.</p>
           </div>
+        </div>
+
+        <div class="page-shell domain-chain reveal" aria-label="Markenarchitektur">
+          <a href="https://vote4gov.eu" rel="noreferrer">Vote4Gov.eu <span>die Person &amp; Bewerbung</span></a>
+          <i aria-hidden="true">→</i>
+          <a href="https://voiceopengov.org" rel="noreferrer">VoiceOpenGov.org <span>die Bewegung</span></a>
+          <i aria-hidden="true">→</i>
+          <a href="https://edebatte.org" rel="noreferrer">eDebatte.org <span>das Instrument</span></a>
+          <i aria-hidden="true">→</i>
+          <span>Voxy <small>die Verbindung</small></span>
         </div>
       </section>
 
-      <section class="person section page-shell" id="person" aria-labelledby="person-title">
-        <div class="person-photo reveal">
-          <img src="/assets/personal.svg" alt="Ricky Gerd Fleischer im Park" />
-          <span>Der Mensch vor der Rolle.</span>
-        </div>
-        <div class="person-story reveal">
-          <p class="section-kicker">Warum ich das mache</p>
-          <h2 id="person-title">Für meinen Sohn. Und für jedes Kind, das später mit unseren Entscheidungen leben wird.</h2>
-          <p>
-            Mein Weg führte durch Handel, Industrie, Vertrieb, Commercial und Management. Ich habe erlebt, wie viel möglich
-            wird, wenn Verantwortung klar ist — und wie schnell Vertrauen verschwindet, wenn Entscheidungen nicht mehr
-            nachvollziehbar sind.
-          </p>
-          <p>
-            Vater zu werden hat aus einer beruflichen und gesellschaftlichen Frage eine persönliche gemacht: Was hinterlassen
-            wir, wenn wir zwar täglich über Zukunft sprechen, aber Menschen kaum befähigen, sie selbst mitzugestalten?
-          </p>
-          <p class="personal-line">Ich möchte, dass mein Sohn später nicht fragen muss, warum wir nichts versucht haben.</p>
-        </div>
-      </section>
-
-      <section class="architecture section" id="architektur" aria-labelledby="architecture-title">
+      <section class="friction section" aria-labelledby="friction-title">
         <div class="page-shell">
-          <div class="architecture-head reveal">
-            <p class="section-kicker">Die klare Architektur</p>
-            <h2 id="architecture-title">Vier Ebenen. Eine gemeinsame Logik.</h2>
-            <p>Jede Marke hat eine Aufgabe. Keine darf größer werden als ihr Zweck.</p>
+          <div class="friction-head reveal">
+            <p class="section-kicker">Warum ich mich nicht mehr damit zufriedengebe</p>
+            <h2 id="friction-title">Ich wollte nie Berufspolitiker werden. Ich wollte verstehen, warum Offensichtliches niemand grundlegend verändert.</h2>
+            <p>
+              Vote4Gov entstand nicht aus Begeisterung für den Politikbetrieb. Es entstand aus meinem täglichen Ärger über
+              Ineffizienz, unklare Verantwortung und ein System, das Menschen zu selten zwischen den Wahlen einbindet.
+            </p>
           </div>
 
-          <div class="architecture-grid">
-            <article class="architecture-card card-vote reveal">
-              <span>01 · Der Mensch</span>
-              <h3>Vote4Gov</h3>
-              <p>Macht mich als Mensch, Initiator und möglichen Verantwortungsträger glaubwürdig und überprüfbar.</p>
-              <strong>Öffentliche Bewerbung</strong>
+          <div class="friction-grid">
+            <article class="friction-card reveal">
+              <span>01</span>
+              <h3>Keine vernünftige Lösung ist automatisch links, rechts oder Mitte.</h3>
+              <p>Ich möchte zuerst prüfen, was wirkt — und erst danach, wer es politisch für sich beansprucht.</p>
             </article>
-            <article class="architecture-card reveal">
-              <span>02 · Die Bewegung</span>
-              <h3>VoiceOpenGov</h3>
-              <p>Macht aus der Vision eine tragfähige, internationale Mitgliederbewegung.</p>
-              <strong>Gemeinsam Verantwortung tragen</strong>
+            <article class="friction-card reveal">
+              <span>02</span>
+              <h3>Ein Parteiprogramm ist kein Mandat für jede einzelne Position.</h3>
+              <p>Menschen wählen Gesamtpakete, die in Koalitionen neu verhandelt und oft bis zur Unkenntlichkeit verändert werden.</p>
             </article>
-            <article class="architecture-card reveal">
-              <span>03 · Das Instrument</span>
-              <h3>eDebatte</h3>
-              <p>Macht aus dem Anspruch ein funktionierendes, quellenbasiertes und überprüfbares Instrument.</p>
-              <strong>Stimmen, Evidenzen, Zusammenhänge</strong>
+            <article class="friction-card reveal">
+              <span>03</span>
+              <h3>Demokratie darf nicht nur in mehrjährigen Abständen stattfinden.</h3>
+              <p>Beteiligung muss auch zwischen Wahlen möglich, informiert und in ihrer Wirkung nachvollziehbar sein.</p>
             </article>
-            <article class="architecture-card card-voxy reveal">
-              <span>04 · Die Verbindung</span>
-              <h3>Voxy</h3>
-              <p>Übersetzt Komplexität, begleitet Menschen und verbindet alle drei Ebenen.</p>
-              <strong>Technologie, die befähigt</strong>
+            <article class="friction-card reveal">
+              <span>04</span>
+              <h3>Mehr Ebenen bedeuten nicht automatisch mehr Wirkung.</h3>
+              <p>Wenn Zuständigkeit auf Kommune, Kreis, Land, Bund und Europa verteilt ist, muss Verantwortung trotzdem eindeutig bleiben.</p>
+            </article>
+            <article class="friction-card reveal">
+              <span>05</span>
+              <h3>Neue europäische Kräfte reichen nicht, wenn vor Ort nichts ankommt.</h3>
+              <p>Aufmerksamkeit in Brüssel verändert wenig, wenn Kommune und Alltag institutionell abgekoppelt bleiben.</p>
+            </article>
+            <article class="friction-card friction-card-accent reveal">
+              <span>06</span>
+              <h3>Ich möchte mich darüber nicht länger nur aufregen.</h3>
+              <p>Deshalb baue ich mit VoiceOpenGov und eDebatte an einer überprüfbaren Alternative.</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="voxy section" aria-labelledby="voxy-title">
-        <div class="page-shell voxy-grid">
-          <div class="voxy-visual reveal">
-            <img src="/assets/voxy.svg" alt="Voxy, die digitale Begleitung von VoiceOpenGov und eDebatte" />
+      <section class="difference section" id="anders" aria-labelledby="difference-title">
+        <div class="page-shell">
+          <div class="difference-head reveal">
+            <p class="section-kicker">Was mit mir anders wäre</p>
+            <h2 id="difference-title">Nicht weniger Demokratie. Weniger Selbstzweck.</h2>
+            <p>
+              Ich verspreche nicht pauschal weniger Staat. Ich verspreche einen Staat, in dem jede Struktur, jede Rolle und
+              jede Ausgabe ihren Nutzen begründen muss.
+            </p>
           </div>
-          <div class="voxy-copy reveal">
-            <p class="section-kicker">Technologie mit klarer Rolle</p>
-            <h2 id="voxy-title">Voxy soll Menschen nicht sagen, was sie denken sollen.</h2>
-            <p class="voxy-lead">Voxy soll ihnen helfen, selbst besser zu denken.</p>
+
+          <div class="difference-list">
+            <article class="difference-item reveal">
+              <span>01</span>
+              <div><h3>Keine Entscheidung ohne nachvollziehbare Begründung.</h3><p>Quellen, Annahmen, Interessen und Zielkonflikte gehören öffentlich zusammen.</p></div>
+            </article>
+            <article class="difference-item reveal">
+              <span>02</span>
+              <div><h3>Keine Zuständigkeit ohne sichtbare Verantwortung.</h3><p>Für jedes Ergebnis muss erkennbar sein, wer entscheidet, wer umsetzt und wer korrigiert.</p></div>
+            </article>
+            <article class="difference-item reveal">
+              <span>03</span>
+              <div><h3>Keine politische Ebene ohne belegbaren Nutzen.</h3><p>Ämter, Gremien und Doppelstrukturen bleiben nicht bestehen, nur weil es sie schon immer gab.</p></div>
+            </article>
+            <article class="difference-item reveal">
+              <span>04</span>
+              <div><h3>Keine tägliche Selbsterklärung als Ersatz für Wirkung.</h3><p>Landräte, Ministerien und Mandatsträger müssen nicht fortwährend Leitfäden, Grußworte und Tätigkeitsbilder produzieren. Sie müssen zeigen, was sich durch ihre Verantwortung verbessert hat.</p></div>
+            </article>
+            <article class="difference-item reveal">
+              <span>05</span>
+              <div><h3>Keine Beteiligung, die nach einer Veranstaltung verschwindet.</h3><p>Beiträge, Antworten, Zuständigkeiten und Fortschritt bleiben auffindbar und überprüfbar.</p></div>
+            </article>
+            <article class="difference-item reveal">
+              <span>06</span>
+              <div><h3>Kein Anspruch darauf, immer recht zu haben.</h3><p>Fehler und Korrekturen gehören in dieselbe öffentliche Bilanz wie Erfolge.</p></div>
+            </article>
+          </div>
+
+          <div class="difference-contrast reveal" aria-label="Politischer Kontrast">
+            <p><span>Weniger</span> Repräsentation von Strukturen.</p>
+            <p><strong>Mehr</strong> Repräsentation von Menschen.</p>
+            <p><span>Weniger</span> Zuständigkeitsverschiebung.</p>
+            <p><strong>Mehr</strong> sichtbare Verantwortung.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="system section" id="system" aria-labelledby="system-title">
+        <div class="page-shell">
+          <div class="system-head reveal">
+            <p class="section-kicker">Die Antwort ist keine weitere Partei</p>
+            <h2 id="system-title">Vier Ebenen. Ein gemeinsames Betriebssystem.</h2>
+            <p>Transparenz verbindet die Person, die Bewegung, das Instrument und den Zugang.</p>
+          </div>
+
+          <div class="system-layout">
+            <div class="system-cards">
+              <article class="system-card system-card-primary reveal">
+                <span>01 · Der Mensch</span>
+                <h3>Vote4Gov</h3>
+                <p>Macht mich als Menschen, Initiator und möglichen Verantwortungsträger glaubwürdig und überprüfbar.</p>
+                <strong>Öffentliche Bewerbung</strong>
+              </article>
+              <article class="system-card reveal">
+                <span>02 · Die Bewegung</span>
+                <h3>VoiceOpenGov</h3>
+                <p>Macht aus der Vision eine tragfähige, parteilose und internationale Mitgliederbewegung.</p>
+                <strong>Gemeinsam Verantwortung tragen</strong>
+              </article>
+              <article class="system-card reveal">
+                <span>03 · Das Instrument</span>
+                <h3>eDebatte</h3>
+                <p>Verbindet Stimmen, Quellen, Evidenzen, Interessen, Widersprüche und Mehrheitsbildung.</p>
+                <strong>Prüfbare Beteiligung</strong>
+              </article>
+            </div>
+
+            <aside class="voxy-panel reveal">
+              <img src="/assets/voxy.svg" alt="Voxy, die digitale Begleitung von VoiceOpenGov und eDebatte" />
+              <div>
+                <span>04 · Die Verbindung</span>
+                <h3>Voxy</h3>
+                <p>Voxy soll Menschen nicht sagen, was sie denken sollen. Voxy soll ihnen helfen, selbst besser zu denken.</p>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="reinickendorf section" id="reinickendorf" aria-labelledby="reinickendorf-title">
+        <div class="reinickendorf-visual" aria-hidden="true">
+          <img src="/assets/reinickendorf.svg" alt="" />
+        </div>
+        <div class="page-shell reinickendorf-grid">
+          <div class="reinickendorf-copy reveal">
+            <p class="section-kicker">Der erste lokale Prüfstein</p>
+            <h2 id="reinickendorf-title">Eine Idee für Europa muss vor der eigenen Haustür funktionieren.</h2>
+            <p>
+              Reinickendorf ist für mich kein regionaler Nebenschauplatz. Es ist der Ort, an dem sich zeigen muss, ob aus
+              einer großen Vision eine bessere Erfahrung im Alltag wird: näher, verständlicher und nachvollziehbarer.
+            </p>
+            <p class="reinickendorf-line">Was hier funktioniert, kann auf andere Kommunen, Regionen und europäische Räume übertragen werden.</p>
+          </div>
+          <div class="reinickendorf-proof reveal">
+            <h3>Was dort sichtbar werden soll</h3>
             <ul>
-              <li>Quellen und Behauptungen verständlich einordnen</li>
-              <li>Widersprüche und offene Fragen sichtbar machen</li>
-              <li>Menschen in ihrer Sprache durch komplexe Themen begleiten</li>
-              <li>Den nächsten sinnvollen Schritt zeigen, ohne Entscheidungen abzunehmen</li>
+              <li>ein persönlicher und digitaler Zugang zur Beteiligung</li>
+              <li>mobile Formate in den Kiezen statt Beteiligung nur im Verwaltungsgebäude</li>
+              <li>öffentliche Dossiers mit Quellen, Optionen und offenen Fragen</li>
+              <li>klare Zuständigkeiten und ein sichtbarer Umsetzungsstand</li>
+              <li>eine Verbindung von Kommune, Bezirk, Land, Bund und Europa ohne Informationsbruch</li>
             </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="person section" aria-labelledby="person-title">
+        <div class="page-shell person-grid">
+          <div class="person-photo reveal">
+            <img src="/assets/person.svg" alt="Ricky Gerd Fleischer im persönlichen Gespräch" />
+            <span>Der Mensch vor der Rolle.</span>
+          </div>
+          <div class="person-copy reveal">
+            <p class="section-kicker">Für wen ich das mache</p>
+            <h2 id="person-title">Für meinen Sohn. Und für jedes Kind, das später mit unseren Entscheidungen leben wird.</h2>
+            <p>
+              Ich komme nicht aus dem Politikbetrieb. Mein Weg führte durch Handel, Industrie, Vertrieb, Commercial und
+              Management. Dort habe ich gelernt: Verantwortung besteht nicht darin, Probleme eloquent zu beschreiben.
+              Verantwortung beginnt dort, wo jemand Strukturen verändert, Entscheidungen begründet und sich an Ergebnissen
+              messen lässt.
+            </p>
+            <p>
+              Vater zu werden hat aus einer gesellschaftlichen Frage eine persönliche gemacht. Ich möchte nicht, dass mein
+              Sohn später fragen muss, warum wir wussten, dass so vieles ineffizient, undurchsichtig oder wirkungslos war —
+              und trotzdem nichts Grundsätzliches versucht haben.
+            </p>
+            <blockquote>Ich baue nicht an einer perfekten Wahrheit. Ich baue an einem System, in dem wir bessere Antworten gemeinsam prüfen können.</blockquote>
           </div>
         </div>
       </section>
@@ -215,7 +344,7 @@
           <div class="ledger reveal" aria-label="Öffentliches Transparenzregister">
             <div class="ledger-head">
               <span>Öffentliches Register</span>
-              <span class="live"><i></i> Foundation</span>
+              <span class="live"><i></i> im Aufbau</span>
             </div>
             <div class="ledger-row"><span>Positionen &amp; Begründungen</span><strong>versioniert</strong></div>
             <div class="ledger-row"><span>Quellen &amp; Evidenzen</span><strong>verknüpft</strong></div>
@@ -227,20 +356,46 @@
         </div>
       </section>
 
-      <section class="team section page-shell" id="mitmachen" aria-labelledby="team-title">
-        <div class="team-head reveal">
-          <p class="section-kicker">Mit wem schaffen wir das?</p>
-          <h2 id="team-title">Nicht mit Gefolgschaft. Mit Menschen, die Verantwortung übernehmen.</h2>
-        </div>
-        <div class="team-grid">
-          <p class="reveal">
-            Mit Bürgerinnen und Bürgern, Wissenschaft, Bildung, Medien, Journalismus, Zivilgesellschaft, Verwaltungen,
-            Institutionen, Unternehmen und Technologiepartnern. Jede Perspektive darf widersprechen. Jede Expertise kann etwas
-            beitragen.
-          </p>
-          <div class="team-action reveal">
-            <p>VoiceOpenGov soll größer werden als seine Initiatoren. eDebatte soll beweisen, dass Beteiligung nachvollziehbar funktionieren kann.</p>
-            <a class="button button-primary" href="mailto:hallo@vote4gov.de?subject=Vote4Gov%20%E2%80%93%20Ich%20m%C3%B6chte%20mitwirken">Teil davon werden</a>
+      <section class="contact section" id="kontakt" aria-labelledby="contact-title">
+        <div class="page-shell">
+          <div class="contact-head reveal">
+            <p class="section-kicker">Kontakt und Mitwirkung</p>
+            <h2 id="contact-title">Prüf mich. Widersprich mir. Arbeite mit.</h2>
+            <p>Vote4Gov ist keine Einbahnstraße. Unterschiedliche Anliegen brauchen sichtbare, erreichbare Wege.</p>
+          </div>
+
+          <div class="contact-grid">
+            <article class="contact-card contact-card-main reveal">
+              <span>Persönlich · Vote4Gov</span>
+              <h3>Ricky Gerd Fleischer</h3>
+              <p>Öffentliche Bewerbung, persönliche Anfragen, Medien und Hintergrundgespräche.</p>
+              <dl>
+                <div><dt>E-Mail</dt><dd><a href="mailto:team@voiceopengov.org?subject=Vote4Gov.eu%20%E2%80%93%20Kontakt">team@voiceopengov.org</a></dd></div>
+                <div><dt>Wirkungsort</dt><dd>Berlin · Deutschland · Europa</dd></div>
+                <div><dt>Website</dt><dd><a href="https://vote4gov.eu">vote4gov.eu</a></dd></div>
+              </dl>
+            </article>
+
+            <article class="contact-card reveal">
+              <span>Bewegung</span>
+              <h3>VoiceOpenGov</h3>
+              <p>Mitgliedschaft, Partnerschaften, Wissenschaft, Medien, Verwaltung und gesellschaftliche Zusammenarbeit.</p>
+              <a class="text-link" href="https://voiceopengov.org">voiceopengov.org <i>↗</i></a>
+            </article>
+
+            <article class="contact-card reveal">
+              <span>Instrument</span>
+              <h3>eDebatte</h3>
+              <p>Pilotprojekte, Produktfeedback, kommunale Anwendung und technische Zusammenarbeit.</p>
+              <a class="text-link" href="https://edebatte.org">edebatte.org <i>↗</i></a>
+            </article>
+
+            <article class="contact-card reveal">
+              <span>Öffentlicher Arbeitsstand</span>
+              <h3>GitHub</h3>
+              <p>Quelloffene Entwicklung, Entscheidungen und der verbindliche Vote4Gov-Maßstab.</p>
+              <a class="text-link" href="https://github.com/VOGADMINRGF/vote4gov">Repository öffnen <i>↗</i></a>
+            </article>
           </div>
         </div>
       </section>
@@ -249,12 +404,12 @@
         <div class="page-shell closing-grid">
           <div class="reveal">
             <p class="eyebrow">Kein Vertrauensvorschuss nötig</p>
-            <h2 id="closing-title">Prüf mich. Widersprich mir. Verbessere mit.</h2>
+            <h2 id="closing-title">Vote4Gov ist nicht meine Aufforderung, mich einfach zu wählen.</h2>
           </div>
           <div class="closing-note reveal">
             <p>
-              Vote4Gov ist meine öffentliche Bewerbung um Verantwortung. VoiceOpenGov ist unsere gemeinsame Bewegung.
-              eDebatte ist das Instrument, mit dem wir beweisen, dass es besser geht. Voxy hilft jedem Menschen, daran teilzunehmen.
+              Es ist meine Bewerbung, gemeinsam mit euch eine bessere Form des Wählens, Beteiligens und Regierens zu schaffen.
+              VoiceOpenGov ist die Bewegung. eDebatte ist das Instrument. Voxy macht den Zugang verständlich.
             </p>
             <p class="signature">Ricky Gerd Fleischer <span>Gern geschehen.</span></p>
           </div>
@@ -265,7 +420,7 @@
     <footer class="site-footer">
       <div class="page-shell footer-grid">
         <p>© <span data-year></span> Ricky Gerd Fleischer</p>
-        <p>vote4gov · VoiceOpenGov · eDebatte · Voxy</p>
+        <p>vote4gov.eu · VoiceOpenGov.org · eDebatte.org · Voxy</p>
         <a href="#top">Nach oben ↑</a>
       </div>
     </footer>
