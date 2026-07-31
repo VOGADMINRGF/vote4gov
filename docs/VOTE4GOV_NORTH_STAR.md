@@ -22,21 +22,23 @@ Die Bewerbung ist:
 - klar in der Kritik, ohne Menschen pauschal abzuwerten,
 - quellen- und evidenzorientiert,
 - offen für Widerspruch, Fehler und Korrektur,
-- konkret genug, um lokal geprüft zu werden.
+- konkret genug, um an realen Ergebnissen gemessen zu werden.
 
 ## 3. Warum Vote4Gov.eu?
 
-Vote4Gov ist nicht nur die Aufforderung, eine Person zu wählen. Der Name steht für die Wahl einer besseren Form des Regierens.
+Vote4Gov steht für die persönliche Entscheidung, nicht länger nur ein politisches Gesamtpaket auszuwählen, sondern dauerhaft mitentscheiden und Verantwortung nachvollziehen zu können.
 
-> Nicht weil ich möchte, dass du mich alle vier Jahre wählst. Sondern weil du dauerhaft mitentscheiden können sollst, wie wir regiert werden.
+> Weil ich selbst nicht mehr nur wählen will. Ich will mitentscheiden können, wie wir regiert werden.
 
-Die Endung `.eu` ist der erste gemeinsame politische Raum, nicht die Grenze der Idee. Kommunale, regionale, nationale und europäische Entscheidungen greifen bereits ineinander. Vote4Gov macht diese Ebenen nachvollziehbar und anschlussfähig.
+Die Endung `.eu` markiert den ersten gemeinsamen politischen Raum, nicht die Grenze der Idee. Kommune, Region, Staat und Union greifen bereits ineinander. Genau dort müssen Zuständigkeit, Entscheidung und Wirkung verständlich werden.
 
 > Europa ist unser Ausgangspunkt. Die Welt ist nicht unsere Grenze.
 
+Die öffentliche Seite erklärt diesen persönlichen Ausgangspunkt. Sie erklärt nicht in interner Marketingsprache, welche „Wirkung“ eine Domain oder Marke auf eine andere ausübt.
+
 ## 4. Politischer Ursprung
 
-Vote4Gov entstand nicht aus Begeisterung für den Politikbetrieb. Es entstand aus dem Ärger über:
+Vote4Gov entstand aus dem Ärger über:
 
 - die vorschnelle Einordnung vernünftiger Lösungen in links, rechts oder Mitte,
 - Gesamtpakete aus Parteiprogrammen, die in Koalitionen neu verhandelt werden,
@@ -44,7 +46,7 @@ Vote4Gov entstand nicht aus Begeisterung für den Politikbetrieb. Es entstand au
 - unklare Verantwortung zwischen Kommune, Kreis, Land, Bund und Europa,
 - Doppelstrukturen ohne sichtbar belegten Mehrwert,
 - politische Kommunikation, die sichtbare Wirkung ersetzt,
-- europäische Aufmerksamkeit, die lokal nicht ankommt.
+- europäische Entscheidungen, die lokal nicht verständlich oder wirksam ankommen.
 
 Die Tonalität bleibt systemisch: Vote4Gov greift keine Berufsgruppe pauschal an. Es verlangt von jeder Rolle und jeder Ebene einen belegbaren Nutzen.
 
@@ -53,7 +55,7 @@ Die Tonalität bleibt systemisch: Vote4Gov greift keine Berufsgruppe pauschal an
 1. Keine Entscheidung ohne nachvollziehbare Begründung.
 2. Keine Zuständigkeit ohne sichtbare Verantwortung.
 3. Keine politische Ebene ohne belegbaren Nutzen.
-4. Keine tägliche Selbsterklärung als Ersatz für Wirkung.
+4. Keine tägliche Selbstdarstellung als Ersatz für Wirkung.
 5. Keine Beteiligung, die nach einer Veranstaltung verschwindet.
 6. Kein Anspruch darauf, immer recht zu haben.
 
@@ -61,42 +63,41 @@ Landräte, Ministerien, Gremien, Beauftragungen und Mandate sind keine Selbstzwe
 
 > Nicht weniger Demokratie. Weniger Selbstzweck.
 
-## 6. Verbindliche Markenarchitektur
+## 6. Grundsätze ohne geschlossenes Parteiprogramm
 
-### Vote4Gov — der Mensch und die Bewerbung
+Die Landingpage darf grundlegende Positionen vertiefen, ohne Besucher zu einem vollständigen Gesamtpaket zu zwingen. Verbindliche Themenfelder sind:
 
-Vote4Gov macht Ricky Gerd Fleischer als Menschen, Initiator und möglichen Verantwortungsträger sichtbar und überprüfbar.
+- Staat und Strukturen,
+- Demokratie und Beteiligung,
+- Europa und lokale Wirkung,
+- Technologie und Souveränität.
 
-### VoiceOpenGov — die Bewegung
+Positionen müssen einzeln prüfbar, kritisierbar und veränderbar bleiben.
 
-VoiceOpenGov macht aus der Vision eine tragfähige, parteilose und internationale Mitgliederbewegung.
+## 7. VoiceOpenGov, eDebatte und Voxy in der öffentlichen Sprache
 
-### eDebatte — das Instrument
+Die öffentliche Seite spricht über konkrete Handlungen und Erfahrungen:
 
-eDebatte verbindet Stimmen, Quellen, Evidenzen, Interessen, Widersprüche, Zusammenhänge und Mehrheitsbildung.
+- Bei VoiceOpenGov können Menschen beitreten und gemeinsam Verantwortung tragen.
+- Bei eDebatte können Menschen ein Anliegen, eine Frage oder einen Vorschlag einbringen.
+- Voxy hilft, Quellen, offene Fragen und Widersprüche verständlich einzuordnen, ohne Entscheidungen abzunehmen.
 
-### Voxy — die Verbindung
+Nicht zulässig sind selbstreferenzielle Sätze wie „Domain A macht Person B glaubwürdig“ oder „Marke C macht aus der Vision eine Bewegung“. Diese Architektur bleibt ein interner Ordnungsrahmen und wird öffentlich durch konkrete Inhalte und CTAs gezeigt.
 
-Voxy übersetzt Komplexität, begleitet Menschen in ihrer Sprache und verbindet Vote4Gov, VoiceOpenGov und eDebatte. Voxy darf Menschen keine Entscheidungen abnehmen.
+## 8. Reinickendorf
 
-### Transparenz — das Betriebssystem
+Reinickendorf ist eine mögliche lokale Vision und darf in vertiefenden Konzepten oder späteren Anwendungsfällen vorkommen.
 
-Transparenz ist kein einzelner Menüpunkt. Positionen, Quellen, Gespräche, Zusagen, Fortschritt, Fehler und Korrekturen müssen nachvollziehbar bleiben.
+Es ist derzeit:
 
-## 7. Reinickendorf als erster Prüfstein
+- kein laufender Pilot,
+- keine bestätigte Kandidatur,
+- kein erster Beweis,
+- kein verpflichtender Bestandteil der Landingpage.
 
-> Eine Idee für Europa muss vor der eigenen Haustür funktionieren.
+Die öffentliche Landingpage behauptet keine Umsetzung, die noch nicht begonnen oder vereinbart wurde.
 
-Reinickendorf ist der erste lokale Prüfstein, nicht die geografische Begrenzung. Die Landingpage darf keine unbestätigte Amtsbezeichnung oder formale Kandidatur behaupten. Sie zeigt stattdessen das konkrete lokale Modell:
-
-- persönlicher und digitaler Zugang,
-- mobile Beteiligung in den Kiezen,
-- öffentliche Dossiers,
-- klare Zuständigkeiten,
-- sichtbarer Umsetzungsstand,
-- Anschluss zwischen Kommune und Europa.
-
-## 8. Persönlicher Kern
+## 9. Persönlicher Kern
 
 Ricky Gerd Fleischer kommt nicht aus dem Politikbetrieb. Die Seite stellt den Weg durch Handel, Industrie, Vertrieb, Commercial und Management als operative Erfahrung dar.
 
@@ -106,53 +107,83 @@ Der stärkste persönliche Grund ist sein Sohn:
 
 Die Vaterrolle darf emotional sein, aber nicht instrumentalisiert werden.
 
-## 9. Verbindliche Landingpage-Dramaturgie
+## 10. Perspektive 2029
 
-1. Der prüfbare Hero.
+Die Landingpage sammelt derzeit keine amtlichen Unterstützungsunterschriften.
+
+Der sinnvolle heutige CTA ist ein unverbindlicher Unterstützerkreis mit Perspektive 2029. Er zeigt Interesse an einem späteren demokratischen Weg, ohne eine bestimmte Wahl, ein bestimmtes Amt oder eine rechtlich bereits festgelegte Kandidatur vorzutäuschen.
+
+Verbindliche Regeln:
+
+- keine Behauptung einer Bundestagswahl 2027,
+- keine amtliche Unterschriftensammlung ohne konkrete Formblätter, Fristen und Wahlvorschlag,
+- klare Kennzeichnung als unverbindlich und nicht amtlich,
+- Bundestag, Europäisches Parlament oder eine andere demokratische Form werden erst nach nachvollziehbarer Prüfung und sichtbarer Unterstützung festgelegt,
+- rechtliche Anforderungen werden vor jeder späteren Sammlung transparent veröffentlicht.
+
+## 11. Verbindliche CTAs
+
+Die Landingpage bietet drei klare nächste Schritte:
+
+1. **VoiceOpenGov beitreten** — direkter Weg zur Mitgliedschaft.
+2. **Anliegen bei eDebatte einreichen** — direkter Weg zum Beitragsprozess.
+3. **Unterstützerkreis 2029** — unverbindliches Signal für einen späteren demokratischen Weg.
+
+Kontakt bleibt zusätzlich sichtbar, darf aber die drei primären Handlungen nicht ersetzen.
+
+## 12. Öffentliche und interne Transparenz
+
+Transparenz bleibt das gemeinsame Prinzip. Öffentlich sichtbar werden Positionen, Quellen, Gespräche, Zusagen, Fortschritt, Fehler und Korrekturen.
+
+Das GitHub-Repository und interne Entwicklungsdokumente werden auf der Landingpage nicht verlinkt. Technische Offenlegung kann später über einen bewusst kuratierten öffentlichen Transparenzbereich erfolgen, nicht über einen rohen Repository-Link.
+
+## 13. Bildsystem
+
+Die Seite nutzt wenige Bilder mit klaren Aufgaben:
+
+- **Hero:** Autorität und Verantwortung; das Porträt wird in die Gesamtkomposition integriert und nicht wie eine nachträgliche Bewerbungsfotokarte behandelt.
+- **Person:** Zugänglichkeit und operative Erfahrung.
+- **Voxy:** konkreter Zugang zu VoiceOpenGov und eDebatte.
+
+Fotos werden nicht als Galerie verteilt. Bildbearbeitung muss natürlich bleiben. Übermäßige Glättung, künstliche Hintergründe und uneinheitliche Farbwelten sind zu vermeiden. Vorhandenes Material wird durch Zuschnitt, Licht, Farbgebung und Einbettung an das Zielbild angenähert; ein späteres professionelles Leitmotiv darf es ersetzen.
+
+## 14. Kontaktarchitektur
+
+Öffentlich sichtbar sind:
+
+- Ricky Gerd Fleischer,
+- Berlin · Deutschland · Europa,
+- `team@voiceopengov.org` als zentrale Kontaktadresse,
+- die drei öffentlichen Websites.
+
+Keine Telefonnummer, Privatadresse oder nicht bestätigte persönliche E-Mail-Adresse wird ohne ausdrückliche Freigabe veröffentlicht.
+
+## 15. Verbindliche Landingpage-Dramaturgie
+
+1. Der prüfbare Hero mit direkten CTAs.
 2. Der berechtigte Einwand: „Noch einer mit einer Vision.“
 3. Warum Vote4Gov.eu.
 4. Warum das heutige politische Angebot nicht ausreicht.
 5. Was mit Ricky Gerd Fleischer anders wäre.
-6. Die Antwort ist keine weitere Partei.
-7. Vote4Gov, VoiceOpenGov, eDebatte und Voxy.
-8. Reinickendorf als erster lokaler Prüfstein.
-9. Der Mensch und die Verantwortung für die nächste Generation.
+6. Vertiefbare Grundpositionen.
+7. Konkrete Einstiege bei VoiceOpenGov, eDebatte und über Voxy.
+8. Der Mensch und die Verantwortung für die nächste Generation.
+9. Der unverbindliche Unterstützerkreis 2029.
 10. Transparenzregister.
-11. Kontakt und Mitwirkung.
-12. Die öffentliche Bewerbung als Schluss.
+11. Die drei klaren Handlungswege.
+12. Kontakt und persönlicher Schluss.
 
-## 10. Bildsystem
-
-Die Seite nutzt wenige Bilder mit klaren Aufgaben:
-
-- **Hero:** Autorität und Verantwortung.
-- **Person:** Zugänglichkeit und operative Erfahrung.
-- **Reinickendorf:** dokumentarischer Ausgangspunkt vor der eigenen Haustür.
-- **Voxy:** konkrete technische und kommunikative Umsetzung.
-
-Fotos werden nicht beliebig als Galerie verteilt. Bildbearbeitung muss natürlich bleiben. Übermäßige Glättung, künstliche Hintergründe und uneinheitliche Farbwelten sind zu vermeiden.
-
-## 11. Kontaktarchitektur
-
-Die Landingpage trennt:
-
-- persönliche und mediale Anfragen,
-- Mitgliedschaft und Partnerschaften bei VoiceOpenGov,
-- Produkt- und Pilotanfragen bei eDebatte,
-- öffentlichen Entwicklungsstand auf GitHub.
-
-Bis eigene Adressen final eingerichtet sind, wird `team@voiceopengov.org` als zentrale Kontaktadresse verwendet. Keine Telefonnummer oder persönliche Adresse wird ohne ausdrückliche Freigabe veröffentlicht.
-
-## 12. Qualitätsprüfung für jede Änderung
+## 16. Qualitätsprüfung für jede Änderung
 
 Vor jeder Veröffentlichung ist zu fragen:
 
 1. Macht die Änderung die Person glaubwürdiger oder nur größer?
 2. Erhöht sie die Prüfbarkeit?
-3. Trennt sie Mensch, Bewegung, Instrument und Begleitung sauber?
+3. Spricht sie konkret zu Menschen oder erklärt sie nur interne Markenlogik?
 4. Macht sie Verantwortung sichtbar?
-5. Ist sie lokal verständlich und international anschlussfähig?
-6. Vermeidet sie pauschale Abwertung und ersetzt sie durch prüfbare Strukturkritik?
-7. Wirkt sie eigenständig oder wie eine gewöhnliche Partei-, NGO- oder Startup-Seite?
+5. Vermeidet sie unbestätigte Kandidaturen, Pilotprojekte oder Wahlaussagen?
+6. Führt sie zu einem sinnvollen nächsten Schritt?
+7. Vermeidet sie pauschale Abwertung und ersetzt sie durch prüfbare Strukturkritik?
+8. Wirkt sie eigenständig oder wie eine gewöhnliche Partei-, NGO- oder Startup-Seite?
 
 Nur Änderungen, die diese Fragen überzeugend beantworten, entsprechen dem Vote4Gov-Maßstab.
