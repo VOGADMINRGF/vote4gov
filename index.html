@@ -3,130 +3,323 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Vote4Gov.eu – Ricky Gerd Fleischer über überprüfbare Verantwortung, VoiceOpenGov und eDebatte." />
-  <meta name="theme-color" content="#020611" />
+  <meta name="description" content="Vote4Gov ist eine gesellschaftliche Denkwerkstatt über Demokratie, Wahlen, Beteiligung, Digitalisierung und künstliche Intelligenz." />
+  <meta name="theme-color" content="#020617" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="de_DE" />
-  <meta property="og:title" content="Vote4Gov.eu – Für alle. Überall." />
-  <meta property="og:description" content="Ich möchte nicht, dass du mir glaubst. Ich möchte, dass du alles prüfen kannst." />
-  <title>Vote4Gov.eu – Ricky Gerd Fleischer</title>
+  <meta property="og:title" content="Vote4Gov – Was bedeutet Wählen im 21. Jahrhundert?" />
+  <meta property="og:description" content="Keine Partei. Keine Wahlempfehlung. Eine quellenoffene Denkwerkstatt über die Zukunft demokratischer Mitbestimmung." />
+  <title>Vote4Gov – Gesellschaftliche Denkwerkstatt</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/thinktank.css" />
   <script src="/script.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
   <header class="site-header" data-header>
     <a class="brand" href="#top" aria-label="Vote4Gov Startseite">vote<span>4</span>gov<small>.eu</small></a>
-    <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-button><span class="sr-only">Navigation öffnen</span><span></span><span></span></button>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-button>
+      <span class="sr-only">Navigation öffnen</span><span></span><span></span>
+    </button>
     <nav class="site-nav" id="site-nav" aria-label="Hauptnavigation" data-nav>
-      <a href="#haltung">Haltung</a>
-      <a href="#bewerbung">Meine Bewerbung</a>
-      <a href="#umsetzung">Die Umsetzung</a>
-      <a href="#person">Über mich</a>
-      <a class="nav-cta" href="https://www.voiceopengov.org/mitglied-werden" target="_blank" rel="noreferrer">Mitglied werden</a>
+      <a href="#demokratie">Demokratie</a>
+      <a href="#digital">Digitales Zeitalter</a>
+      <a href="#leitfragen">Leitfragen</a>
+      <a href="#oekosystem">Ökosystem</a>
+      <a href="#quellen">Quellen</a>
+      <a class="nav-cta" href="https://www.edebatte.org/create" target="_blank" rel="noreferrer">Frage einbringen</a>
     </nav>
   </header>
 
   <main id="main">
     <section class="hero" id="top" aria-labelledby="hero-title">
-      <div class="hero-orbit" aria-hidden="true"></div>
-      <div class="page-shell hero-grid">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="container hero-grid">
         <div class="hero-copy reveal">
-          <p class="eyebrow">Eine neue Form der Repräsentation.</p>
-          <h1 id="hero-title">Für alle.<br />Überall.<span>•</span></h1>
-          <p class="hero-trust">Ich möchte nicht, dass du mir glaubst.<br /><strong>Ich möchte, dass du alles prüfen kannst.</strong></p>
-          <p class="hero-intro">Ich bin <strong>Ricky Gerd Fleischer</strong>. Ich bewerbe mich nicht für ein politisches Lager, sondern für überprüfbare Verantwortung.</p>
+          <p class="eyebrow">Gesellschaftliche Denkwerkstatt</p>
+          <h1 id="hero-title">Was bedeutet Wählen im 21. Jahrhundert?</h1>
+          <p class="hero-lead">Wahlen geben demokratischer Herrschaft Legitimation. Doch Gesellschaften verändern sich schneller, Entscheidungen werden komplexer und digitale Systeme prägen, wie wir Informationen wahrnehmen.</p>
+          <p class="hero-question">Wie kann demokratische Mitbestimmung verantwortungsvoll weiterentwickelt werden, ohne ihre Grundlagen zu schwächen?</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="https://www.voiceopengov.org/mitglied-werden" target="_blank" rel="noreferrer">VoiceOpenGov beitreten</a>
-            <a class="button button-ghost" href="https://www.edebatte.org/create" target="_blank" rel="noreferrer">Mein Anliegen einbringen</a>
+            <a class="btn btn-primary" href="#leitfragen">Fragen erkunden</a>
+            <a class="btn btn-ghost" href="#quellen">Quellen prüfen</a>
           </div>
-          <a class="text-link" href="#bewerbung">Meine öffentliche Bewerbung prüfen →</a>
-          <div class="principles" aria-label="Grundprinzipien">
-            <div><b>01</b><p>Für jeden Menschen<br />auf der Welt</p></div>
-            <div><b>02</b><p>Ohne Parteibuch.<br />Ohne Lagerdenken.</p></div>
-            <div><b>03</b><p>Mit Verantwortung.<br />Mit Transparenz.</p></div>
+          <div class="hero-principles" aria-label="Einordnung">
+            <span>Keine Partei</span>
+            <span>Keine Wahlempfehlung</span>
+            <span>Kein fertiges Modell</span>
           </div>
         </div>
-        <div class="hero-portrait reveal" aria-label="Ricky Gerd Fleischer">
-          <img src="/assets/hero-portrait.svg" alt="Ricky Gerd Fleischer in einem hochwertigen Kampagnenporträt" />
-          <div class="portrait-signature">Ricky Gerd Fleischer</div>
-          <div class="portrait-caption"><p>Gründer von VoiceOpenGov und eDebatte.</p><span>Parteilos. Grenzenübergreifend. Mensch.</span></div>
+
+        <div class="question-orbit reveal" aria-label="Zentrale Begriffe der Denkwerkstatt">
+          <div class="orbit-core">
+            <span>Demokratie</span>
+            <strong>weiterdenken</strong>
+          </div>
+          <span class="orbit-word orbit-a">Wählen</span>
+          <span class="orbit-word orbit-b">Verstehen</span>
+          <span class="orbit-word orbit-c">Beteiligen</span>
+          <span class="orbit-word orbit-d">Prüfen</span>
+          <span class="orbit-word orbit-e">Verantworten</span>
         </div>
       </div>
     </section>
 
-    <section class="statement-band" id="haltung">
-      <div class="page-shell statement-grid reveal">
-        <div><p class="section-kicker">Warum ich begonnen habe</p><h2>Politik hat kein Meinungsproblem. Sie hat ein Vertrauens- und Verantwortungsproblem.</h2></div>
-        <div class="statement-points">
-          <article><span>Vertrauen</span><p>Menschen sehen zu selten, wie Entscheidungen entstehen, verändert und umgesetzt werden.</p></article>
-          <article><span>Souveränität</span><p>Menschen sollen nicht ein vollständiges Parteipaket akzeptieren müssen, nur um einzelne Lösungen zu unterstützen.</p></article>
-          <article><span>Teilhabe</span><p>Beteiligung darf nicht nach einer Wahl, einem Termin oder einer Veranstaltung wieder verschwinden.</p></article>
+    <section class="intro-strip">
+      <div class="container intro-grid reveal">
+        <p class="section-label">Ausgangspunkt</p>
+        <p class="intro-quote">Vote4Gov beginnt nicht mit einer Antwort. Es beginnt mit der Bereitschaft, demokratische Institutionen, digitale Möglichkeiten und gesellschaftliche Verantwortung gemeinsam zu prüfen.</p>
+      </div>
+    </section>
+
+    <section class="section container" id="demokratie">
+      <div class="section-head reveal">
+        <p class="section-label">01 · Demokratische Grundlagen</p>
+        <h2>Warum wählen wir – und was schützt eine Demokratie?</h2>
+        <p>Moderne demokratische Ordnungen verbinden politische Teilhabe mit Grundrechten, Rechtsstaatlichkeit, Repräsentation und friedlichem Machtwechsel. Das Wahlrecht ist dabei kein isolierter Vorgang, sondern Teil einer größeren institutionellen Ordnung.</p>
+      </div>
+
+      <div class="strength-grid">
+        <article class="info-card reveal">
+          <span class="card-index">01</span>
+          <h3>Legitimation</h3>
+          <p>Öffentliche Gewalt erhält ihre demokratische Grundlage durch den Willen der Bevölkerung und regelmäßige, freie Wahlen.</p>
+          <a class="source-link" href="https://www.un.org/en/about-us/universal-declaration-of-human-rights/" target="_blank" rel="noreferrer">Quelle: UN, AEMR Art. 21 ↗</a>
+        </article>
+        <article class="info-card reveal">
+          <span class="card-index">02</span>
+          <h3>Repräsentation</h3>
+          <p>Gewählte Vertreterinnen und Vertreter bündeln Interessen, verhandeln Zielkonflikte und treffen Entscheidungen auch dort, wo nicht jede Frage unmittelbar abgestimmt werden kann.</p>
+          <a class="source-link" href="https://2covenants.ohchr.org/About-ICCPR.html" target="_blank" rel="noreferrer">Quelle: UN, IPbpR Art. 25 ↗</a>
+        </article>
+        <article class="info-card reveal">
+          <span class="card-index">03</span>
+          <h3>Rechtsbindung</h3>
+          <p>Demokratie bedeutet nicht nur Mehrheit. Rechte, Verfahren, unabhängige Kontrolle und die Möglichkeit zum friedlichen Wechsel begrenzen Macht.</p>
+          <a class="source-link" href="https://www.echr.coe.int/en/european-convention-on-human-rights" target="_blank" rel="noreferrer">Quelle: Europäische Menschenrechtskonvention ↗</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section-muted">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="section-label">02 · Spannungsfelder</p>
+          <h2>Repräsentative Demokratie ist leistungsfähig. Sie bleibt dennoch auf Rückkopplung angewiesen.</h2>
+          <p>Die Frage ist nicht, ob repräsentative Systeme „überholt“ sind. Die Frage ist, wie sie mit gesellschaftlicher Vielfalt, mehrstufigen Zuständigkeiten, beschleunigten Informationsräumen und neuen technischen Möglichkeiten umgehen.</p>
+        </div>
+
+        <div class="tension-list">
+          <article class="tension-item reveal">
+            <span>Zwischen Wahlterminen</span>
+            <h3>Wie bleibt Beteiligung wirksam, ohne jede Entscheidung in eine Dauerabstimmung zu verwandeln?</h3>
+          </article>
+          <article class="tension-item reveal">
+            <span>Zwischen Ebenen</span>
+            <h3>Wie werden Zuständigkeiten von Kommune, Region, Staat und Europa verständlich und überprüfbar?</h3>
+          </article>
+          <article class="tension-item reveal">
+            <span>Zwischen Wissen und Aufmerksamkeit</span>
+            <h3>Wie können Quellen, Unsicherheiten und Zielkonflikte sichtbar bleiben, wenn öffentliche Debatten immer schneller werden?</h3>
+          </article>
+          <article class="tension-item reveal">
+            <span>Zwischen Mehrheit und Schutz</span>
+            <h3>Wie lässt sich mehr Beteiligung mit Grundrechten, Minderheitenschutz und langfristiger Verantwortung verbinden?</h3>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="editorial page-shell reveal">
-      <div class="editorial-number">01</div>
-      <div class="editorial-copy"><p class="section-kicker">Mein Ausgangspunkt</p><h2>Ich wollte mich nicht länger nur über Ineffizienz aufregen.</h2><p>Ich halte es für unzureichend, Menschen zuerst in links, rechts oder Mitte einzuordnen. Vernünftige Lösungen gehören keiner politischen Himmelsrichtung. Parteiprogramme werden gewählt, in Koalitionen verhandelt und oft so weit verändert, dass Verantwortung kaum noch eindeutig zuzuordnen ist.</p><p>Gleichzeitig bestehen Zuständigkeiten, Ämter, Gremien und Verwaltungsschichten häufig nebeneinander, obwohl Menschen weder Wirkung noch Verantwortlichkeit klar erkennen können.</p><blockquote>Keine Position darf allein deshalb fortbestehen, weil es sie schon immer gab.</blockquote></div>
-    </section>
+    <section class="section container" id="digital">
+      <div class="section-head reveal">
+        <p class="section-label">03 · Digitalisierung und KI</p>
+        <h2>Technologie kann demokratische Teilhabe erweitern. Sie kann sie auch verzerren.</h2>
+        <p>Digitale Werkzeuge sind weder automatisch demokratisch noch undemokratisch. Entscheidend sind Gestaltung, Transparenz, Zugänglichkeit, Datenschutz, menschliche Aufsicht und die Einbindung in legitime Verfahren.</p>
+      </div>
 
-    <section class="commitments" id="bewerbung">
-      <div class="page-shell">
-        <div class="commitments-head reveal"><p class="section-kicker">Was mit mir anders wäre</p><h2>Keine große Erzählung ohne überprüfbare Verpflichtung.</h2></div>
-        <div class="commitment-list">
-          <article class="reveal"><span>01</span><h3>Keine Entscheidung ohne nachvollziehbare Begründung.</h3></article>
-          <article class="reveal"><span>02</span><h3>Keine Zuständigkeit ohne sichtbare Verantwortung.</h3></article>
-          <article class="reveal"><span>03</span><h3>Keine politische Ebene ohne belegbaren Nutzen.</h3></article>
-          <article class="reveal"><span>04</span><h3>Keine tägliche Selbstdarstellung als Ersatz für Ergebnisse.</h3></article>
-          <article class="reveal"><span>05</span><h3>Keine Beteiligung, die anschließend folgenlos verschwindet.</h3></article>
+      <div class="duality-grid">
+        <article class="duality-panel opportunity reveal">
+          <p class="panel-label">Mögliche Chancen</p>
+          <h3>Mehr Zugang, bessere Orientierung, häufigere Rückkopplung</h3>
+          <ul>
+            <li>Informationen und Quellen leichter auffindbar machen</li>
+            <li>mehr Menschen zeit- und ortsunabhängig einbeziehen</li>
+            <li>Argumente, Optionen und Auswirkungen vergleichbar darstellen</li>
+            <li>Umsetzung und Verantwortlichkeiten langfristig sichtbar halten</li>
+          </ul>
+        </article>
+        <article class="duality-panel risk reveal">
+          <p class="panel-label">Mögliche Risiken</p>
+          <h3>Manipulation, Ausschluss, Überwachung und automatisierte Macht</h3>
+          <ul>
+            <li>digitale Spaltung und ungleicher Zugang</li>
+            <li>Desinformation, Mikrotargeting und künstliche Verstärkung</li>
+            <li>intransparente Systeme und schwer anfechtbare Entscheidungen</li>
+            <li>Abhängigkeit von privaten Plattformen und Dateninfrastrukturen</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="standards-note reveal">
+        <div>
+          <p class="section-label">Internationaler Orientierungsrahmen</p>
+          <h3>Menschenrechte, Transparenz, Aufsicht und Verantwortung bleiben der Maßstab.</h3>
+        </div>
+        <div class="standards-links">
+          <a href="https://www.unesco.org/en/artificial-intelligence/recommendation-ethics" target="_blank" rel="noreferrer">UNESCO-Empfehlung zur KI-Ethik ↗</a>
+          <a href="https://www.coe.int/en/web/artificial-intelligence/the-framework-convention-on-artificial-intelligence" target="_blank" rel="noreferrer">Europarats-Rahmenübereinkommen zu KI ↗</a>
+          <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj/deu" target="_blank" rel="noreferrer">EU-Verordnung über künstliche Intelligenz ↗</a>
         </div>
       </div>
     </section>
 
-    <section class="implementation page-shell" id="umsetzung">
-      <div class="implementation-head reveal"><p class="section-kicker">Die Antwort ist keine weitere Partei</p><h2>Eine offene Infrastruktur, in der Menschen verstehen, widersprechen und mitentscheiden können.</h2></div>
-      <div class="implementation-grid">
-        <article class="system-card reveal"><span class="system-index">01</span><h3>VoiceOpenGov</h3><p>Eine unabhängige Gemeinschaft für Menschen, Partner und Institutionen, die Verantwortung gemeinsam neu organisieren wollen.</p><a href="https://www.voiceopengov.org/mitglied-werden" target="_blank" rel="noreferrer">Mitglied werden →</a></article>
-        <article class="system-card reveal"><span class="system-index">02</span><h3>eDebatte</h3><p>Ein Ort, an dem Anliegen, Quellen, Argumente, offene Fragen und Entscheidungen nachvollziehbar miteinander verbunden werden.</p><a href="https://www.edebatte.org/create" target="_blank" rel="noreferrer">Anliegen einbringen →</a></article>
-        <article class="system-card voxy-card reveal"><img src="/assets/voxy.svg" alt="Voxy" /><span class="system-index">03</span><h3>Voxy</h3><p>Der verständliche Zugang zu komplexen Zusammenhängen – als Hilfe zum Prüfen, nicht als Ersatz für die eigene Entscheidung.</p><a href="https://www.edebatte.org/" target="_blank" rel="noreferrer">Voxy kennenlernen →</a></article>
+    <section class="section section-muted" id="leitfragen">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="section-label">04 · Offene Leitfragen</p>
+          <h2>Eine Denkwerkstatt ist dann glaubwürdig, wenn Widerspruch nicht als Störung behandelt wird.</h2>
+          <p>Die folgenden Fragen sind keine versteckten Forderungen. Sie markieren den Raum, den Vote4Gov mit Wissenschaft, Zivilgesellschaft, Institutionen und Bürgerinnen und Bürgern untersuchen will.</p>
+        </div>
+
+        <div class="question-list">
+          <details class="question-item reveal">
+            <summary>Welche Entscheidungen eignen sich überhaupt für zusätzliche Beteiligung?</summary>
+            <p>Nicht jede Entscheidung sollte unmittelbar geöffnet werden. Kriterien könnten Betroffenheit, Gestaltungsraum, zeitliche Dringlichkeit, Grundrechtsbezug und die Qualität verfügbarer Informationen sein.</p>
+          </details>
+          <details class="question-item reveal">
+            <summary>Wie verhindert man, dass Beteiligung nur die Lautesten erreicht?</summary>
+            <p>Digitale Verfahren brauchen inklusive Rekrutierung, barrierefreie Zugänge, analoge Alternativen, transparente Moderation und eine bewusste Einbindung unterrepräsentierter Gruppen.</p>
+          </details>
+          <details class="question-item reveal">
+            <summary>Wie wird sichtbar, was mit einem Beitrag tatsächlich geschieht?</summary>
+            <p>Ein Verfahren sollte von Beginn an erklären, welche Wirkung Beiträge haben können, wer verantwortlich ist und wie Rückmeldung, Entscheidung und Umsetzung dokumentiert werden.</p>
+          </details>
+          <details class="question-item reveal">
+            <summary>Welche Rolle darf KI in demokratischen Prozessen übernehmen?</summary>
+            <p>KI kann beim Strukturieren, Übersetzen und Auffinden von Informationen helfen. Sie darf menschliche Entscheidung, politische Verantwortung und anfechtbare Begründung nicht unsichtbar ersetzen.</p>
+          </details>
+          <details class="question-item reveal">
+            <summary>Wie bleibt eine digitale Öffentlichkeit unabhängig?</summary>
+            <p>Zu prüfen sind offene Standards, Datenportabilität, öffentliche Kontrolle, interoperable Systeme und die Vermeidung einseitiger Abhängigkeit von einzelnen Plattformen oder Anbietern.</p>
+          </details>
+          <details class="question-item reveal">
+            <summary>Wie misst man die Qualität von Beteiligung?</summary>
+            <p>Nicht die Zahl der Klicks allein zählt. Relevant sind unter anderem Vielfalt, Informationsqualität, Nachvollziehbarkeit, Einfluss, Rückkopplung, Datenschutz und die Möglichkeit zur Evaluation.</p>
+          </details>
+        </div>
       </div>
     </section>
 
-    <section class="three-questions page-shell" aria-label="Mit wem, wie und für wen">
-      <article class="question-card reveal"><p class="section-kicker">Mit wem?</p><h3>Mit allen, die Verantwortung übernehmen wollen.</h3><p>Bürgerinnen und Bürger, Wissenschaft, Medien, Zivilgesellschaft, Verwaltung, Institutionen, Unternehmen und Technologiepartner.</p><strong>Gemeinsam. Nicht gegeneinander.</strong></article>
-      <article class="question-card reveal"><p class="section-kicker">Wie?</p><h3>Durch nachvollziehbare Prozesse statt politischer Nebelkerzen.</h3><p>Quellenprüfung, verständliche Zusammenhänge, konstruktive Debatten, Beteiligung, Abstimmung und ein sichtbarer Arbeitsstand.</p><strong>Technologie befähigt. Menschen entscheiden.</strong></article>
-      <article class="question-card purpose-card reveal"><p class="section-kicker">Für wen?</p><h3>Für jede Generation. Für meinen Sohn.</h3><div class="purpose-image"><img src="/assets/personal.svg" alt="Persönlicher Moment von Ricky Gerd Fleischer" /></div><p>Ich möchte, dass er in einer Welt aufwächst, in der Wahrheit stärker ist als Manipulation und jeder Mensch wirksam mitgestalten kann.</p></article>
+    <section class="section container">
+      <div class="section-head reveal">
+        <p class="section-label">05 · Ein möglicher Qualitätsrahmen</p>
+        <h2>Beteiligung beginnt nicht mit dem Abstimmungsbutton.</h2>
+        <p>Internationale Leitlinien betonen, dass Beteiligung nur dort sinnvoll ist, wo tatsächlicher Einfluss möglich ist, Ziele und Rollen klar sind und Rückmeldung nicht ausbleibt.</p>
+      </div>
+
+      <ol class="process-flow">
+        <li class="reveal"><span>01</span><div><strong>Frage klären</strong><p>Was soll entschieden, beraten oder verstanden werden?</p></div></li>
+        <li class="reveal"><span>02</span><div><strong>Wissensstand öffnen</strong><p>Welche Quellen, Unsicherheiten und Perspektiven sind relevant?</p></div></li>
+        <li class="reveal"><span>03</span><div><strong>Optionen vergleichen</strong><p>Welche Handlungswege, Folgen und Zielkonflikte bestehen?</p></div></li>
+        <li class="reveal"><span>04</span><div><strong>Beteiligung gestalten</strong><p>Wer wird wie einbezogen – digital, analog oder kombiniert?</p></div></li>
+        <li class="reveal"><span>05</span><div><strong>Rückkopplung sichern</strong><p>Wie werden Entscheidung, Begründung, Umsetzung und Lernen sichtbar?</p></div></li>
+      </ol>
+
+      <a class="evidence-callout reveal" href="https://www.oecd.org/en/publications/oecd-guidelines-for-citizen-participation-processes_f765caf6-en.html" target="_blank" rel="noreferrer">
+        <span>Methodische Grundlage</span>
+        <strong>OECD Guidelines for Citizen Participation Processes, 2022 ↗</strong>
+      </a>
     </section>
 
-    <section class="person-section" id="person">
-      <div class="page-shell person-grid">
-        <div class="person-image reveal"><img src="/assets/person.svg" alt="Ricky Gerd Fleischer im professionellen Porträt" /></div>
-        <div class="person-copy reveal"><p class="section-kicker">Der Mensch hinter Vote4Gov</p><h2>Ich komme nicht aus dem Politikbetrieb. Vielleicht ist genau das mein wichtigster Ausgangspunkt.</h2><p>Ich habe mehr als 15 Jahre in Handel, Vertrieb, Business Development, Commercial Leadership und Transformation gearbeitet. Ich habe Teams geführt, neue Geschäftsfelder aufgebaut, Strukturen verändert und gelernt, dass Verantwortung nicht darin besteht, Probleme eloquent zu beschreiben.</p><p>Verantwortung beginnt dort, wo jemand Entscheidungen begründet, Strukturen verbessert und sich an Ergebnissen messen lässt.</p><div class="profile-facts"><span>15+ Jahre Führung und Vertrieb</span><span>B2B, B2G und regulierte Märkte</span><span>Aufbau, Transformation und Umsetzung</span><span>Berlin · Europa · grenzenübergreifend</span></div><div class="person-actions"><a class="button button-ghost" href="/ueber-mich.html">Mehr über mich</a><a class="button button-ghost" href="/cv.html">Lebenslauf ansehen</a></div><span class="signature signature-large">Ricky Gerd Fleischer</span></div>
+    <section class="ecosystem-section" id="oekosystem">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="section-label">06 · Das gemeinsame Ökosystem</p>
+          <h2>Fragen, Gemeinschaft, Infrastruktur und verständlicher Zugang.</h2>
+          <p>Die vier Ebenen erfüllen unterschiedliche Aufgaben. Transparenz und Nachvollziehbarkeit verbinden sie.</p>
+        </div>
+
+        <figure class="ecosystem-figure reveal">
+          <img src="/assets/ecosystem.svg" alt="Visualisierung des Ökosystems: Vote4Gov stellt gesellschaftliche Fragen, VoiceOpenGov verbindet Menschen, eDebatte ermöglicht nachvollziehbare Erkenntnis und Beteiligung, Voxy macht komplexe Zusammenhänge zugänglich. Transparenz verbindet alle vier Ebenen." />
+          <figcaption>Vote4Gov fragt. VoiceOpenGov verbindet. eDebatte ermöglicht. Voxy erklärt.</figcaption>
+        </figure>
+
+        <div class="ecosystem-actions reveal">
+          <a class="btn btn-primary" href="https://www.voiceopengov.org/mitglied-werden" target="_blank" rel="noreferrer">VoiceOpenGov beitreten</a>
+          <a class="btn btn-ghost" href="https://www.edebatte.org/create" target="_blank" rel="noreferrer">Anliegen bei eDebatte einbringen</a>
+        </div>
       </div>
     </section>
 
-    <section class="application page-shell reveal">
-      <div><p class="section-kicker">Meine Bewerbung</p><h2>Ich bin bereit, Verantwortung sichtbar zu tragen.</h2><p>Nicht um Recht zu behalten. Nicht um Menschen zu führen, die nicht folgen wollen. Sondern um eine Form der Repräsentation aufzubauen, die sich permanent prüfen, korrigieren und verbessern lässt.</p></div>
-      <div><h3>Ich stehe für</h3><ul><li>Transparenz statt Hinterzimmer</li><li>Verantwortung statt Macht</li><li>Fakten statt Propaganda</li><li>Dialog statt Polarisierung</li><li>Befähigung statt Bevormundung</li></ul></div>
-      <div><h3>Ich verspreche</h3><ul><li>Zuzuhören, bevor ich entscheide</li><li>Zu erklären, bevor ich handle</li><li>Einzubinden, bevor ich vorgehe</li><li>Rechenschaft abzulegen</li><li>Zu dienen, bevor ich führe</li></ul></div>
+    <section class="section container" id="quellen">
+      <div class="section-head reveal">
+        <p class="section-label">07 · Quellenoffenheit</p>
+        <h2>Jede Aussage soll prüfbar, ergänzbar und korrigierbar bleiben.</h2>
+        <p>Vote4Gov trennt Quellen, Interpretation und offene Fragen. Die Auswahl beginnt mit internationalen Menschenrechts-, Beteiligungs- und KI-Governance-Standards und wird schrittweise um Forschung, Gegenpositionen und Praxisbeispiele erweitert.</p>
+      </div>
+
+      <div class="source-grid">
+        <a class="source-card reveal" href="https://www.un.org/en/about-us/universal-declaration-of-human-rights/" target="_blank" rel="noreferrer"><span>Vereinte Nationen · 1948</span><strong>Allgemeine Erklärung der Menschenrechte, Art. 21</strong><p>Teilhabe an Regierung und regelmäßige, echte Wahlen.</p></a>
+        <a class="source-card reveal" href="https://2covenants.ohchr.org/About-ICCPR.html" target="_blank" rel="noreferrer"><span>Vereinte Nationen · 1966</span><strong>Internationaler Pakt über bürgerliche und politische Rechte, Art. 25</strong><p>Politische Teilhabe, Wahlrecht und Zugang zu öffentlichen Ämtern.</p></a>
+        <a class="source-card reveal" href="https://www.coe.int/t/dgap/democracy/activities/ggis/CAHDE/2009/RecCM2009_1_and_Accomp_Docs/Recommendation%20CM_Rec%282009%291E_FINAL.asp" target="_blank" rel="noreferrer"><span>Europarat · 2009</span><strong>Empfehlung zu elektronischer Demokratie</strong><p>Chancen und Risiken digital unterstützter demokratischer Prozesse.</p></a>
+        <a class="source-card reveal" href="https://www.oecd.org/en/publications/oecd-guidelines-for-citizen-participation-processes_f765caf6-en.html" target="_blank" rel="noreferrer"><span>OECD · 2022</span><strong>Leitlinien für Beteiligungsprozesse</strong><p>Qualität, Inklusion, Wirkung, Transparenz und Rückkopplung.</p></a>
+        <a class="source-card reveal" href="https://www.unesco.org/en/artificial-intelligence/recommendation-ethics" target="_blank" rel="noreferrer"><span>UNESCO · 2021</span><strong>Empfehlung zur Ethik künstlicher Intelligenz</strong><p>Menschenrechte, Fairness, Transparenz und menschliche Aufsicht.</p></a>
+        <a class="source-card reveal" href="https://www.coe.int/en/web/artificial-intelligence/the-framework-convention-on-artificial-intelligence" target="_blank" rel="noreferrer"><span>Europarat · 2024</span><strong>Rahmenübereinkommen über KI</strong><p>Menschenrechte, Demokratie und Rechtsstaatlichkeit im KI-Lebenszyklus.</p></a>
+      </div>
+
+      <div class="source-method reveal">
+        <div><span>Arbeitsweise</span><strong>Quelle → Einordnung → offene Frage → mögliche Gegenposition → Korrektur</strong></div>
+        <a href="/quellen.html">Vollständige Quellen- und Methodenübersicht →</a>
+      </div>
     </section>
 
-    <section class="actions" id="mitmachen">
-      <div class="page-shell"><div class="actions-head reveal"><p class="section-kicker">Nicht nur weiterlesen</p><h2>Drei sinnvolle nächste Schritte.</h2></div><div class="action-grid">
-        <a class="action-card action-primary reveal" href="https://www.voiceopengov.org/mitglied-werden" target="_blank" rel="noreferrer"><span>01</span><h3>VoiceOpenGov beitreten</h3><p>Direkt einschreiben und Teil der unabhängigen Bewegung werden.</p><strong>Jetzt Mitglied werden →</strong></a>
-        <a class="action-card reveal" href="https://www.edebatte.org/create" target="_blank" rel="noreferrer"><span>02</span><h3>Dein Anliegen einreichen</h3><p>Eine Frage, ein Problem oder einen Vorschlag an die Gesellschaft richten.</p><strong>Zu eDebatte →</strong></a>
-        <a class="action-card reveal" href="mailto:rgf@voiceopengov.org?subject=Vote4Gov%20%E2%80%93%20Unterst%C3%BCtzung"><span>03</span><h3>Diesen Weg unterstützen</h3><p>Interesse an einer späteren parteilosen Kandidatur oder Mitarbeit signalisieren.</p><strong>Kontakt aufnehmen →</strong></a>
-      </div></div>
-    </section>
-
-    <section class="contact page-shell" id="kontakt">
-      <div class="contact-copy reveal"><p class="section-kicker">Direkter Kontakt</p><h2>Schreib mir.</h2><p>Für persönliche Fragen, Mitwirkung, Medienanfragen, Partnerschaften oder konstruktiven Widerspruch.</p><a class="contact-mail" href="mailto:rgf@voiceopengov.org">rgf@voiceopengov.org</a></div>
-      <div class="contact-links reveal"><a href="https://www.voiceopengov.org/" target="_blank" rel="noreferrer"><span>Bewegung</span><strong>voiceopengov.org →</strong></a><a href="https://www.edebatte.org/" target="_blank" rel="noreferrer"><span>Plattform</span><strong>edebatte.org →</strong></a><a href="/ueber-mich.html"><span>Person</span><strong>Mehr über mich →</strong></a><a href="/cv.html"><span>Erfahrung</span><strong>Lebenslauf →</strong></a></div>
+    <section class="behind-idea">
+      <div class="container behind-grid reveal">
+        <div>
+          <p class="section-label">Hinter der Idee</p>
+          <h2>Die Denkwerkstatt entstand aus der Arbeit an VoiceOpenGov und eDebatte.</h2>
+        </div>
+        <div>
+          <p>Die persönliche Entstehungsgeschichte bleibt erhalten, steht aber nicht im Mittelpunkt dieser Seite. Vote4Gov beginnt mit der gesellschaftlichen Frage – nicht mit einer Person.</p>
+          <a class="text-link" href="/hinter-der-idee.html">Hintergrund und Initiator kennenlernen →</a>
+        </div>
+      </div>
     </section>
   </main>
 
-  <footer class="site-footer"><div class="page-shell"><p>© <span data-year></span> Ricky Gerd Fleischer · Vote4Gov.eu</p><div><a href="mailto:rgf@voiceopengov.org">Kontakt</a><a href="https://www.voiceopengov.org/impressum" target="_blank" rel="noreferrer">Impressum</a><a href="https://www.voiceopengov.org/datenschutz" target="_blank" rel="noreferrer">Datenschutz</a></div></div></footer>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#top">vote<span>4</span>gov<small>.eu</small></a>
+        <p>Gesellschaftliche Denkwerkstatt über Demokratie, Mitbestimmung und Verantwortung im digitalen Zeitalter.</p>
+      </div>
+      <nav aria-label="Vote4Gov">
+        <strong>Vote4Gov</strong>
+        <a href="#demokratie">Demokratische Grundlagen</a>
+        <a href="#digital">Digitalisierung &amp; KI</a>
+        <a href="#leitfragen">Offene Leitfragen</a>
+        <a href="/quellen.html">Quellen &amp; Methode</a>
+      </nav>
+      <nav aria-label="Ökosystem">
+        <strong>Ökosystem</strong>
+        <a href="https://www.voiceopengov.org/" target="_blank" rel="noreferrer">VoiceOpenGov · Bewegung ↗</a>
+        <a href="https://www.edebatte.org/" target="_blank" rel="noreferrer">eDebatte · Infrastruktur ↗</a>
+        <a href="#oekosystem">Voxy · verständlicher Zugang</a>
+        <a href="/hinter-der-idee.html">Hinter der Idee</a>
+      </nav>
+      <nav aria-label="Kontakt und Rechtliches">
+        <strong>Kontakt &amp; Rechtliches</strong>
+        <a href="mailto:rgf@voiceopengov.org">rgf@voiceopengov.org</a>
+        <a href="https://www.voiceopengov.org/impressum" target="_blank" rel="noreferrer">Impressum ↗</a>
+        <a href="https://www.voiceopengov.org/datenschutz" target="_blank" rel="noreferrer">Datenschutz ↗</a>
+        <a href="#quellen">Transparenz &amp; Quellen</a>
+      </nav>
+    </div>
+    <div class="container footer-bottom">
+      <p>© <span data-year></span> Vote4Gov</p>
+      <p>Teil des VoiceOpenGov-Ökosystems · Transparenz als gemeinsames Betriebssystem</p>
+    </div>
+  </footer>
 </body>
 </html>
