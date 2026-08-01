@@ -1,0 +1,67 @@
+:root{
+  --cyan:#18cfc8;
+  --blue:#1a8cff;
+  --blue-soft:#8ec8ff;
+  --green:#18cfc8;
+  --brand-cyan:#18cfc8;
+  --brand-blue:#1a8cff;
+  --brand-accent-1:#1a8cff;
+  --brand-accent-2:#18cfc8;
+  --font:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+
+html,body,button,input,textarea,select{
+  font-family:var(--font);
+}
+
+body{
+  letter-spacing:normal;
+}
+
+.eyebrow,
+.section-label,
+.section-kicker,
+.ecosystem-kicker,
+.ecosystem-role{
+  color:var(--brand-cyan);
+}
+
+.btn-primary,
+.nav-cta{
+  color:#071727;
+  background:linear-gradient(90deg,var(--brand-blue),var(--brand-cyan));
+  border-color:color-mix(in oklab,var(--brand-blue) 72%,transparent);
+  box-shadow:0 12px 28px rgba(26,140,255,.22);
+}
+
+.btn-primary:hover,
+.nav-cta:hover{
+  background:linear-gradient(90deg,#3099ff,#29d8d0);
+  box-shadow:0 16px 34px rgba(26,140,255,.28);
+}
+
+.btn-ghost:hover,
+.text-link:hover,
+.site-nav a:hover{
+  color:#b9f7f3;
+  border-color:rgba(24,207,200,.5);
+}
+
+.question-card,
+.framework-card,
+.source-card,
+.ecosystem-card{
+  border-color:rgba(148,163,184,.22);
+}
+
+.question-card:hover,
+.framework-card:hover,
+.source-card:hover,
+.ecosystem-card:hover{
+  border-color:rgba(24,207,200,.48);
+}
+
+:focus-visible{
+  outline:3px solid rgba(24,207,200,.95);
+  outline-offset:3px;
+}
