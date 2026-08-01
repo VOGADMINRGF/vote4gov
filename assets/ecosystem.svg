@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">Ein gemeinsames Ökosystem</title>
+<desc id="desc">Vote4Gov stellt gesellschaftliche Fragen, VoiceOpenGov verbindet Menschen, eDebatte ermöglicht nachvollziehbare Erkenntnis und Beteiligung, Voxy macht komplexe Zusammenhänge zugänglich. Transparenz verbindet alle Ebenen.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#020617"/><stop offset=".5" stop-color="#06152b"/><stop offset="1" stop-color="#020817"/></linearGradient>
+  <linearGradient id="panel" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#10213b" stop-opacity=".96"/><stop offset="1" stop-color="#071327" stop-opacity=".96"/></linearGradient>
+  <linearGradient id="accent" x1="0" x2="1"><stop stop-color="#06b6d4"/><stop offset="1" stop-color="#2196f3"/></linearGradient>
+  <radialGradient id="hub"><stop stop-color="#0e417c"/><stop offset=".55" stop-color="#071b3c"/><stop offset="1" stop-color="#020817"/></radialGradient>
+  <filter id="glow"><feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<rect width="1600" height="900" rx="28" fill="url(#bg)"/>
+<circle cx="800" cy="455" r="330" fill="none" stroke="#0ea5e9" stroke-opacity=".12"/>
+<circle cx="800" cy="455" r="250" fill="none" stroke="#38bdf8" stroke-opacity=".15" stroke-dasharray="5 13"/>
+<text x="800" y="82" text-anchor="middle" fill="#f8fafc" font-family="Inter,Arial,sans-serif" font-size="56" font-weight="800">Ein gemeinsames Ökosystem</text>
+<text x="800" y="126" text-anchor="middle" fill="#94a3b8" font-family="Inter,Arial,sans-serif" font-size="22">Vier Ebenen. Ein gemeinsames Prinzip: nachvollziehbare Beteiligung.</text>
+
+<g stroke="url(#accent)" stroke-width="3" fill="none" filter="url(#glow)" opacity=".9">
+  <path d="M610 320 C690 330 690 390 720 405"/>
+  <path d="M990 320 C910 330 910 390 880 405"/>
+  <path d="M610 620 C690 605 690 535 720 510"/>
+  <path d="M990 620 C910 605 910 535 880 510"/>
+</g>
+
+<g>
+  <circle cx="800" cy="455" r="126" fill="url(#hub)" stroke="#38bdf8" stroke-width="3" filter="url(#glow)"/>
+  <circle cx="800" cy="455" r="104" fill="none" stroke="#7dd3fc" stroke-opacity=".35"/>
+  <text x="800" y="425" text-anchor="middle" fill="#f8fafc" font-family="Inter,Arial,sans-serif" font-size="30" font-weight="800">Transparenz</text>
+  <text x="800" y="465" text-anchor="middle" fill="#f8fafc" font-family="Inter,Arial,sans-serif" font-size="24">als gemeinsames</text>
+  <text x="800" y="502" text-anchor="middle" fill="#f8fafc" font-family="Inter,Arial,sans-serif" font-size="24">Betriebssystem</text>
+</g>
+
+<g transform="translate(80 175)">
+  <rect width="530" height="250" rx="30" fill="url(#panel)" stroke="#3b82f6" stroke-opacity=".65"/>
+  <circle cx="110" cy="115" r="65" fill="#07172d" stroke="#38bdf8" stroke-width="2"/>
+  <circle cx="110" cy="115" r="39" fill="none" stroke="#dbeafe" stroke-width="4"/>
+  <path d="M110 88 L129 130 L87 111 Z" fill="url(#accent)"/>
+  <circle cx="110" cy="115" r="6" fill="#f8fafc"/>
+  <text x="210" y="72" fill="#f8fafc" font-family="Inter,Arial,sans-serif" font-size="34" font-weight="800">Vote4Gov</text>
+  <text x="210" y="112" fill="#38bdf8" font-family="Inter,Arial,sans-serif" font-size="21" font-weight="700">stellt gesellschaftliche Fragen</text>
+  <line x1="210" y1="138" x2="460" y2="138" stroke="#64748b" stroke-opacity=".5"/>
+  <text x="210" y="173" fill="#cbd5e1" font-family="Inter,Arial,sans-serif" font-size="18">Reflexion über Demokratie,</text>
+  <text x="210" y="202" fill="#cbd5e1" font-family="Inter,Arial,sans-serif" font-size="18">Mitbestimmung und Verantwortung</text>
+  <text x="210" y="231" fill="#cbd5e1" font-family="Inter,Arial,sans-serif" font-size="18">im digitalen Zeitalter.</text>
+</g>
+
+<g transform="translate(990 175)">
+  <rect width="530" height="250" rx="30" fill="url(#panel)" stroke="#3b82f6" stroke-opacity=".65"/>
+  <circle cx="110" cy="115" r="65" fill="#07172d" stroke="#38bdf8" stroke-width="2"/>
+  <circle cx="110" cy="82" r="18" fill="#dbeafe"/>
+  <circle cx="76" cy="132" r="18" fill="#dbeafe"/>
+  <circle cx="144" cy="132" r="18" fill="#dbeafe"/>
+  <path d="M110 103 C95 106 84 114 78 124 M110 103 C125 106 136 114 142 124 M91 139 C101 148 119 148 129 139" fill="none" stroke="#38bdf8" stroke-width="5" stroke-linecap="round"/>
+  <text x="210" y="72" fill="#f8fafc" font-family="Inter,Arial,sans-serif" font-size="34" font-weight="800">VoiceOpenGov</text>
+  <text x="210" y="112" fill="#38bdf8" font-family="Inter,Arial,sans-serif" font-size="21" font-weight="700">bringt Menschen zusammen</text>
+  <line x1="210" y1="138" x2="460" y2="138" stroke="#64748b" stroke-opacity=".5"/>
+  <text x="210" y="173" fill="#cbd5e1" font-family="Inter,Arial,sans-serif" font-size="18">Internationale Mitgliederbewegung</text>
+  <text x="210" y="202" fill="#cbd5e1" font-family="Inter,Arial,sans-serif" font-size="18">für gemeinsame Orientierung,</text>
+  <text x="210" y="231" fill="#cbd5e1" font-family="Inter,Arial,sans-serif" font-size="18">Beteiligung und Verantwortung.</text>
+</g>
+
+<g transform="translate(80 475)">
+  <rect width="530" height="250" rx="30" fill="url(#panel)" stroke="#3b82f6" stroke-opacity=".65"/>
+  <circle cx="110" cy="115" r="65" fill="#07172d" stroke="#38bdf8" stroke-width="2"/>
+  <rect x="75" y="75" width="70" height="82" rx="8" fill="none" stroke="#dbeafe" stroke-width="4"/>
+  <line x1="87" y1="96" x2="132" y2="96" stroke="#38bdf8" stroke-width="5"/>
+  <line x1="87" y1="115" x2="132" y2="115" stroke="#94a3b8" stroke-width="4"/>
+  <line x1="87" y1="134" x2="112" y2="134" stroke="#94a3b8" stroke-width="4"/>
+  <rect x="118" y="128" width="8" height="19" fill="#06b6d4"/><rect x="130" y="117" width="8" height="30" fill="#2196f3"/>
+  <text x="210" y="72" fill="#f8fafc" font-family="Inter,Arial,sans-serif" font-size="34" font-weight="800">eDebatte</text>
+  <text x="210" y="112" fill="#38bdf8" font-family="Inter,Arial,sans-serif" font-size="21" font-weight="700">macht Beteiligung praktisch</text>
+  <line x1="210" y1="138" x2="460" y2="138" stroke="#64748b" stroke-opacity=".5"/>
+  <text x="210" y="173" fill="#cbd5e1" font-family="Inter,Arial,sans-serif" font-size="18">Offene Infrastruktur für</text>
+  <text x="210" y="202" fill="#cbd5e1" font-family="Inter,Arial,sans-serif" font-size="18">nachvollziehbare Erkenntnis,</text>
+  <text x="210" y="231" fill="#cbd5e1" font-family="Inter,Arial,sans-serif" font-size="18">Orientierung und Beteiligung.</text>
+</g>
+
+<g transform="translate(990 475)">
+  <rect width="530" height="250" rx="30" fill="url(#panel)" stroke="#3b82f6" stroke-opacity=".65"/>
+  <circle cx="110" cy="115" r="65" fill="#07172d" stroke="#38bdf8" stroke-width="2"/>
+  <path d="M75 80 H135 Q148 80 148 94 V133 Q148 147 135 147 H105 L87 165 V147 H75 Q62 147 62 133 V94 Q62 80 75 80Z" fill="#f8fafc"/>
+  <rect x="80" y="98" width="30" height="8" rx="2" fill="#2196f3"/><rect x="80" y="112" width="24" height="8" rx="2" fill="#06b6d4"/>
+  <circle cx="121" cy="113" r="5" fill="#0f172a"/><path d="M114 128 Q121 135 128 128" fill="none" stroke="#0f172a" stroke-width="3" stroke-linecap="round"/>
+  <text x="210" y="72" fill="#f8fafc" font-family="Inter,Arial,sans-serif" font-size="34" font-weight="800">Voxy</text>
+  <text x="210" y="112" fill="#38bdf8" font-family="Inter,Arial,sans-serif" font-size="21" font-weight="700">macht Komplexität zugänglich</text>
+  <line x1="210" y1="138" x2="460" y2="138" stroke="#64748b" stroke-opacity=".5"/>
+  <text x="210" y="173" fill="#cbd5e1" font-family="Inter,Arial,sans-serif" font-size="18">Begleitet Menschen durch</text>
+  <text x="210" y="202" fill="#cbd5e1" font-family="Inter,Arial,sans-serif" font-size="18">Fragen, Inhalte und</text>
+  <text x="210" y="231" fill="#cbd5e1" font-family="Inter,Arial,sans-serif" font-size="18">Beteiligungsprozesse.</text>
+</g>
+
+<g transform="translate(150 780)" font-family="Inter,Arial,sans-serif" font-size="22">
+  <rect width="1300" height="72" rx="24" fill="#071327" stroke="#334155"/>
+  <text x="80" y="45" fill="#f8fafc" font-weight="800">Vote4Gov</text><text x="205" y="45" fill="#38bdf8">fragt.</text>
+  <text x="385" y="45" fill="#f8fafc" font-weight="800">VoiceOpenGov</text><text x="565" y="45" fill="#38bdf8">verbindet.</text>
+  <text x="760" y="45" fill="#f8fafc" font-weight="800">eDebatte</text><text x="865" y="45" fill="#38bdf8">ermöglicht.</text>
+  <text x="1065" y="45" fill="#f8fafc" font-weight="800">Voxy</text><text x="1125" y="45" fill="#38bdf8">erklärt.</text>
+</g>
+</svg>
