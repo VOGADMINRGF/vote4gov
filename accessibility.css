@@ -1,0 +1,4 @@
+*:focus-visible{outline:3px solid #67e8f9;outline-offset:4px}
+summary:focus-visible{border-radius:8px}
+a,button,summary{scroll-margin-top:100px}
+@media(forced-colors:active){.btn,.nav-cta,.info-card,.source-card,.duality-panel,.question-item,.ecosystem-figure img{border:1px solid CanvasText}}
