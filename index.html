@@ -2,14 +2,14 @@
 <html lang="de">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Vote4Gov untersucht die demokratischen Ordnungen der Welt und entwickelt einen offenen Entwurf für kontinuierliche, regionale, mehrsprachige und nachvollziehbare Bürgerbeteiligung." />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Vote4Gov vergleicht demokratische Ordnungen und öffnet jede zentrale These in einem eigenen öffentlichen Anlassraum." />
   <meta name="theme-color" content="#020617" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="de_DE" />
-  <meta property="og:title" content="Vote4Gov – Alle wollen die Demokratie retten. Doch welche?" />
-  <meta property="og:description" content="Wählen bleibt. Beteiligung wächst. Eine quellenoffene Denkwerkstatt über eine neue demokratische Ordnung im digitalen Zeitalter." />
-  <title>Vote4Gov – Demokratie verstehen und weiterdenken</title>
+  <meta property="og:title" content="Vote4Gov – Keine These ohne Widerspruch" />
+  <meta property="og:description" content="Wählen bleibt. Beteiligung wächst. Demokratien vergleichen, Thesen prüfen und eine neue Beteiligungsordnung öffentlich entwickeln." />
+  <title>Vote4Gov – Demokratie verstehen und öffentlich weiterdenken</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="/thinktank.css" />
   <link rel="stylesheet" href="/democracy-future.css" />
@@ -17,19 +17,17 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Zum Inhalt springen</a>
-
   <header class="site-header" data-header>
     <a class="brand" href="#top" aria-label="Vote4Gov Startseite">vote<span>4</span>gov<small>.eu</small></a>
-    <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-button>
-      <span class="sr-only">Navigation öffnen</span><span></span><span></span>
-    </button>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-button><span class="sr-only">Navigation öffnen</span><span></span><span></span></button>
     <nav class="site-nav" id="site-nav" aria-label="Hauptnavigation" data-nav>
       <a href="#atlas">Demokratie-Atlas</a>
-      <a href="#beteiligung">Beteiligung heute</a>
+      <a href="#beteiligung">Beteiligung</a>
       <a href="#ordnung">Neue Ordnung</a>
-      <a href="#gegenfragen">Gegenfragen</a>
+      <a href="#partei">Partei?</a>
+      <a href="/anlassraeume.html">Anlassräume</a>
       <a href="#quellen">Quellen</a>
-      <a class="nav-cta" href="mailto:rgf@voiceopengov.org?subject=Vote4Gov%20%E2%80%93%20Gedanke%20einbringen">Gedanken einbringen</a>
+      <a class="nav-cta" href="/anlassraeume.html">These mitprüfen</a>
     </nav>
   </header>
 
@@ -42,245 +40,110 @@
           <h1 id="hero-title">Alle wollen die Demokratie retten. Doch von welcher sprechen wir?</h1>
           <p class="hero-lead">Demokratie ist kein weltweit einheitliches Modell. Staaten verteilen Macht, Verantwortung und Beteiligung unterschiedlich. Manche öffnen Entscheidungen häufiger, andere stärker über Repräsentation, Regionen oder Institutionen.</p>
           <p class="hero-question">Wie kann daraus eine neue Ordnung entstehen, in der regionale Anliegen kontinuierlich, mehrsprachig und nachvollziehbar zu gemeinsamer demokratischer Mitwirkung werden?</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#atlas">Demokratien vergleichen</a>
-            <a class="btn btn-ghost" href="#ordnung">Beteiligung neu denken</a>
-          </div>
-          <div class="hero-principles" aria-label="Leitgedanken">
-            <span>Wählen bleibt</span>
-            <span>Beteiligung wächst</span>
-            <span>Grundrechte setzen Grenzen</span>
-          </div>
+          <div class="hero-actions"><a class="btn btn-primary" href="#atlas">Demokratien vergleichen</a><a class="btn btn-ghost" href="/anlassraeume.html">Alle Thesen öffentlich prüfen</a></div>
+          <div class="hero-principles" aria-label="Leitgedanken"><span>Wählen bleibt</span><span>Beteiligung wächst</span><span>Grundrechte setzen Grenzen</span><span>Keine These ohne Widerspruch</span></div>
         </div>
-
         <div class="world-signal reveal">
           <div class="globe-shell" aria-label="Interaktiver Prototyp eines weltweiten Demokratie-Atlas">
-            <span class="globe-equator" aria-hidden="true"></span>
-            <span class="globe-axis" aria-hidden="true"></span>
-            <span class="globe-land land-a" aria-hidden="true"></span>
-            <span class="globe-land land-b" aria-hidden="true"></span>
-            <span class="globe-land land-c" aria-hidden="true"></span>
-            <span class="globe-land land-d" aria-hidden="true"></span>
-            <button class="globe-point point-de is-active" type="button" data-atlas-country="de" aria-label="Deutschland im Demokratie-Atlas auswählen"></button>
-            <button class="globe-point point-ch" type="button" data-atlas-country="ch" aria-label="Schweiz im Demokratie-Atlas auswählen"></button>
-            <button class="globe-point point-ee" type="button" data-atlas-country="ee" aria-label="Estland im Demokratie-Atlas auswählen"></button>
-            <button class="globe-point point-fr" type="button" data-atlas-country="fr" aria-label="Frankreich im Demokratie-Atlas auswählen"></button>
+            <span class="globe-equator" aria-hidden="true"></span><span class="globe-axis" aria-hidden="true"></span>
+            <span class="globe-land land-a" aria-hidden="true"></span><span class="globe-land land-b" aria-hidden="true"></span><span class="globe-land land-c" aria-hidden="true"></span><span class="globe-land land-d" aria-hidden="true"></span>
+            <button class="globe-point point-de is-active" type="button" data-atlas-country="de" aria-label="Deutschland auswählen"></button><button class="globe-point point-ch" type="button" data-atlas-country="ch" aria-label="Schweiz auswählen"></button><button class="globe-point point-ee" type="button" data-atlas-country="ee" aria-label="Estland auswählen"></button><button class="globe-point point-fr" type="button" data-atlas-country="fr" aria-label="Frankreich auswählen"></button>
           </div>
-          <p>Jedes Land erhält ein eigenes, mehrsprachiges Profil: Verfassung, Wahlordnung, Beteiligungsrechte, politische Ebenen, digitale Verfahren, Stärken, Grenzen und Primärquellen.</p>
+          <p>Jedes Land erhält ein mehrsprachiges Profil: Verfassung, Wahlordnung, Beteiligungsrechte, politische Ebenen, digitale Verfahren, Stärken, Grenzen und Primärquellen.</p>
         </div>
       </div>
     </section>
 
-    <section class="intro-strip">
-      <div class="container intro-grid reveal">
-        <p class="section-label">Ausgangspunkt</p>
-        <p class="intro-quote">Demokratie ist nicht eine Form, die nur verteidigt werden muss. Sie ist eine verantwortliche Ordnung, die verstanden, geschützt und von jeder Generation weiterentwickelt werden muss.</p>
-      </div>
-    </section>
+    <section class="intro-strip"><div class="container intro-grid reveal"><p class="section-label">Ausgangspunkt</p><p class="intro-quote">Demokratie ist nicht eine Form, die nur verteidigt werden muss. Sie ist eine verantwortliche Ordnung, die verstanden, geschützt und von jeder Generation weiterentwickelt werden muss.</p></div></section>
 
     <section class="section container" id="atlas">
-      <div class="section-head reveal">
-        <p class="section-label">01 · Demokratie-Atlas</p>
-        <h2>Ein Planet. Viele demokratische Ordnungen.</h2>
-        <p>Der geplante Atlas soll nicht bewerten, welches Land „am demokratischsten“ ist. Er soll verständlich machen, wie Systeme funktionieren, welche Beteiligungswege bestehen und was andere Länder daraus lernen können.</p>
-      </div>
-
+      <div class="section-head reveal"><p class="section-label">01 · Demokratie-Atlas</p><h2>Ein Planet. Viele demokratische Ordnungen.</h2><p>Der Atlas soll nicht behaupten, welches Land „am demokratischsten“ ist. Er soll verständlich machen, wie Systeme funktionieren, welche Beteiligungswege bestehen und was andere Länder daraus lernen können.</p></div>
       <div class="atlas-grid">
-        <div class="world-signal reveal" aria-hidden="true">
-          <div class="globe-shell">
-            <span class="globe-equator"></span><span class="globe-axis"></span>
-            <span class="globe-land land-a"></span><span class="globe-land land-b"></span><span class="globe-land land-c"></span><span class="globe-land land-d"></span>
-            <span class="globe-point point-de is-active"></span><span class="globe-point point-ch"></span><span class="globe-point point-ee"></span><span class="globe-point point-fr"></span>
-          </div>
-        </div>
-
-        <div class="atlas-console reveal" aria-live="polite">
-          <div class="atlas-status"><span>Atlas-Prototyp</span><span data-atlas-status>Länderprofil im Aufbau</span></div>
-          <h3 data-atlas-title>Deutschland</h3>
-          <p data-atlas-intro>Das Profil untersucht nicht nur Wahlen, sondern auch die Wege zwischen kommunaler Betroffenheit, föderaler Zuständigkeit und europäischer Mitwirkung.</p>
-          <div class="atlas-question" data-atlas-question>Wie greifen Bund, Länder, Kommunen und europäische Zuständigkeiten ineinander – und wo kann Beteiligung verständlicher werden?</div>
-          <div class="atlas-meta">
-            <div><span>Untersuchung</span><strong data-atlas-focus>politische Ebenen und Rückkopplung</strong></div>
-            <div><span>Darstellung</span><strong data-atlas-language>Originalquellen plus mehrsprachige Lesefassung</strong></div>
-          </div>
-          <div class="country-tabs" aria-label="Beispielhafte Länderprofile">
-            <button class="country-tab is-active" type="button" data-atlas-country="de">Deutschland</button>
-            <button class="country-tab" type="button" data-atlas-country="ch">Schweiz</button>
-            <button class="country-tab" type="button" data-atlas-country="ee">Estland</button>
-            <button class="country-tab" type="button" data-atlas-country="fr">Frankreich</button>
-          </div>
-          <p class="atlas-note">Die Länderprofile werden schrittweise mit offiziellen Quellen, lokalen Begriffen, Übersetzungskennzeichnung und sichtbaren methodischen Grenzen aufgebaut.</p>
-        </div>
+        <div class="world-signal reveal" aria-hidden="true"><div class="globe-shell"><span class="globe-equator"></span><span class="globe-axis"></span><span class="globe-land land-a"></span><span class="globe-land land-b"></span><span class="globe-land land-c"></span><span class="globe-land land-d"></span><span class="globe-point point-de is-active"></span><span class="globe-point point-ch"></span><span class="globe-point point-ee"></span><span class="globe-point point-fr"></span></div></div>
+        <div class="atlas-console reveal" aria-live="polite"><div class="atlas-status"><span>Atlas-Prototyp</span><span data-atlas-status>Länderprofil im Aufbau</span></div><h3 data-atlas-title>Deutschland</h3><p data-atlas-intro>Das Profil untersucht nicht nur Wahlen, sondern auch die Wege zwischen kommunaler Betroffenheit, föderaler Zuständigkeit und europäischer Mitwirkung.</p><div class="atlas-question" data-atlas-question>Wie greifen Bund, Länder, Kommunen und europäische Zuständigkeiten ineinander – und wo kann Beteiligung verständlicher werden?</div><div class="atlas-meta"><div><span>Untersuchung</span><strong data-atlas-focus>politische Ebenen und Rückkopplung</strong></div><div><span>Darstellung</span><strong data-atlas-language>Originalquellen plus mehrsprachige Lesefassung</strong></div></div><div class="country-tabs" aria-label="Beispielhafte Länderprofile"><button class="country-tab is-active" type="button" data-atlas-country="de">Deutschland</button><button class="country-tab" type="button" data-atlas-country="ch">Schweiz</button><button class="country-tab" type="button" data-atlas-country="ee">Estland</button><button class="country-tab" type="button" data-atlas-country="fr">Frankreich</button></div><p class="atlas-note">Die Profile werden mit offiziellen Quellen, lokalen Begriffen, Übersetzungskennzeichnung und sichtbaren methodischen Grenzen aufgebaut.</p></div>
       </div>
+      <div class="thesis-invite reveal"><div><span>Anlassraum 01 · Demokratie verstehen</span><strong>Welche Demokratie wollen wir eigentlich retten?</strong><p>Länderbeispiel ergänzen, Vergleichskriterium korrigieren oder die gesamte Ausgangsthese angreifen.</p></div><a class="btn btn-primary" href="/anlassraeume/demokratie-systeme.html">Anlassraum öffnen</a></div>
     </section>
 
-    <section class="section section-muted" id="beteiligung">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="section-label">02 · Beteiligung heute</p>
-          <h2>Bürgerbeteiligung ist häufig noch ein Formular.</h2>
-          <p>Menschen dürfen auf eine bereits formulierte Frage reagieren. Sie wählen Ja, Nein oder eine vorgegebene Option. Das kann nützlich sein – bleibt aber oft eine Momentaufnahme mit begrenzter Reichweite und unklarer Wirkung.</p>
-        </div>
+    <section class="section section-muted" id="beteiligung"><div class="container">
+      <div class="section-head reveal"><p class="section-label">02 · Beteiligung heute</p><h2>Bürgerbeteiligung ist häufig noch ein Formular.</h2><p>Menschen reagieren auf eine bereits formulierte Frage. Sie wählen Ja, Nein oder eine vorgegebene Option. Das kann nützlich sein – bleibt aber oft eine Momentaufnahme mit begrenzter Reichweite und unklarer Wirkung.</p></div>
+      <div class="limitation-grid"><article class="limitation-card reveal"><span>01 · Agenda</span><h3>Die Frage steht schon fest.</h3><p>Wer Thema und Formulierung bestimmt, prägt den möglichen Antwortkorridor.</p></article><article class="limitation-card reveal"><span>02 · Auswahl</span><h3>Die Optionen sind geschlossen.</h3><p>Neue Lösungswege und Erfahrungen passen oft nicht in Multiple Choice oder Ja/Nein.</p></article><article class="limitation-card reveal"><span>03 · Reichweite</span><h3>Prozentzahlen verdecken Lücken.</h3><p>Ohne Kontext bleibt offen, wie viele Menschen erreicht wurden und wer fehlt.</p></article><article class="limitation-card reveal"><span>04 · Wirkung</span><h3>Nach dem Klick endet der Prozess.</h3><p>Reaktion, Umsetzung und spätere Wirkung bleiben häufig unsichtbar.</p></article></div>
+      <div class="thesis-invite reveal"><div><span>Anlassraum 02 · Beteiligung heute</span><strong>Wann ist eine Umfrage Beteiligung – und wann nur eine Momentaufnahme?</strong><p>Gute Praxis, Gegenbeispiel oder eigene Erfahrung öffentlich ergänzen.</p></div><a class="btn btn-primary" href="/anlassraeume/beteiligung-heute.html">Anlassraum öffnen</a></div>
 
-        <div class="limitation-grid">
-          <article class="limitation-card reveal"><span>01 · Agenda</span><h3>Die Frage steht schon fest.</h3><p>Wer das Thema auswählt und formuliert, prägt den möglichen Antwortkorridor bereits vor der Teilnahme.</p></article>
-          <article class="limitation-card reveal"><span>02 · Auswahl</span><h3>Die Optionen sind geschlossen.</h3><p>Neue Lösungswege, Kombinationen und Erfahrungen passen oft nicht in Multiple Choice oder Ja/Nein.</p></article>
-          <article class="limitation-card reveal"><span>03 · Reichweite</span><h3>Prozentzahlen verdecken Lücken.</h3><p>Ohne Kontext bleibt offen, wie viele Menschen erreicht wurden und welche Gruppen kaum vertreten sind.</p></article>
-          <article class="limitation-card reveal"><span>04 · Wirkung</span><h3>Nach dem Klick endet der Prozess.</h3><p>Teilnehmende erfahren häufig nicht, wie Verantwortliche reagieren, was umgesetzt wird und was später wirkt.</p></article>
+      <div class="civic-landscape reveal">
+        <div class="section-head compact"><p class="section-label">Wir beginnen nicht bei null</p><h2>Offene Civic-Tech-Projekte haben bereits viel ermöglicht.</h2><p>Sie werden öffentlich genannt, fair beschrieben und nicht künstlich zu Gegnern erklärt. Der Prüfpunkt lautet nicht „Wer ist besser?“, sondern: Welche demokratische Aufgabe ist bereits gelöst – und welche noch offen?</p></div>
+        <div class="civic-grid">
+          <article class="civic-card"><span>Offene Beteiligungsplattform</span><h3>Decidim</h3><p>Unterstützt unter anderem Vorschläge, Debatten, Versammlungen, Beteiligungsprozesse und Wirkungskontrolle über konfigurierbare Räume und Komponenten.</p><a href="https://docs.decidim.org/en/develop/admin/components.html" target="_blank" rel="noreferrer">Offizielle Dokumentation ↗</a></article>
+          <article class="civic-card"><span>Open-Source-Demokratieplattform</span><h3>CONSUL Democracy</h3><p>Ermöglicht Bürgeranträge, Debatten, Abstimmungen, kollaborative Regelsetzung und Bürgerhaushalte.</p><a href="https://docs.consuldemocracy.org/use_guide" target="_blank" rel="noreferrer">Offizielle Dokumentation ↗</a></article>
+          <article class="civic-card"><span>Skalierbare Meinungsanalyse</span><h3>Polis</h3><p>Ordnet Reaktionen auf kurze Aussagen zu Meinungsgruppen und macht mögliche Übereinstimmungen in großen Gesprächen sichtbar.</p><a href="https://compdemocracy.org/Polis/" target="_blank" rel="noreferrer">Projektbeschreibung ↗</a></article>
         </div>
-
-        <div class="open-source-callout reveal">
-          <div><p class="section-label">Offene digitale Werkzeuge</p><h3>Offener Code ist wichtig. Eine offene Agenda ist etwas anderes.</h3></div>
-          <p>Offene Lösungen haben Transparenz, Wiederverwendbarkeit und öffentliche Kontrolle erheblich vorangebracht. Viele leistungsfähige Systeme setzen jedoch erst ein, nachdem eine Organisation Thema, Phasen, Regeln und Beteiligungsform eingerichtet hat. <strong>Die entscheidende Lücke liegt davor:</strong> Wie wird aus einem Anliegen in Alltagssprache überhaupt ein fairer, verständlicher und wirksamer demokratischer Prozess?</p>
-        </div>
+        <div class="open-source-callout"><div><p class="section-label">Unser zusätzlicher Prüfpunkt</p><h3>Offener Code öffnet nicht automatisch den Weg zum Verfahren.</h3></div><p>Mehrere bestehende Systeme erlauben bereits eigene Vorschläge und Debatten. Trotzdem arbeiten Beteiligungsfunktionen häufig innerhalb eingerichteter Räume, Phasen, Regeln oder Gesprächsimpulse. Die offene Frage liegt davor: <strong>Wie wird aus „Das beschäftigt mich“ ein verständlicher, quellenoffener, mehrsprachiger und wirksamer Prozess?</strong></p></div>
+        <div class="implementation-disclosure"><strong>Eigene Umsetzung offenlegen</strong><p>Die praktische Erprobung im eigenen Ökosystem erfolgt über <a href="https://www.edebatte.org/" target="_blank" rel="noreferrer">eDebatte</a>. Auch sie muss nach denselben Kriterien, Quellen und Grenzen geprüft werden – nicht nach einem günstigeren Maßstab.</p></div>
+        <div class="thesis-invite"><div><span>Anlassraum 03 · Offene Civic Tech</span><strong>Was ist tatsächlich neu – und was existiert längst?</strong><p>Funktion, Projekt, Version oder Gegenbeleg ergänzen. Wissen wird nicht versteckt.</p></div><a class="btn btn-primary" href="/anlassraeume/offene-civic-tech.html">Vergleich mitprüfen</a></div>
       </div>
-    </section>
+    </div></section>
 
     <section class="section container" id="ordnung">
-      <div class="section-head reveal">
-        <p class="section-label">03 · Eine neue demokratische Ordnung</p>
-        <h2>Wählen bleibt. Beteiligung wächst.</h2>
-        <p>Der Schlüssel liegt nicht in mehr Klicks, sondern in einer kontinuierlichen Ordnung demokratischer Mitwirkung. Themen entstehen in Regionen, werden verständlich eingeordnet, mit ähnlichen Erfahrungen verbunden und können über politische Grenzen hinweg gemeinsam beraten werden.</p>
-      </div>
-
-      <div class="order-statement reveal">
-        <h3>Lokal verankert. Mehrsprachig. Direkt zugänglich. Rechtsstaatlich gebunden.</h3>
-        <p>Eine neue Beteiligungsordnung muss Menschen befähigen, ohne sie zu belehren. Sie muss Mehrheiten sichtbar machen, ohne Minderheitenrechte, Gewaltenteilung oder unabhängige Kontrolle aufzugeben.</p>
-        <div class="scale-path" aria-label="Weg eines Anliegens durch politische Ebenen">
-          <span>Nachbarschaft</span><span>Kommune</span><span>Region</span><span>Staat</span><span>Europa</span><span>grenzüberschreitend</span>
-        </div>
-      </div>
-
-      <div class="principle-grid">
-        <article class="principle-card reveal"><span>Regionaler Ursprung</span><h3>Eine Frage beginnt vor der Haustür.</h3><p>Menschen starten mit ihrem konkreten Anliegen, nicht mit Kenntnis über Behörden, Verfahren oder politische Fachsprache.</p></article>
-        <article class="principle-card reveal"><span>Mehrsprachige Verbindung</span><h3>Ähnliche Erfahrungen werden auffindbar.</h3><p>Originalsprache, Lesefassung und lokale Bedeutung politischer Begriffe bleiben unterscheidbar.</p></article>
-        <article class="principle-card reveal"><span>Gemeinsame Erkenntnis</span><h3>Vor dem Votum steht das Verstehen.</h3><p>Quellen, Gegenpositionen, Unsicherheiten, Interessen und Handlungsalternativen werden sichtbar.</p></article>
-        <article class="principle-card reveal"><span>Demokratische Wirkung</span><h3>Ergebnisse brauchen eine Konsequenz.</h3><p>Vor Beginn ist klar, ob ein Ergebnis informiert, eine Antwort verlangt, institutionell beraten oder verbindlich entschieden wird.</p></article>
-      </div>
-
-      <div class="smartphone-note reveal">
-        <strong>Das Smartphone ist der Zugang – nicht das Machtzentrum.</strong>
-        <p>Demokratische Mitwirkung soll so leicht erreichbar sein wie eine alltägliche App, aber so sorgfältig bleiben wie ein rechtsstaatliches Verfahren: barrierefrei, überprüfbar, datensparsam und mit analogen Alternativen.</p>
-      </div>
+      <div class="section-head reveal"><p class="section-label">03 · Eine neue demokratische Ordnung</p><h2>Wählen bleibt. Beteiligung wächst.</h2><p>Der Schlüssel liegt nicht in mehr Klicks, sondern in einer kontinuierlichen Ordnung demokratischer Mitwirkung. Themen entstehen in Regionen, werden verständlich eingeordnet, mit ähnlichen Erfahrungen verbunden und können über politische Grenzen hinweg gemeinsam beraten werden.</p></div>
+      <div class="order-statement reveal"><h3>Lokal verankert. Mehrsprachig. Direkt zugänglich. Rechtsstaatlich gebunden.</h3><p>Eine neue Beteiligungsordnung muss Menschen befähigen, ohne sie zu belehren. Sie macht Mehrheiten sichtbar, ohne Minderheitenrechte, Gewaltenteilung oder unabhängige Kontrolle aufzugeben.</p><div class="scale-path" aria-label="Weg eines Anliegens durch politische Ebenen"><span>Nachbarschaft</span><span>Kommune</span><span>Region</span><span>Staat</span><span>Europa</span><span>grenzüberschreitend</span></div></div>
+      <div class="principle-grid"><article class="principle-card reveal"><span>Regionaler Ursprung</span><h3>Eine Frage beginnt vor der Haustür.</h3><p>Menschen starten mit ihrem Anliegen, nicht mit Behördenwissen oder Fachsprache.</p></article><article class="principle-card reveal"><span>Mehrsprachige Verbindung</span><h3>Ähnliche Erfahrungen werden auffindbar.</h3><p>Originalsprache, Lesefassung und lokale Bedeutung bleiben unterscheidbar.</p></article><article class="principle-card reveal"><span>Gemeinsame Erkenntnis</span><h3>Vor dem Votum steht das Verstehen.</h3><p>Quellen, Gegenpositionen, Unsicherheiten und Alternativen werden sichtbar.</p></article><article class="principle-card reveal"><span>Demokratische Wirkung</span><h3>Ergebnisse brauchen eine Konsequenz.</h3><p>Vor Beginn ist klar, welche Wirkung und Antwortpflicht ein Verfahren besitzt.</p></article></div>
+      <div class="smartphone-note reveal"><strong>Das Smartphone ist der Zugang – nicht das Machtzentrum.</strong><p>Mitwirkung soll so leicht erreichbar sein wie eine alltägliche App, aber so sorgfältig bleiben wie ein rechtsstaatliches Verfahren: barrierefrei, überprüfbar, datensparsam und mit analogen Alternativen.</p></div>
+      <div class="thesis-invite reveal"><div><span>Anlassraum 04 · Neue Ordnung</span><strong>Welche institutionelle Ordnung verbindet kontinuierliche Beteiligung und Rechtsstaat?</strong><p>Grenze, Wirkungsstufe oder Gegenmodell öffentlich ergänzen.</p></div><a class="btn btn-primary" href="/anlassraeume/neue-ordnung.html">Anlassraum öffnen</a></div>
     </section>
 
-    <section class="section section-muted" id="befaehigung">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="section-label">04 · Bürgerzentrierter Beteiligungskreislauf</p>
-          <h2>Nicht der Mensch muss das Verfahren kennen. Das Verfahren muss den Menschen verstehen.</h2>
-          <p>Ein guter digitaler Zugang beginnt nicht mit einer Kategorieauswahl. Er beginnt mit einem Satz wie: „Das beschäftigt mich in meiner Region.“ Daraus entsteht Schritt für Schritt ein nachvollziehbarer Beteiligungsweg.</p>
-        </div>
-
-        <div class="journey">
-          <article class="journey-step reveal"><span>01 · Anliegen</span><h3>In eigenen Worten beginnen</h3><p>Keine politische Fachsprache, keine vorherige Kenntnis der Zuständigkeit und kein vorgegebenes Antwortformat.</p></article>
-          <article class="journey-step reveal"><span>02 · Einordnung</span><h3>Ort, Betroffenheit und Zuständigkeit klären</h3><p>Die politische Ebene und der tatsächliche Gestaltungsspielraum werden verständlich erklärt.</p></article>
-          <article class="journey-step reveal"><span>03 · Wissen</span><h3>Quellen und Begriffe zugänglich machen</h3><p>Originalquellen, verständliche Einordnung, Unsicherheiten und Übersetzungsstatus bleiben sichtbar.</p></article>
-          <article class="journey-step reveal"><span>04 · Perspektiven</span><h3>Gegenpositionen und Interessen öffnen</h3><p>Widerspruch wird nicht aussortiert, sondern als notwendiger Teil gemeinsamer Erkenntnis strukturiert.</p></article>
-          <article class="journey-step reveal"><span>05 · Alternativen</span><h3>Mehr als Ja oder Nein entwickeln</h3><p>Menschen können Vorschläge ergänzen, kombinieren, priorisieren und Folgen unterschiedlicher Wege vergleichen.</p></article>
-          <article class="journey-step reveal"><span>06 · Entscheidung</span><h3>Das passende Beteiligungsformat wählen</h3><p>Offene Beratung, Priorisierung, Bürgerauftrag, institutionelle Beteiligung oder verifizierte Abstimmung werden klar unterschieden.</p></article>
-          <article class="journey-step reveal"><span>07 · Wirkung</span><h3>Reaktion, Umsetzung und Lernen verfolgen</h3><p>Verantwortliche Antworten, Entscheidungen, Umsetzungsschritte und spätere Wirkung bleiben nachvollziehbar.</p></article>
-        </div>
-      </div>
-    </section>
+    <section class="section section-muted" id="befaehigung"><div class="container">
+      <div class="section-head reveal"><p class="section-label">04 · Bürgerzentrierter Beteiligungskreislauf</p><h2>Nicht der Mensch muss das Verfahren kennen. Das Verfahren muss den Menschen verstehen.</h2><p>Ein guter digitaler Zugang beginnt nicht mit einer Kategorieauswahl. Er beginnt mit einem Satz wie: „Das beschäftigt mich in meiner Region.“ Daraus entsteht Schritt für Schritt ein nachvollziehbarer Beteiligungsweg.</p></div>
+      <div class="journey"><article class="journey-step reveal"><span>01 · Anliegen</span><h3>In eigenen Worten beginnen</h3><p>Keine Fachsprache und kein vorgegebenes Antwortformat.</p></article><article class="journey-step reveal"><span>02 · Einordnung</span><h3>Ort, Betroffenheit und Zuständigkeit klären</h3><p>Ebene und Gestaltungsspielraum werden verständlich erklärt.</p></article><article class="journey-step reveal"><span>03 · Wissen</span><h3>Quellen und Begriffe zugänglich machen</h3><p>Original, Einordnung, Unsicherheit und Übersetzungsstatus bleiben sichtbar.</p></article><article class="journey-step reveal"><span>04 · Perspektiven</span><h3>Gegenpositionen und Interessen öffnen</h3><p>Widerspruch wird als Teil gemeinsamer Erkenntnis strukturiert.</p></article><article class="journey-step reveal"><span>05 · Alternativen</span><h3>Mehr als Ja oder Nein entwickeln</h3><p>Vorschläge ergänzen, kombinieren und Folgen vergleichen.</p></article><article class="journey-step reveal"><span>06 · Entscheidung</span><h3>Das passende Format wählen</h3><p>Beratung, Priorisierung, Bürgerauftrag und verifizierte Abstimmung unterscheiden.</p></article><article class="journey-step reveal"><span>07 · Wirkung</span><h3>Reaktion, Umsetzung und Lernen verfolgen</h3><p>Antworten, Entscheidungen und Wirkung bleiben nachvollziehbar.</p></article></div>
+      <div class="thesis-invite reveal"><div><span>Anlassraum 05 · Beteiligungskreislauf</span><strong>Wo befähigt das Verfahren – und wo bevormundet es?</strong><p>Prozessschritt verbessern, Automatisierungsrisiko benennen oder alternative Reihenfolge vorschlagen.</p></div><a class="btn btn-primary" href="/anlassraeume/beteiligungskreislauf.html">Anlassraum öffnen</a></div>
+    </div></section>
 
     <section class="section container" id="qualitaet">
-      <div class="section-head reveal">
-        <p class="section-label">05 · Beteiligungspass statt Prozentzahl</p>
-        <h2>„72 Prozent dafür“ ist noch kein Bürgerwille.</h2>
-        <p>Ein Ergebnis wird erst aussagekräftig, wenn Reichweite, Informationsgrundlage, Vielfalt und Wirkung sichtbar sind. Eine ehrliche Plattform darf geringe Beteiligung und erkennbare Lücken nicht hinter großen Prozentzahlen verstecken.</p>
-      </div>
-
-      <div class="quality-grid">
-        <article class="quality-card reveal"><span>Reichweite</span><h3>Wer wurde erreicht?</h3><p>Teilnahmeberechtigte, aktive Teilnehmende, regionale Abdeckung und bekannte Zugangshürden.</p></article>
-        <article class="quality-card reveal"><span>Tiefe</span><h3>Was konnte geprüft werden?</h3><p>Quellen, Gegenargumente, Bearbeitungsdauer und Entwicklung der Einschätzung.</p></article>
-        <article class="quality-card reveal"><span>Vielfalt</span><h3>Wer fehlt erkennbar?</h3><p>Unterrepräsentierte Regionen und Gruppen werden datensparsam benannt statt verschwiegen.</p></article>
-        <article class="quality-card reveal"><span>Wirkung</span><h3>Was folgt daraus?</h3><p>Zuständigkeit, Antwortpflicht, institutioneller Status, Umsetzung und spätere Evaluation.</p></article>
-      </div>
-
-      <div class="participation-proof reveal">
-        <div class="proof-number">72 %<span>ohne Kontext</span></div>
-        <div><h3>Die ehrlichere Aussage ist länger – und demokratisch wertvoller.</h3><p>„72 Prozent von 214 freiwillig Teilnehmenden stimmen zu. Zwei Ortsteile, jüngere Menschen und nichtdigitale Gruppen sind deutlich unterrepräsentiert. Das Ergebnis ist ein offenes Stimmungsbild und löst eine öffentliche Antwort aus.“</p></div>
-      </div>
+      <div class="section-head reveal"><p class="section-label">05 · Beteiligungspass statt Prozentzahl</p><h2>„72 Prozent dafür“ ist noch kein Bürgerwille.</h2><p>Ein Ergebnis wird erst aussagekräftig, wenn Reichweite, Informationsgrundlage, Vielfalt und Wirkung sichtbar sind. Geringe Beteiligung und erkennbare Lücken dürfen nicht hinter großen Prozentzahlen verschwinden.</p></div>
+      <div class="quality-grid"><article class="quality-card reveal"><span>Reichweite</span><h3>Wer wurde erreicht?</h3><p>Grundgesamtheit, aktive Teilnahme, regionale Abdeckung und Zugangshürden.</p></article><article class="quality-card reveal"><span>Tiefe</span><h3>Was konnte geprüft werden?</h3><p>Quellen, Gegenargumente, Bearbeitungsdauer und Meinungsentwicklung.</p></article><article class="quality-card reveal"><span>Vielfalt</span><h3>Wer fehlt erkennbar?</h3><p>Unterrepräsentierte Regionen und Gruppen werden datensparsam benannt.</p></article><article class="quality-card reveal"><span>Wirkung</span><h3>Was folgt daraus?</h3><p>Zuständigkeit, Antwortpflicht, Status, Umsetzung und Evaluation.</p></article></div>
+      <div class="participation-proof reveal"><div class="proof-number">72 %<span>ohne Kontext</span></div><div><h3>Die ehrlichere Aussage ist länger – und demokratisch wertvoller.</h3><p>„72 Prozent von 214 freiwillig Teilnehmenden stimmen zu. Zwei Ortsteile, jüngere Menschen und nichtdigitale Gruppen sind deutlich unterrepräsentiert. Das Ergebnis ist ein offenes Stimmungsbild und löst eine öffentliche Antwort aus.“</p></div></div>
+      <div class="thesis-invite reveal"><div><span>Anlassraum 06 · Beteiligungspass</span><strong>Welche Angaben muss jedes Ergebnis zwingend zeigen?</strong><p>Kennzahl, Datenschutzgrenze oder verständlicheres Darstellungsmodell ergänzen.</p></div><a class="btn btn-primary" href="/anlassraeume/beteiligungspass.html">Anlassraum öffnen</a></div>
     </section>
 
-    <section class="borderless-section" id="grenzenlos">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="section-label">06 · Direkte Beteiligung über Grenzen hinweg</p>
-          <h2>Ein lokales Problem kann Teil eines gemeinsamen europäischen oder internationalen Lernraums werden.</h2>
-          <p>Grenzüberschreitende Beteiligung bedeutet nicht, Zuständigkeiten zu ignorieren. Sie bedeutet, ähnliche Anliegen, Erfahrungen, Lösungswege und Auswirkungen über Regionen und Sprachen hinweg vergleichbar zu machen.</p>
-        </div>
-        <div class="borderless-example">
-          <article class="reveal"><h3>Ein Anliegen entsteht regional.</h3><p>Menschen beschreiben beispielsweise Versorgungslücken, Mobilitätsprobleme oder fehlende öffentliche Infrastruktur aus ihrer eigenen Erfahrung.</p></article>
-          <article class="reveal"><h3>Das Wissen wächst grenzüberschreitend.</h3><p>Ähnliche Regionen, andere Rechtslagen, bereits erprobte Lösungen und gemeinsame Zielkonflikte werden verbunden – ohne die jeweilige Zuständigkeit zu verwischen.</p></article>
-        </div>
+    <section class="borderless-section" id="grenzenlos"><div class="container">
+      <div class="section-head reveal"><p class="section-label">06 · Direkte Beteiligung über Grenzen hinweg</p><h2>Ein lokales Problem kann Teil eines europäischen oder internationalen Lernraums werden.</h2><p>Grenzüberschreitende Beteiligung ignoriert Zuständigkeiten nicht. Sie macht ähnliche Anliegen, Erfahrungen, Lösungswege und Auswirkungen über Regionen und Sprachen hinweg vergleichbar.</p></div>
+      <div class="borderless-example"><article class="reveal"><h3>Ein Anliegen entsteht regional.</h3><p>Menschen beschreiben Versorgungslücken, Mobilitätsprobleme oder fehlende Infrastruktur aus eigener Erfahrung.</p></article><article class="reveal"><h3>Das Wissen wächst grenzüberschreitend.</h3><p>Ähnliche Regionen, andere Rechtslagen und erprobte Lösungen werden verbunden.</p></article></div>
+      <div class="thesis-invite reveal"><div><span>Anlassraum 07 · Grenzenübergreifend</span><strong>Wann wird aus Vergleich gemeinsames demokratisches Handeln?</strong><p>Region, Thema, Rechtsgrenze oder bereits funktionierenden Lernraum einbringen.</p></div><a class="btn btn-primary" href="/anlassraeume/grenzenuebergreifend.html">Anlassraum öffnen</a></div>
+    </div></section>
+
+    <section class="section container" id="partei">
+      <div class="section-head reveal"><p class="section-label">07 · Partei oder offener Raum?</p><h2>Nicht zuerst eine neue Partei. Zuerst ein offener demokratischer Raum.</h2><p>Parteien sind ein verfassungsrechtlich notwendiger Bestandteil der freiheitlichen demokratischen Grundordnung. Die Alternative lautet deshalb nicht „Partei schlecht“. Die Frage lautet, ob eine offene Beteiligungsinfrastruktur einer Wahlorganisation gehören darf.</p></div>
+      <div class="party-grid">
+        <article class="party-panel reveal"><span>Was eine Partei ermöglicht</span><h3>Zugang zu Listen, Parlamenten und staatlicher Willensbildung</h3><ul><li>Kandidatinnen und Kandidaten aufstellen</li><li>Landeslisten bei Bundestagswahlen einreichen</li><li>politische Ziele in Parlamente und Regierung tragen</li><li>dauerhafte organisatorische Verantwortung übernehmen</li></ul></article>
+        <article class="party-panel reveal"><span>Was eine Partei strukturell bindet</span><h3>Programm, Satzung, interne Mehrheiten und Wahlwettbewerb</h3><ul><li>demokratische innere Ordnung und öffentliche Rechenschaft</li><li>schriftliche Satzung, Programm und Organe</li><li>interne Kandidaten- und Listenentscheidungen</li><li>politische Anreize durch Wahlzyklen, Abgrenzung und mögliche Koalitionen</li></ul></article>
       </div>
+      <div class="party-evidence reveal"><div><span>Rechtlich belegt</span><p>Artikel 21 GG verlangt eine demokratische innere Ordnung und finanzielle Rechenschaft. Das Parteiengesetz regelt Satzung, Programm und Organe. Parteilose können als Einzelbewerber im Wahlkreis antreten; Landeslisten für Bundestagswahlen werden von Parteien eingereicht.</p><div class="inline-sources"><a href="https://www.gesetze-im-internet.de/gg/art_21.html" target="_blank" rel="noreferrer">Art. 21 GG ↗</a><a href="https://www.gesetze-im-internet.de/partg/" target="_blank" rel="noreferrer">Parteiengesetz ↗</a><a href="https://www.bundeswahlleiterin.de/bundestagswahlen/2025/informationen-wahlbewerber.html" target="_blank" rel="noreferrer">Bundeswahlleiterin ↗</a></div></div><div><span>Politische Folgerung</span><p>Programme, interne Mehrheiten, Listenaufstellung, Wahlzyklen und parlamentarischer Wettbewerb können freie Entscheidungen von Thema zu Thema begrenzen. Das ist keine gesetzliche Untersagung, sondern eine zu prüfende strukturelle Wirkung.</p></div></div>
+      <div class="separation-model reveal"><strong>Der mögliche Ausweg: zwei klar getrennte Ebenen.</strong><p>Ein offener, parteiunabhängiger Raum entwickelt Themen und demokratische Aufträge. Ein späteres Wahlvehikel entsteht nur bei erkennbarem Mandat, mit eigener Rechtsform, eigenen Finanzen und ohne Eigentum an der offenen Beteiligungsinfrastruktur.</p></div>
+      <div class="thesis-invite reveal"><div><span>Anlassraum 08 · Organisationsform</span><strong>Braucht gesellschaftliche Wirkung eine Partei – und wann?</strong><p>Rechtslage, Parteienpraxis, parteilose Alternative oder besseres Trennungsmodell ergänzen.</p></div><a class="btn btn-primary" href="/anlassraeume/partei-oder-offener-raum.html">Anlassraum öffnen</a></div>
     </section>
 
-    <section class="section section-muted" id="gegenfragen">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="section-label">07 · Die schwierigen Gegenfragen</p>
-          <h2>Eine neue Beteiligungsordnung ist nur glaubwürdig, wenn sie ihr eigenes Scheitern mitdenkt.</h2>
-          <p>Technische Bequemlichkeit darf demokratische Sicherheit nicht ersetzen. Diese Fragen bleiben deshalb sichtbar, bevor aus einer Vision ein verbindliches Verfahren werden kann.</p>
-        </div>
-        <div class="question-list">
-          <details class="question-item reveal"><summary>Wie verhindern wir Manipulation und organisierte Überwältigung?</summary><p>Identität, Berechtigung, Kampagnentransparenz, Moderation, unabhängige Prüfung und sichtbare Mobilisierungsmuster müssen zusammengedacht werden.</p></details>
-          <details class="question-item reveal"><summary>Wie schützen wir Minderheiten vor einer permanenten Mehrheit?</summary><p>Grundrechte, Menschenrechte, Gewaltenteilung und unabhängige Kontrolle bleiben unverhandelbare Grenzen jeder direkten Beteiligung.</p></details>
-          <details class="question-item reveal"><summary>Wie vermeiden wir Überforderung durch zu viele Entscheidungen?</summary><p>Menschen benötigen Priorisierung, verständliche Zusammenfassungen, freiwillige Vertiefung und klar begrenzte Wirkungsstufen statt einer Dauerabstimmung über alles.</p></details>
-          <details class="question-item reveal"><summary>Wie bleiben nichtdigitale Menschen gleichberechtigt beteiligt?</summary><p>Analoge Wege, öffentliche Zugänge, barrierefreie Gestaltung und unterstützte Teilnahme müssen Teil der Ordnung sein – nicht nachträgliche Ausnahmen.</p></details>
-          <details class="question-item reveal"><summary>Wer kontrolliert Übersetzung, Strukturierung und künstliche Intelligenz?</summary><p>Originale, Änderungen, Modelleinsatz, Unsicherheiten und menschliche Verantwortung müssen offen dokumentiert und anfechtbar bleiben.</p></details>
-          <details class="question-item reveal"><summary>Wann darf ein digitales Ergebnis verbindlich werden?</summary><p>Nur bei klarer Rechtsgrundlage, Zuständigkeit, sicherer und geheimer Stimmabgabe, unabhängiger Kontrolle sowie überprüfbaren Auszählungs- und Anfechtungsverfahren.</p></details>
-        </div>
-      </div>
-    </section>
+    <section class="section section-muted" id="gegenfragen"><div class="container">
+      <div class="section-head reveal"><p class="section-label">08 · Die schwierigen Gegenfragen</p><h2>Eine neue Beteiligungsordnung ist nur glaubwürdig, wenn sie ihr eigenes Scheitern mitdenkt.</h2><p>Technische Bequemlichkeit darf demokratische Sicherheit nicht ersetzen. Diese Fragen bleiben sichtbar, bevor aus einer Vision ein verbindliches Verfahren werden kann.</p></div>
+      <div class="question-list"><details class="question-item reveal"><summary>Wie verhindern wir Manipulation und organisierte Überwältigung?</summary><p>Identität, Berechtigung, Kampagnentransparenz, Moderation, unabhängige Prüfung und Mobilisierungsmuster müssen zusammengedacht werden.</p></details><details class="question-item reveal"><summary>Wie schützen wir Minderheiten vor einer permanenten Mehrheit?</summary><p>Grundrechte, Menschenrechte, Gewaltenteilung und unabhängige Kontrolle bleiben unverhandelbar.</p></details><details class="question-item reveal"><summary>Wie vermeiden wir Überforderung?</summary><p>Priorisierung, verständliche Zusammenfassungen und klar begrenzte Wirkungsstufen statt Dauerabstimmung über alles.</p></details><details class="question-item reveal"><summary>Wie bleiben nichtdigitale Menschen gleichberechtigt beteiligt?</summary><p>Analoge Wege, öffentliche Zugänge, Barrierefreiheit und unterstützte Teilnahme gehören in die Grundarchitektur.</p></details><details class="question-item reveal"><summary>Wer kontrolliert Übersetzung, Strukturierung und KI?</summary><p>Originale, Änderungen, Modelleinsatz, Unsicherheit und menschliche Verantwortung müssen offen und anfechtbar bleiben.</p></details><details class="question-item reveal"><summary>Wann darf ein Ergebnis verbindlich werden?</summary><p>Nur bei Rechtsgrundlage, Zuständigkeit, sicherer geheimer Stimmabgabe, unabhängiger Kontrolle und Anfechtungsverfahren.</p></details></div>
+      <div class="thesis-invite reveal"><div><span>Anlassraum 09 · Schutzarchitektur</span><strong>Welche rote Linie oder welches Scheiternsrisiko fehlt?</strong><p>Angriffsszenario, Schutzstufe oder analogen Zugang ergänzen.</p></div><a class="btn btn-primary" href="/anlassraeume/schutz-und-gegenfragen.html">Anlassraum öffnen</a></div>
+    </div></section>
+
+    <section class="rooms-preview"><div class="container">
+      <div class="section-head reveal"><p class="section-label">Jede These bekommt einen eigenen Raum</p><h2>Stellungnahme → Gegenposition → Quelle → Änderung.</h2><p>Vote4Gov soll nicht nur senden. Jede zentrale Aussage erhält eine dauerhafte Adresse, einen sichtbaren Arbeitsstand und einen direkten Weg, Wissen oder Widerspruch einzubringen.</p></div>
+      <div class="rooms-preview-grid reveal"><a href="/anlassraeume/demokratie-systeme.html"><span>01</span><strong>Demokratische Systeme</strong></a><a href="/anlassraeume/beteiligung-heute.html"><span>02</span><strong>Beteiligung heute</strong></a><a href="/anlassraeume/offene-civic-tech.html"><span>03</span><strong>Offene Civic Tech</strong></a><a href="/anlassraeume/neue-ordnung.html"><span>04</span><strong>Neue Ordnung</strong></a><a href="/anlassraeume/partei-oder-offener-raum.html"><span>08</span><strong>Partei oder offener Raum</strong></a><a href="/anlassraeume.html"><span>09</span><strong>Alle Anlassräume</strong></a></div>
+      <div class="rooms-main-cta reveal"><a class="btn btn-primary" href="/anlassraeume.html">Alle Thesen öffentlich prüfen</a></div>
+    </div></section>
 
     <section class="section container" id="quellen">
-      <div class="section-head reveal">
-        <p class="section-label">08 · Quellenoffenheit</p>
-        <h2>Vote4Gov formuliert Anforderungen – keine Produktwerbung.</h2>
-        <p>Die Hauptseite nennt bewusst weder Anbieter noch konkrete technische Lösung. Sie veröffentlicht einen demokratischen Maßstab, an dem sich jede Beteiligungsinfrastruktur messen lassen muss – auch eine später praktisch erprobte.</p>
-      </div>
-
-      <div class="source-grid">
-        <a class="source-card reveal" href="https://www.un.org/en/about-us/universal-declaration-of-human-rights/" target="_blank" rel="noreferrer"><span>Vereinte Nationen · 1948</span><strong>Allgemeine Erklärung der Menschenrechte, Art. 21</strong><p>Teilhabe an Regierung und regelmäßige, echte Wahlen.</p></a>
-        <a class="source-card reveal" href="https://2covenants.ohchr.org/About-ICCPR.html" target="_blank" rel="noreferrer"><span>Vereinte Nationen · 1966</span><strong>Internationaler Pakt über bürgerliche und politische Rechte, Art. 25</strong><p>Politische Teilhabe, Wahlrecht und Zugang zu öffentlichen Ämtern.</p></a>
-        <a class="source-card reveal" href="https://www.idea.int/data-tools/data/direct-democracy-database" target="_blank" rel="noreferrer"><span>International IDEA</span><strong>Direct Democracy Database</strong><p>Vergleich direktdemokratischer Instrumente und rechtlicher Ausgestaltung in Staaten weltweit.</p></a>
-        <a class="source-card reveal" href="https://www.oecd.org/en/publications/oecd-guidelines-for-citizen-participation-processes_f765caf6-en.html" target="_blank" rel="noreferrer"><span>OECD · 2022</span><strong>Leitlinien für Beteiligungsprozesse</strong><p>Qualität, Inklusion, Wirkung, Transparenz und Rückkopplung.</p></a>
-        <a class="source-card reveal" href="https://www.unesco.org/en/artificial-intelligence/recommendation-ethics" target="_blank" rel="noreferrer"><span>UNESCO · 2021</span><strong>Empfehlung zur Ethik künstlicher Intelligenz</strong><p>Menschenrechte, Fairness, Transparenz und menschliche Aufsicht.</p></a>
-        <a class="source-card reveal" href="https://www.coe.int/en/web/artificial-intelligence/the-framework-convention-on-artificial-intelligence" target="_blank" rel="noreferrer"><span>Europarat · 2024</span><strong>Rahmenübereinkommen über KI</strong><p>Menschenrechte, Demokratie und Rechtsstaatlichkeit im KI-Lebenszyklus.</p></a>
-      </div>
-
-      <div class="source-method reveal">
-        <div><span>Arbeitsweise</span><strong>Quelle → Einordnung → offene Frage → Gegenposition → Korrektur</strong></div>
-        <a href="/quellen.html">Quellen- und Methodenübersicht →</a>
-      </div>
+      <div class="section-head reveal"><p class="section-label">09 · Quellenoffenheit</p><h2>Vote4Gov nennt Vorarbeiten, eigene Umsetzung und Unsicherheiten transparent.</h2><p>Weder Wettbewerber noch die eigene technische Lösung werden versteckt. Entscheidend ist ein gemeinsamer Maßstab: Quelle, Einordnung, Gegenposition, Korrektur und sichtbarer Arbeitsstand.</p></div>
+      <div class="source-grid"><a class="source-card reveal" href="https://www.un.org/en/about-us/universal-declaration-of-human-rights/" target="_blank" rel="noreferrer"><span>Vereinte Nationen · 1948</span><strong>Allgemeine Erklärung der Menschenrechte, Art. 21</strong><p>Teilhabe an Regierung und regelmäßige, echte Wahlen.</p></a><a class="source-card reveal" href="https://2covenants.ohchr.org/About-ICCPR.html" target="_blank" rel="noreferrer"><span>Vereinte Nationen · 1966</span><strong>Internationaler Pakt, Art. 25</strong><p>Politische Teilhabe, Wahlrecht und Zugang zu öffentlichen Ämtern.</p></a><a class="source-card reveal" href="https://www.idea.int/data-tools/data/direct-democracy-database" target="_blank" rel="noreferrer"><span>International IDEA</span><strong>Direct Democracy Database</strong><p>Vergleich direktdemokratischer Instrumente weltweit.</p></a><a class="source-card reveal" href="https://www.oecd.org/en/publications/oecd-guidelines-for-citizen-participation-processes_f765caf6-en.html" target="_blank" rel="noreferrer"><span>OECD · 2022</span><strong>Leitlinien für Beteiligungsprozesse</strong><p>Qualität, Inklusion, Wirkung und Rückkopplung.</p></a><a class="source-card reveal" href="https://www.gesetze-im-internet.de/gg/art_21.html" target="_blank" rel="noreferrer"><span>Deutschland</span><strong>Grundgesetz, Artikel 21</strong><p>Rolle, innere Ordnung und Rechenschaft politischer Parteien.</p></a><a class="source-card reveal" href="https://docs.decidim.org/en/develop/admin/components.html" target="_blank" rel="noreferrer"><span>Open Source</span><strong>Decidim-Dokumentation</strong><p>Offene Komponenten und Beteiligungsräume als überprüfbare Vorarbeit.</p></a></div>
+      <div class="source-method reveal"><div><span>Arbeitsweise</span><strong>Quelle → Einordnung → These → Gegenposition → Anlassraum → Korrektur</strong></div><a href="/quellen.html">Quellen- und Methodenübersicht →</a></div>
     </section>
 
-    <section class="movement-section">
-      <div class="container movement-grid reveal">
-        <div><p class="section-label">Gemeinsam weiterentwickeln</p><h2>Eine neue demokratische Ordnung entsteht nicht in einem geschlossenen Labor.</h2></div>
-        <div><p>VoiceOpenGov verbindet Menschen aus Ländern und Regionen, die Regeln, Länderprofile, Übersetzungen, Kontrollprinzipien und Pilotverfahren gemeinsam weiterentwickeln wollen.</p><p class="disclosure-note">Die gesellschaftliche These bleibt auf Vote4Gov unabhängig prüfbar. Die Bewegung organisiert den offenen Austausch – sie ersetzt weder staatliche Institutionen noch demokratische Legitimation.</p><a class="btn btn-primary" href="https://www.voiceopengov.org/" target="_blank" rel="noreferrer">VoiceOpenGov kennenlernen</a></div>
-      </div>
-    </section>
+    <section class="movement-section"><div class="container movement-grid reveal"><div><p class="section-label">Vom Denken zur Beteiligung</p><h2>Die Räume gehören zu Vote4Gov. Die Beiträge bleiben nicht in einer Kommentarspalte stecken.</h2></div><div><p>Jeder Anlassraum besitzt eine eigene öffentliche These und übergibt Beiträge strukturiert an eDebatte. VoiceOpenGov kann daraus eine internationale Gemeinschaft für Prüfung, Übersetzung und Weiterentwicklung organisieren.</p><p class="disclosure-note">Vote4Gov formuliert und öffnet die These. eDebatte führt den Beteiligungsworkflow. VoiceOpenGov verbindet Menschen. Keine Ebene besitzt die anderen.</p><div class="hero-actions"><a class="btn btn-primary" href="/anlassraeume.html">Anlassraum wählen</a><a class="btn btn-ghost" href="https://www.voiceopengov.org/" target="_blank" rel="noreferrer">Bewegung kennenlernen</a></div></div></div></section>
 
-    <section class="behind-idea">
-      <div class="container behind-grid reveal">
-        <div><p class="section-label">Hinter der Idee</p><h2>Die Denkwerkstatt entstand aus der praktischen Arbeit an offener digitaler Beteiligung.</h2></div>
-        <div><p>Die persönliche Entstehungsgeschichte bleibt erhalten, steht aber nicht im Mittelpunkt. Vote4Gov beginnt mit der gesellschaftlichen Frage – nicht mit einer Person oder einem Produkt.</p><a class="text-link" href="/hinter-der-idee.html">Hintergrund und Initiator kennenlernen →</a></div>
-      </div>
-    </section>
+    <section class="behind-idea"><div class="container behind-grid reveal"><div><p class="section-label">Hinter der Idee</p><h2>Die Denkwerkstatt entstand aus praktischer Arbeit an offener digitaler Beteiligung.</h2></div><div><p>Die persönliche Entstehungsgeschichte bleibt erhalten, steht aber nicht im Mittelpunkt. Vote4Gov beginnt mit der gesellschaftlichen Frage – und öffnet sie anschließend für Widerspruch.</p><a class="text-link" href="/hinter-der-idee.html">Hintergrund und Initiator kennenlernen →</a></div></div></section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div class="footer-brand"><a class="brand" href="#top">vote<span>4</span>gov<small>.eu</small></a><p>Gesellschaftliche Denkwerkstatt über Demokratie, Mitbestimmung und Verantwortung im digitalen Zeitalter.</p></div>
-      <nav aria-label="Vote4Gov"><strong>Vote4Gov</strong><a href="#atlas">Demokratie-Atlas</a><a href="#beteiligung">Beteiligung heute</a><a href="#ordnung">Neue Ordnung</a><a href="/quellen.html">Quellen &amp; Methode</a></nav>
-      <nav aria-label="Mitwirkung"><strong>Mitwirkung</strong><a href="https://www.voiceopengov.org/" target="_blank" rel="noreferrer">VoiceOpenGov · Bewegung ↗</a><a href="mailto:rgf@voiceopengov.org?subject=Vote4Gov%20%E2%80%93%20Gedanke">Gedanken einbringen</a><a href="#gegenfragen">Offene Gegenfragen</a><a href="/hinter-der-idee.html">Hinter der Idee</a></nav>
-      <nav aria-label="Kontakt und Rechtliches"><strong>Kontakt &amp; Rechtliches</strong><a href="mailto:rgf@voiceopengov.org">rgf@voiceopengov.org</a><a href="https://www.voiceopengov.org/impressum" target="_blank" rel="noreferrer">Impressum ↗</a><a href="https://www.voiceopengov.org/datenschutz" target="_blank" rel="noreferrer">Datenschutz ↗</a><a href="#quellen">Transparenz &amp; Quellen</a></nav>
-    </div>
-    <div class="container footer-bottom"><p>© <span data-year></span> Vote4Gov</p><p>Demokratie verstehen. Beteiligung weiterdenken. Wirkung nachvollziehen.</p></div>
-  </footer>
+  <footer class="site-footer"><div class="container footer-grid"><div class="footer-brand"><a class="brand" href="#top">vote<span>4</span>gov<small>.eu</small></a><p>Gesellschaftliche Denkwerkstatt mit öffentlichen Anlassräumen zu Demokratie, Beteiligung und Verantwortung.</p></div><nav aria-label="Vote4Gov"><strong>Vote4Gov</strong><a href="#atlas">Demokratie-Atlas</a><a href="#ordnung">Neue Ordnung</a><a href="#partei">Partei oder offener Raum</a><a href="/quellen.html">Quellen &amp; Methode</a></nav><nav aria-label="Anlassräume"><strong>Anlassräume</strong><a href="/anlassraeume.html">Alle Thesen</a><a href="/anlassraeume/offene-civic-tech.html">Offene Civic Tech</a><a href="/anlassraeume/beteiligungspass.html">Beteiligungspass</a><a href="/anlassraeume/schutz-und-gegenfragen.html">Schutzarchitektur</a></nav><nav aria-label="Ökosystem und Rechtliches"><strong>Ökosystem &amp; Rechtliches</strong><a href="https://www.voiceopengov.org/" target="_blank" rel="noreferrer">VoiceOpenGov ↗</a><a href="https://www.edebatte.org/" target="_blank" rel="noreferrer">eDebatte ↗</a><a href="https://www.voiceopengov.org/impressum" target="_blank" rel="noreferrer">Impressum ↗</a><a href="https://www.voiceopengov.org/datenschutz" target="_blank" rel="noreferrer">Datenschutz ↗</a></nav></div><div class="container footer-bottom"><p>© <span data-year></span> Vote4Gov</p><p>Keine These ohne Widerspruch. Keine Beteiligung ohne sichtbare Wirkung.</p></div></footer>
 </body>
 </html>
