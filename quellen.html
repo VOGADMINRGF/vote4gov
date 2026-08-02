@@ -3,52 +3,70 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Quellen- und Methodenübersicht der gesellschaftlichen Denkwerkstatt Vote4Gov." />
-  <title>Quellen &amp; Methode – Vote4Gov</title>
+  <meta name="description" content="Quellen, Methode und Korrekturregeln der Vote4Gov-Denkwerkstatt und ihrer öffentlichen Anlassräume." />
+  <title>Quellen, Methode und Korrektur – Vote4Gov</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="/thinktank.css" />
   <link rel="stylesheet" href="/democracy-future.css" />
+  <link rel="stylesheet" href="/anlassraum.css" />
   <script src="/script.js" defer></script>
   <style>
-    .sources-page{padding:150px 0 100px}.sources-page h1{max-width:900px;margin:0;font-size:clamp(58px,8vw,105px);line-height:.9;letter-spacing:-.065em}.sources-page .lead{max-width:820px;color:#b5c2d3;font-size:20px}.method-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:60px}.method-grid article{padding:25px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(145deg,rgba(14,28,49,.94),rgba(7,17,31,.95))}.method-grid span{color:#18cfc8;font-size:11px;font-weight:800}.method-grid h2{font-size:23px}.method-grid p{color:#9fb0c5}.bibliography{margin-top:85px}.bib-item{display:grid;grid-template-columns:190px 1fr auto;gap:30px;padding:24px 0;border-top:1px solid var(--line);align-items:start}.bib-item:last-child{border-bottom:1px solid var(--line)}.bib-item span{color:#18cfc8;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.12em}.bib-item h3{margin:0;font-size:22px}.bib-item p{margin:8px 0 0;color:#9fb0c5}.bib-item a{color:#8ec8ff;text-decoration:none}.note-box{margin-top:55px;padding:30px;border:1px solid rgba(24,207,200,.28);border-radius:20px;background:rgba(24,207,200,.05)}.note-box h2{margin:0}.note-box p{color:#aebbd0}@media(max-width:850px){.method-grid{grid-template-columns:1fr 1fr}.bib-item{grid-template-columns:1fr}.bib-item a{justify-self:start}}@media(max-width:580px){.method-grid{grid-template-columns:1fr}}
+    .sources-page{padding:150px 0 110px}.sources-page h1{max-width:930px;margin:0;font-size:clamp(56px,8vw,104px);line-height:.9;letter-spacing:-.065em}.sources-page .lead{max-width:850px;color:#b5c2d3;font-size:20px}.method-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:58px}.method-grid article{padding:23px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(145deg,rgba(14,28,49,.94),rgba(7,17,31,.95))}.method-grid span,.source-group>span{color:var(--cyan);font-size:10px;font-weight:850;letter-spacing:.14em;text-transform:uppercase}.method-grid h2{font-size:21px}.method-grid p{color:#9fb0c5;font-size:14px}.bibliography{margin-top:84px}.source-group{margin-top:62px}.source-group h2{max-width:820px;margin:12px 0 0;font-size:clamp(34px,4vw,56px);line-height:1;letter-spacing:-.05em}.source-group>p{max-width:800px;color:#aebbd0}.bib-item{display:grid;grid-template-columns:200px 1fr auto;gap:28px;padding:23px 0;border-top:1px solid var(--line);align-items:start}.bib-item:last-child{border-bottom:1px solid var(--line)}.bib-item>span{color:#7dd3fc;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.12em}.bib-item h3{margin:0;font-size:21px}.bib-item p{margin:8px 0 0;color:#9fb0c5}.bib-item a{color:#a5e7ff;text-decoration:none}.method-note{margin-top:58px;padding:30px;border:1px solid rgba(24,207,200,.28);border-radius:20px;background:rgba(24,207,200,.05)}.method-note h2{margin:0}.method-note p{color:#aebbd0}.correction-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:24px}.correction-grid article{padding:22px;border:1px solid var(--line);border-radius:16px;background:rgba(7,17,31,.7)}.correction-grid h3{margin:0}.correction-grid p{color:#9fafc2}@media(max-width:980px){.method-grid{grid-template-columns:1fr 1fr}.bib-item{grid-template-columns:1fr}.bib-item a{justify-self:start}}@media(max-width:620px){.method-grid,.correction-grid{grid-template-columns:1fr}.sources-page{padding-top:115px}}
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
   <header class="site-header is-scrolled" data-header>
     <a class="brand" href="/">vote<span>4</span>gov<small>.eu</small></a>
     <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-button><span class="sr-only">Navigation öffnen</span><span></span><span></span></button>
-    <nav class="site-nav" id="site-nav" aria-label="Quellennavigation" data-nav><a href="/">Startseite</a><a href="/#gegenfragen">Gegenfragen</a><a class="nav-cta" href="mailto:rgf@voiceopengov.org?subject=Vote4Gov%20%E2%80%93%20Quellenhinweis">Quelle einbringen</a></nav>
+    <nav class="site-nav" id="site-nav" aria-label="Quellennavigation" data-nav><a href="/">Denkwerkstatt</a><a href="/anlassraeume.html">Anlassräume</a><a href="#civic-tech">Civic Tech</a><a href="#parteien">Parteien</a><a class="nav-cta" href="mailto:rgf@voiceopengov.org?subject=Vote4Gov%20%E2%80%93%20Quellenkorrektur">Quelle korrigieren</a></nav>
   </header>
-  <main class="sources-page container">
+
+  <main id="main" class="sources-page container">
     <p class="section-label">Quellenoffenheit</p>
-    <h1>Quellen, Methode und Korrektur.</h1>
-    <p class="lead">Vote4Gov soll keine Autorität simulieren. Die Denkwerkstatt dokumentiert, worauf Aussagen beruhen, wo Interpretation beginnt und welche Fragen offen bleiben.</p>
+    <h1>Quelle, These, Gegenposition und Korrektur.</h1>
+    <p class="lead">Vote4Gov simuliert keine neutrale Autorität. Jede tragende Aussage wird als Arbeitsstand behandelt und in einem eigenen Anlassraum für Quellen, Widerspruch und Änderung geöffnet.</p>
 
     <section class="method-grid" aria-label="Arbeitsmethode">
-      <article><span>01</span><h2>Quelle</h2><p>Primärquellen, internationale Standards und Forschung werden möglichst direkt verlinkt.</p></article>
-      <article><span>02</span><h2>Einordnung</h2><p>Zusammenfassungen werden als Einordnung gekennzeichnet und nicht als Originalaussage ausgegeben.</p></article>
-      <article><span>03</span><h2>Gegenposition</h2><p>Relevante wissenschaftliche oder institutionelle Gegenargumente sollen sichtbar ergänzt werden.</p></article>
-      <article><span>04</span><h2>Korrektur</h2><p>Fehler, veraltete Angaben und methodische Grenzen werden nachvollziehbar berichtigt.</p></article>
+      <article><span>01</span><h2>Quelle</h2><p>Primärquellen, offizielle Dokumentation und belastbare Forschung werden direkt verlinkt.</p></article>
+      <article><span>02</span><h2>Einordnung</h2><p>Zusammenfassungen werden nicht als Originalaussage ausgegeben.</p></article>
+      <article><span>03</span><h2>These</h2><p>Der eigene Schluss wird sichtbar als prüfbare Position gekennzeichnet.</p></article>
+      <article><span>04</span><h2>Gegenposition</h2><p>Starke Einwände gehören in den Kern und nicht in ein verstecktes FAQ.</p></article>
+      <article><span>05</span><h2>Anlassraum</h2><p>Korrekturen und Alternativen erhalten einen dauerhaften öffentlichen Raum.</p></article>
     </section>
 
     <section class="bibliography">
-      <p class="section-label">Startbibliografie</p>
-      <div class="bib-item"><span>Menschenrechte · 1948</span><div><h3>Allgemeine Erklärung der Menschenrechte</h3><p>Artikel 21: Teilhabe an Regierung, gleicher Zugang zu öffentlichen Ämtern und regelmäßige, echte Wahlen.</p></div><a href="https://www.un.org/en/about-us/universal-declaration-of-human-rights/" target="_blank" rel="noreferrer">Original ↗</a></div>
-      <div class="bib-item"><span>Menschenrechte · 1966</span><div><h3>Internationaler Pakt über bürgerliche und politische Rechte</h3><p>Artikel 25: Recht auf Teilnahme an öffentlichen Angelegenheiten, Wahlrecht und Zugang zum öffentlichen Dienst.</p></div><a href="https://2covenants.ohchr.org/About-ICCPR.html" target="_blank" rel="noreferrer">Original ↗</a></div>
-      <div class="bib-item"><span>Europarat · 1950</span><div><h3>Europäische Menschenrechtskonvention und Zusatzprotokoll</h3><p>Grund- und Verfahrensrechte sowie das Recht auf freie Wahlen im europäischen Menschenrechtssystem.</p></div><a href="https://www.echr.coe.int/en/european-convention-on-human-rights" target="_blank" rel="noreferrer">Original ↗</a></div>
-      <div class="bib-item"><span>International IDEA</span><div><h3>Direct Democracy Database</h3><p>Vergleich direktdemokratischer Instrumente und ihrer rechtlichen Ausgestaltung in Staaten weltweit.</p></div><a href="https://www.idea.int/data-tools/data/direct-democracy-database" target="_blank" rel="noreferrer">Original ↗</a></div>
+      <div class="source-group"><span>Demokratie und Beteiligung</span><h2>Menschenrechte, direkte Demokratie und Beteiligungsqualität.</h2><p>Diese Quellen bilden den Ausgangspunkt für Atlas, Beteiligungskreislauf, Beteiligungspass und Schutzarchitektur.</p></div>
+      <div class="bib-item"><span>Vereinte Nationen · 1948</span><div><h3>Allgemeine Erklärung der Menschenrechte, Artikel 21</h3><p>Teilhabe an Regierung, gleicher Zugang zu öffentlichen Ämtern und regelmäßige echte Wahlen.</p></div><a href="https://www.un.org/en/about-us/universal-declaration-of-human-rights/" target="_blank" rel="noreferrer">Original ↗</a></div>
+      <div class="bib-item"><span>Vereinte Nationen · 1966</span><div><h3>Internationaler Pakt über bürgerliche und politische Rechte, Artikel 25</h3><p>Teilnahme an öffentlichen Angelegenheiten, Wahlrecht und Zugang zum öffentlichen Dienst.</p></div><a href="https://2covenants.ohchr.org/About-ICCPR.html" target="_blank" rel="noreferrer">Original ↗</a></div>
+      <div class="bib-item"><span>International IDEA</span><div><h3>Direct Democracy Database</h3><p>Internationale Vergleichsdaten zu Referenden, Bürgerinitiativen und weiteren direktdemokratischen Instrumenten.</p></div><a href="https://www.idea.int/data-tools/data/direct-democracy-database" target="_blank" rel="noreferrer">Datenbank ↗</a></div>
       <div class="bib-item"><span>Europarat · 2009</span><div><h3>Recommendation CM/Rec(2009)1 on electronic democracy</h3><p>Prinzipien und Leitlinien für digitale Instrumente zur Unterstützung demokratischer Institutionen und Prozesse.</p></div><a href="https://www.coe.int/t/dgap/democracy/activities/ggis/CAHDE/2009/RecCM2009_1_and_Accomp_Docs/Recommendation%20CM_Rec%282009%291E_FINAL.asp" target="_blank" rel="noreferrer">Original ↗</a></div>
-      <div class="bib-item"><span>OECD · 2022</span><div><h3>OECD Guidelines for Citizen Participation Processes</h3><p>Zehn Schritte und neun Qualitätsprinzipien für sinnvolle, inklusive und nachvollziehbare Beteiligung.</p></div><a href="https://www.oecd.org/en/publications/oecd-guidelines-for-citizen-participation-processes_f765caf6-en.html" target="_blank" rel="noreferrer">Original ↗</a></div>
-      <div class="bib-item"><span>UNESCO · 2021</span><div><h3>Recommendation on the Ethics of Artificial Intelligence</h3><p>Globaler ethischer Orientierungsrahmen für menschenrechtsbasierte, transparente und beaufsichtigte KI.</p></div><a href="https://www.unesco.org/en/artificial-intelligence/recommendation-ethics" target="_blank" rel="noreferrer">Original ↗</a></div>
-      <div class="bib-item"><span>Europarat · 2024</span><div><h3>Framework Convention on Artificial Intelligence</h3><p>Internationales rechtsverbindliches Instrument zu KI, Menschenrechten, Demokratie und Rechtsstaatlichkeit.</p></div><a href="https://www.coe.int/en/web/artificial-intelligence/the-framework-convention-on-artificial-intelligence" target="_blank" rel="noreferrer">Original ↗</a></div>
-      <div class="bib-item"><span>Europäische Union · 2024</span><div><h3>Verordnung (EU) 2024/1689 über künstliche Intelligenz</h3><p>Harmonisierte Regeln für KI-Systeme mit Bezug auf Grundrechte, Sicherheit, Transparenz und Aufsicht.</p></div><a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj/deu" target="_blank" rel="noreferrer">Original ↗</a></div>
+      <div class="bib-item"><span>OECD · 2022</span><div><h3>Guidelines for Citizen Participation Processes</h3><p>Zehn Schritte und Qualitätsprinzipien für sinnvolle, inklusive und nachvollziehbare Beteiligung.</p></div><a href="https://www.oecd.org/en/publications/oecd-guidelines-for-citizen-participation-processes_f765caf6-en.html" target="_blank" rel="noreferrer">Original ↗</a></div>
+      <div class="bib-item"><span>Europäische Kommission</span><div><h3>European Citizens’ Panels</h3><p>Grenzüberschreitende Beratung mit Bürgerinnen und Bürgern aus den Mitgliedstaaten der Europäischen Union.</p></div><a href="https://citizens.ec.europa.eu/european-citizens-panels_en" target="_blank" rel="noreferrer">Original ↗</a></div>
+
+      <div class="source-group" id="civic-tech"><span>Offene Civic-Tech-Landschaft</span><h2>Bestehende Lösungen werden genannt, nicht kleingeredet.</h2><p>Die Dokumentation zeigt, dass offene Plattformen weit mehr als Ja/Nein-Umfragen unterstützen. Vote4Gov prüft zusätzlich den Einstieg vor einem bereits eingerichteten Prozess.</p></div>
+      <div class="bib-item"><span>Decidim</span><div><h3>Komponenten und Beteiligungsräume</h3><p>Dokumentierte Komponenten umfassen unter anderem Vorschläge, Debatten, Versammlungen, Budgets und Accountability.</p></div><a href="https://docs.decidim.org/en/develop/admin/components.html" target="_blank" rel="noreferrer">Dokumentation ↗</a></div>
+      <div class="bib-item"><span>CONSUL Democracy</span><div><h3>Basic Use Guide</h3><p>Offene Module für Bürgeranträge, Debatten, Abstimmungen, kollaborative Prozesse und Bürgerhaushalte.</p></div><a href="https://docs.consuldemocracy.org/use_guide" target="_blank" rel="noreferrer">Dokumentation ↗</a></div>
+      <div class="bib-item"><span>Polis</span><div><h3>Computational Democracy Project</h3><p>Skalierbare Erfassung kurzer Aussagen und Analyse von Meinungsgruppen sowie möglichen Übereinstimmungen.</p></div><a href="https://compdemocracy.org/Polis/" target="_blank" rel="noreferrer">Projekt ↗</a></div>
+      <div class="bib-item"><span>Eigene Erprobung</span><div><h3>eDebatte</h3><p>Praktische Infrastruktur des Ökosystems. Sie wird nach denselben Kriterien auf Einstieg, Quellenoffenheit, Gegenpositionen, Mehrsprachigkeit und Wirkung geprüft.</p></div><a href="https://www.edebatte.org/" target="_blank" rel="noreferrer">Öffnen ↗</a></div>
+
+      <div class="source-group" id="parteien"><span>Parteien und Wahlzugang · Deutschland</span><h2>Rechtslage und politische Folgerung werden getrennt.</h2><p>Die Quellen belegen Rolle, Pflichten und Wahlzugänge. Aussagen über Wahlzyklen, interne Mehrheiten und Koalitionsanreize werden als politische Analyse gekennzeichnet.</p></div>
+      <div class="bib-item"><span>Grundgesetz</span><div><h3>Artikel 21</h3><p>Parteien wirken an der politischen Willensbildung mit; ihre innere Ordnung muss demokratischen Grundsätzen entsprechen und ihre Finanzen sind öffentlich offenzulegen.</p></div><a href="https://www.gesetze-im-internet.de/gg/art_21.html" target="_blank" rel="noreferrer">Original ↗</a></div>
+      <div class="bib-item"><span>Parteiengesetz</span><div><h3>Gesetz über die politischen Parteien</h3><p>Regelt unter anderem Parteibegriff, Satzung, Programm, Gliederung, Organe, Mitgliederrechte und Rechenschaft.</p></div><a href="https://www.gesetze-im-internet.de/partg/" target="_blank" rel="noreferrer">Original ↗</a></div>
+      <div class="bib-item"><span>Bundeswahlleiterin</span><div><h3>Informationen zu Kandidaturen</h3><p>Parteien können Kreis- und Landeswahlvorschläge einreichen. Einzelbewerber können in Wahlkreisen antreten und benötigen grundsätzlich Unterstützungsunterschriften.</p></div><a href="https://www.bundeswahlleiterin.de/bundestagswahlen/2025/informationen-wahlbewerber.html" target="_blank" rel="noreferrer">Original ↗</a></div>
+
+      <div class="source-group"><span>KI, Sicherheit und Kontrolle</span><h2>Bequemlichkeit ersetzt keine demokratische Schutzarchitektur.</h2></div>
+      <div class="bib-item"><span>UNESCO · 2021</span><div><h3>Recommendation on the Ethics of Artificial Intelligence</h3><p>Menschenrechte, Fairness, Transparenz, Verantwortung und menschliche Aufsicht.</p></div><a href="https://www.unesco.org/en/artificial-intelligence/recommendation-ethics" target="_blank" rel="noreferrer">Original ↗</a></div>
+      <div class="bib-item"><span>Europarat · 2024</span><div><h3>Framework Convention on Artificial Intelligence</h3><p>Internationales Instrument zu KI, Menschenrechten, Demokratie und Rechtsstaatlichkeit.</p></div><a href="https://www.coe.int/en/web/artificial-intelligence/the-framework-convention-on-artificial-intelligence" target="_blank" rel="noreferrer">Original ↗</a></div>
+      <div class="bib-item"><span>BSI</span><div><h3>Online-Wahlen</h3><p>Technische und organisatorische Anforderungen an sichere digitale Wahlverfahren.</p></div><a href="https://www.bsi.bund.de/DE/Themen/Oeffentliche-Verwaltung/Moderner-Staat/Online-Wahlen/online-wahlen_node.html" target="_blank" rel="noreferrer">Original ↗</a></div>
     </section>
 
-    <section class="note-box">
-      <h2>Diese Bibliografie ist ein Anfang, kein Abschluss.</h2>
-      <p>Geplant sind zusätzliche Perspektiven aus Demokratietheorie, Verfassungsrecht, politischer Soziologie, Deliberationsforschung, Verwaltungswissenschaft, Informationswissenschaft, Barrierefreiheit, Datenschutz und Technikfolgenabschätzung.</p>
-      <a class="btn btn-primary" href="mailto:rgf@voiceopengov.org?subject=Vote4Gov%20%E2%80%93%20Quellenhinweis">Quelle oder Korrektur vorschlagen</a>
+    <section class="method-note">
+      <h2>Korrekturen verändern den sichtbaren Arbeitsstand.</h2>
+      <p>Ein Hinweis wird nicht nur gesammelt. Relevante Änderungen sollen im jeweiligen Anlassraum mit Quelle, Begründung und neuer Versionsangabe dokumentiert werden.</p>
+      <div class="correction-grid"><article><h3>Sachfehler oder veraltete Funktion</h3><p>Projekt, Version, konkrete Stelle und Originalquelle nennen.</p><a class="btn btn-ghost" href="mailto:rgf@voiceopengov.org?subject=Vote4Gov%20%E2%80%93%20Sachkorrektur">Korrektur senden</a></article><article><h3>These oder Gegenposition</h3><p>Den passenden Anlassraum öffnen und den Beitrag mit Quellenkontext übergeben.</p><a class="btn btn-primary" href="/anlassraeume.html">Anlassraum wählen</a></article></div>
     </section>
   </main>
-  <footer class="site-footer"><div class="container footer-bottom"><p>© <span data-year></span> Vote4Gov</p><p><a href="/">Zur Startseite</a> · <a href="mailto:rgf@voiceopengov.org">Kontakt</a></p></div></footer>
+  <footer class="site-footer"><div class="container footer-bottom"><p>© <span data-year></span> Vote4Gov</p><p><a href="/">Zur Denkwerkstatt</a> · <a href="/anlassraeume.html">Anlassräume</a></p></div></footer>
 </body>
 </html>

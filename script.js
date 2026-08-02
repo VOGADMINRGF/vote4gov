@@ -9,6 +9,7 @@ const loadStyle = (href) => {
 loadStyle("/image-tuning.css?v=20260801-1");
 loadStyle("/accessibility.css?v=20260801-1");
 loadStyle("/brand-shell.css?v=20260802-1");
+loadStyle("/participation-rooms.css?v=20260802-1");
 
 const brand = document.querySelector(".site-header .brand");
 if (brand) {
@@ -21,6 +22,15 @@ if (brand) {
     </picture>
   `;
 }
+
+const canonicalHrefRewrites = new Map([
+  ["https://compdemocracy.org/Polis/", "https://compdemocracy.org/polis/"],
+  ["https://www.bsi.bund.de/DE/Themen/Oeffentliche-Verwaltung/Moderner-Staat/Online-Wahlen/online-wahlen_node.html", "https://www.bsi.bund.de/EN/Themen/Oeffentliche-Verwaltung/Moderner-Staat/Online-Wahlen/online-wahlen.html"],
+]);
+document.querySelectorAll("a[href]").forEach((link) => {
+  const replacement = canonicalHrefRewrites.get(link.href);
+  if (replacement) link.href = replacement;
+});
 
 const atlasProfiles = {
   de: {
