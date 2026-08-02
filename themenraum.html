@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Ein themenspezifischer Beteiligungsraum von Vote4Gov: These prüfen, Gegenargumente, Quellen, Erfahrungen und Lösungsvorschläge strukturiert einbringen." />
+  <meta name="theme-color" content="#020617" />
+  <title>Themenraum – Vote4Gov</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/thinktank.css" />
+  <link rel="stylesheet" href="/democracy-future.css" />
+  <link rel="stylesheet" href="/participation-network.css" />
+  <script src="/script.js" defer></script>
+</head>
+<body data-topic-room-page>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+  <header class="site-header is-scrolled" data-header>
+    <a class="brand" href="/" aria-label="Vote4Gov Startseite">vote<span>4</span>gov<small>.eu</small></a>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-button><span class="sr-only">Navigation öffnen</span><span></span><span></span></button>
+    <nav class="site-nav" id="site-nav" aria-label="Themenraumnavigation" data-nav>
+      <a href="/">Denkwerkstatt</a>
+      <a href="/offene-civic-tech.html">Offene Civic-Tech</a>
+      <a href="/partei-oder-infrastruktur.html">Partei oder Infrastruktur?</a>
+      <a class="nav-cta" href="#beitrag">Beitrag strukturieren</a>
+    </nav>
+  </header>
+
+  <main id="main" class="topic-room-page">
+    <div class="room-shell">
+      <section class="room-hero">
+        <div>
+          <p class="section-label" data-room-kicker>Themenraum</p>
+          <h1 data-room-title>Demokratie gemeinsam weiterdenken.</h1>
+          <p class="lead" data-room-lead>Dieser Raum lädt dazu ein, eine konkrete These zu prüfen, zu ergänzen oder begründet zu widersprechen.</p>
+        </div>
+        <aside class="room-status-card" aria-label="Arbeitsstand">
+          <span>Öffentlicher Arbeitsstand</span>
+          <strong data-room-status>Entwurf · Gegenpositionen gesucht</strong>
+          <p data-room-need>Gesucht werden Erfahrungen, belastbare Quellen, Einwände, internationale Beispiele und alternative Lösungswege.</p>
+          <button class="resonance-button" type="button" data-qr-open>QR-Code für diesen Raum</button>
+        </aside>
+      </section>
+
+      <section class="room-question" aria-labelledby="room-question-title">
+        <span>Zentrale Frage</span>
+        <h2 id="room-question-title" data-room-question>Welche Voraussetzungen braucht kontinuierliche, digitale Bürgerbeteiligung, damit sie mehr ist als eine Momentaufnahme?</h2>
+      </section>
+
+      <div class="room-path" aria-label="Arbeitslogik des Themenraums">
+        <div><span>01</span><strong>These verstehen</strong></div>
+        <div><span>02</span><strong>Quelle oder Erfahrung ergänzen</strong></div>
+        <div><span>03</span><strong>Widerspruch sichtbar machen</strong></div>
+        <div><span>04</span><strong>Nächste Prüfung ableiten</strong></div>
+      </div>
+
+      <section class="contribution-workbench" id="beitrag" aria-label="Beitrag strukturieren">
+        <form class="contribution-form" data-contribution-form>
+          <h2>Deinen Beitrag strukturieren</h2>
+          <p class="form-help">Der Entwurf bleibt zunächst ausschließlich in deinem Browser. Du entscheidest anschließend, ob du ihn kopierst, teilst, per E-Mail sendest oder in der praktischen Beteiligungsumgebung weiterführst.</p>
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="contribution-type">Art des Beitrags</label>
+              <select id="contribution-type" name="type" data-contribution-type>
+                <option value="Gegenargument">Gegenargument</option>
+                <option value="Quelle oder Korrektur">Quelle oder Korrektur</option>
+                <option value="Praxisbeispiel">Praxisbeispiel</option>
+                <option value="Lösungsvorschlag">Lösungsvorschlag</option>
+                <option value="Frage">Offene Frage</option>
+                <option value="Zustimmung mit Ergänzung">Zustimmung mit Ergänzung</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="contribution-region">Region oder Bezug</label>
+              <input id="contribution-region" name="region" data-contribution-region placeholder="z. B. Berlin, Kommune, EU, international" />
+            </div>
+            <div class="form-field">
+              <label for="contribution-language">Sprache des Originals</label>
+              <input id="contribution-language" name="language" data-contribution-language placeholder="z. B. Deutsch" value="Deutsch" />
+            </div>
+            <div class="form-field">
+              <label for="contribution-source">Quelle, optional</label>
+              <input id="contribution-source" name="source" data-contribution-source type="url" inputmode="url" placeholder="https://…" />
+            </div>
+            <div class="form-field full">
+              <label for="contribution-text">Beitrag in eigenen Worten</label>
+              <textarea id="contribution-text" name="text" data-contribution-text required placeholder="Was fehlt? Was ist falsch? Welche Erfahrung oder Alternative sollte sichtbar werden?"></textarea>
+              <p class="form-help">Keine Fachsprache erforderlich. Unsicherheit darf ausdrücklich benannt werden.</p>
+            </div>
+          </div>
+          <div class="workbench-actions">
+            <button class="resonance-button primary" type="button" data-contribution-copy>Beitrag kopieren</button>
+            <button class="resonance-button" type="button" data-contribution-share>Raum teilen</button>
+            <button class="resonance-button" type="button" data-contribution-email>Per E-Mail übermitteln</button>
+            <button class="resonance-button" type="button" data-contribution-practice>Kopieren &amp; praktisch weiterführen</button>
+          </div>
+        </form>
+
+        <aside class="contribution-preview" aria-live="polite">
+          <h2>Strukturierte Vorschau</h2>
+          <div class="preview-paper">
+            <span data-preview-label>Gegenargument</span>
+            <h3 data-preview-title>Beitrag zum Themenraum</h3>
+            <pre data-preview-text>Noch kein Text eingegeben.</pre>
+          </div>
+          <div class="room-disclosure">
+            <strong>Transparenz:</strong> Dieser Themenraum ist eine statische, datensparsame Beteiligungsschicht. Er speichert keinen Beitrag serverseitig. Für eine tatsächliche Veröffentlichung wird der strukturierte Entwurf bewusst an einen gewählten Kommunikations- oder Beteiligungskanal übergeben.
+          </div>
+        </aside>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer"><div class="container footer-bottom"><p>© <span data-year></span> Vote4Gov</p><p><a href="/">Denkwerkstatt</a> · <a href="/quellen.html">Quellen &amp; Methode</a></p></div></footer>
+</body>
+</html>
