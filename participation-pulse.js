@@ -10,22 +10,48 @@
 
   const sessionState = safeParse(sessionStorage.getItem(SESSION_KEY));
   const deviceState = safeParse(localStorage.getItem(DEVICE_KEY));
+  const deviceTopicIds = new Set(Object.keys(deviceState));
   const state = { ...deviceState, ...sessionState };
 
+  const writeDeviceState = () => {
+    try {
+      const deviceOnly = Object.fromEntries([...deviceTopicIds]
+        .filter((topicId) => state[topicId])
+        .map((topicId) => [topicId, state[topicId]]));
+      if (Object.keys(deviceOnly).length) localStorage.setItem(DEVICE_KEY, JSON.stringify(deviceOnly));
+      else localStorage.removeItem(DEVICE_KEY);
+    } catch { /* storage may be unavailable */ }
+  };
+
   const persistSession = () => {
-    try { sessionStorage.setItem(SESSION_KEY, JSON.stringify(state)); } catch { /* storage may be unavailable */ }
+    try {
+      const sessionOnly = Object.fromEntries(Object.entries(state)
+        .filter(([topicId, item]) => !deviceTopicIds.has(topicId) && item && (item.stance || item.remembered)));
+      if (Object.keys(sessionOnly).length) sessionStorage.setItem(SESSION_KEY, JSON.stringify(sessionOnly));
+      else sessionStorage.removeItem(SESSION_KEY);
+    } catch { /* storage may be unavailable */ }
   };
 
   const persistDevice = () => {
-    try {
-      localStorage.setItem(DEVICE_KEY, JSON.stringify(state));
-      sessionStorage.removeItem(SESSION_KEY);
-    } catch { /* storage may be unavailable */ }
+    pending.forEach((_, topicId) => deviceTopicIds.add(topicId));
+    writeDeviceState();
+    persistSession();
   };
 
   const clearTopic = (topicId) => {
     delete state[topicId];
     pending.delete(topicId);
+    deviceTopicIds.delete(topicId);
+    persistSession();
+    writeDeviceState();
+  };
+
+  const makePending = (topicId) => {
+    deviceTopicIds.delete(topicId);
+    writeDeviceState();
+    const current = state[topicId];
+    if (current?.stance || current?.remembered) pending.set(topicId, current);
+    else pending.delete(topicId);
     persistSession();
   };
 
@@ -69,9 +95,16 @@
     });
     const status = widget.querySelector("[data-pulse-status]");
     if (!status) return;
-    if (current.stance === "agree") status.textContent = "Lokal vorgemerkt: Zustimmung. Noch nicht öffentlich gezählt.";
-    else if (current.stance === "disagree") status.textContent = "Lokal vorgemerkt: Widerspruch. Noch nicht öffentlich gezählt.";
-    else if (current.remembered) status.textContent = "Für später auf diesem Gerät vorgemerkt. Noch nicht an eDebatte übertragen.";
+    const savedOnDevice = deviceTopicIds.has(topicId);
+    if (current.stance === "agree") status.textContent = savedOnDevice
+      ? "Auf diesem Gerät gemerkt: Zustimmung. Noch nicht öffentlich gezählt."
+      : "Lokal vorgemerkt: Zustimmung. Noch nicht öffentlich gezählt.";
+    else if (current.stance === "disagree") status.textContent = savedOnDevice
+      ? "Auf diesem Gerät gemerkt: Widerspruch. Noch nicht öffentlich gezählt."
+      : "Lokal vorgemerkt: Widerspruch. Noch nicht öffentlich gezählt.";
+    else if (current.remembered) status.textContent = savedOnDevice
+      ? "Auf diesem Gerät für später gemerkt. Noch nicht an eDebatte übertragen."
+      : "Für diese Sitzung vorgemerkt. Noch nicht an eDebatte übertragen.";
     else status.textContent = "Ihre Auswahl bleibt zunächst nur in diesem Browser und wird nicht als Stimme gezählt.";
   };
 
@@ -103,15 +136,15 @@
 
     const update = (action) => {
       const current = state[topicId] || { topicId, path: window.location.pathname, title, edebateUrl };
-      if (action === "agree" || action === "disagree") {
-        current.stance = current.stance === action ? null : action;
-      }
+      current.topicId = topicId;
+      current.path = window.location.pathname;
+      current.title = title;
+      current.edebateUrl = edebateUrl;
+      if (action === "agree" || action === "disagree") current.stance = current.stance === action ? null : action;
       if (action === "remember") current.remembered = !current.remembered;
       current.updatedAt = new Date().toISOString();
       state[topicId] = current;
-      if (current.stance || current.remembered) pending.set(topicId, current);
-      else pending.delete(topicId);
-      persistSession();
+      makePending(topicId);
       renderState(widget, topicId);
     };
 
@@ -125,7 +158,7 @@
 
     renderState(widget, topicId);
     const existing = state[topicId];
-    if (existing?.stance || existing?.remembered) pending.set(topicId, existing);
+    if ((existing?.stance || existing?.remembered) && !deviceTopicIds.has(topicId)) pending.set(topicId, existing);
     return widget;
   };
 
@@ -156,6 +189,12 @@
       const widget = createWidget({ topicId: "tracking-explicit-consent", title: "Sollte nicht notwendiges Tracking nur nach ausdrücklicher Zustimmung zulässig sein?", edebateUrl: url, compact: true });
       privacy.querySelector(".editorial-privacy-actions")?.insertAdjacentElement("beforebegin", widget);
     }
+  };
+
+  const discardPending = () => {
+    [...pending.keys()].forEach((topicId) => { delete state[topicId]; });
+    pending.clear();
+    persistSession();
   };
 
   const ensureExitDialog = () => {
@@ -189,20 +228,17 @@
     dialog.querySelector("[data-exit-edebate]").addEventListener("click", () => {
       const first = [...pending.values()][0];
       if (first?.edebateUrl) window.open(first.edebateUrl, "_blank", "noopener,noreferrer");
-      pending.clear();
-      Object.keys(state).forEach((key) => { if (state[key]?.stance || state[key]?.remembered) delete state[key]; });
-      persistSession();
+      discardPending();
       continueNavigation();
     });
     dialog.querySelector("[data-exit-remember]").addEventListener("click", () => {
       persistDevice();
       pending.clear();
+      persistSession();
       continueNavigation();
     });
     dialog.querySelector("[data-exit-discard]").addEventListener("click", () => {
-      pending.clear();
-      Object.keys(state).forEach((key) => { if (state[key]?.stance || state[key]?.remembered) delete state[key]; });
-      persistSession();
+      discardPending();
       continueNavigation();
     });
     dialog.addEventListener("cancel", (event) => {
