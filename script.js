@@ -10,6 +10,7 @@ loadStyle("/image-tuning.css?v=20260801-1");
 loadStyle("/accessibility.css?v=20260801-1");
 loadStyle("/brand-shell.css?v=20260802-1");
 loadStyle("/participation-rooms.css?v=20260802-1");
+loadStyle("/qr-handoff.css?v=20260802-1");
 
 const brand = document.querySelector(".site-header .brand");
 if (brand) {
@@ -133,3 +134,8 @@ if ("IntersectionObserver" in window) {
 } else {
   revealItems.forEach((item) => item.classList.add("is-visible"));
 }
+
+const qrHandoffScript = document.createElement("script");
+qrHandoffScript.src = "/qr-handoff.js?v=20260802-1";
+qrHandoffScript.defer = true;
+document.head.appendChild(qrHandoffScript);
