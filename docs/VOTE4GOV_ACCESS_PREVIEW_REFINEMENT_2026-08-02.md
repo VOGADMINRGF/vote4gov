@@ -36,6 +36,17 @@ Nach dem Öffnen des Artikels erscheint ein kompakter Hinweis statt einer fingie
 
 Der noch nicht belastbare Atlas wird auf der ausgelieferten Startseite entfernt beziehungsweise ausgeblendet und aus Navigation sowie Footer entfernt, bis ein eigener wissenschaftlich belegter Atlas-Slice vorliegt.
 
+## Abnahme
+
+- nur eine Artikelvorschau gleichzeitig sichtbar
+- Sprachwechsel aktualisiert Titel und Vorschautext
+- arabische Fassung verwendet RTL
+- kostenlose Fortsetzung ist primäre Handlung
+- Mitgliedschaft wird nicht als Voraussetzung dargestellt
+- medienkritische Auflösung erscheint erst nach der freien Fortsetzung
+- Datenschutzhinweis verlangt keine fingierte Tracking-Einwilligung
+- Atlas ist auf der ausgelieferten Startseite nicht sichtbar
+
 ## Scope
 
 Keine Änderung an eDebatte, VoiceOpenGov oder PR #557. Dieser Pass bleibt ausschließlich in Vote4Gov PR #9.
