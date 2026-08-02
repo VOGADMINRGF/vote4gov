@@ -8,7 +8,7 @@ const loadStyle = (href) => {
 
 loadStyle("/image-tuning.css?v=20260801-1");
 loadStyle("/accessibility.css?v=20260801-1");
-loadStyle("/ecosystem-brand.css?v=20260801-1");
+loadStyle("/brand-shell.css?v=20260802-1");
 
 const brand = document.querySelector(".site-header .brand");
 if (brand) {
@@ -22,34 +22,62 @@ if (brand) {
   `;
 }
 
-const existingFooter = document.querySelector("footer");
-if (existingFooter && !document.querySelector(".ecosystem-footer-band")) {
-  const ecosystem = document.createElement("section");
-  ecosystem.className = "ecosystem-footer-band";
-  ecosystem.setAttribute("aria-labelledby", "ecosystem-heading");
-  ecosystem.innerHTML = `
-    <div class="ecosystem-footer-inner">
-      <p class="ecosystem-kicker">Ein Ökosystem. Vier klare Rollen.</p>
-      <h2 id="ecosystem-heading">Verstehen. Verbinden. Weiterdenken. Orientieren.</h2>
-      <p class="ecosystem-intro">Eigenständige Angebote mit gemeinsamer Designsprache, Transparenz und einer klaren Grenze: eDebatte bleibt offen für alle.</p>
-      <div class="ecosystem-grid">
-        <a class="ecosystem-card" href="https://www.edebatte.org">
-          <span class="ecosystem-role">Verstehen</span><strong class="ecosystem-name">eDebatte</strong><span class="ecosystem-description">Offene Infrastruktur für nachvollziehbare Erkenntnis und Beteiligung.</span>
-        </a>
-        <a class="ecosystem-card" href="https://www.voiceopengov.org">
-          <span class="ecosystem-role">Verbinden</span><strong class="ecosystem-name">VoiceOpenGov</strong><span class="ecosystem-description">Internationale Mitgliederbewegung für nachvollziehbare Entscheidungen.</span>
-        </a>
-        <a class="ecosystem-card is-current" href="https://www.vote4gov.eu" aria-current="page">
-          <span class="ecosystem-role">Weiterdenken</span><strong class="ecosystem-name">Vote4Gov</strong><span class="ecosystem-description">Gesellschaftliche Denkwerkstatt für demokratische Mitbestimmung im digitalen Zeitalter.</span>
-        </a>
-        <a class="ecosystem-card" href="https://www.edebatte.org">
-          <span class="ecosystem-role">Orientieren</span><strong class="ecosystem-name">Voxy</strong><span class="ecosystem-description">Erklärt, strukturiert und verbindet. Entscheidet nicht.</span>
-        </a>
-      </div>
-    </div>
-  `;
-  existingFooter.before(ecosystem);
-}
+const atlasProfiles = {
+  de: {
+    title: "Deutschland",
+    intro: "Das Profil untersucht nicht nur Wahlen, sondern auch die Wege zwischen kommunaler Betroffenheit, föderaler Zuständigkeit und europäischer Mitwirkung.",
+    question: "Wie greifen Bund, Länder, Kommunen und europäische Zuständigkeiten ineinander – und wo kann Beteiligung verständlicher werden?",
+    focus: "politische Ebenen und Rückkopplung",
+    language: "Originalquellen plus mehrsprachige Lesefassung",
+  },
+  ch: {
+    title: "Schweiz",
+    intro: "Das Profil fragt, wie repräsentative Institutionen, föderale Ebenen und direktdemokratische Instrumente im politischen Alltag zusammenspielen.",
+    question: "Welche Voraussetzungen machen wiederkehrende Abstimmungen verständlich, zugänglich und institutionell wirksam?",
+    focus: "Zusammenspiel von Repräsentation und direkter Mitwirkung",
+    language: "mehrsprachige Begriffe im jeweiligen Rechtskontext",
+  },
+  ee: {
+    title: "Estland",
+    intro: "Das Profil betrachtet die Verbindung von digitaler Staatlichkeit, Identität, Vertrauen, öffentlicher Infrastruktur und demokratischer Kontrolle.",
+    question: "Welche technischen und institutionellen Grundlagen braucht digitale Beteiligung, damit Bequemlichkeit nicht auf Kosten von Vertrauen geht?",
+    focus: "digitale Voraussetzungen und öffentliche Kontrolle",
+    language: "Originalquellen, Übersetzungsstatus und Begriffserklärung",
+  },
+  fr: {
+    title: "Frankreich",
+    intro: "Das Profil untersucht das Verhältnis von nationaler Steuerung, regionalen Ebenen, politischer Repräsentation und zusätzlicher Bürgerbeteiligung.",
+    question: "Wie können nationale Entscheidungsfähigkeit und regionale Rückkopplung verbunden werden, ohne Zuständigkeiten zu verwischen?",
+    focus: "Zentralität, Regionen und Beteiligungswege",
+    language: "lokale Fachbegriffe plus verständliche Lesefassung",
+  },
+};
+
+const atlasButtons = document.querySelectorAll("[data-atlas-country]");
+const atlasTitle = document.querySelector("[data-atlas-title]");
+const atlasIntro = document.querySelector("[data-atlas-intro]");
+const atlasQuestion = document.querySelector("[data-atlas-question]");
+const atlasFocus = document.querySelector("[data-atlas-focus]");
+const atlasLanguage = document.querySelector("[data-atlas-language]");
+
+const selectAtlasCountry = (code) => {
+  const profile = atlasProfiles[code];
+  if (!profile) return;
+  if (atlasTitle) atlasTitle.textContent = profile.title;
+  if (atlasIntro) atlasIntro.textContent = profile.intro;
+  if (atlasQuestion) atlasQuestion.textContent = profile.question;
+  if (atlasFocus) atlasFocus.textContent = profile.focus;
+  if (atlasLanguage) atlasLanguage.textContent = profile.language;
+  atlasButtons.forEach((button) => {
+    const active = button.dataset.atlasCountry === code;
+    button.classList.toggle("is-active", active);
+    if (button.matches("button")) button.setAttribute("aria-pressed", String(active));
+  });
+};
+
+atlasButtons.forEach((button) => {
+  button.addEventListener("click", () => selectAtlasCountry(button.dataset.atlasCountry));
+});
 
 const header = document.querySelector("[data-header]");
 const menuButton = document.querySelector("[data-menu-button]");
