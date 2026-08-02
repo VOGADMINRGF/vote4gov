@@ -1,6 +1,6 @@
 # Vote4Gov North Star
 
-**Status:** verbindlicher inhaltlicher und gestalterischer Maßstab  
+**Status:** verbindlicher inhaltlicher, methodischer und gestalterischer Maßstab  
 **Gültig ab:** 2. August 2026  
 **Scope:** ausschließlich Repository `vote4gov`
 
@@ -8,9 +8,12 @@
 
 Vote4Gov ist die gesellschaftliche Denkwerkstatt darüber, wie demokratische Mitbestimmung im digitalen Zeitalter verantwortungsvoll weiterentwickelt werden kann.
 
-VoiceOpenGov ist die internationale Mitgliederbewegung, in der Länderprofile, Regeln, Übersetzungen, Kontrollprinzipien und Pilotverfahren gemeinschaftlich weiterentwickelt werden können.
+- **Vote4Gov** formuliert Fragen und prüfbare Thesen.
+- **VoiceOpenGov** verbindet Menschen aus Ländern und Regionen.
+- **eDebatte** führt den offenen Beteiligungsworkflow vom Beitrag bis zur nachvollziehbaren Wirkung.
+- **Voxy** erklärt und strukturiert, entscheidet aber nicht.
 
-Transparenz, Nachvollziehbarkeit und menschliche Verantwortung sind die verbindenden Grundsätze.
+Keine Ebene besitzt die anderen. Transparenz, Nachvollziehbarkeit und menschliche Verantwortung verbinden das Ökosystem.
 
 ## 2. Was Vote4Gov nicht ist
 
@@ -24,25 +27,21 @@ Vote4Gov ist:
 - keine pauschale Kritik an Demokratie,
 - kein Versprechen einer technisch einfachen Lösung,
 - keine Produktwerbung,
-- keine Wettbewerbsübersicht.
+- kein unfairer Wettbewerbsvergleich.
 
-Vote4Gov fordert nicht Zustimmung. Vote4Gov schafft einen prüfbaren Raum für Fragen, Quellen, Spannungsfelder und mögliche Entwicklungswege.
+Vote4Gov fordert nicht Zustimmung. Vote4Gov öffnet jede tragende Aussage für Quellen, Gegenpositionen, Korrektur und Weiterentwicklung.
 
-## 3. Der Einstieg
+## 3. Einstieg und zentrale These
 
-Die Startseite beginnt mit der gesellschaftlichen Zuspitzung:
+Die Startseite beginnt mit:
 
 > Alle wollen die Demokratie retten. Doch von welcher sprechen wir?
 
-Darauf folgt die Einordnung:
+Darauf folgt:
 
 > Demokratie ist kein weltweit einheitliches Modell.
 
-Die Seite beginnt nicht mit einer Person, einem Produkt oder einer Marke des weiteren Umfelds.
-
-## 4. Zentrale These
-
-Vote4Gov entwickelt den offenen Entwurf einer neuen demokratischen Beteiligungsordnung:
+Der offene Entwurf lautet:
 
 - Wählen bleibt.
 - Beteiligung wächst.
@@ -50,8 +49,30 @@ Vote4Gov entwickelt den offenen Entwurf einer neuen demokratischen Beteiligungso
 - Wissen wird mehrsprachig und grenzüberschreitend verbunden.
 - Vor dem Votum stehen Einordnung, Quellen, Gegenpositionen und Alternativen.
 - Ergebnisse erhalten einen vorher benannten Wirkungsstatus.
-- Grundrechte, Menschenrechte, Gewaltenteilung und unabhängige Kontrolle bleiben Grenzen jeder Mehrheit.
+- Grundrechte, Menschenrechte, Gewaltenteilung und unabhängige Kontrolle begrenzen jede Mehrheit.
 - Das Smartphone ist Zugang, nicht Machtzentrum.
+
+## 4. Öffentliche Anlassräume
+
+Jede zentrale Vote4Gov-These erhält einen eigenen öffentlichen Anlassraum mit dauerhafter URL.
+
+Jeder Raum enthält mindestens:
+
+1. die ausdrücklich gekennzeichnete These,
+2. ihre derzeitige Begründung,
+3. starke Gegenpositionen,
+4. offene Prüfaufträge,
+5. Primär- oder Originalquellen,
+6. sichtbaren Versions- und Arbeitsstand,
+7. direkten Weg für Quellen, Erfahrungen, Alternativen und Widerspruch.
+
+Nach jeder größeren Stellungnahme auf der Startseite folgt eine Einladung in den zugehörigen Anlassraum.
+
+Die Räume gehören redaktionell zu Vote4Gov. Beiträge werden über eDebatte mit `source=vote4gov`, Quell-URL, Thesentitel und Raumkennung in den offenen Beteiligungsworkflow übergeben. Die Übergabe darf den Ausgangsbeitrag nicht heimlich verändern und muss als Wechsel in die praktische Infrastruktur erkennbar bleiben.
+
+Leitsatz:
+
+> Keine These ohne Widerspruch. Keine Beteiligung ohne sichtbare Wirkung.
 
 ## 5. Demokratie-Atlas
 
@@ -70,21 +91,38 @@ Jedes Länderprofil soll enthalten:
 9. verständliche Lesefassungen,
 10. Primärquellen, Übersetzungsstatus und methodische Grenzen.
 
-Der Atlas erstellt kein pauschales Länderranking. Er macht Systeme vergleichbar und Lernmöglichkeiten sichtbar.
+Der Atlas erstellt kein pauschales Länderranking.
 
-## 6. Kritik heutiger Beteiligung
+## 6. Heutige Beteiligung und Beteiligungspass
 
-Die Seite beschreibt fair und präzise, dass digitale Bürgerbeteiligung häufig erst beginnt, nachdem eine Organisation bereits Thema, Fragestellung, Phasen, Regeln und Antwortform festgelegt hat.
+Vote4Gov prüft die These, dass Bürgerbeteiligung häufig innerhalb bereits definierter Themen, Fragen, Phasen und Antwortformen beginnt.
 
-Die Kritik richtet sich nicht gegen einzelne Anbieter oder Projekte. Deshalb werden auf der Hauptseite keine Wettbewerber namentlich genannt.
+Dabei gilt:
 
-Open Source wird ausdrücklich als wichtig für Transparenz, Wiederverwendbarkeit und öffentliche Kontrolle anerkannt. Gleichzeitig gilt:
+- einfache Umfragen werden nicht pauschal abgewertet,
+- Ja/Nein oder Multiple Choice können für klar begrenzte Fragen angemessen sein,
+- Prozentzahlen werden nicht ohne Teilnehmerzahl, Grundgesamtheit, bekannte Lücken und Wirkungsstatus als Bürgerwille ausgegeben,
+- geringe Beteiligung und Selbstselektion bleiben sichtbar.
 
-> Offener Code allein öffnet noch nicht die Agenda.
+Der Beteiligungspass ordnet Ergebnisse mindestens nach **Reichweite, Tiefe, Vielfalt und Wirkung** ein.
 
-Die zentrale Lücke liegt vor der Umfrage: Wie wird aus einem Anliegen in Alltagssprache ein fairer, verständlicher und wirksamer demokratischer Prozess?
+## 7. Offene Civic-Tech-Landschaft
 
-## 7. Bürgerzentrierter Beteiligungskreislauf
+Vote4Gov nennt relevante offene Projekte öffentlich, respektvoll und mit Originalquellen. Decidim, CONSUL Democracy, Polis und weitere Projekte werden nicht als Gegner dargestellt.
+
+Die Einordnung folgt diesen Regeln:
+
+- vorhandene Fähigkeiten werden vollständig anerkannt,
+- kein Projekt wird auf Umfragen reduziert, wenn es Vorschläge, Debatten, Budgets, Initiativen oder Wirkungskontrolle unterstützt,
+- Aussagen beziehen sich auf dokumentierte Funktionen und möglichst auf eine erkennbare Version,
+- die eigene praktische Umsetzung wird nach denselben Kriterien geprüft,
+- Unterschiede werden als Prüfthese, nicht als Marketingbehauptung formuliert.
+
+Die zusätzliche offene Frage lautet:
+
+> Wie wird aus einem Anliegen in Alltagssprache ein verständlicher, quellenoffener, mehrsprachiger und wirksamer demokratischer Prozess?
+
+## 8. Bürgerzentrierter Beteiligungskreislauf
 
 Der angestrebte Weg lautet:
 
@@ -96,49 +134,68 @@ Der angestrebte Weg lautet:
 6. passendes Beteiligungsformat bestimmen,
 7. Entscheidung, Reaktion, Umsetzung und Wirkung verfolgen.
 
-Der Mensch muss nicht zuerst das Verfahren kennen. Das Verfahren muss den Menschen verständlich aufnehmen und befähigen, selbst zu entscheiden.
+Automatische Einordnung bleibt ein korrigierbarer Vorschlag. Original, Änderungen, Unsicherheiten und menschliche Verantwortung bleiben sichtbar.
 
-## 8. Beteiligungspass
+## 9. Grenzenübergreifende Beteiligung
 
-Prozentzahlen werden nie ohne Kontext als Bürgerwille ausgegeben.
+Regionale Anliegen können über Sprachen und Grenzen hinweg vergleichbar werden. Dabei werden drei Ebenen getrennt:
 
-Ergebnisse sollen mindestens nach vier Dimensionen eingeordnet werden:
+- gemeinsamer Lernraum,
+- politisches oder institutionelles Mandat,
+- rechtsverbindliche Entscheidung.
 
-- **Reichweite:** Wer wurde erreicht?
-- **Tiefe:** Welche Informationen und Gegenpositionen konnten geprüft werden?
-- **Vielfalt:** Welche Regionen oder Gruppen fehlen erkennbar?
-- **Wirkung:** Was folgt institutionell oder praktisch aus dem Ergebnis?
+Grenzüberschreitender Vergleich ersetzt keine Zuständigkeit und keine demokratische Legitimation.
 
-Geringe Beteiligung, erkennbare Verzerrungen und methodische Grenzen werden nicht verborgen.
+## 10. Partei oder offener demokratischer Raum
 
-## 9. Öffentliche Markenregel
+Vote4Gov behandelt Parteien weder als überholt noch als alternativlos.
 
-Auf der inhaltlichen Hauptseite gilt:
+Verbindliche Einordnung:
 
-- keine namentliche Nennung von Wettbewerbern,
-- keine namentliche Bewerbung einer konkreten technischen Umsetzung,
-- keine Formulierung wie „unsere Lösung ist alternativlos“,
-- keine Abwertung bestehender offener Beteiligungswerkzeuge,
-- Funktionen, demokratische Anforderungen und überprüfbare Maßstäbe stehen im Vordergrund.
+- Parteien sind nach deutschem Verfassungsrecht ein notwendiger Bestandteil der freiheitlichen demokratischen Grundordnung,
+- sie eröffnen Zugang zu Kandidaturen, Listen, Parlamenten und staatlicher Willensbildung,
+- sie unterliegen demokratischer innerer Ordnung, Satzung, Programm, Organen und finanzieller Rechenschaft,
+- interne Mehrheiten, Listenaufstellung, Wahlzyklen, Abgrenzung und mögliche Koalitionen können die Freiheit von Thema zu Thema strukturell begrenzen; dies wird als politische Folgerung und nicht als gesetzliche Untersagung gekennzeichnet,
+- parteilose Einzelkandidaturen und andere Organisationsformen werden mit ihren realen Möglichkeiten und Grenzen dargestellt.
 
-Vote4Gov argumentiert nicht für eine Marke. Vote4Gov veröffentlicht Anforderungen, an denen sich jede demokratische Beteiligungsinfrastruktur messen lassen muss – auch eine später praktisch erprobte.
+Leitthese:
 
-## 10. Inhaltliche Kernfelder
+> Nicht zuerst eine neue Partei. Zuerst ein offener demokratischer Raum, der keiner Wahlorganisation gehört.
 
-Vote4Gov untersucht:
+Ein späteres Wahlvehikel darf nur mit erkennbarem demokratischem Mandat entstehen und muss rechtlich, finanziell und organisatorisch von der offenen Beteiligungsinfrastruktur getrennt bleiben.
 
-1. historische und rechtliche Grundlagen demokratischer Teilhabe,
-2. Unterschiede demokratischer Systeme weltweit,
-3. Stärken repräsentativer Systeme,
-4. Grenzen punktueller Meinungsabfragen,
-5. Beteiligung zwischen Wahlen,
-6. regionale und grenzüberschreitende Themenräume,
-7. Chancen und Risiken digitaler Beteiligung,
-8. Auswirkungen von KI auf Öffentlichkeit, Wissen und Entscheidung,
-9. Transparenz, Verantwortlichkeit, Rückkopplung und Auditierbarkeit,
-10. internationale Modelle, Forschung, Gegenpositionen und offene Fragen.
+## 11. Schutzarchitektur
 
-## 11. Tonalität
+Direkte digitale Beteiligung wird nicht mit einem gewöhnlichen Abstimmungsbutton gleichgesetzt.
+
+Je nach Wirkung sind Schutzstufen erforderlich für:
+
+- Identität und Berechtigung,
+- Geheimhaltung und Nachprüfbarkeit,
+- Manipulations- und Kampagnentransparenz,
+- Grund- und Minderheitenrechte,
+- Barrierefreiheit und analoge Alternativen,
+- Übersetzung und KI-Einsatz,
+- unabhängige Prüfung und Anfechtung.
+
+Nicht jede Beratung benötigt das Sicherheitsniveau einer rechtsverbindlichen Wahl. Wirkung und Schutzstufe müssen zusammenpassen.
+
+## 12. Quellenphilosophie
+
+Jede tragende Aussage wird möglichst mit Primärquelle, internationalem Standard, offizieller Dokumentation oder belastbarer Forschung verknüpft.
+
+Öffentlich sichtbar bleiben:
+
+- Quelle und Datum,
+- Einordnung,
+- These,
+- Gegenposition,
+- Korrektur,
+- Übersetzungsstatus,
+- methodische Grenze,
+- Arbeits- und Versionsstand.
+
+## 13. Tonalität
 
 Die Sprache ist:
 
@@ -147,73 +204,39 @@ Die Sprache ist:
 - emotional ohne Polemik,
 - präzise ohne Scheinsicherheit,
 - offen für Gegenargumente,
-- frei von parteipolitischer Positionierung,
 - frei von pauschaler Abwertung politischer Rollen oder Institutionen,
 - befähigend statt belehrend.
 
-## 12. Quellenphilosophie
+Begriffe wie „alte Strukturen“ werden nicht als Beweis verwendet. Gesetzliche Pflichten, politische Anreize und persönliche Wertungen werden getrennt.
 
-Jede tragende Aussage wird möglichst mit einer Primärquelle, einem internationalen Standard oder belastbarer Forschung verknüpft.
-
-Öffentlich sichtbar bleiben:
-
-- Quelle,
-- Datum,
-- Einordnung,
-- offene Frage,
-- mögliche Gegenposition,
-- Korrektur,
-- Übersetzungsstatus,
-- methodische Grenze.
-
-## 13. Designsystem
+## 14. Designsystem
 
 Vote4Gov verwendet die gemeinsame visuelle DNA:
 
-- dunkler Hintergrund auf Basis von Slate 950,
+- Slate-950-Grundfläche,
 - Blau `#1a8cff` und Türkis `#18cfc8`,
 - System-/Tailwind-Sans-Typografie,
 - abgerundete Panels,
 - klare Fokuszustände,
 - reduzierte Motion,
-- native, barrierearme Interaktionen,
-- `prefers-reduced-motion`,
-- semantische Überschriften und Skip-Link.
+- semantische Überschriften und Skip-Link,
+- responsive Navigation,
+- barrierearme native Interaktionen.
 
-## 14. Seitenarchitektur
+Anlassräume sind als zusammengehörige Familie erkennbar, besitzen aber eine eigene Raumlogik mit These, Gegenposition, Prüfauftrag und Beitragshandoff.
 
-1. gesellschaftliche Zuspitzung,
-2. Demokratie-Atlas,
-3. Grenzen heutiger Bürgerbeteiligung,
-4. faire Einordnung offener digitaler Werkzeuge,
-5. neue demokratische Beteiligungsordnung,
-6. regionaler und mehrsprachiger Beteiligungskreislauf,
-7. Beteiligungspass,
-8. grenzüberschreitende Lernräume,
-9. schwierige Gegenfragen,
-10. Quellen- und Methodenbereich,
-11. Einladung zur gemeinschaftlichen Weiterentwicklung,
-12. zurückhaltender Verweis auf die Entstehungsgeschichte.
-
-## 15. Persönliche Inhalte
-
-Die bisherige persönliche Seite wird nicht gelöscht. Sie bleibt unter `/hinter-der-idee.html` erhalten und kann später in einen passenden Initiatorbereich der Bewegung übertragen werden.
-
-Auf der Vote4Gov-Startseite erscheint keine persönliche Bewerbung, kein Lebenslauf und keine Kandidatur.
-
-## 16. Qualitätsprüfung
+## 15. Qualitätsprüfung
 
 Vor jeder Veröffentlichung ist zu prüfen:
 
-1. Beginnt die Seite mit der gesellschaftlichen Frage statt mit einer Person oder einem Produkt?
-2. Erklärt sie, dass Demokratie weltweit unterschiedliche Formen besitzt?
-3. Unterscheidet sie Beteiligung von bloßer Umfrage?
-4. Zeigt sie den Weg vom regionalen Anliegen bis zur Wirkung?
-5. Trennt sie Quelle, Einordnung und offene Frage?
-6. Zeigt sie Chancen und Risiken ausgewogen?
-7. Vermeidet sie Wettbewerbernamen und Produktwerbung?
-8. Anerkennt sie Open Source fair, ohne Offenheit des Codes mit Offenheit der Agenda gleichzusetzen?
-9. Bleiben Grundrechte, Minderheitenschutz und unabhängige Kontrolle sichtbar?
-10. Entspricht das Design der gemeinsamen visuellen DNA?
-11. Sind Navigation, Fokuszustände, Motion und Inhalt barrierearm?
-12. Hilft die Änderung Menschen beim Denken – nicht nur beim Zustimmen?
+1. Beginnt die Seite mit einer gesellschaftlichen Frage statt mit einer Person oder einem Produkt?
+2. Ist eine Stellungnahme als These und nicht als neutrale Tatsache erkennbar?
+3. Führt jede zentrale These in einen eigenen Anlassraum?
+4. Sind starke Gegenpositionen sichtbar?
+5. Sind Open-Source-Projekte fair und quellenbasiert beschrieben?
+6. Wird die eigene Umsetzung nach demselben Maßstab geprüft?
+7. Werden rechtliche Fakten und politische Folgerungen getrennt?
+8. Bleiben Grundrechte, Minderheitenschutz und unabhängige Kontrolle sichtbar?
+9. Ist der Übergang von Vote4Gov zu eDebatte transparent und technisch kontextreich?
+10. Sind Navigation, Fokus, Mobile, reduzierte Bewegung und Inhalte barrierearm?
+11. Hilft die Änderung Menschen beim Prüfen und Mitentwickeln – nicht nur beim Zustimmen?
