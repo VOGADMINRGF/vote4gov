@@ -1,335 +1,282 @@
 # Vote4Gov North Star
 
-**Status:** verbindlicher inhaltlicher, wissenschaftlich-redaktioneller und gestalterischer Maßstab  
+**Status:** verbindlicher Produkt-, Redaktions- und Methodenvertrag  
 **Gültig ab:** 2. August 2026  
-**Scope:** ausschließlich Repository `vote4gov`
+**Scope:** Repository `vote4gov`
 
 ## 1. Rolle
 
-Vote4Gov ist die weltweit ausgerichtete, quellenoffene Untersuchung der Geschichte, Gegenwart und verantwortlichen Weiterentwicklung demokratischer Systeme.
+Vote4Gov ist die wissenschaftlich-redaktionelle Begründungs- und Reflexionsebene des Ökosystems.
 
-Vote4Gov ist die öffentliche Begründungs- und Reflexionsebene des Ökosystems:
+Vote4Gov untersucht weltweit:
 
-- **Vote4Gov** untersucht historische Entwicklungen, internationale Systeme, institutionelle Leistungen, wiederkehrende Missstände und prüfbare Thesen.
-- **VoiceOpenGov** ist die Mitgliederbewegung. Ihre 50 Grundfragen beschreiben das demokratische Fundament der Bewegung.
-- **eDebatte** ist der autarke Systemkern für Wissen, Gegenpositionen, Dossiers, Runden, Abstimmungen, Beteiligungspässe, Ergebnisse und Wirkung.
-- **Voxy** unterstützt Erklärung, Übersetzung, Strukturierung und später sprachbasierte Bedienung. Voxy entscheidet nicht.
+- wie demokratische Selbstregierung historisch entstand,
+- welche Leistungen Repräsentation, Grundrechte, Gewaltenteilung und öffentliche Kontrolle erbracht haben,
+- welche Gruppen und Perspektiven historisch ausgeschlossen blieben,
+- wie unterschiedliche demokratische Systeme heute funktionieren,
+- wo institutionelle, mediale und ökonomische Anreize demokratische Rückbindung begrenzen,
+- welche zusätzliche demokratische Infrastruktur im 21. Jahrhundert möglich und verantwortbar ist.
 
-Leitformel:
+Vote4Gov ist keine neutrale Autorität. Es formuliert überprüfbare Thesen und legt Quellen, Gegenpositionen, Unsicherheiten und eigene Schlussfolgerungen offen.
 
-> Vote4Gov zeigt, wo demokratische Systeme an Grenzen stoßen. VoiceOpenGov entwickelt ein gemeinsames Fundament. eDebatte führt den demokratischen Prozess.
+## 2. Leitfrage
 
-## 2. Wissenschaftlicher Anspruch
+Der öffentliche Aufhänger lautet:
 
-„Unangreifbar“ bedeutet nicht, absolute Gewissheit zu behaupten. Der verbindliche Anspruch lautet:
+> Alle wollen die Demokratie retten. Aber welche eigentlich?
 
-- methodisch transparent,
-- international ausgewogen,
-- historisch kontextualisiert,
-- quellenfest,
-- offen für die stärkste Gegenposition,
-- sichtbar korrigierbar,
-- frei von Scheinneutralität.
+Die historische Folgefrage lautet:
 
-Jede tragende Darstellung trennt:
+> Von den Ursprüngen demokratischer Selbstregierung bis zum 21. Jahrhundert: Was wurde erkämpft, was ist geblieben und welche Institutionen sind mit der digitalen Gesellschaft nicht mitgewachsen?
 
-1. dokumentierte Tatsache,
-2. empirischen Befund,
-3. wissenschaftliche Interpretation,
-4. strittige These,
-5. Vote4Gov-Schlussfolgerung,
-6. offene Forschungsfrage.
+Die zentrale Arbeitsthese lautet:
 
-## 3. Was Vote4Gov nicht ist
+> Repräsentation bleibt. Demokratische Abhängigkeit von Repräsentation nicht.
 
-Vote4Gov ist:
+Diese These ist keine Forderung nach Abschaffung von Parlamenten, Parteien, Verwaltungen oder Gerichten. Sie eröffnet die Prüfung zusätzlicher, rechtsstaatlich gebundener Rückkanäle zwischen Wahlen.
 
-- keine Kandidatenhomepage,
-- keine Partei- oder Wahlkampfseite,
-- keine Wahlempfehlung,
-- kein geschlossenes politisches Programm,
-- kein tägliches Nachrichtenmedium,
-- kein Skandalarchiv,
-- kein persönlicher Abrechnungsraum,
-- keine zweite Community,
-- keine eigene Beteiligungs- oder Abstimmungsplattform,
-- kein Eigentümer von VoiceOpenGov oder eDebatte,
-- kein Marketingvergleich, der andere Civic-Tech-Systeme verkürzt.
+## 3. Ökosystemrollen
 
-Vote4Gov darf wie eine internationale Zeitung oder ein hochwertiges Online-Magazin gestaltet sein. Es darf aber nicht zu einem parallelen redaktionellen Großbetrieb ohne Bezug zur Kernfrage anwachsen.
+- **Vote4Gov** untersucht, belegt und formuliert Thesen.
+- **VoiceOpenGov** ist die internationale Mitgliederbewegung. Ihre 50 Grundfragen bilden das Fundament der gemeinsamen Arbeit.
+- **eDebatte** ist das autarke System für allgemeine und VOG-bezogene Themen: Anliegen, Quellen, Gegenpositionen, Dossiers, Runden, Abstimmungen, Ergebnisse und Wirkung.
+- **Voxy** erklärt, strukturiert und unterstützt sprachbasierten Zugang. Voxy entscheidet und veröffentlicht nicht autonom.
 
-Jeder Artikel muss mindestens eine dieser Fragen beantworten:
+Diskussion und Abstimmung finden ausschließlich bei eDebatte statt.
 
-1. Welche strukturelle demokratische Lücke wird sichtbar?
-2. Warum genügt das heutige Beteiligungsangebot hier nicht?
-3. Welche Rolle können VoiceOpenGov oder eDebatte nachvollziehbar übernehmen?
+Vote4Gov besitzt:
 
-## 4. Redaktionelle Erscheinungsform
+- keine eigene Community,
+- keine eigenen Kommentare,
+- keine eigenen Abstimmungen,
+- keine eigenen Anlassräume,
+- keine parallele Beitrags- oder Ergebnisdatenbank.
 
-Vote4Gov verwendet eine wissenschaftlich-redaktionelle Journalstruktur:
+## 4. Zeitung als Darstellungsform, nicht als neues Medienunternehmen
 
-- Titelseite mit Leitartikel und Ressorts,
-- einzelne zitierfähige Essays und Dossiers,
-- Geschichte der Demokratie,
-- Demokratien der Welt,
-- wiederkehrende Systemfragen,
-- demokratische Alternativen,
-- offene Civic-Tech-Landschaft,
-- Quellen- und Methodenregister,
-- Media- und Podcast-Desk.
+Vote4Gov verwendet ein modernes, hochwertiges Zeitungs- und Magazindesign im gemeinsamen Blau-/Türkis-Ökosystem.
 
-Die Gestaltung nutzt die gemeinsame CI mit Blau und Türkis, verbindet sie aber mit einer hochwertigen Zeitungs- und Journaltypografie.
+Ziel der Gestaltung:
 
-„Magazin“ ist die Darstellungsform. Vote4Gov baut keine tägliche Nachrichtenredaktion auf.
+- wissenschaftliche Tiefe sichtbar machen,
+- komplexe Themen für Menschen ohne Fachsprache zugänglich machen,
+- einzelne Dossiers zitierbar und teilbar machen,
+- Online-Magazinen, Podcasts, Newslettern und Bildungsangeboten eine direkte Integration ermöglichen.
 
-## 5. Geschichte der Demokratie
+Vote4Gov wird nicht zu einer täglichen Nachrichtenredaktion.
 
-Die Geschichte wird nicht als gerade westliche Erfolgserzählung von der Antike zur heutigen repräsentativen Demokratie dargestellt.
+Nicht vorgesehen sind:
 
-Die Arbeit trennt mindestens:
+- Reaktion auf jede politische Schlagzeile,
+- Skandal- oder Personenranglisten,
+- parteipolitische Kampagnen,
+- ein eigener Nachrichtenfeed ohne Bezug zur demokratischen Leitfrage,
+- Konkurrenz zu freiem Journalismus.
 
-- Versammlungs- und Ratsformen,
-- tatsächlichen Zugang zu politischer Entscheidung,
-- Begrenzung von Herrschaft,
-- Entwicklung von Repräsentation,
-- Ausweitung politischer und sozialer Rechte,
-- Grund- und Menschenrechte,
-- Verfassungsgerichtsbarkeit und Gewaltenteilung,
-- politische Parteien und Parlamente,
-- direkte, partizipative und deliberative Verfahren,
-- digitale politische Öffentlichkeit.
+Jeder Beitrag muss erklären, welche demokratische Strukturfrage sichtbar wird und warum sie für VoiceOpenGov oder eDebatte relevant ist.
 
-Jede historische Auswahl weist regionale, zeitliche und quellenbezogene Grenzen aus. Nichtwestliche Perspektiven werden nicht als dekorative Ergänzung, sondern als eigener Forschungsbedarf behandelt.
+## 5. Historischer Standard
 
-## 6. Demokratien der Welt
+Demokratie wird nicht als lineare westliche Erfolgsgeschichte erzählt.
 
-Der Vote4Gov-Atlas erstellt kein pauschales Länderranking.
+Jede historische Darstellung berücksichtigt, soweit sachlich relevant:
 
-Jedes Länderprofil soll unterscheiden:
+- frühe Versammlungs- und Ratsformen in unterschiedlichen Gesellschaften,
+- Verfassungs- und Republikanismusgeschichte,
+- Repräsentation und politische Arbeitsteilung,
+- Entwicklung von Grundrechten, Gerichten und Gewaltenteilung,
+- Arbeiter-, Frauen-, Bürgerrechts- und antikoloniale Bewegungen,
+- Dekolonisierung und Ausweitung politischer Gleichheit,
+- Medienentwicklung und demokratische Öffentlichkeit,
+- Brüche, Rückschritte und autoritäre Gegenbewegungen,
+- die digitale Veränderung von Kommunikation und Wissen.
 
-1. historische Entwicklung,
-2. formale Verfassungs- und Regierungsordnung,
-3. Wahlordnung und Repräsentation,
-4. Rechte und Rechtsstaatlichkeit,
-5. politische Ebenen und Zuständigkeiten,
-6. direkte und partizipative Instrumente,
-7. digitale Verfahren,
-8. gelebte Praxis,
+Personen können als historische Akteure genannt werden. Gegenwärtige Missstände werden primär anhand von Institutionen, Verfahren, Anreizen und dokumentierten Entscheidungen analysiert.
+
+## 6. Weltweiter Vergleich
+
+Der Demokratie-Atlas erstellt kein pauschales Länderranking.
+
+Jedes Länderprofil trennt mindestens:
+
+1. formale Verfassungsordnung,
+2. gelebte politische Praxis,
+3. historische Entwicklung,
+4. Wahlordnung und Repräsentation,
+5. direktdemokratische und deliberative Instrumente,
+6. kommunale, regionale und föderale Ebenen,
+7. Medien- und Informationsordnung,
+8. digitale Beteiligung und staatliche Infrastruktur,
 9. lokale Begriffe und Originalsprache,
-10. Daten- und Übersetzungsgrenzen,
-11. Primärquellen,
-12. lokaler Prüfstatus.
+10. Primärquellen, Datenlücken und methodische Grenzen.
 
 Ein System wird nicht danach bewertet, wie ähnlich es Deutschland ist.
 
-## 7. Missstände und Systemkritik
+## 7. Digitale Zeitenwende
 
-Vote4Gov bleibt kritisch gegenüber heute angebotenen demokratischen Systemen, insbesondere gegenüber der nahezu vollständigen Delegation demokratischer Verantwortung an politische Repräsentanten.
+Vote4Gov untersucht die Spannung zwischen dauerhaft digitaler Gesellschaft und periodischer demokratischer Rückbindung.
 
-Professionelle Leitthese:
+Verbindliche Einordnung:
 
-> Repräsentative Demokratie bleibt notwendig. Demokratische Abhängigkeit von nahezu ausschließlicher Repräsentation ist es nicht.
+- digitale Technik schafft keine demokratische Qualität von selbst,
+- mehr Klicks sind keine belastbare Beteiligung,
+- technische Machbarkeit ersetzt weder Grundrechte noch Repräsentativität, Expertise und unabhängige Kontrolle,
+- digitale Kommunikation verringert jedoch einen Teil der historischen technischen Gründe für seltene Rückbindung,
+- die institutionelle Antwort darf nicht in Dauerabstimmung über alles bestehen,
+- Wirkungsstufe und Schutzstufe müssen zusammenpassen.
 
-Missstände werden nach wiederkehrenden Mustern untersucht:
+## 8. Doppelstrukturen und öffentliche Verantwortung
 
-- Rückbindung zwischen Wahlen,
-- politische Gesamtpakete statt differenzierter Sachentscheidungen,
-- Verantwortung zwischen Institutionen,
-- kurzfristige politische und mediale Zyklen,
-- Beteiligung ohne erkennbare Wirkung,
-- nationale Verfahren bei grenzüberschreitenden Folgen,
-- ungleicher politischer Zugang,
-- fehlende Nachvollziehbarkeit von Interessen und Entscheidungen,
-- digitale Öffentlichkeit ohne ausreichende demokratische Kontrolle.
+Vote4Gov bewertet mehrere Ebenen nicht pauschal als Verschwendung.
 
-Keine persönliche Abrechnung. Institutionen, Entscheidungen, Zuständigkeiten, Zeitpunkte und dokumentierte Folgen bleiben dennoch konkret.
+Föderalismus, Gewaltenteilung, unabhängige Kontrolle, fachliche Spezialisierung und Redundanz können demokratisch notwendig sein.
 
-Personennamen werden nur verwendet, wenn ihre individuelle historische oder institutionelle Rolle für das Verständnis unverzichtbar ist.
+Doppel- und Mehrfachstrukturen werden nach vier Fragen geprüft:
 
-## 8. Verbindliche Artikelstruktur
+1. Welche Schutzfunktion erfüllen sie?
+2. Warum ist die zusätzliche Ebene notwendig?
+3. Welcher messbare oder nachvollziehbare Zusatznutzen entsteht?
+4. Wer bleibt für das Gesamtergebnis verantwortlich?
 
-Jeder größere Artikel enthält:
+Effizienz ist ein Kriterium, aber nicht das einzige. Rechte, Nähe, Resilienz, Qualität und Kontrollfähigkeit gehören in dieselbe Bilanz.
 
-1. Forschungs- oder Ausgangsfrage,
-2. historischen und institutionellen Kontext,
-3. internationale oder systemische Einordnung,
-4. dokumentierte Befunde,
-5. strukturelles Problem,
-6. stärkste Gegenposition,
-7. Vote4Gov-These,
-8. bekannte methodische Grenze,
-9. Quellen und Versionsstand,
-10. direkten Weg zur gesellschaftlichen Prüfung bei eDebatte.
+## 9. Medien und demokratische Öffentlichkeit
 
-Vote4Gov sammelt selbst keine Kommentare, Beiträge oder Stimmen.
+Vote4Gov behandelt freie, unabhängige, pluralistische und professionelle Medien als demokratische Infrastruktur.
 
-## 9. eDebatte-Routing
+Die Medienanalyse richtet sich nicht gegen Journalisten oder Redaktionen.
 
-Alle Diskussionen, Korrekturen mit gesellschaftlichem Inhalt und Abstimmungen finden ausschließlich bei eDebatte statt.
+Untersucht werden:
 
-Vote4Gov kann:
+- Entwicklung von Presse, Rundfunk, Fernsehen und Plattformöffentlichkeit,
+- wirtschaftliche und technische Bedingungen von Reichweite,
+- Geschwindigkeit, Aktualität und algorithmische Sichtbarkeit,
+- Zerfall von Themen über mehrere Nachrichtenzyklen,
+- Chancen eines dauerhaften, quellenoffenen demokratischen Gedächtnisses.
 
-- auf Quellenlagen bei eDebatte verweisen,
-- eine These mit Herkunftsmetadaten an eDebatte übergeben,
-- direkte eDebatte-Links und QR-Codes anzeigen,
-- den vollständigen eDebatte-Prozess verlinken.
+Leitsatz:
 
-Vote4Gov darf nicht:
+> Gemeinsame Evidenz bedeutet nicht gemeinsame Meinung.
 
-- eigene Anlassräume betreiben,
-- eigene Formulare für gesellschaftliche Beiträge speichern,
-- eigene Abstimmungen oder Programmentscheidungen erzeugen,
-- den eDebatte-Prozess spiegeln und dadurch eine zweite Wahrheit schaffen.
+Redaktionen behalten ihre vollständige Unabhängigkeit. Ein gemeinsamer Evidenzraum hält Primärquellen, unterschiedliche Einordnungen, Gegenpositionen, Korrekturen und spätere Wirkung auffindbar.
 
-Alte Vote4Gov-Anlassraum-URLs werden zu eDebatte umgeleitet.
+## 10. Offene Civic Tech
 
-## 10. VoiceOpenGov und die 50 Grundfragen
+Vote4Gov veröffentlicht kein Wettbewerberranking.
 
-Die 50 VoiceOpenGov-Grundfragen beschreiben das Fundament der Bewegung, nicht beliebige Tagespolitik.
+Offene Civic-Tech-Projekte werden als wichtige demokratische Vorarbeit anerkannt. Ihre dokumentierten Leistungen werden nicht verkürzt.
 
-Sie werden im VOG-bezogenen Bereich des eDebatte-Kosmos beraten und abgestimmt.
+Die öffentliche Einordnung konzentriert sich auf die Strukturfrage:
 
-Beiträge von VOG-Mitgliedern werden nach Inhalt geroutet:
+- Viele reale Einsätze beginnen innerhalb eines von Kommunen, Städten, Regionen oder anderen Institutionen eröffneten und konfigurierten Verfahrens.
+- Diese institutionelle Einbettung schafft Zuständigkeit und mögliche Wirkung.
+- Offen bleibt häufig der Weg vor dem Verfahren und die durchgängige Nachverfolgung danach.
 
-- **VOG-bezogen:** in den VOG-Anlassraum beziehungsweise die passende VOG-Grundfrage bei eDebatte,
-- **allgemein gesellschaftlich:** in den öffentlichen eDebatte-Kosmos.
+Der zusätzliche eDebatte-Anspruch lautet:
 
-VoiceOpenGov darf Ergebnisse, neue Programmstände, Quellen und Fortschritte sichtbar feiern und bewerben. eDebatte bleibt dennoch autark und veröffentlicht eigene Prozesse und Ergebnisse selbst.
+> Eine mobile-first Anwendung verbindet Anliegen, Zuständigkeit, Evidenzen, Gegenpositionen, passende Beteiligungsform und spätere Wirkung.
 
-## 11. Offene Civic-Tech-Landschaft
+Dieser Anspruch wird nicht als vollständig erreicht dargestellt.
 
-Vote4Gov nennt relevante offene Projekte öffentlich, respektvoll und mit offiziellen Dokumentationen.
+## 11. Produktstatus
 
-Mindestens berücksichtigt werden:
+Jede eDebatte- oder Voxy-Fähigkeit erhält einen sichtbaren Status:
 
-- Decidim,
-- CONSUL Democracy,
-- Polis,
-- eDebatte als eigene praktische Erprobung.
+- **produktiv**
+- **Pilot**
+- **Alpha**
+- **geplant**
 
-Regeln:
+Konzeptdokumente, Mock-ups und Verträge sind keine produktiven Funktionen.
 
-- dokumentierte Fähigkeiten werden vollständig anerkannt,
-- kein Projekt wird auf Umfragen reduziert,
-- die eigene Umsetzung wird nach demselben Maßstab geprüft,
-- Produktstatus wird als **produktiv**, **Pilot**, **Alpha** oder **geplant** gekennzeichnet,
-- „nicht in der geprüften Dokumentation gefunden“ bedeutet nicht automatisch „nicht vorhanden“,
-- Version, Prüftag und Quelle bleiben sichtbar,
-- Korrekturen erhalten einen nachvollziehbaren neuen Versionsstand.
+## 12. Wissenschaftlich-redaktionelles Artikelschema
 
-Faire Differenzierung:
+Jeder tragende Beitrag enthält:
 
-> Bestehende Systeme öffnen leistungsfähige Beteiligungsräume. eDebatte will zusätzlich den Weg in den passenden Beteiligungsraum öffnen und seine spätere Wirkung verfolgen.
+1. Forschungs- oder Leitfrage,
+2. verständliche Kernaussage,
+3. historischen und institutionellen Kontext,
+4. Primärquellen und belastbare Forschung,
+5. empirischen Befund oder klar gekennzeichnete Datenlücke,
+6. strukturelle Interpretation,
+7. stärkste Gegenposition,
+8. Vote4Gov-Schlussfolgerung,
+9. Versionsstand und Korrekturweg,
+10. eDebatte-Handoff, sofern eine gesellschaftliche Prüfung sinnvoll ist.
 
-## 12. Voice als Produkt- und Mitgliedschaftsebene
+Fachbegriffe werden erklärt. Komplexität wird nicht durch Scheinsicherheit ersetzt.
 
-Die technische Voice-Fähigkeit entsteht im eDebatte-Kern. VoiceOpenGov macht daraus eine personalisierte Mitgliedschaftsleistung.
+## 13. Quellenhierarchie
 
-Grundlegende Zugänglichkeit bleibt allgemein verfügbar:
+Bevorzugte Reihenfolge:
 
-- Vorlesen,
-- Diktieren,
-- sprachgesteuerte Navigation,
-- einfache Übersetzung,
-- zentrale Audiozusammenfassungen.
+1. Verfassungen, Gesetze, Gerichts- und Parlamentsdokumente,
+2. offizielle Daten und Wahlstatistiken,
+3. internationale Organisationen und öffentliche Forschungsinstitutionen,
+4. peer-reviewte Forschung und anerkannte wissenschaftliche Werke,
+5. seriöse journalistische Rekonstruktionen,
+6. Akteurs- und Interessenquellen mit sichtbarer Kennzeichnung.
 
-VOG-Mitgliedschaft kann umfassen:
+## 14. Media & Podcast Desk
 
-- persönliche Audio-Updates,
-- „Was hat sich seit meinem letzten Besuch verändert?“,
-- gespeicherte Themen und Regionen,
-- proaktive Hinweise,
-- mehrsprachige Briefings,
-- höhere Nutzungs- und Personalisierungskontingente.
-
-Diese Trennung ist für Pricing, Kostenmodell und Alpha-Planung relevant.
-
-## 13. Media- und Podcast-Desk
-
-Vote4Gov soll so hochwertig und modular publizieren, dass Online-Magazine, Podcasts, Newsletter und Bildungsangebote Inhalte integrieren möchten.
-
-Zulässige Module:
+Vote4Gov stellt für externe Medien bereit:
 
 - zitierfähige Kurzthesen,
 - Quellenpakete,
-- Gegenpositionskarten,
+- stärkste Gegenpositionen,
+- Zeitlinien,
 - Podcast-Briefings,
 - datensparsame Embed-Karten,
-- nachvollziehbarer Versionsstand,
-- Link zum vollständigen Artikel und eDebatte-Prüfstand.
+- Link zum vollständigen Kontext und eDebatte-Prüfstand.
 
-Einbettungen enthalten:
+Einbettungen enthalten keine Werbung und kein eigenes Nutzertracking.
 
-- keine Werbung,
-- keine Cookies,
-- kein eigenes Nutzertracking,
-- sichtbare Herkunft,
-- Quellen- und Kontextlink.
+Weiterverwendung erfordert sichtbare Herkunft, Link und Versionsstand. Vote4Gov darf nicht als Zustimmung zu einer fremden redaktionellen Aussage dargestellt werden.
 
-Weiterverwendung darf keine Unterstützung fremder redaktioneller Aussagen durch Vote4Gov suggerieren.
-
-## 14. Quellenhierarchie
-
-Bevorzugt werden:
-
-1. Verfassungen, Gesetze, Gerichtsentscheidungen und Parlamentsdokumente,
-2. offizielle Wahl-, Verwaltungs- und Beteiligungsdaten,
-3. internationale Organisationen und öffentliche Forschungsinstitutionen,
-4. peer-reviewte Forschung,
-5. anerkannte historische und politikwissenschaftliche Standardwerke,
-6. seriöse journalistische Rekonstruktionen, wenn Primärquellen nicht ausreichen.
-
-Parteien, Kampagnen, Interessenverbände und Unternehmensmaterialien können als Quellen ihrer eigenen Position dienen, aber nicht ohne Kennzeichnung als neutrale Autorität.
-
-## 15. Schutzarchitektur
-
-Digitale Beteiligung ist nicht mit einem gewöhnlichen Abstimmungsbutton gleichzusetzen.
-
-Je nach Wirkung sind Schutzstufen erforderlich für:
-
-- Identität und Berechtigung,
-- Geheimhaltung und Nachprüfbarkeit,
-- Manipulations- und Kampagnentransparenz,
-- Grund- und Minderheitenrechte,
-- Barrierefreiheit und analoge Alternativen,
-- Übersetzung und KI-Einsatz,
-- unabhängige Prüfung und Anfechtung.
-
-Nicht jede Beratung benötigt das Sicherheitsniveau einer rechtsverbindlichen Wahl. Wirkung und Schutzstufe müssen zusammenpassen.
-
-## 16. Tonalität
+## 15. Tonalität
 
 Die Sprache ist:
 
 - wissenschaftlich anschlussfähig,
-- international verständlich,
-- emotional ohne Polemik,
-- präzise ohne Scheinsicherheit,
-- kritisch ohne pauschale Verachtung,
-- offen für begründeten Widerspruch,
-- frei von persönlicher Abrechnung,
-- befähigend statt belehrend.
+- weltweit und kontextsensibel,
+- verständlich ohne Vereinfachungsreflex,
+- kritisch ohne Polemik,
+- emotional ohne persönliche Abrechnung,
+- offen für Gegenargumente,
+- frei von pauschaler Abwertung politischer Institutionen und Medien.
+
+Verbindliche Formulierung:
+
+> Demokratische Verantwortung darf nicht nahezu vollständig an politische Repräsentanten delegiert bleiben.
+
+Nicht verbindlich und zu pauschal:
+
+> Auf Politik kann man sich nicht verlassen.
+
+## 16. Design
+
+Die visuelle Sprache verbindet moderne Zeitung und Ökosystem-CI:
+
+- warmes redaktionelles Papier als Inhaltsfläche,
+- Slate-/Navy-Flächen für System- und Evidenzmodule,
+- Blau `#1a8cff` und Türkis `#18cfc8` als gemeinsame Akzente,
+- Serifenschrift für redaktionelle Überschriften,
+- System-Sans für Navigation, Metadaten und Status,
+- klare Spalten, Regeln, Doppellinien und großzügige Typografie,
+- wenig dekorative Kartenästhetik,
+- hohe mobile Lesbarkeit und Barrierefreiheit.
 
 ## 17. Abnahmefragen
 
-Vor jeder neuen Seite oder Funktion wird geprüft:
+Vor jeder Veröffentlichung wird geprüft:
 
-1. Stärkt sie den weltweiten wissenschaftlichen Begründungsrahmen?
-2. Bleibt Vote4Gov Untersuchung statt Beteiligungsplattform?
-3. Sind Quelle, Kontext, Gegenposition und Status sichtbar?
-4. Wird ein Missstand systemisch statt persönlich behandelt?
-5. Führt gesellschaftliche Prüfung ausschließlich zu eDebatte?
-6. Bleiben die 50 VOG-Grundfragen klar bei VoiceOpenGov/eDebatte?
-7. Wird kein anderes Civic-Tech-System verkürzt dargestellt?
-8. Ist die Darstellung hochwertig genug für redaktionelle Weiterverwendung?
-9. Entsteht kein unnötiges drittes Großprojekt?
-
-## 18. Leitsätze
-
-> Demokratie war nie fertig.
-
-> Repräsentation bleibt. Demokratische Abhängigkeit von Repräsentation nicht.
-
-> Nicht die Person des Tages, sondern die Struktur, die denselben Fehler morgen erneut ermöglicht.
-
-> Vote4Gov untersucht. VoiceOpenGov verbindet. eDebatte beteiligt.
+- Trägt der Inhalt zur historischen oder weltweiten Demokratiefrage bei?
+- Ist die zentrale Aussage belegt oder sichtbar als These gekennzeichnet?
+- Ist die stärkste Gegenposition enthalten?
+- Wird eine Person unnötig zum Problemträger gemacht?
+- Wird ein anderes Projekt unfair verkürzt?
+- Wird Zukunft als Gegenwart verkauft?
+- Führt gesellschaftliche Beteiligung ausschließlich zu eDebatte?
+- Bleiben VoiceOpenGov, eDebatte und Vote4Gov klar getrennt?
+- Ist der Beitrag für Fachleute prüfbar und für Nichtfachleute verständlich?
+- Würde ein unabhängiges Medium das Modul mit gutem Gewissen einbetten können?
