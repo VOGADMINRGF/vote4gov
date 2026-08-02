@@ -4,26 +4,31 @@
 **Gültig ab:** 2. August 2026  
 **Scope:** Repository `vote4gov`
 
-## 1. Rolle
+## 1. Rolle und harte Abgrenzung
 
-Vote4Gov ist die wissenschaftlich-redaktionelle Begründungs- und Reflexionsebene des Ökosystems.
+Vote4Gov ist die wissenschaftlich-redaktionelle Begründungs- und Reflexionsebene des Ökosystems. Es untersucht weltweit, wie demokratische Selbstregierung entstand, welche Leistungen repräsentative und rechtsstaatliche Institutionen erbracht haben, wo strukturelle Grenzen bestehen und welche zusätzlichen demokratischen Rückkanäle im 21. Jahrhundert verantwortbar sind.
 
-Vote4Gov untersucht weltweit:
+**Vote4Gov ist keine eigene Beteiligungs- oder Abstimmungsplattform.**
 
-- wie demokratische Selbstregierung historisch entstand,
-- welche Leistungen Repräsentation, Grundrechte, Gewaltenteilung und öffentliche Kontrolle erbracht haben,
-- welche Gruppen und Perspektiven historisch ausgeschlossen blieben,
-- wie unterschiedliche demokratische Systeme heute funktionieren,
-- wo institutionelle, mediale und ökonomische Anreize demokratische Rückbindung begrenzen,
-- welche zusätzliche demokratische Infrastruktur im 21. Jahrhundert möglich und verantwortbar ist.
+**Alle Diskussionen, Korrekturen mit gesellschaftlichem Inhalt und Abstimmungen finden ausschließlich bei eDebatte statt.**
 
-Vote4Gov ist keine neutrale Autorität. Es formuliert überprüfbare Thesen und legt Quellen, Gegenpositionen, Unsicherheiten und eigene Schlussfolgerungen offen.
+Der verbindliche Rollenkanon lautet:
+
+> **Vote4Gov untersucht. VoiceOpenGov verbindet. eDebatte beteiligt.**
+
+Ergänzend gilt:
+
+- **VoiceOpenGov** ist die internationale Mitgliederbewegung. Ihre 50 Grundfragen bilden das Fundament der gemeinsamen Arbeit und werden im VOG-Bereich des eDebatte-Kosmos beraten und abgestimmt.
+- **eDebatte** ist das autarke System für allgemeine und VOG-bezogene Themen: Anliegen, Quellen, Gegenpositionen, Dossiers, Runden, Abstimmungen, Ergebnisse und Wirkung.
+- **Voxy** erklärt, strukturiert und unterstützt sprachbasierten Zugang. Voxy entscheidet und veröffentlicht nicht autonom.
+
+Vote4Gov besitzt keine eigene Community, keine Kommentare, keine Anlassräume, keine Abstimmungen und keine parallele Beitrags- oder Ergebnisdatenbank.
 
 ## 2. Leitfrage
 
 Der öffentliche Aufhänger lautet:
 
-> Alle wollen die Demokratie retten. Aber welche eigentlich?
+> **Alle wollen die Demokratie retten. Aber welche eigentlich?**
 
 Die historische Folgefrage lautet:
 
@@ -31,73 +36,44 @@ Die historische Folgefrage lautet:
 
 Die zentrale Arbeitsthese lautet:
 
-> Repräsentation bleibt. Demokratische Abhängigkeit von Repräsentation nicht.
+> **Repräsentation bleibt. Demokratische Abhängigkeit von Repräsentation nicht.**
 
-Diese These ist keine Forderung nach Abschaffung von Parlamenten, Parteien, Verwaltungen oder Gerichten. Sie eröffnet die Prüfung zusätzlicher, rechtsstaatlich gebundener Rückkanäle zwischen Wahlen.
+Diese These fordert nicht die Abschaffung von Parlamenten, Parteien, Verwaltungen oder Gerichten. Sie eröffnet die Prüfung zusätzlicher, rechtsstaatlich gebundener Rückkanäle zwischen Wahlen.
 
-## 3. Ökosystemrollen
-
-- **Vote4Gov** untersucht, belegt und formuliert Thesen.
-- **VoiceOpenGov** ist die internationale Mitgliederbewegung. Ihre 50 Grundfragen bilden das Fundament der gemeinsamen Arbeit.
-- **eDebatte** ist das autarke System für allgemeine und VOG-bezogene Themen: Anliegen, Quellen, Gegenpositionen, Dossiers, Runden, Abstimmungen, Ergebnisse und Wirkung.
-- **Voxy** erklärt, strukturiert und unterstützt sprachbasierten Zugang. Voxy entscheidet und veröffentlicht nicht autonom.
-
-Diskussion und Abstimmung finden ausschließlich bei eDebatte statt.
-
-Vote4Gov besitzt:
-
-- keine eigene Community,
-- keine eigenen Kommentare,
-- keine eigenen Abstimmungen,
-- keine eigenen Anlassräume,
-- keine parallele Beitrags- oder Ergebnisdatenbank.
-
-## 4. Zeitung als Darstellungsform, nicht als neues Medienunternehmen
+## 3. Zeitung als Darstellungsform
 
 Vote4Gov verwendet ein modernes, hochwertiges Zeitungs- und Magazindesign im gemeinsamen Blau-/Türkis-Ökosystem.
 
-Ziel der Gestaltung:
+Ziele:
 
 - wissenschaftliche Tiefe sichtbar machen,
-- komplexe Themen für Menschen ohne Fachsprache zugänglich machen,
+- komplexe Themen ohne Fachsprache zugänglich machen,
 - einzelne Dossiers zitierbar und teilbar machen,
-- Online-Magazinen, Podcasts, Newslettern und Bildungsangeboten eine direkte Integration ermöglichen.
+- Online-Magazinen, Podcasts, Newslettern und Bildungsangeboten direkte Integration ermöglichen.
 
-Vote4Gov wird nicht zu einer täglichen Nachrichtenredaktion.
+Vote4Gov wird nicht zu einer täglichen Nachrichtenredaktion. Nicht vorgesehen sind die Reaktion auf jede Schlagzeile, Skandal- oder Personenranglisten, parteipolitische Kampagnen oder ein eigener Nachrichtenfeed ohne Bezug zur demokratischen Leitfrage.
 
-Nicht vorgesehen sind:
+Jeder Beitrag muss zeigen, welche demokratische Strukturfrage sichtbar wird und warum sie für VoiceOpenGov oder eDebatte relevant ist.
 
-- Reaktion auf jede politische Schlagzeile,
-- Skandal- oder Personenranglisten,
-- parteipolitische Kampagnen,
-- ein eigener Nachrichtenfeed ohne Bezug zur demokratischen Leitfrage,
-- Konkurrenz zu freiem Journalismus.
+## 4. Historischer Standard
 
-Jeder Beitrag muss erklären, welche demokratische Strukturfrage sichtbar wird und warum sie für VoiceOpenGov oder eDebatte relevant ist.
-
-## 5. Historischer Standard
-
-Demokratie wird nicht als lineare westliche Erfolgsgeschichte erzählt.
-
-Jede historische Darstellung berücksichtigt, soweit sachlich relevant:
+Demokratie wird nicht als lineare westliche Erfolgsgeschichte erzählt. Historische Beiträge berücksichtigen, soweit sachlich relevant:
 
 - frühe Versammlungs- und Ratsformen in unterschiedlichen Gesellschaften,
 - Verfassungs- und Republikanismusgeschichte,
 - Repräsentation und politische Arbeitsteilung,
-- Entwicklung von Grundrechten, Gerichten und Gewaltenteilung,
+- Grundrechte, Gerichte und Gewaltenteilung,
 - Arbeiter-, Frauen-, Bürgerrechts- und antikoloniale Bewegungen,
 - Dekolonisierung und Ausweitung politischer Gleichheit,
 - Medienentwicklung und demokratische Öffentlichkeit,
 - Brüche, Rückschritte und autoritäre Gegenbewegungen,
 - die digitale Veränderung von Kommunikation und Wissen.
 
-Personen können als historische Akteure genannt werden. Gegenwärtige Missstände werden primär anhand von Institutionen, Verfahren, Anreizen und dokumentierten Entscheidungen analysiert.
+Historische Personen können genannt werden. Gegenwärtige Missstände werden primär anhand von Institutionen, Verfahren, Anreizen und dokumentierten Entscheidungen analysiert.
 
-## 6. Weltweiter Vergleich
+## 5. Weltweiter Vergleich
 
-Der Demokratie-Atlas erstellt kein pauschales Länderranking.
-
-Jedes Länderprofil trennt mindestens:
+Der Demokratie-Atlas erstellt kein pauschales Länderranking. Jedes Länderprofil trennt:
 
 1. formale Verfassungsordnung,
 2. gelebte politische Praxis,
@@ -112,24 +88,22 @@ Jedes Länderprofil trennt mindestens:
 
 Ein System wird nicht danach bewertet, wie ähnlich es Deutschland ist.
 
-## 7. Digitale Zeitenwende
+## 6. Digitale Zeitenwende
 
 Vote4Gov untersucht die Spannung zwischen dauerhaft digitaler Gesellschaft und periodischer demokratischer Rückbindung.
 
-Verbindliche Einordnung:
+Verbindlich gilt:
 
-- digitale Technik schafft keine demokratische Qualität von selbst,
-- mehr Klicks sind keine belastbare Beteiligung,
-- technische Machbarkeit ersetzt weder Grundrechte noch Repräsentativität, Expertise und unabhängige Kontrolle,
-- digitale Kommunikation verringert jedoch einen Teil der historischen technischen Gründe für seltene Rückbindung,
-- die institutionelle Antwort darf nicht in Dauerabstimmung über alles bestehen,
+- Digitale Technik schafft keine demokratische Qualität von selbst.
+- Mehr Klicks sind keine belastbare Beteiligung.
+- Technische Machbarkeit ersetzt weder Grundrechte noch Repräsentativität, Expertise und unabhängige Kontrolle.
+- Digitale Kommunikation verringert dennoch einen Teil der historischen technischen Gründe für seltene Rückbindung.
+- Die institutionelle Antwort darf nicht in Dauerabstimmung über alles bestehen.
 - Wirkungsstufe und Schutzstufe müssen zusammenpassen.
 
-## 8. Doppelstrukturen und öffentliche Verantwortung
+## 7. Doppelstrukturen und Verantwortung
 
-Vote4Gov bewertet mehrere Ebenen nicht pauschal als Verschwendung.
-
-Föderalismus, Gewaltenteilung, unabhängige Kontrolle, fachliche Spezialisierung und Redundanz können demokratisch notwendig sein.
+Vote4Gov bewertet mehrere Ebenen nicht pauschal als Verschwendung. Föderalismus, Gewaltenteilung, unabhängige Kontrolle, fachliche Spezialisierung und Redundanz können demokratisch notwendig sein.
 
 Doppel- und Mehrfachstrukturen werden nach vier Fragen geprüft:
 
@@ -140,11 +114,9 @@ Doppel- und Mehrfachstrukturen werden nach vier Fragen geprüft:
 
 Effizienz ist ein Kriterium, aber nicht das einzige. Rechte, Nähe, Resilienz, Qualität und Kontrollfähigkeit gehören in dieselbe Bilanz.
 
-## 9. Medien und demokratische Öffentlichkeit
+## 8. Medien und Öffentlichkeit
 
-Vote4Gov behandelt freie, unabhängige, pluralistische und professionelle Medien als demokratische Infrastruktur.
-
-Die Medienanalyse richtet sich nicht gegen Journalisten oder Redaktionen.
+Vote4Gov behandelt freie, unabhängige, pluralistische und professionelle Medien als demokratische Infrastruktur. Die Analyse richtet sich nicht gegen Journalisten oder Redaktionen.
 
 Untersucht werden:
 
@@ -156,15 +128,13 @@ Untersucht werden:
 
 Leitsatz:
 
-> Gemeinsame Evidenz bedeutet nicht gemeinsame Meinung.
+> **Gemeinsame Evidenz bedeutet nicht gemeinsame Meinung.**
 
 Redaktionen behalten ihre vollständige Unabhängigkeit. Ein gemeinsamer Evidenzraum hält Primärquellen, unterschiedliche Einordnungen, Gegenpositionen, Korrekturen und spätere Wirkung auffindbar.
 
-## 10. Offene Civic Tech
+## 9. Offene Civic Tech
 
-Vote4Gov veröffentlicht kein Wettbewerberranking.
-
-Offene Civic-Tech-Projekte werden als wichtige demokratische Vorarbeit anerkannt. Ihre dokumentierten Leistungen werden nicht verkürzt.
+Vote4Gov veröffentlicht kein Wettbewerberranking. Offene Civic-Tech-Projekte werden als wichtige demokratische Vorarbeit anerkannt; dokumentierte Leistungen werden nicht verkürzt.
 
 Die öffentliche Einordnung konzentriert sich auf die Strukturfrage:
 
@@ -178,7 +148,7 @@ Der zusätzliche eDebatte-Anspruch lautet:
 
 Dieser Anspruch wird nicht als vollständig erreicht dargestellt.
 
-## 11. Produktstatus
+## 10. Produktstatus
 
 Jede eDebatte- oder Voxy-Fähigkeit erhält einen sichtbaren Status:
 
@@ -189,7 +159,7 @@ Jede eDebatte- oder Voxy-Fähigkeit erhält einen sichtbaren Status:
 
 Konzeptdokumente, Mock-ups und Verträge sind keine produktiven Funktionen.
 
-## 12. Wissenschaftlich-redaktionelles Artikelschema
+## 11. Wissenschaftlich-redaktionelles Artikelschema
 
 Jeder tragende Beitrag enthält:
 
@@ -206,7 +176,7 @@ Jeder tragende Beitrag enthält:
 
 Fachbegriffe werden erklärt. Komplexität wird nicht durch Scheinsicherheit ersetzt.
 
-## 13. Quellenhierarchie
+## 12. Quellenhierarchie
 
 Bevorzugte Reihenfolge:
 
@@ -217,7 +187,7 @@ Bevorzugte Reihenfolge:
 5. seriöse journalistische Rekonstruktionen,
 6. Akteurs- und Interessenquellen mit sichtbarer Kennzeichnung.
 
-## 14. Media & Podcast Desk
+## 13. Media & Podcast Desk
 
 Vote4Gov stellt für externe Medien bereit:
 
@@ -227,33 +197,23 @@ Vote4Gov stellt für externe Medien bereit:
 - Zeitlinien,
 - Podcast-Briefings,
 - datensparsame Embed-Karten,
-- Link zum vollständigen Kontext und eDebatte-Prüfstand.
+- Links zum vollständigen Kontext und eDebatte-Prüfstand.
 
-Einbettungen enthalten keine Werbung und kein eigenes Nutzertracking.
+Einbettungen enthalten keine Werbung und kein eigenes Nutzertracking. Weiterverwendung erfordert sichtbare Herkunft, Link und Versionsstand.
 
-Weiterverwendung erfordert sichtbare Herkunft, Link und Versionsstand. Vote4Gov darf nicht als Zustimmung zu einer fremden redaktionellen Aussage dargestellt werden.
+## 14. Tonalität
 
-## 15. Tonalität
-
-Die Sprache ist:
-
-- wissenschaftlich anschlussfähig,
-- weltweit und kontextsensibel,
-- verständlich ohne Vereinfachungsreflex,
-- kritisch ohne Polemik,
-- emotional ohne persönliche Abrechnung,
-- offen für Gegenargumente,
-- frei von pauschaler Abwertung politischer Institutionen und Medien.
+Die Sprache ist wissenschaftlich anschlussfähig, weltweit kontextsensibel, verständlich ohne Vereinfachungsreflex, kritisch ohne Polemik, emotional ohne persönliche Abrechnung und offen für Gegenargumente.
 
 Verbindliche Formulierung:
 
 > Demokratische Verantwortung darf nicht nahezu vollständig an politische Repräsentanten delegiert bleiben.
 
-Nicht verbindlich und zu pauschal:
+Zu pauschal und daher nicht verbindlich:
 
 > Auf Politik kann man sich nicht verlassen.
 
-## 16. Design
+## 15. Design
 
 Die visuelle Sprache verbindet moderne Zeitung und Ökosystem-CI:
 
@@ -263,10 +223,9 @@ Die visuelle Sprache verbindet moderne Zeitung und Ökosystem-CI:
 - Serifenschrift für redaktionelle Überschriften,
 - System-Sans für Navigation, Metadaten und Status,
 - klare Spalten, Regeln, Doppellinien und großzügige Typografie,
-- wenig dekorative Kartenästhetik,
 - hohe mobile Lesbarkeit und Barrierefreiheit.
 
-## 17. Abnahmefragen
+## 16. Abnahmefragen
 
 Vor jeder Veröffentlichung wird geprüft:
 
