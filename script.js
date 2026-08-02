@@ -19,62 +19,100 @@ document.querySelectorAll("a[href]").forEach((link) => {
   if (replacement) link.href = replacement;
 });
 
-const atlasProfiles = {
-  de: {
-    title: "Deutschland",
-    intro: "Das Profil untersucht nicht nur Wahlen, sondern auch die Wege zwischen kommunaler Betroffenheit, föderaler Zuständigkeit und europäischer Mitwirkung.",
-    question: "Wie greifen Bund, Länder, Kommunen und europäische Zuständigkeiten ineinander – und wo kann Beteiligung verständlicher werden?",
-    focus: "politische Ebenen und Rückkopplung",
-    language: "Originalquellen plus mehrsprachige Lesefassung",
-  },
-  ch: {
-    title: "Schweiz",
-    intro: "Das Profil fragt, wie repräsentative Institutionen, föderale Ebenen und direktdemokratische Instrumente im politischen Alltag zusammenspielen.",
-    question: "Welche Voraussetzungen machen wiederkehrende Abstimmungen verständlich, zugänglich und institutionell wirksam?",
-    focus: "Repräsentation und direkte Mitwirkung",
-    language: "mehrsprachige Begriffe im jeweiligen Rechtskontext",
-  },
-  ee: {
-    title: "Estland",
-    intro: "Das Profil betrachtet die Verbindung von digitaler Staatlichkeit, Identität, Vertrauen, öffentlicher Infrastruktur und demokratischer Kontrolle.",
-    question: "Welche technischen und institutionellen Grundlagen braucht digitale Beteiligung, damit Bequemlichkeit nicht auf Kosten von Vertrauen geht?",
-    focus: "digitale Voraussetzungen und öffentliche Kontrolle",
-    language: "Originalquellen, Übersetzungsstatus und Begriffserklärung",
-  },
-  fr: {
-    title: "Frankreich",
-    intro: "Das Profil untersucht das Verhältnis von nationaler Steuerung, regionalen Ebenen, politischer Repräsentation und zusätzlicher Bürgerbeteiligung.",
-    question: "Wie können nationale Entscheidungsfähigkeit und regionale Rückkopplung verbunden werden, ohne Zuständigkeiten zu verwischen?",
-    focus: "Zentralität, Regionen und Beteiligungswege",
-    language: "lokale Fachbegriffe plus verständliche Lesefassung",
-  },
-};
+const atlas = document.querySelector("[data-atlas]");
+if (atlas) {
+  const controls = [...atlas.querySelectorAll("[data-atlas-country]")];
+  const tabs = [...atlas.querySelectorAll("[data-atlas-tab]")];
+  const panels = [...atlas.querySelectorAll("[data-atlas-panel]")];
+  const announcer = atlas.querySelector("[data-atlas-announcer]");
 
-const atlasButtons = document.querySelectorAll("[data-atlas-country]");
-const atlasTitle = document.querySelector("[data-atlas-title]");
-const atlasIntro = document.querySelector("[data-atlas-intro]");
-const atlasQuestion = document.querySelector("[data-atlas-question]");
-const atlasFocus = document.querySelector("[data-atlas-focus]");
-const atlasLanguage = document.querySelector("[data-atlas-language]");
+  const selectAtlasCountry = (code, { announce = true } = {}) => {
+    const panel = panels.find((item) => item.dataset.atlasPanel === code);
+    if (!panel) return;
 
-const selectAtlasCountry = (code) => {
-  const profile = atlasProfiles[code];
-  if (!profile) return;
-  if (atlasTitle) atlasTitle.textContent = profile.title;
-  if (atlasIntro) atlasIntro.textContent = profile.intro;
-  if (atlasQuestion) atlasQuestion.textContent = profile.question;
-  if (atlasFocus) atlasFocus.textContent = profile.focus;
-  if (atlasLanguage) atlasLanguage.textContent = profile.language;
-  atlasButtons.forEach((button) => {
-    const active = button.dataset.atlasCountry === code;
-    button.classList.toggle("is-active", active);
-    if (button.matches("button")) button.setAttribute("aria-pressed", String(active));
+    controls.forEach((control) => {
+      const active = control.dataset.atlasCountry === code;
+      control.classList.toggle("is-active", active);
+      if (control.matches("[data-atlas-globe]")) control.setAttribute("aria-pressed", String(active));
+      if (control.matches("[data-atlas-tab]")) {
+        control.setAttribute("aria-selected", String(active));
+        control.tabIndex = active ? 0 : -1;
+      }
+    });
+
+    panels.forEach((item) => {
+      const active = item === panel;
+      item.classList.toggle("is-active", active);
+      item.hidden = !active;
+    });
+
+    if (announce && announcer) {
+      const country = panel.querySelector(".journal-kicker")?.textContent.replace(/^Länderprofil\s*·\s*/, "") || code.toUpperCase();
+      announcer.textContent = `${country} ausgewählt. Länderprofil aktualisiert.`;
+    }
+  };
+
+  atlas.classList.add("atlas-enhanced");
+  controls.forEach((control) => {
+    control.addEventListener("click", () => selectAtlasCountry(control.dataset.atlasCountry));
   });
-};
-atlasButtons.forEach((button) => button.addEventListener("click", () => selectAtlasCountry(button.dataset.atlasCountry)));
+  tabs.forEach((tab, index) => {
+    tab.addEventListener("keydown", (event) => {
+      const keyMoves = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 };
+      let nextIndex;
+      if (event.key === "Home") nextIndex = 0;
+      else if (event.key === "End") nextIndex = tabs.length - 1;
+      else if (event.key in keyMoves) nextIndex = (index + keyMoves[event.key] + tabs.length) % tabs.length;
+      else return;
+      event.preventDefault();
+      tabs[nextIndex].focus();
+      selectAtlasCountry(tabs[nextIndex].dataset.atlasCountry);
+    });
+  });
+  selectAtlasCountry(controls.find((control) => control.classList.contains("is-active"))?.dataset.atlasCountry || "de", { announce: false });
+}
 
 const year = document.querySelector("[data-year]");
 if (year) year.textContent = String(new Date().getFullYear());
+
+document.querySelectorAll(".journal-nav").forEach((journalNav, index) => {
+  const links = journalNav.querySelector(".journal-nav-inner");
+  if (!links || journalNav.querySelector("[data-journal-menu-button]")) return;
+  const linksId = links.id || `journal-navigation-${index + 1}`;
+  links.id = linksId;
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "journal-menu-button";
+  button.dataset.journalMenuButton = "";
+  button.setAttribute("aria-controls", linksId);
+  button.setAttribute("aria-expanded", "false");
+  button.innerHTML = '<span>Ressorts</span><span aria-hidden="true">☰</span>';
+  links.before(button);
+  journalNav.classList.add("journal-nav-enhanced");
+
+  const close = () => {
+    button.setAttribute("aria-expanded", "false");
+    links.classList.remove("is-open");
+  };
+  button.addEventListener("click", () => {
+    const open = button.getAttribute("aria-expanded") !== "true";
+    button.setAttribute("aria-expanded", String(open));
+    links.classList.toggle("is-open", open);
+  });
+  links.querySelectorAll("a").forEach((link) => link.addEventListener("click", close));
+  window.addEventListener("keydown", (event) => { if (event.key === "Escape") close(); });
+});
+
+document.querySelectorAll(".article-page .article-meta").forEach((meta) => {
+  if (meta.querySelector("[data-ai-role]")) return;
+  const disclosure = document.createElement("a");
+  disclosure.href = "/quellen.html#ki-transparenz";
+  disclosure.dataset.aiRole = "";
+  disclosure.className = "article-ai-role";
+  disclosure.textContent = "KI-Rolle: Rechercheunterstützung · Struktur · Sprachfassung";
+  disclosure.setAttribute("aria-label", "KI-Transparenz: Rechercheunterstützung, Struktur und Sprachfassung. Verfahren öffnen.");
+  meta.appendChild(disclosure);
+});
 
 const menuButton = document.querySelector("[data-menu-button]");
 const nav = document.querySelector("[data-nav]");

@@ -24,7 +24,7 @@ jobs:
       - name: Check JavaScript syntax
         run: node --check script.js
 
-      - name: Validate editorial architecture and internal links
+      - name: Validate editorial architecture, atlas and routing
         run: node scripts/validate-static-site.mjs
 
       - name: Validate Vercel configuration JSON
