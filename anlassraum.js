@@ -18,7 +18,7 @@ const roomData={
     rationale:["Bestehende offene Projekte ermöglichen Vorschläge, Debatten, Budgets, Abstimmungen und Wirkungskontrolle.","Viele Funktionen arbeiten innerhalb konfigurierter Räume, Phasen, Komponenten oder Gesprächsimpulse.","Der zusätzliche Prüfpunkt ist ein verständlicher Einstieg ohne Kenntnis von Zuständigkeit, Verfahren oder politischer Fachsprache."],
     counter:["Teilnehmende können in mehreren bestehenden Systemen selbst Vorschläge, Initiativen oder Debatten eröffnen.","Eine automatisierte Einordnung kann neue Macht über Themen, Sprache und Sichtbarkeit erzeugen."],
     questions:["Welche Fähigkeiten existieren bereits und dürfen nicht neu erfunden werden?","Wo beginnt tatsächlich eine neue Leistung?","Wie wird die eigene Umsetzung nach denselben Kriterien geprüft?"],
-    sources:[["Decidim · Komponenten und Beteiligungsräume","https://docs.decidim.org/en/develop/admin/components.html"],["CONSUL Democracy · Use Guide","https://docs.consuldemocracy.org/use_guide"],["Polis · Computational Democracy Project","https://compdemocracy.org/Polis/"]]
+    sources:[["Decidim · Komponenten und Beteiligungsräume","https://docs.decidim.org/en/develop/admin/components.html"],["CONSUL Democracy · Use Guide","https://docs.consuldemocracy.org/use_guide"],["Polis · Computational Democracy Project","https://compdemocracy.org/polis/"]]
   },
   "neue-ordnung":{
     number:"04",thesis:"Wählen bleibt. Beteiligung wächst zu einer kontinuierlichen, regional verankerten, mehrsprachigen und rechtsstaatlich gebundenen Ordnung.",
@@ -60,7 +60,7 @@ const roomData={
     rationale:["Technische Bequemlichkeit ersetzt keine sichere, geheime und anfechtbare Stimmabgabe.","Grund- und Menschenrechte begrenzen jede Mehrheit.","Analoge Zugänge, Barrierefreiheit und unabhängige Prüfung gehören in die Grundarchitektur."],
     counter:["Zu hohe Sicherheits- und Verfahrensanforderungen können sinnvolle unverbindliche Beteiligung unnötig blockieren.","Nicht jede Beratung benötigt dieselben Anforderungen wie eine rechtsverbindliche Wahl."],
     questions:["Welche Schutzstufe gilt für welches Beteiligungsformat?","Wer auditiert Identität, Übersetzung und KI?","Wie bleiben analoge und digitale Wege gleichwertig?"],
-    sources:[["UNESCO · Empfehlung zur KI-Ethik","https://www.unesco.org/en/artificial-intelligence/recommendation-ethics"],["Europarat · KI-Rahmenübereinkommen","https://www.coe.int/en/web/artificial-intelligence/the-framework-convention-on-artificial-intelligence"],["BSI · Online-Wahlen","https://www.bsi.bund.de/DE/Themen/Oeffentliche-Verwaltung/Moderner-Staat/Online-Wahlen/online-wahlen_node.html"]]
+    sources:[["UNESCO · Empfehlung zur KI-Ethik","https://www.unesco.org/en/artificial-intelligence/recommendation-ethics"],["Europarat · KI-Rahmenübereinkommen","https://www.coe.int/en/web/artificial-intelligence/the-framework-convention-on-artificial-intelligence"],["BSI · Online-Wahlen","https://www.bsi.bund.de/EN/Themen/Oeffentliche-Verwaltung/Moderner-Staat/Online-Wahlen/online-wahlen.html"]]
   }
 };
 
