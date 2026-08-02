@@ -6,6 +6,11 @@
   --interrupt-muted:#536373;
 }
 
+#welt,
+a[href="#welt"]{
+  display:none!important;
+}
+
 .editorial-access-dialog{
   width:min(94vw,820px);
   max-height:min(92svh,880px);
