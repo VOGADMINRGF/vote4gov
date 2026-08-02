@@ -1,6 +1,7 @@
 (() => {
   const NOTICE_KEY = "vote4gov:storage-notice:v1";
   const PREFIX = "vote4gov:";
+  const COOKIE_PREFIXES = ["vote4gov_", "v4g_"];
 
   const readJson = (storage, key) => {
     try {
@@ -14,14 +15,21 @@
     return Object.values(value).filter((item) => item && (item.stance || item.remembered)).length;
   };
 
+  const cookieNames = () => {
+    try {
+      return document.cookie
+        ? document.cookie.split(";").map((cookie) => cookie.split("=")[0]?.trim()).filter(Boolean)
+        : [];
+    } catch { return []; }
+  };
+
   const currentSnapshot = () => {
     const sessionPulse = readJson(sessionStorage, "vote4gov:participation-pulse:v1");
     const devicePulse = readJson(localStorage, "vote4gov:participation-pulse:device:v1");
     const sessionTopics = countTopics(sessionPulse);
     const deviceTopics = countTopics(devicePulse);
-    let accessibleCookies = 0;
-    try { accessibleCookies = document.cookie ? document.cookie.split(";").filter(Boolean).length : 0; } catch { /* unavailable */ }
-    return { sessionTopics, deviceTopics, accessibleCookies };
+    const vote4govCookies = cookieNames().filter((name) => COOKIE_PREFIXES.some((prefix) => name.startsWith(prefix))).length;
+    return { sessionTopics, deviceTopics, vote4govCookies };
   };
 
   const banner = document.createElement("aside");
@@ -32,24 +40,24 @@
       <div class="storage-transparency-icon" aria-hidden="true">i</div>
       <div class="storage-transparency-copy">
         <h2 id="storage-transparency-title">Transparent gespeichert – nicht verfolgt.</h2>
-        <p>Vote4Gov nutzt lokalen Browserspeicher nur für gewählte Sprache, geöffnete Hinweise und Ihre noch nicht übertragenen Themenvormerkungen. Diese Angaben werden nicht als öffentliche Stimme gezählt und nicht an Vote4Gov übertragen.</p>
+        <p>Der Vote4Gov-Seitencode nutzt lokalen Browserspeicher derzeit nur für die Bestätigung dieses Hinweises sowie für noch nicht an eDebatte übertragene Themenvormerkungen. Diese Angaben werden nicht als öffentliche Stimme gezählt und nicht an Vote4Gov übertragen.</p>
         <div class="storage-transparency-summary" aria-live="polite" data-storage-summary></div>
       </div>
       <div class="storage-transparency-controls">
         <button type="button" data-storage-details aria-expanded="false">Details</button>
-        <button type="button" data-storage-clear>Lokale Daten löschen</button>
+        <button type="button" data-storage-clear>Lokale Vote4Gov-Daten löschen</button>
         <button type="button" class="primary" data-storage-dismiss disabled>Hinweis ausblenden</button>
       </div>
       <div class="storage-transparency-details" data-storage-details-panel hidden>
-        <h3>Was diese Website lokal speichern kann</h3>
+        <h3>Was diese Website aktuell lokal speichern kann</h3>
         <ul>
-          <li><strong>Nur für diese Sitzung:</strong> dass der Zugangshinweis angezeigt wurde, die gewählte Lesesprache sowie Thema, lokale Einordnung und Zeitpunkt einer noch nicht übertragenen Vormerkung.</li>
+          <li><strong>Nur für diese Sitzung:</strong> Thema, Seitenspfad, lokale Einordnung, Merken-Status und Zeitpunkt einer noch nicht übertragenen Vormerkung.</li>
           <li><strong>Nur nach „Auf diesem Gerät merken“:</strong> dieselben Themenvormerkungen in dauerhaftem lokalem Speicher, bis Sie sie löschen.</li>
           <li><strong>Dieser Transparenzhinweis:</strong> nach dem Abhaken nur für die laufende Sitzung, damit er nicht auf jeder Unterseite erneut groß erscheint.</li>
           <li><strong>Nicht durch den Vote4Gov-Seitencode gespeichert:</strong> Name, E-Mail-Adresse, Werbe-ID, geräteübergreifendes Profil oder Verlauf über andere Websites.</li>
           <li><strong>Technischer Betrieb:</strong> Hosting- und Sicherheitsanbieter können für Auslieferung und Schutz technisch notwendige Verbindungsdaten wie IP-Adresse und Zeitpunkt verarbeiten. Diese Daten sind nicht Teil der lokalen Vormerkung.</li>
         </ul>
-        <p>Vote4Gov setzt für diese Funktionen keine Analyse-, Werbe- oder Tracking-Cookies. Der Löschbutton entfernt bekannte Vote4Gov-Einträge aus Session Storage, Local Storage und technisch zugängliche Cookies dieser Domain; HttpOnly- oder Infrastruktur-Cookies können nur vom jeweiligen Server beendet werden.</p>
+        <p>Vote4Gov setzt für diese Funktionen keine Analyse-, Werbe- oder Tracking-Cookies. Der Löschbutton entfernt ausschließlich bekannte Vote4Gov-Einträge aus Session Storage, Local Storage und technisch zugängliche Cookies mit Vote4Gov-Präfix. HttpOnly- oder Infrastruktur-Cookies können nur vom jeweiligen Server beendet werden.</p>
       </div>
       <label class="storage-transparency-check">
         <input type="checkbox" data-storage-understood />
@@ -73,12 +81,12 @@
   const detailsPanel = banner.querySelector("[data-storage-details-panel]");
 
   const refresh = () => {
-    const { sessionTopics, deviceTopics, accessibleCookies } = currentSnapshot();
+    const { sessionTopics, deviceTopics, vote4govCookies } = currentSnapshot();
     summary.replaceChildren();
     const items = [
       `${sessionTopics} Vormerkung${sessionTopics === 1 ? "" : "en"} in dieser Sitzung`,
       `${deviceTopics} dauerhaft lokal gemerkt`,
-      `${accessibleCookies} technisch zugängliche Cookie${accessibleCookies === 1 ? "" : "s"}`,
+      `${vote4govCookies} Vote4Gov-Cookie${vote4govCookies === 1 ? "" : "s"}`,
       "0 öffentliche Stimmen bei Vote4Gov",
     ];
     items.forEach((text) => {
@@ -112,11 +120,9 @@
     try {
       [...Array(sessionStorage.length)].map((_, index) => sessionStorage.key(index)).filter((key) => key?.startsWith(PREFIX)).forEach((key) => sessionStorage.removeItem(key));
       [...Array(localStorage.length)].map((_, index) => localStorage.key(index)).filter((key) => key?.startsWith(PREFIX)).forEach((key) => localStorage.removeItem(key));
-      document.cookie.split(";").forEach((cookie) => {
-        const name = cookie.split("=")[0]?.trim();
-        if (!name) return;
-        document.cookie = `${name}=; Max-Age=0; path=/; SameSite=Lax`;
-      });
+      cookieNames()
+        .filter((name) => COOKIE_PREFIXES.some((prefix) => name.startsWith(prefix)))
+        .forEach((name) => { document.cookie = `${name}=; Max-Age=0; path=/; SameSite=Lax`; });
     } finally {
       window.location.reload();
     }
