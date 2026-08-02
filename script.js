@@ -6,9 +6,20 @@ const loadStyle = (href) => {
   document.head.appendChild(link);
 };
 
+const loadScript = (src) => {
+  if (document.querySelector(`script[src^="${src}"]`)) return;
+  const script = document.createElement("script");
+  script.src = src;
+  script.defer = true;
+  document.head.appendChild(script);
+};
+
 loadStyle("/image-tuning.css?v=20260801-1");
 loadStyle("/accessibility.css?v=20260801-1");
 loadStyle("/brand-shell.css?v=20260802-1");
+loadStyle("/editorial-interruptions.css?v=20260802-2");
+window.VOTE4GOV_PRIVACY_MODE = true;
+loadScript("/editorial-interruptions.js?v=20260802-1");
 
 const canonicalHrefRewrites = new Map([
   ["https://compdemocracy.org/Polis/", "https://compdemocracy.org/polis/"],
@@ -222,15 +233,17 @@ const openEdebateQr = (url, title) => {
   else window.open(url, "_blank", "noopener,noreferrer");
 };
 
-document.querySelectorAll("a.edebatte-link").forEach((link) => {
-  if (link.parentElement?.querySelector("[data-edebatte-qr]")) return;
-  const button = document.createElement("button");
-  button.type = "button";
-  button.dataset.edebatteQr = "";
-  button.className = "journal-button";
-  button.innerHTML = `${qrIcon}<span style="margin-left:7px">QR-Code</span>`;
-  const title = link.dataset.qrTitle || "Diskussion und Prüfung";
-  button.setAttribute("aria-label", `QR-Code für ${title} anzeigen`);
-  button.addEventListener("click", () => openEdebateQr(link.href, title));
-  link.insertAdjacentElement("afterend", button);
-});
+if (!window.VOTE4GOV_PRIVACY_MODE) {
+  document.querySelectorAll("a.edebatte-link").forEach((link) => {
+    if (link.parentElement?.querySelector("[data-edebatte-qr]")) return;
+    const button = document.createElement("button");
+    button.type = "button";
+    button.dataset.edebatteQr = "";
+    button.className = "journal-button";
+    button.innerHTML = `${qrIcon}<span style="margin-left:7px">QR-Code</span>`;
+    const title = link.dataset.qrTitle || "Diskussion und Prüfung";
+    button.setAttribute("aria-label", `QR-Code für ${title} anzeigen`);
+    button.addEventListener("click", () => openEdebateQr(link.href, title));
+    link.insertAdjacentElement("afterend", button);
+  });
+}
