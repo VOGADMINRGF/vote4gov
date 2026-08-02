@@ -10,7 +10,7 @@ const loadScript = (src) => {
   if (document.querySelector(`script[src^="${src}"]`)) return;
   const script = document.createElement("script");
   script.src = src;
-  script.defer = true;
+  script.async = false;
   document.head.appendChild(script);
 };
 
@@ -18,8 +18,14 @@ loadStyle("/image-tuning.css?v=20260801-1");
 loadStyle("/accessibility.css?v=20260801-1");
 loadStyle("/brand-shell.css?v=20260802-1");
 loadStyle("/editorial-interruptions.css?v=20260802-2");
+loadStyle("/ai-transparency.css?v=20260802-1");
+loadStyle("/participation-pulse.css?v=20260802-1");
+loadStyle("/storage-transparency.css?v=20260802-1");
 window.VOTE4GOV_PRIVACY_MODE = true;
 loadScript("/editorial-interruptions.js?v=20260802-1");
+loadScript("/ai-transparency.js?v=20260802-1");
+loadScript("/participation-pulse.js?v=20260802-1");
+loadScript("/storage-transparency.js?v=20260802-1");
 
 const canonicalHrefRewrites = new Map([
   ["https://compdemocracy.org/Polis/", "https://compdemocracy.org/polis/"],
