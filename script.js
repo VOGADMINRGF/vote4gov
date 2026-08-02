@@ -8,6 +8,7 @@ const loadStyle = (href) => {
 
 loadStyle("/image-tuning.css?v=20260801-1");
 loadStyle("/accessibility.css?v=20260801-1");
+loadStyle("/brand-shell.css?v=20260802-1");
 
 const brand = document.querySelector(".site-header .brand");
 if (brand) {
