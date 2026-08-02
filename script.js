@@ -23,6 +23,15 @@ if (brand) {
   `;
 }
 
+const canonicalHrefRewrites = new Map([
+  ["https://compdemocracy.org/Polis/", "https://compdemocracy.org/polis/"],
+  ["https://www.bsi.bund.de/DE/Themen/Oeffentliche-Verwaltung/Moderner-Staat/Online-Wahlen/online-wahlen_node.html", "https://www.bsi.bund.de/EN/Themen/Oeffentliche-Verwaltung/Moderner-Staat/Online-Wahlen/online-wahlen.html"],
+]);
+document.querySelectorAll("a[href]").forEach((link) => {
+  const replacement = canonicalHrefRewrites.get(link.href);
+  if (replacement) link.href = replacement;
+});
+
 const atlasProfiles = {
   de: {
     title: "Deutschland",
