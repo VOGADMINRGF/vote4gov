@@ -110,4 +110,10 @@
     script.async = false;
     document.head.appendChild(script);
   }
+  if (!document.querySelector('script[src^="/editorial-participation-positioning.js"]')) {
+    const script = document.createElement("script");
+    script.src = "/editorial-participation-positioning.js?v=20260803-1";
+    script.async = false;
+    document.head.appendChild(script);
+  }
 })();
