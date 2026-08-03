@@ -70,6 +70,7 @@ const indexPath = join(root, "index.html");
 const indexHtml = await readFile(indexPath, "utf8");
 for (const requiredText of [
   "Unsere Gesellschaft verändert sich jeden Tag. Warum darf sie politisch meist nur alle paar Jahre antworten?",
+  "Ausgabe 01",
   "Politische Gesamtpakete",
   "Zeitlich gebündelt",
   "Vorgegebene Verfahren",
@@ -89,11 +90,18 @@ for (const requiredText of [
 ]) {
   if (!indexHtml.includes(requiredText)) fail(indexPath, `missing editorial requirement: ${requiredText}`);
 }
-for (const code of ["de", "ch", "ee", "fr"]) {
-  if (!indexHtml.includes(`data-atlas-panel="${code}"`)) fail(indexPath, `missing atlas panel ${code}`);
-  if (!indexHtml.includes(`data-atlas-country="${code}" data-atlas-tab`)) fail(indexPath, `missing mobile atlas tab ${code}`);
-  if (!indexHtml.includes(`data-atlas-country="${code}" data-atlas-globe`)) fail(indexPath, `missing globe control ${code}`);
+for (const retiredAtlasMarker of [
+  'id="welt"',
+  'href="#welt"',
+  "data-atlas",
+  "data-atlas-panel",
+  "data-atlas-globe",
+  "Atlas-Prototyp",
+  "Weltatlas",
+]) {
+  if (indexHtml.includes(retiredAtlasMarker)) fail(indexPath, `retired atlas prototype remains in issue 01: ${retiredAtlasMarker}`);
 }
+if (indexHtml.includes("Ausgabe 02")) fail(indexPath, "issue 01 still contains an Ausgabe 02 label");
 for (const layer of ["Ereignis oder Primärinformation", "Journalistische Auswahl", "Nachricht", "Kontext und Einordnung", "Kommentar oder Meinung", "Prognose", "Umfrage oder Stichprobenergebnis"]) {
   if (!indexHtml.includes(layer)) fail(indexPath, `missing information layer: ${layer}`);
 }
@@ -106,7 +114,10 @@ if (!sourcesHtml.includes('id="ki-transparenz"') || !sourcesHtml.includes("KI-Au
 
 const scriptPath = join(root, "script.js");
 const script = await readFile(scriptPath, "utf8");
-for (const marker of ["data-atlas-announcer", "aria-selected", "ArrowRight", "data-ai-role", "data-journal-menu-button"]) {
+for (const retiredRuntimeMarker of ["data-atlas-announcer", "data-atlas-country", "selectAtlasCountry"]) {
+  if (script.includes(retiredRuntimeMarker)) fail(scriptPath, `retired atlas runtime remains: ${retiredRuntimeMarker}`);
+}
+for (const marker of ["data-ai-role", "data-journal-menu-button"]) {
   if (!script.includes(marker)) fail(scriptPath, `missing interaction marker ${marker}`);
 }
 
