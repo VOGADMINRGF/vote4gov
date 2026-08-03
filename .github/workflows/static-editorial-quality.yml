@@ -27,10 +27,11 @@ jobs:
           node --check editorial-interruptions.js
           node --check ai-transparency.js
           node --check global-language.js
+          node --check on-device-translation.js
           node --check participation-pulse.js
           node --check storage-transparency.js
 
-      - name: Validate editorial architecture, atlas and routing
+      - name: Validate editorial architecture and routing
         run: node scripts/validate-static-site.mjs
 
       - name: Validate Vercel configuration JSON
