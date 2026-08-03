@@ -22,7 +22,13 @@ jobs:
           node-version: 20
 
       - name: Check JavaScript syntax
-        run: node --check script.js
+        run: |
+          node --check script.js
+          node --check editorial-interruptions.js
+          node --check ai-transparency.js
+          node --check global-language.js
+          node --check participation-pulse.js
+          node --check storage-transparency.js
 
       - name: Validate editorial architecture, atlas and routing
         run: node scripts/validate-static-site.mjs
