@@ -71,7 +71,7 @@
 
     const refresh = () => {
       const active = switcher.querySelector('[aria-selected="true"]');
-      const code = active?.dataset.language || "de";
+      const code = active?.dataset.language || dialog.dataset.selectedLanguage || "de";
       const translated = code !== "de";
       card.dataset.aiGenerated = "true";
       card.dataset.sourceLanguage = "de";
@@ -87,6 +87,7 @@
 
     switcher.addEventListener("click", () => window.setTimeout(refresh, 0));
     switcher.addEventListener("keydown", () => window.setTimeout(refresh, 0));
+    document.addEventListener("vote4gov:languagechange", refresh);
     const observer = new MutationObserver(refresh);
     observer.observe(switcher, { subtree: true, attributes: true, attributeFilter: ["aria-selected"] });
     refresh();
@@ -96,4 +97,17 @@
   findPreview();
   const bodyObserver = new MutationObserver(findPreview);
   bodyObserver.observe(document.body, { childList: true, subtree: true });
+
+  if (!document.querySelector('link[href^="/global-language.css"]')) {
+    const style = document.createElement("link");
+    style.rel = "stylesheet";
+    style.href = "/global-language.css?v=20260803-1";
+    document.head.appendChild(style);
+  }
+  if (!document.querySelector('script[src^="/global-language.js"]')) {
+    const script = document.createElement("script");
+    script.src = "/global-language.js?v=20260803-1";
+    script.async = false;
+    document.head.appendChild(script);
+  }
 })();
