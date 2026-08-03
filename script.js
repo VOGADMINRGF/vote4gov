@@ -36,59 +36,6 @@ document.querySelectorAll("a[href]").forEach((link) => {
   if (replacement) link.href = replacement;
 });
 
-const atlas = document.querySelector("[data-atlas]");
-if (atlas) {
-  const controls = [...atlas.querySelectorAll("[data-atlas-country]")];
-  const tabs = [...atlas.querySelectorAll("[data-atlas-tab]")];
-  const panels = [...atlas.querySelectorAll("[data-atlas-panel]")];
-  const announcer = atlas.querySelector("[data-atlas-announcer]");
-
-  const selectAtlasCountry = (code, { announce = true } = {}) => {
-    const panel = panels.find((item) => item.dataset.atlasPanel === code);
-    if (!panel) return;
-
-    controls.forEach((control) => {
-      const active = control.dataset.atlasCountry === code;
-      control.classList.toggle("is-active", active);
-      if (control.matches("[data-atlas-globe]")) control.setAttribute("aria-pressed", String(active));
-      if (control.matches("[data-atlas-tab]")) {
-        control.setAttribute("aria-selected", String(active));
-        control.tabIndex = active ? 0 : -1;
-      }
-    });
-
-    panels.forEach((item) => {
-      const active = item === panel;
-      item.classList.toggle("is-active", active);
-      item.hidden = !active;
-    });
-
-    if (announce && announcer) {
-      const country = panel.querySelector(".journal-kicker")?.textContent.replace(/^Länderprofil\s*·\s*/, "") || code.toUpperCase();
-      announcer.textContent = `${country} ausgewählt. Länderprofil aktualisiert.`;
-    }
-  };
-
-  atlas.classList.add("atlas-enhanced");
-  controls.forEach((control) => {
-    control.addEventListener("click", () => selectAtlasCountry(control.dataset.atlasCountry));
-  });
-  tabs.forEach((tab, index) => {
-    tab.addEventListener("keydown", (event) => {
-      const keyMoves = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 };
-      let nextIndex;
-      if (event.key === "Home") nextIndex = 0;
-      else if (event.key === "End") nextIndex = tabs.length - 1;
-      else if (event.key in keyMoves) nextIndex = (index + keyMoves[event.key] + tabs.length) % tabs.length;
-      else return;
-      event.preventDefault();
-      tabs[nextIndex].focus();
-      selectAtlasCountry(tabs[nextIndex].dataset.atlasCountry);
-    });
-  });
-  selectAtlasCountry(controls.find((control) => control.classList.contains("is-active"))?.dataset.atlasCountry || "de", { announce: false });
-}
-
 const year = document.querySelector("[data-year]");
 if (year) year.textContent = String(new Date().getFullYear());
 
