@@ -18,6 +18,7 @@
   root.dataset.aiGenerated = "true";
   root.dataset.aiEditorialResponsibility = "Vote4Gov";
   root.dataset.sourceLanguage = sourceLanguage;
+  root.dataset.issue = "01";
   if (automaticTranslation) root.dataset.automaticallyTranslated = "true";
 
   upsertMeta("ai-content-disclosure", "ai-generated; human-editorial-control; editorial-responsibility=Vote4Gov");
@@ -98,22 +99,25 @@
   const bodyObserver = new MutationObserver(findPreview);
   bodyObserver.observe(document.body, { childList: true, subtree: true });
 
-  if (!document.querySelector('link[href^="/global-language.css"]')) {
+  const ensureStyle = (href) => {
+    if (document.querySelector(`link[href^="${href}"]`)) return;
     const style = document.createElement("link");
     style.rel = "stylesheet";
-    style.href = "/global-language.css?v=20260803-1";
+    style.href = href;
     document.head.appendChild(style);
-  }
-  if (!document.querySelector('script[src^="/global-language.js"]')) {
+  };
+
+  const ensureScript = (src) => {
+    if (document.querySelector(`script[src^="${src}"]`)) return;
     const script = document.createElement("script");
-    script.src = "/global-language.js?v=20260803-1";
+    script.src = src;
     script.async = false;
     document.head.appendChild(script);
-  }
-  if (!document.querySelector('script[src^="/editorial-participation-positioning.js"]')) {
-    const script = document.createElement("script");
-    script.src = "/editorial-participation-positioning.js?v=20260803-1";
-    script.async = false;
-    document.head.appendChild(script);
-  }
+  };
+
+  ensureStyle("/on-device-translation.css?v=20260803-1");
+  ensureStyle("/global-language.css?v=20260803-2");
+  ensureScript("/on-device-translation.js?v=20260803-1");
+  ensureScript("/global-language.js?v=20260803-2");
+  ensureScript("/editorial-participation-positioning.js?v=20260803-1");
 })();
