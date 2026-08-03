@@ -154,14 +154,16 @@ body.journal-v2 .journal-nav-inner::-webkit-scrollbar{display:none}
 }
 @media(max-width:760px){
   body.journal-v2 .journal-shell{width:min(calc(100% - 24px),1320px)}.journal-topline{align-items:flex-start;flex-direction:column}.journal-topline div:last-child{display:none}
+  .journal-section-title h2{font-size:clamp(34px,11vw,43px);overflow-wrap:anywhere;hyphens:auto}
   body.journal-v2 .journal-masthead-word{font-size:clamp(58px,21vw,96px)}body.journal-v2 .journal-masthead-sub{font-size:8px;letter-spacing:.16em}.journal-home .journal-masthead a{display:block}.journal-home .journal-masthead-word{font-size:clamp(52px,18vw,72px)}.journal-home .journal-masthead-sub{margin-top:10px;text-align:center}
   .cover-story{padding-top:24px}.cover-main h1,.hook-cover .cover-main h1{font-size:clamp(39px,12vw,62px);line-height:.94}.cover-deck,.hook-cover .cover-deck{font-size:20px}.cover-briefs{grid-template-columns:1fr}.cover-briefs article{border-right:0;border-bottom:1px solid rgba(7,23,39,.32)}
   .hook-evidence{grid-template-columns:1fr}.hook-evidence article+article{border-left:0}.hook-evidence article:last-child{grid-column:auto}.hook-question{padding-left:15px}
-  .frontpage-index,.history-century-grid,.digital-contrast,.legitimacy-tests,.media-evolution,.open-source-editorial,.ecosystem-four,.method-ledger-six{grid-template-columns:1fr}
+  .frontpage-index,.history-century-grid,.digital-contrast,.legitimacy-tests,.media-evolution,.open-source-editorial,.ecosystem-four,.method-ledger-six{grid-template-columns:minmax(0,1fr)}
   .frontpage-story,.frontpage-story:first-child,.frontpage-story:nth-child(3),.frontpage-story:last-child{min-height:280px;padding:20px 0 48px;border-right:0}.frontpage-story a,.frontpage-story:first-child a,.frontpage-story:last-child a{left:0;right:0}
   .history-century-grid article+article,.legitimacy-tests article+article{border-left:0;border-top:1px solid rgba(7,23,39,.32)}.history-century-grid article:nth-child(4){border-top:1px solid rgba(7,23,39,.32)}
   .editorial-note,.big-question,.media-principle{grid-template-columns:1fr}.digital-arrow{min-height:58px}.digital-contrast article{padding:25px}.digital-contrast h3{font-size:36px}
   .institution-quote{align-items:flex-start;flex-direction:column}.media-evolution article{min-height:auto}.open-source-editorial h3{font-size:36px}.mobile-phone{width:min(100%,330px);margin-inline:auto}.status-ledger div{align-items:flex-start;flex-direction:column;gap:7px}.method-ledger-six article+article{border-left:0;border-top:1px solid rgba(7,23,39,.3)}
   .world-map-panel{min-height:430px;padding:20px}.world-map-panel .globe-shell{width:min(330px,82vw)}.world-console>.country-tabs{display:grid;grid-template-columns:1fr 1fr}.country-tab{width:100%}.country-profile{padding:22px}.country-profile>header{display:block}.atlas-status{display:inline-block;margin-top:13px}.country-profile-grid{grid-template-columns:1fr;margin-inline:-22px}.country-profile>footer{margin-inline:-22px}.information-layers{display:block}.information-layers article,.information-layers article:nth-child(n+5){min-height:auto;border-bottom:1px solid var(--journal-ink)}.survey-standard{padding:22px}.survey-standard ul{grid-template-columns:1fr}.ai-transparency,.ai-method-card{padding:22px}
   .article-copy .three-tests{grid-template-columns:1fr}
+  .digital-contrast>*,.legitimacy-tests>*,.open-source-editorial>*,.publisher-desk>*{min-width:0;overflow-wrap:anywhere}
 }

@@ -4,69 +4,17 @@
   const CONTEXT_VERSION = "vote4gov-context-v1";
   const PATH = "/journal/geschichte-der-demokratie";
   const isHistoryArticle = window.location.pathname.replace(/\.html$/, "") === PATH;
-
-  document.querySelectorAll('a[href="/#welt"], a[href="#welt"]').forEach((link) => link.remove());
   if (!isHistoryArticle) return;
 
   const thesis = "Demokratische Beteiligung sollte zwischen Wahlen kontinuierlich möglich sein – ohne Repräsentation, Rechte und Rechtsstaatlichkeit zu ersetzen.";
-  const deeperQuestion = "Welche Perspektive, Quelle oder Gegenposition fehlt in dieser Analyse?";
-
-  const encodeBase64Url = (value) => {
-    try {
-      const bytes = new TextEncoder().encode(JSON.stringify(value));
-      let binary = "";
-      bytes.forEach((byte) => { binary += String.fromCharCode(byte); });
-      return btoa(binary).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/g, "");
-    } catch {
-      return "";
-    }
-  };
-
-  const readState = (storage, key) => {
-    try {
-      const value = storage.getItem(key);
-      return value ? JSON.parse(value) : {};
-    } catch {
-      return {};
-    }
-  };
-
-  const collectArticleResponses = () => {
-    const merged = {
-      ...readState(localStorage, "vote4gov:participation-pulse:device:v1"),
-      ...readState(sessionStorage, "vote4gov:participation-pulse:v1"),
-    };
-    return Object.values(merged)
-      .filter((item) => item && item.path === window.location.pathname && (item.stance || item.remembered))
-      .slice(0, 12)
-      .map((item) => ({
-        questionId: String(item.topicId || "").slice(0, 120),
-        prompt: String(item.title || "").slice(0, 500),
-        response: item.stance === "agree" || item.stance === "disagree" ? item.stance : null,
-        remembered: Boolean(item.remembered),
-        updatedAt: item.updatedAt || null,
-      }));
-  };
-
-  const contextualUrl = (rawUrl) => {
-    const url = new URL(rawUrl, window.location.href);
-    const bundle = {
-      version: CONTEXT_VERSION,
-      source: "vote4gov",
-      articleId: ARTICLE_ID,
-      issue: ISSUE,
-      locale: document.documentElement.lang || "de",
-      sourceUrl: `${window.location.origin}${window.location.pathname}`,
-      questions: collectArticleResponses(),
-    };
-    url.searchParams.set("source", "vote4gov");
-    url.searchParams.set("entry", "context_handoff");
-    url.searchParams.set("article_id", ARTICLE_ID);
-    url.searchParams.set("issue", ISSUE);
-    url.searchParams.set("source_url", bundle.sourceUrl);
-    const encoded = encodeBase64Url(bundle);
-    if (encoded) url.searchParams.set("context_bundle", encoded);
-    return url.toString();
+  const browserPrompt = "Welche Perspektive, Quelle oder Gegenposition fehlt in dieser Analyse?";
+  const handoff = globalThis.Vote4GovHandoff?.getArticleHandoff({
+    articleId: ARTICLE_ID,
+    locale: document.documentElement.lang || "de",
+  }) || {
+    ok: false,
+    status: "preparing",
+    message: "Der Themenkontext bei eDebatte wird vorbereitet.",
   };
 
   const articleCopy = document.querySelector(".article-copy");
@@ -82,42 +30,78 @@
     articleCopy.dataset.participationPositioningUpdated = "true";
   }
 
-  const updateHandoff = () => {
-    const handoff = document.querySelector(".edebatte-handoff");
-    if (!handoff) return;
-    handoff.dataset.topicId = ARTICLE_ID;
-    handoff.dataset.contextVersion = CONTEXT_VERSION;
-    handoff.querySelector("h2")?.replaceChildren(deeperQuestion);
-    const paragraph = handoff.querySelector("p");
-    if (paragraph) paragraph.textContent = "Die schnelle Einordnung ist noch keine öffentliche Stimme. Wer Quellen ergänzen, eine Gegenposition entwickeln oder Wirkung und nächste Schritte bearbeiten möchte, wechselt mit dem Artikelkontext zu eDebatte.";
-    const link = handoff.querySelector("a.edebatte-link");
-    if (link) {
+  const renderHandoffAction = (element) => {
+    if (handoff.ok) {
+      const link = document.createElement("a");
+      link.className = element.className.replace("handoff-pending", "").trim();
       link.dataset.contextHandoff = CONTEXT_VERSION;
       link.dataset.articleId = ARTICLE_ID;
       link.dataset.issue = ISSUE;
-      link.href = contextualUrl(link.href);
+      link.href = handoff.url;
+      link.target = "_blank";
+      link.rel = "noreferrer";
       link.textContent = "Kontext bei eDebatte weiterbearbeiten ↗";
+      element.replaceWith(link);
+      return;
     }
+    if (element.tagName === "A") {
+      const replacement = document.createElement("span");
+      replacement.className = `${element.className} handoff-pending`.trim();
+      replacement.dataset.vote4govHandoffStatus = "";
+      replacement.setAttribute("aria-disabled", "true");
+      replacement.textContent = handoff.message;
+      element.replaceWith(replacement);
+      return;
+    }
+    element.setAttribute("aria-disabled", "true");
+    if (element.textContent !== handoff.message) element.textContent = handoff.message;
+  };
+
+  const updateHandoff = () => {
+    const section = document.querySelector(".edebatte-handoff");
+    if (!section) return;
+    section.dataset.topicId = ARTICLE_ID;
+    section.dataset.contextVersion = CONTEXT_VERSION;
+    section.dataset.handoffState = handoff.ok ? "ready" : "preparing";
+    const heading = section.querySelector("h2");
+    if (heading && heading.textContent !== browserPrompt) heading.replaceChildren(browserPrompt);
+    const paragraph = section.querySelector("p");
+    if (paragraph) {
+      const copy = handoff.ok
+        ? "Die schnelle Einordnung ist noch keine öffentliche Stimme. Der Link öffnet ausschließlich den bestätigten Artikelkontext; eine Beteiligung beginnt erst durch eine bewusste Aktion bei eDebatte."
+        : "Die schnelle Einordnung bleibt lokal und ist keine öffentliche Stimme. Topic-Slug, Quell-URL und stabile Frage-IDs werden erst nach ausdrücklicher Freigabe aktiviert.";
+      if (paragraph.textContent !== copy) paragraph.textContent = copy;
+    }
+    document.querySelectorAll("[data-vote4gov-handoff-status]").forEach(renderHandoffAction);
   };
 
   const updatePulse = () => {
     document.querySelectorAll(`[data-participation-pulse="${ARTICLE_ID}"]`).forEach((widget) => {
       widget.dataset.contextVersion = CONTEXT_VERSION;
+      widget.dataset.handoffState = handoff.ok ? "ready" : "preparing";
       const heading = widget.querySelector("h3");
-      if (heading) heading.textContent = thesis;
+      if (heading && heading.textContent !== thesis) heading.textContent = thesis;
       const fineprint = widget.querySelector(".participation-pulse-fineprint");
-      if (fineprint) fineprint.textContent = "Erste lokale Einordnung, noch keine öffentliche Abstimmung. Bei eDebatte können alle Fragen des Artikels zusammengefasst, schnell beantwortet oder mit Quellen, Gegenpositionen und Wirkungsarbeit vertieft werden.";
-      const link = widget.querySelector("a.participation-pulse-edebate");
-      if (link) {
+      const fineprintCopy = "Erste lokale Einordnung, noch keine öffentliche Abstimmung. Eine Linköffnung überträgt oder zählt diese Vormerkung nicht; löschen können Sie sie nur durch eine ausdrückliche lokale Aktion.";
+      if (fineprint && fineprint.textContent !== fineprintCopy) fineprint.textContent = fineprintCopy;
+      const action = widget.querySelector(".participation-pulse-edebate");
+      if (!action) return;
+      if (handoff.ok && action.tagName !== "A") {
+        const link = document.createElement("a");
+        link.className = action.className;
+        link.dataset.pulseAction = "edebate";
         link.dataset.contextHandoff = CONTEXT_VERSION;
-        link.href = contextualUrl(link.href);
-        const label = link.querySelector("span");
-        if (label) label.textContent = "Bei eDebatte vertiefen";
-        link.style.color = "#f8fafc";
-      }
-      const status = widget.querySelector("[data-pulse-status]");
-      if (status?.textContent.includes("lokale Vormerkung wurde hier beendet")) {
-        status.textContent = "eDebatte wurde geöffnet. Ihre lokale Vormerkung bleibt erhalten, bis die Übernahme dort bestätigt oder von Ihnen gelöscht wird.";
+        link.href = handoff.url;
+        link.target = "_blank";
+        link.rel = "noreferrer";
+        link.innerHTML = `${action.querySelector("svg")?.outerHTML || ""}<span>Bei eDebatte vertiefen</span>`;
+        action.replaceWith(link);
+      } else if (!handoff.ok) {
+        action.setAttribute("aria-disabled", "true");
+        const label = action.querySelector("span");
+        if (label && label.textContent !== "eDebatte-Kontext wird vorbereitet") {
+          label.replaceChildren("eDebatte-Kontext wird vorbereitet");
+        }
       }
     });
   };
@@ -129,16 +113,4 @@
     updatePulse();
   });
   observer.observe(document.body, { childList: true, subtree: true });
-
-  document.addEventListener("click", (event) => {
-    const link = event.target.closest('a.participation-pulse-edebate[data-context-handoff]');
-    if (!link) return;
-    event.preventDefault();
-    event.stopPropagation();
-    event.stopImmediatePropagation();
-    const target = contextualUrl(link.href);
-    window.open(target, "_blank", "noopener,noreferrer");
-    const status = link.closest("[data-participation-pulse]")?.querySelector("[data-pulse-status]");
-    if (status) status.textContent = "eDebatte wurde mit dem Artikelkontext geöffnet. Ihre lokale Vormerkung bleibt erhalten, bis eDebatte die Übernahme bestätigt oder Sie sie löschen.";
-  }, true);
 })();

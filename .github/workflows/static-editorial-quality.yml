@@ -22,16 +22,9 @@ jobs:
           node-version: 20
 
       - name: Check JavaScript syntax
-        run: |
-          node --check script.js
-          node --check editorial-interruptions.js
-          node --check ai-transparency.js
-          node --check global-language.js
-          node --check on-device-translation.js
-          node --check participation-pulse.js
-          node --check storage-transparency.js
+        run: find . -type f \( -name '*.js' -o -name '*.mjs' \) -not -path './.git/*' -exec node --check {} \;
 
-      - name: Validate editorial architecture and routing
+      - name: Validate editorial architecture, atlas and routing
         run: node scripts/validate-static-site.mjs
 
       - name: Validate Vercel configuration JSON

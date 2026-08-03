@@ -53,10 +53,14 @@ for (const file of htmlFiles) {
   }
 
   if (rel.startsWith("journal/")) {
-    for (const marker of ["article-meta", "article-sources", "edebatte-handoff", "edebatte-link"]) {
+    const markers = ["article-meta", "article-sources", "edebatte-handoff"];
+    if (rel !== "journal/geschichte-der-demokratie.html") markers.push("edebatte-link");
+    for (const marker of markers) {
       if (!html.includes(marker)) fail(file, `missing required article marker ${marker}`);
     }
-    if (!html.includes("https://www.edebatte.org/")) fail(file, "article lacks direct eDebatte handoff");
+    if (rel !== "journal/geschichte-der-demokratie.html" && !html.includes("https://www.edebatte.org/")) {
+      fail(file, "article lacks direct eDebatte handoff");
+    }
   }
 
   for (const match of html.matchAll(/<a\b[^>]*class=["'][^"']*\bedebatte-link\b[^"']*["'][^>]*href=["']([^"']+)["']/gi)) {
@@ -90,18 +94,15 @@ for (const requiredText of [
 ]) {
   if (!indexHtml.includes(requiredText)) fail(indexPath, `missing editorial requirement: ${requiredText}`);
 }
-for (const retiredAtlasMarker of [
-  'id="welt"',
-  'href="#welt"',
-  "data-atlas",
-  "data-atlas-panel",
-  "data-atlas-globe",
-  "Atlas-Prototyp",
-  "Weltatlas",
-]) {
-  if (indexHtml.includes(retiredAtlasMarker)) fail(indexPath, `retired atlas prototype remains in issue 01: ${retiredAtlasMarker}`);
+for (const code of ["de", "ch", "ee", "fr"]) {
+  if (!indexHtml.includes(`data-atlas-panel="${code}"`)) fail(indexPath, `missing atlas panel ${code}`);
+  if (!indexHtml.includes(`data-atlas-country="${code}" data-atlas-tab`)) fail(indexPath, `missing mobile atlas tab ${code}`);
+  if (!indexHtml.includes(`data-atlas-country="${code}" data-atlas-globe`)) fail(indexPath, `missing globe control ${code}`);
 }
 if (indexHtml.includes("Ausgabe 02")) fail(indexPath, "issue 01 still contains an Ausgabe 02 label");
+if ((indexHtml.match(/href="#welt"/gu) || []).length < 3) {
+  fail(indexPath, "header, editorial action and footer must keep visible Atlas links");
+}
 for (const layer of ["Ereignis oder Primärinformation", "Journalistische Auswahl", "Nachricht", "Kontext und Einordnung", "Kommentar oder Meinung", "Prognose", "Umfrage oder Stichprobenergebnis"]) {
   if (!indexHtml.includes(layer)) fail(indexPath, `missing information layer: ${layer}`);
 }
@@ -114,11 +115,70 @@ if (!sourcesHtml.includes('id="ki-transparenz"') || !sourcesHtml.includes("KI-Au
 
 const scriptPath = join(root, "script.js");
 const script = await readFile(scriptPath, "utf8");
-for (const retiredRuntimeMarker of ["data-atlas-announcer", "data-atlas-country", "selectAtlasCountry"]) {
-  if (script.includes(retiredRuntimeMarker)) fail(scriptPath, `retired atlas runtime remains: ${retiredRuntimeMarker}`);
-}
-for (const marker of ["data-ai-role", "data-journal-menu-button"]) {
+for (const marker of ["data-atlas-announcer", "aria-selected", "aria-pressed", "ArrowRight", "data-ai-role", "data-journal-menu-button"]) {
   if (!script.includes(marker)) fail(scriptPath, `missing interaction marker ${marker}`);
+}
+
+const interruptionCssPath = join(root, "editorial-interruptions.css");
+const interruptionCss = await readFile(interruptionCssPath, "utf8");
+if (/#welt\s*,|a\[href=["']#welt["']\]/u.test(interruptionCss)) {
+  fail(interruptionCssPath, "Atlas must not be hidden by the access layer");
+}
+
+const interruptionScriptPath = join(root, "editorial-interruptions.js");
+const interruptionScript = await readFile(interruptionScriptPath, "utf8");
+for (const marker of ["accessTrigger.dataset.accessOpen", "aria-haspopup", "showModal"] ) {
+  if (!interruptionScript.includes(marker)) fail(interruptionScriptPath, `missing deliberate dialog trigger marker ${marker}`);
+}
+if (/setTimeout[\s\S]{0,180}showModal/u.test(interruptionScript)) {
+  fail(interruptionScriptPath, "access dialog must not open from a timer");
+}
+if (/atlasSection|querySelectorAll\(['"]a\[href=[^)]*#welt[^)]*\)[\s\S]{0,120}remove\(/u.test(interruptionScript)) {
+  fail(interruptionScriptPath, "access layer must not remove Atlas DOM or navigation");
+}
+
+const historyPath = join(root, "journal/geschichte-der-demokratie.html");
+const historyHtml = await readFile(historyPath, "utf8");
+for (const forbidden of ["/create", "context_bundle", "entry=context_handoff", "source_url"]) {
+  if (historyHtml.includes(forbidden)) fail(historyPath, `history article still exposes forbidden primary handoff ${forbidden}`);
+}
+if (!historyHtml.includes("Der Themenkontext bei eDebatte wird vorbereitet.")) {
+  fail(historyPath, "history article lacks the honest fail-closed handoff state");
+}
+
+const handoffPath = join(root, "vote4gov-handoff.js");
+const handoffScript = await readFile(handoffPath, "utf8");
+for (const marker of [
+  'CONTEXT_VERSION = "vote4gov-context-v1"',
+  'CANONICAL_EDEBATTE_ORIGIN = "https://www.edebatte.org"',
+  'articleId: "history-democracy"',
+  'issue: "01"',
+  'kind: "binary_thesis"',
+  'kind: "open_question"',
+  'searchParams.set("v4g"',
+]) {
+  if (!handoffScript.includes(marker)) fail(handoffPath, `missing handoff contract marker ${marker}`);
+}
+for (const forbidden of ["context_bundle", "entry=context_handoff", "source_url", "window.location.origin", 'searchParams.set("source"']) {
+  if (handoffScript.includes(forbidden)) fail(handoffPath, `handoff contract contains forbidden value ${forbidden}`);
+}
+if (!/topicSlug:\s*["']{2}/u.test(handoffScript) || !/sourceUrl:\s*["']{2}/u.test(handoffScript)) {
+  fail(handoffPath, "unconfirmed topic slug and canonical source URL must remain explicitly empty");
+}
+if ((handoffScript.match(/questionId:\s*["']{2}/gu) || []).length !== 2) {
+  fail(handoffPath, "binary and open question IDs must both remain explicitly unconfirmed");
+}
+if (/questions:\s*release\.questions[\s\S]{0,220}\b(prompt|response|remembered|updatedAt)\b/u.test(handoffScript)) {
+  fail(handoffPath, "handoff bundle must not transmit browser prompts or local participation state");
+}
+
+const pulsePath = join(root, "participation-pulse.js");
+const pulseScript = await readFile(pulsePath, "utf8");
+if (/edebate\.addEventListener\(["']click["'][\s\S]{0,220}(delete state|removeItem|clearTopic)/u.test(pulseScript)) {
+  fail(pulsePath, "opening eDebatte must not delete local participation state");
+}
+if (!pulseScript.includes("Eine Linköffnung überträgt oder zählt keine lokale Vormerkung")) {
+  fail(pulsePath, "local non-transfer truth is missing");
 }
 
 const vercelPath = join(root, "vercel.json");

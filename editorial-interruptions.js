@@ -2,18 +2,6 @@
   const home = document.body.classList.contains("journal-home");
   if (!home) return;
 
-  const atlasSection = document.querySelector("#welt");
-  if (atlasSection) atlasSection.remove();
-
-  document.querySelectorAll('a[href="#welt"]').forEach((link) => {
-    if (link.closest(".journal-nav") || link.closest(".journal-footer")) {
-      link.remove();
-      return;
-    }
-    link.href = "/journal/geschichte-der-demokratie.html";
-    link.textContent = "Demokratiegeschichte lesen";
-  });
-
   document.querySelectorAll("[data-edebatte-qr]").forEach((button) => {
     const replacement = button.cloneNode(true);
     replacement.removeAttribute("data-edebatte-qr");
@@ -109,6 +97,7 @@
   };
 
   const dialog = document.createElement("dialog");
+  dialog.id = "editorial-access-dialog";
   dialog.className = "editorial-access-dialog";
   dialog.setAttribute("aria-labelledby", "editorial-access-title");
   dialog.innerHTML = `
@@ -148,6 +137,19 @@
       </section>
     </div>`;
   document.body.appendChild(dialog);
+
+  const triggerHost = document.querySelector(".cover-story .journal-actions");
+  let accessTrigger = null;
+  if (triggerHost) {
+    accessTrigger = document.createElement("button");
+    accessTrigger.type = "button";
+    accessTrigger.className = "journal-button editorial-access-trigger";
+    accessTrigger.dataset.accessOpen = "";
+    accessTrigger.setAttribute("aria-haspopup", "dialog");
+    accessTrigger.setAttribute("aria-controls", dialog.id);
+    accessTrigger.textContent = "Freier Zugang & Mitgliedschaft";
+    triggerHost.appendChild(accessTrigger);
+  }
 
   const languageSwitch = dialog.querySelector("[data-language-switch]");
   const previewCard = dialog.querySelector("[data-preview-card]");
@@ -224,7 +226,6 @@
 
   const showPrivacy = () => {
     privacy.hidden = false;
-    privacy.querySelector("[data-privacy-close]")?.focus();
   };
 
   const closeAccess = ({ privacyNotice = true } = {}) => {
@@ -250,7 +251,9 @@
     closeAccess();
   });
 
-  window.setTimeout(() => {
+  accessTrigger?.addEventListener("click", () => {
+    dialog.querySelector('[data-access-stage="preview"]')?.removeAttribute("hidden");
+    dialog.querySelector('[data-access-stage="reveal"]')?.setAttribute("hidden", "");
     if (typeof dialog.showModal === "function") dialog.showModal();
-  }, 300);
+  });
 })();

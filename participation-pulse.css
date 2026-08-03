@@ -30,6 +30,8 @@
   transition:transform .15s ease,border-color .15s ease,background .15s ease;
 }
 .participation-pulse-action:hover{transform:translateY(-1px);border-color:#08779f}
+.participation-pulse-action[aria-disabled="true"]{cursor:default;opacity:.72}
+.participation-pulse-action[aria-disabled="true"]:hover{transform:none;border-color:#071727}
 .participation-pulse-action:focus-visible{outline:3px solid rgba(24,207,200,.5);outline-offset:2px}
 .participation-pulse-action svg{width:20px;height:20px;flex:0 0 auto;fill:currentColor}
 .participation-pulse-action.is-selected{border-color:#08779f;background:#dff5f2;color:#064e5b}

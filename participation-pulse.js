@@ -38,14 +38,6 @@
     persistSession();
   };
 
-  const clearTopic = (topicId) => {
-    delete state[topicId];
-    pending.delete(topicId);
-    deviceTopicIds.delete(topicId);
-    persistSession();
-    writeDeviceState();
-  };
-
   const makePending = (topicId) => {
     deviceTopicIds.delete(topicId);
     writeDeviceState();
@@ -87,6 +79,7 @@
     const current = state[topicId] || {};
     widget.querySelectorAll("[data-pulse-action]").forEach((button) => {
       const action = button.dataset.pulseAction;
+      if (action === "edebate") return;
       const selected = (action === "agree" && current.stance === "agree")
         || (action === "disagree" && current.stance === "disagree")
         || (action === "remember" && current.remembered === true);
@@ -119,19 +112,25 @@
       </div>
       <div class="participation-pulse-actions" role="group" aria-label="Lokale Einordnung zu diesem Thema"></div>
       <p class="participation-pulse-status" data-pulse-status aria-live="polite"></p>
-      <p class="participation-pulse-fineprint">Keine öffentliche Abstimmung: Erst bei eDebatte wird eine Beteiligung übertragen, eingeordnet und – je nach Verfahren – gezählt.</p>`;
+      <p class="participation-pulse-fineprint">Keine öffentliche Abstimmung: Eine Linköffnung überträgt oder zählt keine lokale Vormerkung. Eine spätere Beteiligung erfolgt ausschließlich bewusst bei eDebatte.</p>`;
 
     const actions = widget.querySelector(".participation-pulse-actions");
     const agree = createButton("agree", "Zustimmen");
     const disagree = createButton("disagree", "Widersprechen");
     const remember = createButton("remember", "Später prüfen");
-    const edebate = document.createElement("a");
+    const edebate = document.createElement(edebateUrl ? "a" : "span");
     edebate.className = "participation-pulse-action participation-pulse-edebate";
     edebate.dataset.pulseAction = "edebate";
-    edebate.href = edebateUrl;
-    edebate.target = "_blank";
-    edebate.rel = "noreferrer";
-    edebate.innerHTML = `${icons.edebate}<span>Zu eDebatte</span>`;
+    if (edebateUrl) {
+      edebate.href = edebateUrl;
+      edebate.target = "_blank";
+      edebate.rel = "noreferrer";
+      edebate.innerHTML = `${icons.edebate}<span>Zu eDebatte</span>`;
+    } else {
+      edebate.dataset.handoffPreparing = "";
+      edebate.setAttribute("aria-disabled", "true");
+      edebate.innerHTML = `${icons.edebate}<span>eDebatte-Kontext wird vorbereitet</span>`;
+    }
     actions.append(agree, disagree, remember, edebate);
 
     const update = (action) => {
@@ -139,7 +138,7 @@
       current.topicId = topicId;
       current.path = window.location.pathname;
       current.title = title;
-      current.edebateUrl = edebateUrl;
+      current.edebateUrl = widget.querySelector("a.participation-pulse-edebate")?.href || edebateUrl;
       if (action === "agree" || action === "disagree") current.stance = current.stance === action ? null : action;
       if (action === "remember") current.remembered = !current.remembered;
       current.updatedAt = new Date().toISOString();
@@ -151,11 +150,6 @@
     agree.addEventListener("click", () => update("agree"));
     disagree.addEventListener("click", () => update("disagree"));
     remember.addEventListener("click", () => update("remember"));
-    edebate.addEventListener("click", () => {
-      clearTopic(topicId);
-      widget.querySelector("[data-pulse-status]").textContent = "eDebatte wurde geöffnet. Die lokale Vormerkung wurde hier beendet.";
-    });
-
     renderState(widget, topicId);
     const existing = state[topicId];
     if ((existing?.stance || existing?.remembered) && !deviceTopicIds.has(topicId)) pending.set(topicId, existing);
@@ -165,11 +159,15 @@
   const installArticleWidgets = () => {
     document.querySelectorAll(".edebatte-handoff:not([data-pulse-installed])").forEach((handoff) => {
       const link = handoff.querySelector("a.edebatte-link") || handoff.querySelector('a[href*="edebatte.org"]');
-      if (!link) return;
       handoff.dataset.pulseInstalled = "true";
       const topicId = handoff.dataset.topicId || topicFromLink(link) || slugFromPath();
       const title = handoff.querySelector("h2")?.textContent.trim() || document.querySelector("h1")?.textContent.trim() || "Wie ordnen Sie diese These ein?";
-      handoff.insertAdjacentElement("beforebegin", createWidget({ topicId, title, edebateUrl: link.href }));
+      const configured = globalThis.Vote4GovHandoff?.getArticleHandoff({
+        articleId: topicId,
+        locale: document.documentElement.lang || "de",
+      });
+      const edebateUrl = configured?.ok ? configured.url : (link?.href || null);
+      handoff.insertAdjacentElement("beforebegin", createWidget({ topicId, title, edebateUrl }));
     });
   };
 
@@ -228,7 +226,8 @@
     dialog.querySelector("[data-exit-edebate]").addEventListener("click", () => {
       const first = [...pending.values()][0];
       if (first?.edebateUrl) window.open(first.edebateUrl, "_blank", "noopener,noreferrer");
-      discardPending();
+      pending.clear();
+      persistSession();
       continueNavigation();
     });
     dialog.querySelector("[data-exit-remember]").addEventListener("click", () => {

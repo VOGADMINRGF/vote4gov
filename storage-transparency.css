@@ -1,11 +1,12 @@
 .storage-transparency-banner{
   position:fixed;
   z-index:360;
-  left:16px;
-  right:16px;
+  left:50%;
+  right:auto;
   bottom:14px;
-  margin:auto;
-  width:min(calc(100% - 32px),1040px);
+  width:min(calc(100vw - 32px),1040px);
+  max-width:calc(100vw - 32px);
+  transform:translateX(-50%);
   border:1px solid rgba(24,207,200,.58);
   border-radius:18px;
   background:rgba(7,23,39,.98);
@@ -17,6 +18,7 @@
 .storage-transparency-inner{display:grid;grid-template-columns:auto 1fr auto;gap:14px 18px;align-items:start;padding:16px 18px}
 .storage-transparency-icon{display:grid;place-items:center;width:38px;height:38px;border:1px solid rgba(141,244,238,.7);border-radius:50%;color:#8df4ee;font-size:16px;font-weight:950}
 .storage-transparency-copy h2{margin:0;font-family:Georgia,"Times New Roman",serif;font-size:21px;line-height:1.1}
+.storage-transparency-copy{min-width:0;overflow-wrap:anywhere}
 .storage-transparency-copy>p{margin:6px 0 0;color:#c8d5df;font-size:12px;line-height:1.45}
 .storage-transparency-summary{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
 .storage-transparency-summary span{padding:5px 8px;border:1px solid rgba(162,183,200,.38);border-radius:999px;color:#dce8ef;font-size:10px;font-weight:800}
@@ -35,9 +37,9 @@
 .storage-transparency-reopen{position:fixed;z-index:350;right:14px;bottom:14px;min-height:38px;padding:8px 12px;border:1px solid rgba(24,207,200,.58);border-radius:999px;background:#071727;color:#f8fafc;font:850 11px ui-sans-serif,system-ui,sans-serif;box-shadow:0 12px 40px rgba(0,0,0,.3);cursor:pointer}
 .storage-transparency-reopen[hidden]{display:none}
 @media(max-width:760px){
-  .storage-transparency-banner{left:8px;right:8px;bottom:8px;width:calc(100% - 16px);max-height:min(78vh,620px);overflow:auto}
+  .storage-transparency-banner{bottom:8px;width:calc(100vw - 16px);max-width:calc(100vw - 16px);max-height:min(78vh,620px);overflow:auto}
   .storage-transparency-inner{grid-template-columns:auto 1fr;padding:14px}
   .storage-transparency-controls,.storage-transparency-details,.storage-transparency-check{grid-column:1/3}
   .storage-transparency-controls{justify-content:stretch}
-  .storage-transparency-controls button{flex:1 1 130px}
+  .storage-transparency-controls button{min-height:44px;flex:1 1 130px}
 }

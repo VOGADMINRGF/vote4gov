@@ -6,6 +6,8 @@ Die erste Abo-Demonstration wirkte wie ein großflächiges Sprachraster und beha
 
 ## Neuer Einstieg
 
+- kein automatisches Öffnen nach Seitenaufruf; Hero und erste Bildschirmhöhe bleiben unmittelbar lesbar
+- Öffnung ausschließlich über die sichtbare Handlung `Freier Zugang & Mitgliedschaft`
 - Headline: `Wie möchten Sie weiterlesen?`
 - keine falsche Bezahlschrankenbehauptung
 - eine echte Vorschau der Titelgeschichte statt sechs paralleler Textkarten
@@ -34,7 +36,13 @@ Nach dem Öffnen des Artikels erscheint ein kompakter Hinweis statt einer fingie
 
 ## Weltatlas
 
-Der noch nicht belastbare Atlas wird auf der ausgelieferten Startseite entfernt beziehungsweise ausgeblendet und aus Navigation sowie Footer entfernt, bis ein eigener wissenschaftlich belegter Atlas-Slice vorliegt.
+Der Atlas bleibt als verbindlicher Teil der Vote4Gov-Review sichtbar. Deutschland, Schweiz, Estland und Frankreich sind im normalen JavaScript-Betrieb über den Globus und die mobile Tabalternative auswählbar. Ohne JavaScript bleiben alle vier redaktionellen Arbeitsprofile in Dokumentreihenfolge lesbar. Navigation, redaktionelle Handlung und Footer behalten ihre Atlaslinks.
+
+## eDebatte-Kontext
+
+Der erste Artikel verwendet ausschließlich den vorbereiteten Vertrag `/topic/[slug]?v4g=<vote4gov-context-v1-bundle>`. Solange Public-Topic-Slug, kanonische produktive Vote4Gov-Quell-URL sowie stabile IDs für binäre These und offene Frage nicht bestätigt sind, bleibt der Link fail-closed und zeigt: `Der Themenkontext bei eDebatte wird vorbereitet.`
+
+`/create`, `context_bundle`, `entry=context_handoff`, frei zusammengesetzte `source_url`-Parameter und Preview-Origins sind keine primäre Artikelhandlung. Lokale Vormerkungen werden durch eine Linköffnung weder gelöscht noch übertragen oder gezählt.
 
 ## Abnahme
 
@@ -45,7 +53,10 @@ Der noch nicht belastbare Atlas wird auf der ausgelieferten Startseite entfernt 
 - Mitgliedschaft wird nicht als Voraussetzung dargestellt
 - medienkritische Auflösung erscheint erst nach der freien Fortsetzung
 - Datenschutzhinweis verlangt keine fingierte Tracking-Einwilligung
-- Atlas ist auf der ausgelieferten Startseite nicht sichtbar
+- Zugangsdialog öffnet nur nach bewusster Nutzeraktion und schließt per Escape mit Fokus-Rückgabe
+- Atlas und Atlaslinks bleiben im JavaScript-Betrieb sichtbar
+- DE, CH, EE und FR funktionieren mit Maus, Touch und Tastatur; ohne JavaScript bleiben alle Profile lesbar
+- unvollständige Registrykonfiguration bleibt ohne primären eDebatte-Link sichtbar fail-closed
 
 ## Scope
 
