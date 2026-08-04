@@ -1,7 +1,9 @@
 (() => {
   const enforceSingleLanguageUi = () => {
     document.querySelectorAll(".v4g-language-trigger").forEach((trigger) => trigger.remove());
-    const control = document.querySelector(".global-language-control");
+    const controls = [...document.querySelectorAll(".global-language-control")];
+    controls.slice(1).forEach((control) => control.remove());
+    const control = controls[0];
     if (!control) return;
     control.hidden = false;
     control.removeAttribute("aria-hidden");
