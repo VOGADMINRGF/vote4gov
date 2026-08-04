@@ -53,13 +53,12 @@ try {
   check(await home.locator(".editorial-privacy-sheet").getAttribute("hidden") !== null, "desktop: privacy disclosure opened automatically");
   check(await home.evaluate(() => matchMedia("(prefers-reduced-motion: reduce)").matches), "desktop: reduced-motion preference was not active");
 
-  const compactLanguage = home.locator(".v4g-language-trigger");
-  check(await compactLanguage.count() === 1, "desktop: exactly one compact language trigger is required");
-  check(!(await home.locator(".global-language-control").isVisible()), "desktop: duplicate legacy language selector is still visible");
-  if (await compactLanguage.count()) {
-    check(await compactLanguage.isVisible(), "desktop: compact language trigger is not visible");
-    check((await compactLanguage.textContent())?.includes("01"), "desktop: language trigger does not identify issue 01");
-  }
+  const languageControl = home.locator(".global-language-control");
+  check(await languageControl.count() === 1, "desktop: exactly one language control is required");
+  check(await languageControl.isVisible(), "desktop: language control is not visible");
+  check(await languageControl.locator("select").isVisible(), "desktop: compact language selector is not visible");
+  check((await languageControl.textContent())?.includes("Ausgabe 01"), "desktop: language control does not identify issue 01");
+  check(await home.locator(".v4g-language-trigger").count() === 0, "desktop: duplicate language trigger is still present");
 
   await dismissStorageNotice(home);
 
@@ -141,7 +140,7 @@ try {
     check(!(await page.locator(".editorial-access-dialog").evaluate((dialog) => dialog.open)), `${viewport.width}px: access dialog opened automatically`);
     check(await page.locator(".editorial-privacy-sheet").getAttribute("hidden") !== null, `${viewport.width}px: privacy disclosure opened automatically`);
     await checkAtlasFree(page, `${viewport.width}px`);
-    check(await page.locator(".v4g-language-trigger").count() === 1, `${viewport.width}px: compact language trigger is missing or duplicated`);
+    check(await page.locator(".global-language-control").count() === 1 && await page.locator(".global-language-control").isVisible(), `${viewport.width}px: compact language selector is missing or duplicated`);
     await dismissStorageNotice(page);
     const mobilePrivacyTrigger = page.locator('.cover-story [data-privacy-open]');
     await mobilePrivacyTrigger.tap();
