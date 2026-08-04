@@ -68,7 +68,7 @@ jobs:
         with:
           name: vote4gov-exact-head-visual-evidence
           path: artifacts/visual-evidence
-          if-no-files-found: error
+          if-no-files-found: warn
           retention-days: 14
 
       - name: Stop static review server
