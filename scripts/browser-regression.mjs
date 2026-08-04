@@ -14,7 +14,7 @@ async function openPage(context, path) {
   const runtimeErrors = [];
   page.on("pageerror", (error) => runtimeErrors.push(error.message));
   await page.goto(`${baseUrl}${path}`, { waitUntil: "networkidle" });
-  await page.waitForTimeout(450);
+  await page.waitForTimeout(650);
   check(runtimeErrors.length === 0, `${path}: runtime errors: ${runtimeErrors.join(" | ")}`);
   return page;
 }
@@ -27,6 +27,13 @@ async function dismissStorageNotice(page) {
   check(!(await banner.isVisible()), "storage notice could not be dismissed through its explicit local action");
 }
 
+async function checkAtlasFree(page, label) {
+  check(await page.locator("#welt").count() === 0, `${label}: retired Atlas section is still present`);
+  check(await page.locator('[href="#welt"]').count() === 0, `${label}: retired Atlas anchor is still linked`);
+  check(await page.locator("[data-atlas],[data-atlas-country],[data-atlas-panel],[data-atlas-tab],[data-atlas-globe]").count() === 0, `${label}: retired Atlas runtime markers are still present`);
+  check(await page.getByText("Weltatlas", { exact: true }).count() === 0, `${label}: retired Weltatlas label is still visible`);
+}
+
 const browser = await chromium.launch({ headless: true });
 try {
   const desktop = await browser.newContext({
@@ -36,49 +43,25 @@ try {
   const home = await openPage(desktop, "/");
 
   check(await home.locator(".cover-main h1").isVisible(), "desktop: hero is not immediately visible");
+  check(await home.locator(".journal-topline").getByText("Ausgabe 01", { exact: true }).count() === 1, "desktop: issue 01 is not canonical in the source UI");
+  check(await home.getByText("Ausgabe 02", { exact: false }).count() === 0, "desktop: stale issue 02 copy is visible");
+  check(await home.locator(".journal-topline").getByText("International vergleichend", { exact: true }).count() === 1, "desktop: international-comparison scope is missing");
+  check(await home.locator('.cover-story a[href="/journal/geschichte-der-demokratie.html"]').count() >= 1, "desktop: primary hero route does not open the democracy-history article");
+  await checkAtlasFree(home, "desktop");
+
   check(!(await home.locator(".editorial-access-dialog").evaluate((dialog) => dialog.open)), "desktop: access dialog opened automatically");
   check(await home.locator(".editorial-privacy-sheet").getAttribute("hidden") !== null, "desktop: privacy disclosure opened automatically");
-  check(await home.locator("#welt").isVisible(), "desktop: Atlas is hidden in JavaScript mode");
-  check(await home.locator('a[href="#welt"]').count() >= 3, "desktop: Atlas links disappeared from navigation or footer");
   check(await home.evaluate(() => matchMedia("(prefers-reduced-motion: reduce)").matches), "desktop: reduced-motion preference was not active");
+
+  const compactLanguage = home.locator(".v4g-language-trigger");
+  check(await compactLanguage.count() === 1, "desktop: exactly one compact language trigger is required");
+  check(!(await home.locator(".global-language-control").isVisible()), "desktop: duplicate legacy language selector is still visible");
+  if (await compactLanguage.count()) {
+    check(await compactLanguage.isVisible(), "desktop: compact language trigger is not visible");
+    check((await compactLanguage.textContent())?.includes("01"), "desktop: language trigger does not identify issue 01");
+  }
+
   await dismissStorageNotice(home);
-
-  const globeTargets = home.locator("[data-atlas-globe]");
-  check(await globeTargets.count() === 4, "desktop: Atlas does not expose four globe controls");
-  const targetBoxes = [];
-  for (let index = 0; index < await globeTargets.count(); index += 1) {
-    const box = await globeTargets.nth(index).boundingBox();
-    check(Boolean(box && box.width >= 48 && box.height >= 48), `desktop: globe target ${index + 1} is smaller than 48px`);
-    if (box) targetBoxes.push(box);
-  }
-  for (let left = 0; left < targetBoxes.length; left += 1) {
-    for (let right = left + 1; right < targetBoxes.length; right += 1) {
-      const a = targetBoxes[left];
-      const b = targetBoxes[right];
-      const overlaps = a.x < b.x + b.width && a.x + a.width > b.x && a.y < b.y + b.height && a.y + a.height > b.y;
-      check(!overlaps, `desktop: globe targets ${left + 1} and ${right + 1} overlap`);
-    }
-  }
-
-  await home.locator("#welt").scrollIntoViewIfNeeded();
-  for (const code of ["de", "ch", "ee", "fr"]) {
-    const scrollBefore = await home.evaluate(() => scrollY);
-    await home.locator(`[data-atlas-globe][data-atlas-country="${code}"]`).click();
-    check(await home.locator(`[data-atlas-globe][data-atlas-country="${code}"]`).getAttribute("aria-pressed") === "true", `desktop mouse: ${code.toUpperCase()} was not pressed`);
-    check(await home.locator(`[data-atlas-tab][data-atlas-country="${code}"]`).getAttribute("aria-selected") === "true", `desktop mouse: ${code.toUpperCase()} tab was not selected`);
-    check(await home.locator(`[data-atlas-panel="${code}"]`).isVisible(), `desktop mouse: ${code.toUpperCase()} panel is hidden`);
-    check(await home.evaluate(() => scrollY) === scrollBefore, `desktop mouse: ${code.toUpperCase()} selection forced scrolling`);
-  }
-
-  const firstTab = home.locator('[data-atlas-tab][data-atlas-country="de"]');
-  await firstTab.focus();
-  await home.keyboard.press("ArrowRight");
-  check(await home.locator('[data-atlas-tab][data-atlas-country="ch"]').getAttribute("aria-selected") === "true", "keyboard: ArrowRight did not select CH");
-  check(await home.locator('[data-atlas-tab][data-atlas-country="ch"]').evaluate((element) => element === document.activeElement), "keyboard: focus did not follow the selected Atlas tab");
-  await home.keyboard.press("End");
-  check(await home.locator('[data-atlas-tab][data-atlas-country="fr"]').getAttribute("aria-selected") === "true", "keyboard: End did not select FR");
-  await home.keyboard.press("Home");
-  check(await firstTab.getAttribute("aria-selected") === "true", "keyboard: Home did not select DE");
 
   const trigger = home.locator("[data-access-open]");
   const privacyTrigger = home.locator('.cover-story [data-privacy-open]');
@@ -157,20 +140,9 @@ try {
     check(await page.locator(".cover-main h1").isVisible(), `${viewport.width}px: hero is not immediately visible`);
     check(!(await page.locator(".editorial-access-dialog").evaluate((dialog) => dialog.open)), `${viewport.width}px: access dialog opened automatically`);
     check(await page.locator(".editorial-privacy-sheet").getAttribute("hidden") !== null, `${viewport.width}px: privacy disclosure opened automatically`);
-    check(await page.locator("#welt").isVisible(), `${viewport.width}px: Atlas is hidden`);
+    await checkAtlasFree(page, `${viewport.width}px`);
+    check(await page.locator(".v4g-language-trigger").count() === 1, `${viewport.width}px: compact language trigger is missing or duplicated`);
     await dismissStorageNotice(page);
-    await page.locator("#welt").scrollIntoViewIfNeeded();
-    const tabs = page.locator("[data-atlas-tab]");
-    check(await tabs.count() === 4, `${viewport.width}px: mobile tab alternative is incomplete`);
-    for (let index = 0; index < await tabs.count(); index += 1) {
-      const box = await tabs.nth(index).boundingBox();
-      check(Boolean(box && box.height >= 44), `${viewport.width}px: mobile Atlas tab ${index + 1} is smaller than 44px`);
-    }
-    for (const code of ["de", "ch", "ee", "fr"]) {
-      await page.locator(`[data-atlas-tab][data-atlas-country="${code}"]`).tap();
-      check(await page.locator(`[data-atlas-tab][data-atlas-country="${code}"]`).getAttribute("aria-selected") === "true", `${viewport.width}px touch: ${code.toUpperCase()} was not selected`);
-      check(await page.locator(`[data-atlas-panel="${code}"]`).isVisible(), `${viewport.width}px touch: ${code.toUpperCase()} panel is hidden`);
-    }
     const mobilePrivacyTrigger = page.locator('.cover-story [data-privacy-open]');
     await mobilePrivacyTrigger.tap();
     check(await page.locator(".editorial-privacy-sheet").isVisible(), `${viewport.width}px: privacy disclosure did not open deliberately`);
@@ -182,9 +154,9 @@ try {
 
   const noJs = await browser.newContext({ viewport: { width: 390, height: 844 }, javaScriptEnabled: false });
   const noJsPage = await openPage(noJs, "/");
-  for (const code of ["de", "ch", "ee", "fr"]) {
-    check(await noJsPage.locator(`[data-atlas-panel="${code}"]`).isVisible(), `no-JS: ${code.toUpperCase()} profile is not readable`);
-  }
+  check(await noJsPage.locator(".cover-main h1").isVisible(), "no-JS: hero is not readable");
+  check(await noJsPage.getByText("Ausgabe 01", { exact: true }).count() >= 1, "no-JS: issue 01 is not present in static HTML");
+  await checkAtlasFree(noJsPage, "no-JS");
   await noJs.close();
 } finally {
   await browser.close();
@@ -196,4 +168,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log("Browser regression passed: desktop, mobile, touch, keyboard, deliberate privacy, reduced motion, 200% zoom and no-JS.");
+console.log("Browser regression passed: atlas-free issue 01, desktop, mobile, keyboard, privacy, participation, reduced motion, 200% zoom and no-JS.");
