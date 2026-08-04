@@ -6,3 +6,18 @@
 [data-ai-translation-disclosure][data-localized-copy]::after{font-size:11px;line-height:1.45}
 .editorial-access-reveal>.participation-pulse,
 .editorial-privacy-sheet .participation-pulse{display:none!important}
+body:has(.editorial-privacy-sheet:not([hidden])) .storage-transparency-reopen{display:none!important}
+.storage-transparency-reopen{font-size:0!important}
+.storage-transparency-reopen::after{font-size:11px}
+html[data-reading-language="de"] .storage-transparency-reopen::after{content:"Lokaler Speicher"}
+html[data-reading-language="en"] .storage-transparency-reopen::after{content:"Local storage"}
+html[data-reading-language="fr"] .storage-transparency-reopen::after{content:"Stockage local"}
+html[data-reading-language="es"] .storage-transparency-reopen::after{content:"Almacenamiento local"}
+html[data-reading-language="tr"] .storage-transparency-reopen::after{content:"Yerel depolama"}
+html[data-reading-language="ar"] .storage-transparency-reopen::after{content:"التخزين المحلي"}
+html[data-reading-language="it"] .storage-transparency-reopen::after{content:"Archiviazione locale"}
+html[data-reading-language="pt"] .storage-transparency-reopen::after{content:"Armazenamento local"}
+html[data-reading-language="nl"] .storage-transparency-reopen::after{content:"Lokale opslag"}
+html[data-reading-language="pl"] .storage-transparency-reopen::after{content:"Pamięć lokalna"}
+html[data-reading-language="uk"] .storage-transparency-reopen::after{content:"Локальне сховище"}
+html[data-reading-language="zh"] .storage-transparency-reopen::after{content:"本地存储"}
