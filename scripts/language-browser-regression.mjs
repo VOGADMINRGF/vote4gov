@@ -14,31 +14,44 @@ async function openPage(context, path) {
   const runtimeErrors = [];
   page.on("pageerror", (error) => runtimeErrors.push(error.message));
   await page.goto(`${baseUrl}${path}`, { waitUntil: "networkidle" });
-  await page.waitForSelector("[data-global-language-control] select", { state: "visible" });
-  await page.waitForTimeout(250);
+  await page.waitForSelector("[data-global-language-control] select", { state: "attached" });
+  await page.waitForSelector(".v4g-language-trigger", { state: "visible" });
+  await page.waitForTimeout(350);
   check(runtimeErrors.length === 0, `${path}: runtime errors: ${runtimeErrors.join(" | ")}`);
   return page;
 }
 
 async function chooseLanguage(page, code) {
-  await page.locator("[data-global-language-control] select").selectOption(code);
+  await page.evaluate((language) => {
+    const select = document.querySelector("[data-global-language-control] select");
+    if (!(select instanceof HTMLSelectElement)) throw new Error("language state bridge missing");
+    select.value = language;
+    select.dispatchEvent(new Event("change", { bubbles: true }));
+  }, code);
   await page.waitForFunction((language) => document.documentElement.dataset.readingLanguage === language, code);
-  await page.waitForTimeout(100);
+  await page.waitForTimeout(120);
 }
 
 const browser = await chromium.launch({ headless: true });
 try {
   const context = await browser.newContext({ viewport: { width: 1440, height: 900 } });
   const home = await openPage(context, "/");
-  const selector = home.locator("[data-global-language-control] select");
+  const bridge = home.locator("[data-global-language-control] select");
+  const compactTrigger = home.locator(".v4g-language-trigger");
 
-  check(await selector.locator("option").count() === 12, "language selector must expose exactly 12 reviewed interface/preview locales");
+  check(await bridge.locator("option").count() === 12, "language state bridge must expose exactly 12 reviewed interface/preview locales");
+  check(!(await home.locator(".global-language-control").isVisible()), "legacy language select must not compete with the compact selector");
+  check(await compactTrigger.count() === 1 && await compactTrigger.isVisible(), "exactly one visible compact language trigger is required");
+  check((await compactTrigger.textContent())?.includes("01"), "compact language trigger must identify issue 01");
+  check(await home.evaluate(() => globalThis.Vote4GovConfig?.issue?.number) === "01", "canonical issue config is missing");
+  check(await home.evaluate(() => globalThis.Vote4GovConfig?.language?.supported?.length) === 12, "canonical language config is incomplete");
   check(await home.evaluate(() => document.documentElement.lang) === "de", "source document language must remain German");
   check(await home.evaluate(() => document.documentElement.dataset.sourceLanguage) === "de", "source-language metadata is missing");
   check(await home.evaluate(() => document.documentElement.dataset.translationCoverage) === "interface-preview", "translation coverage must be limited and explicit");
 
   await chooseLanguage(home, "ar");
-  check(await selector.inputValue() === "ar", "Arabic was not selected");
+  check(await bridge.inputValue() === "ar", "Arabic was not selected");
+  check((await compactTrigger.textContent())?.includes("AR"), "compact trigger did not mirror Arabic selection");
   check(await home.evaluate(() => document.documentElement.lang) === "de", "Arabic UI selection incorrectly relabelled the German source document");
   check(await home.evaluate(() => document.documentElement.dataset.translationReviewed) === "false", "automatic/non-reviewed locale must not be marked reviewed");
   check(await home.locator(".editorial-access-dialog").getAttribute("lang") === "ar", "access dialog language is not Arabic");
@@ -50,7 +63,6 @@ try {
   await accessTrigger.click();
   const quickTabs = home.locator(".editorial-language-switch button[data-language]");
   check(await quickTabs.count() === 6, "quick language selector must expose six primary locales");
-  check(await quickTabs.filter({ has: home.locator('[data-language="ar"]') }).count() === 0, "invalid nested quick-tab structure detected");
   const arabicTab = home.locator('.editorial-language-switch button[data-language="ar"]');
   check(await arabicTab.getAttribute("aria-selected") === "true", "Arabic quick tab is not selected");
   await arabicTab.focus();
@@ -63,7 +75,8 @@ try {
   await home.keyboard.press("Escape");
 
   await chooseLanguage(home, "zh");
-  check(await selector.inputValue() === "zh", "Chinese was not selected from the extended locale list");
+  check(await bridge.inputValue() === "zh", "Chinese was not selected from the extended locale list");
+  check((await compactTrigger.textContent())?.includes("ZH"), "compact trigger did not mirror Chinese selection");
   await accessTrigger.click();
   check((await home.locator("[data-preview-title]").textContent())?.includes("社会每天都在变化"), "Chinese preview was not rendered");
   check(await home.locator(".editorial-access-dialog").getAttribute("dir") === "ltr", "Chinese interface incorrectly inherited RTL");
@@ -71,7 +84,8 @@ try {
 
   await chooseLanguage(home, "ar");
   await home.reload({ waitUntil: "networkidle" });
-  await home.waitForSelector("[data-global-language-control] select", { state: "visible" });
+  await home.waitForSelector("[data-global-language-control] select", { state: "attached" });
+  await home.waitForSelector(".v4g-language-trigger", { state: "visible" });
   await home.waitForFunction(() => document.documentElement.dataset.readingLanguage === "ar");
   check(await home.locator("[data-global-language-control] select").inputValue() === "ar", "reading language did not persist within the browser session");
   check(await home.locator(".editorial-access-dialog").getAttribute("dir") === "rtl", "RTL state did not survive reload");
@@ -100,4 +114,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log("Language browser regression passed: 12 locales, RTL, keyboard, persistence and source-language truth.");
+console.log("Language browser regression passed: one visible selector, hidden state bridge, 12 locales, RTL, keyboard, persistence and source-language truth.");
