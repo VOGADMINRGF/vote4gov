@@ -1,6 +1,8 @@
 (() => {
   const root = document.documentElement;
-  const sourceLanguage = (root.dataset.sourceLanguage || "de").toLowerCase();
+  const config = globalThis.Vote4GovConfig;
+  const issue = config?.issue?.number || "01";
+  const sourceLanguage = (root.dataset.sourceLanguage || config?.language?.source || "de").toLowerCase();
   const pageLanguage = (root.lang || sourceLanguage).toLowerCase().split("-")[0];
   const automaticTranslation = root.dataset.translationMode === "automatic" || pageLanguage !== sourceLanguage;
   const translationReviewed = root.dataset.translationReviewed === "true";
@@ -18,7 +20,7 @@
   root.dataset.aiGenerated = "true";
   root.dataset.aiEditorialResponsibility = "Vote4Gov";
   root.dataset.sourceLanguage = sourceLanguage;
-  root.dataset.issue = "01";
+  root.dataset.issue = issue;
   if (automaticTranslation) root.dataset.automaticallyTranslated = "true";
 
   upsertMeta("ai-content-disclosure", "ai-generated; human-editorial-control; editorial-responsibility=Vote4Gov");
@@ -72,10 +74,10 @@
 
     const refresh = () => {
       const active = switcher.querySelector('[aria-selected="true"]');
-      const code = active?.dataset.language || dialog.dataset.selectedLanguage || "de";
-      const translated = code !== "de";
+      const code = active?.dataset.language || dialog.dataset.selectedLanguage || sourceLanguage;
+      const translated = code !== sourceLanguage;
       card.dataset.aiGenerated = "true";
-      card.dataset.sourceLanguage = "de";
+      card.dataset.sourceLanguage = sourceLanguage;
       card.dataset.translationLanguage = code;
       if (translated) {
         card.dataset.automaticallyTranslated = "true";
@@ -115,9 +117,12 @@
     document.head.appendChild(script);
   };
 
-  ensureStyle("/on-device-translation.css?v=20260803-1");
-  ensureStyle("/global-language.css?v=20260803-2");
-  ensureScript("/on-device-translation.js?v=20260803-1");
-  ensureScript("/global-language.js?v=20260803-2");
-  ensureScript("/editorial-participation-positioning.js?v=20260803-1");
+  ensureScript("/site-config.js?v=20260804-1");
+  ensureStyle("/on-device-translation.css?v=20260804-1");
+  ensureStyle("/global-language.css?v=20260804-1");
+  ensureScript("/on-device-translation.js?v=20260804-1");
+  ensureScript("/global-language.js?v=20260804-1");
+  ensureScript("/language-ui-unifier.js?v=20260804-1");
+  ensureScript("/language-runtime-integrity.js?v=20260804-1");
+  ensureScript("/editorial-participation-positioning.js?v=20260804-1");
 })();
