@@ -21,12 +21,15 @@ loadStyle("/editorial-interruptions.css?v=20260802-2");
 loadStyle("/ai-transparency.css?v=20260802-1");
 loadStyle("/participation-pulse.css?v=20260802-1");
 loadStyle("/storage-transparency.css?v=20260802-1");
+loadStyle("/global-language.css?v=20260804-1");
 window.VOTE4GOV_PRIVACY_MODE = true;
-loadScript("/editorial-interruptions.js?v=20260802-1");
+loadScript("/editorial-interruptions.js?v=20260804-2");
 loadScript("/ai-transparency.js?v=20260802-1");
 loadScript("/vote4gov-handoff.js?v=20260803-1");
-loadScript("/participation-pulse.js?v=20260802-1");
+loadScript("/participation-pulse.js?v=20260804-2");
 loadScript("/storage-transparency.js?v=20260802-1");
+loadScript("/global-language.js?v=20260804-1");
+loadScript("/language-runtime-integrity.js?v=20260804-1");
 
 const canonicalHrefRewrites = new Map([
   ["https://compdemocracy.org/Polis/", "https://compdemocracy.org/polis/"],
