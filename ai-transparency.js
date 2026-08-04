@@ -119,7 +119,9 @@
 
   ensureScript("/site-config.js?v=20260804-1");
   ensureStyle("/global-language.css?v=20260804-2");
+  ensureScript("/on-device-translation.js?v=20260804-2");
   ensureScript("/global-language.js?v=20260804-2");
+  ensureScript("/language-ui-unifier.js?v=20260804-2");
   ensureScript("/language-runtime-integrity.js?v=20260804-1");
   ensureScript("/editorial-participation-positioning.js?v=20260804-1");
 })();
