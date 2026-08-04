@@ -27,10 +27,11 @@ Der Atlas darf erst als eigener Slice `VOTE4GOV-WORLD-ATLAS-FOUNDATION-01` zurü
 - deutsche Originalfassung
 - zwölf auswählbare Interface- und Vorschau-Sprachen
 - genau ein sichtbarer kompakter Sprachschalter
+- auf Mobilgeräten unabhängig von der ausgeblendeten Masthead-Zeile dauerhaft erreichbar
 - automatische Übersetzungen bleiben als nicht redaktionell geprüft gekennzeichnet
 - eine Interface-Auswahl darf einen deutschen Vollartikel nicht fälschlich als vollständig übersetzte Veröffentlichung ausgeben
 
-Die zentralen Werte liegen in `site-config.js`. Der bisherige Sprach-Select bleibt vorübergehend als unsichtbare Zustandsbrücke erhalten, bis die Sprachruntime vollständig in ein einziges Datenmodul überführt ist.
+Die zentralen Werte liegen in `site-config.js`. `global-language.js` verwaltet den gemeinsamen Sprachzustand; `language-ui-unifier.js` stellt sicher, dass unabhängig von Bildschirmgröße nur eine sichtbare Auswahl existiert. Die Vollartikel bleiben bis zur Veröffentlichung echter Sprachfassungen in ihrer deutschen Originalsprache gekennzeichnet.
 
 ## Transparenz und Beteiligung
 
@@ -51,6 +52,7 @@ Der GitHub-Workflow prüft:
 - eDebatte-Herkunft und fail-closed Handoff
 - Desktop, Mobil, Tastatur, Touch, reduzierte Bewegung und 200-Prozent-Zoom
 - zwölf Interface-/Vorschau-Sprachen, RTL und Sitzungsfortbestand
+- genau eine sichtbare Sprachsteuerung auf Desktop, 390 Pixel und 320 Pixel
 - visuelle Evidenz auf dem exakten PR-Head
 
 ## Bewusst offen
