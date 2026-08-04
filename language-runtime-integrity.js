@@ -1,6 +1,13 @@
 (() => {
   const STORAGE_KEY = "vote4gov:language:v1";
   const SOURCE_LANGUAGE = "de";
+  const INTEGRITY_STYLE = "/language-runtime-integrity.css?v=20260804-1";
+  if (!document.querySelector(`link[href^="${INTEGRITY_STYLE}"]`)) {
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = INTEGRITY_STYLE;
+    document.head.appendChild(link);
+  }
   const META = {
     de: { name:"Deutsch",dir:"ltr",issue:"Ausgabe 01",access:"Freier Zugang",privacy:"Datenschutz & Speicher",privacyInside:"Datenschutz transparent prüfen",privacyKicker:"Datenschutz statt Einwilligungsroutine",ai:"KI-generierter Text · redaktionell verantwortete deutsche Originalfassung" },
     en: { name:"English",dir:"ltr",issue:"Issue 01",access:"Free access",privacy:"Privacy & storage",privacyInside:"Review privacy transparently",privacyKicker:"Privacy instead of consent routines",ai:"AI-generated text · automatically translated from German into English · translation not editorially reviewed" },
