@@ -35,16 +35,44 @@ jobs:
           npm install --no-save --no-package-lock playwright@1.55.0
           npx playwright install --with-deps chromium
 
-      - name: Run desktop, mobile and multilingual browser regressions
+      - name: Start static review server
         run: |
           python3 -m http.server 4173 >/tmp/vote4gov-http.log 2>&1 &
-          SERVER_PID=$!
-          trap 'kill "$SERVER_PID"' EXIT
+          echo $! > /tmp/vote4gov-http.pid
           for attempt in {1..30}; do
             if curl --fail --silent http://127.0.0.1:4173/ >/dev/null; then
-              break
+              exit 0
             fi
             sleep 1
           done
-          VOTE4GOV_BASE_URL=http://127.0.0.1:4173 node scripts/browser-regression.mjs
-          VOTE4GOV_BASE_URL=http://127.0.0.1:4173 node scripts/language-browser-regression.mjs
+          cat /tmp/vote4gov-http.log
+          exit 1
+
+      - name: Run desktop, mobile and multilingual browser regressions
+        env:
+          VOTE4GOV_BASE_URL: http://127.0.0.1:4173
+        run: |
+          node scripts/browser-regression.mjs
+          node scripts/language-browser-regression.mjs
+
+      - name: Capture exact-head visual evidence
+        env:
+          VOTE4GOV_BASE_URL: http://127.0.0.1:4173
+          VOTE4GOV_VISUAL_DIR: artifacts/visual-evidence
+        run: node scripts/capture-visual-evidence.mjs
+
+      - name: Upload visual evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: vote4gov-exact-head-visual-evidence
+          path: artifacts/visual-evidence
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Stop static review server
+        if: always()
+        run: |
+          if [ -f /tmp/vote4gov-http.pid ]; then
+            kill "$(cat /tmp/vote4gov-http.pid)" || true
+          fi
