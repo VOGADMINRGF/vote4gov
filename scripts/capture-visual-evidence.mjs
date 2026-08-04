@@ -15,9 +15,20 @@ async function dismissStorageNotice(page) {
   await banner.locator("[data-storage-dismiss]").click();
 }
 
+async function chooseLanguage(page, code) {
+  await page.evaluate((language) => {
+    const select = document.querySelector("[data-global-language-control] select");
+    if (!(select instanceof HTMLSelectElement)) throw new Error("global language selector missing");
+    select.value = language;
+    select.dispatchEvent(new Event("change", { bubbles: true }));
+  }, code);
+  await page.waitForFunction((language) => document.documentElement.dataset.readingLanguage === language, code);
+}
+
 async function prepare(page, path = "/") {
   await page.goto(`${baseUrl}${path}`, { waitUntil: "networkidle" });
-  await page.waitForSelector("[data-global-language-control] select", { state: "visible" });
+  await page.waitForSelector("[data-global-language-control] select", { state: "attached" });
+  await chooseLanguage(page, "de");
   await dismissStorageNotice(page);
   await page.waitForTimeout(200);
 }
@@ -30,22 +41,24 @@ try {
   await home.screenshot({ path: `${outputDir}/01-home-desktop.png`, fullPage: true });
 
   await home.locator("[data-access-open]").click();
-  await home.locator(".editorial-access-dialog").screenshot({ path: `${outputDir}/02-access-dialog-de.png` });
+  const accessDialog = home.locator(".editorial-access-dialog");
+  await accessDialog.screenshot({ path: `${outputDir}/02-access-dialog-de-top.png` });
+  await accessDialog.evaluate((element) => { element.scrollTop = element.scrollHeight; });
+  await accessDialog.screenshot({ path: `${outputDir}/03-access-dialog-de-bottom.png` });
   await home.keyboard.press("Escape");
 
-  await home.locator("[data-global-language-control] select").selectOption("ar");
-  await home.waitForFunction(() => document.documentElement.dataset.readingLanguage === "ar");
+  await chooseLanguage(home, "ar");
   await home.locator("[data-access-open]").click();
-  await home.locator(".editorial-access-dialog").screenshot({ path: `${outputDir}/03-access-dialog-ar-rtl.png` });
+  await home.locator(".editorial-access-dialog").screenshot({ path: `${outputDir}/04-access-dialog-ar-rtl.png` });
   await home.keyboard.press("Escape");
 
   await home.locator('.cover-story [data-privacy-open]').click();
-  await home.locator(".editorial-privacy-sheet").screenshot({ path: `${outputDir}/04-privacy-ar-rtl.png` });
+  await home.locator(".editorial-privacy-sheet").screenshot({ path: `${outputDir}/05-privacy-ar-rtl.png` });
   await home.keyboard.press("Escape");
 
   const article = await desktop.newPage();
   await prepare(article, "/journal/geschichte-der-demokratie.html");
-  await article.screenshot({ path: `${outputDir}/05-article-desktop.png`, fullPage: true });
+  await article.screenshot({ path: `${outputDir}/06-article-desktop.png`, fullPage: true });
   await article.close();
   await home.close();
   await desktop.close();
@@ -53,9 +66,12 @@ try {
   const mobile = await browser.newContext({ viewport: { width: 390, height: 844 }, screen: { width: 390, height: 844 }, hasTouch: true, reducedMotion: "reduce" });
   const mobileHome = await mobile.newPage();
   await prepare(mobileHome);
-  await mobileHome.screenshot({ path: `${outputDir}/06-home-mobile.png`, fullPage: true });
+  await mobileHome.screenshot({ path: `${outputDir}/07-home-mobile.png`, fullPage: true });
   await mobileHome.locator("[data-access-open]").tap();
-  await mobileHome.locator(".editorial-access-dialog").screenshot({ path: `${outputDir}/07-access-dialog-mobile.png` });
+  const mobileDialog = mobileHome.locator(".editorial-access-dialog");
+  await mobileDialog.screenshot({ path: `${outputDir}/08-access-dialog-mobile-top.png` });
+  await mobileDialog.evaluate((element) => { element.scrollTop = element.scrollHeight; });
+  await mobileDialog.screenshot({ path: `${outputDir}/09-access-dialog-mobile-bottom.png` });
   await mobileHome.close();
   await mobile.close();
 } finally {
