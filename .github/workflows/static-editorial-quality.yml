@@ -29,3 +29,22 @@ jobs:
 
       - name: Validate Vercel configuration JSON
         run: node -e "JSON.parse(require('fs').readFileSync('vercel.json','utf8')); console.log('vercel.json valid')"
+
+      - name: Install browser regression runtime
+        run: |
+          npm install --no-save --no-package-lock playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Run desktop, mobile and multilingual browser regressions
+        run: |
+          python3 -m http.server 4173 >/tmp/vote4gov-http.log 2>&1 &
+          SERVER_PID=$!
+          trap 'kill "$SERVER_PID"' EXIT
+          for attempt in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:4173/ >/dev/null; then
+              break
+            fi
+            sleep 1
+          done
+          VOTE4GOV_BASE_URL=http://127.0.0.1:4173 node scripts/browser-regression.mjs
+          VOTE4GOV_BASE_URL=http://127.0.0.1:4173 node scripts/language-browser-regression.mjs
