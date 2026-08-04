@@ -138,7 +138,7 @@
       current.topicId = topicId;
       current.path = window.location.pathname;
       current.title = title;
-      current.edebateUrl = widget.querySelector("a.participation-pulse-edebate")?.href || edebateUrl;
+      current.edebateUrl = widget.querySelector("a.participation-pulse-edebate")?.href || edebateUrl || null;
       if (action === "agree" || action === "disagree") current.stance = current.stance === action ? null : action;
       if (action === "remember") current.remembered = !current.remembered;
       current.updatedAt = new Date().toISOString();
@@ -150,8 +150,15 @@
     agree.addEventListener("click", () => update("agree"));
     disagree.addEventListener("click", () => update("disagree"));
     remember.addEventListener("click", () => update("remember"));
-    renderState(widget, topicId);
+
     const existing = state[topicId];
+    if (existing && existing.edebateUrl !== (edebateUrl || null)) {
+      existing.edebateUrl = edebateUrl || null;
+      state[topicId] = existing;
+      writeDeviceState();
+      persistSession();
+    }
+    renderState(widget, topicId);
     if ((existing?.stance || existing?.remembered) && !deviceTopicIds.has(topicId)) pending.set(topicId, existing);
     return widget;
   };
@@ -175,16 +182,24 @@
     const reveal = document.querySelector('.editorial-access-reveal:not([data-pulse-installed])');
     if (reveal) {
       reveal.dataset.pulseInstalled = "true";
-      const url = "https://www.edebatte.org/create?source=vote4gov&source_id=free-knowledge-access&title=Sollten%20demokratisch%20relevante%20Informationen%20frei%20zug%C3%A4nglich%20sein%3F";
-      const widget = createWidget({ topicId: "free-knowledge-access", title: "Sollten demokratisch relevante Informationen grundsätzlich frei zugänglich sein?", edebateUrl: url, compact: true });
+      const widget = createWidget({
+        topicId: "free-knowledge-access",
+        title: "Sollten demokratisch relevante Informationen grundsätzlich frei zugänglich sein?",
+        edebateUrl: null,
+        compact: true,
+      });
       reveal.querySelector(".editorial-access-actions")?.insertAdjacentElement("beforebegin", widget);
     }
 
     const privacy = document.querySelector('.editorial-privacy-sheet:not([data-pulse-installed])');
     if (privacy) {
       privacy.dataset.pulseInstalled = "true";
-      const url = "https://www.edebatte.org/create?source=vote4gov&source_id=tracking-explicit-consent&title=Sollte%20nicht%20notwendiges%20Tracking%20nur%20nach%20ausdr%C3%BCcklicher%20Zustimmung%20zul%C3%A4ssig%20sein%3F";
-      const widget = createWidget({ topicId: "tracking-explicit-consent", title: "Sollte nicht notwendiges Tracking nur nach ausdrücklicher Zustimmung zulässig sein?", edebateUrl: url, compact: true });
+      const widget = createWidget({
+        topicId: "tracking-explicit-consent",
+        title: "Sollte nicht notwendiges Tracking nur nach ausdrücklicher Zustimmung zulässig sein?",
+        edebateUrl: null,
+        compact: true,
+      });
       privacy.querySelector(".editorial-privacy-actions")?.insertAdjacentElement("beforebegin", widget);
     }
   };
@@ -194,6 +209,9 @@
     pending.clear();
     persistSession();
   };
+
+  const firstPendingHandoff = () => [...pending.values()]
+    .find((item) => typeof item?.edebateUrl === "string" && item.edebateUrl.startsWith("https://www.edebatte.org/"));
 
   const ensureExitDialog = () => {
     let dialog = document.querySelector("[data-pulse-exit-dialog]");
@@ -208,7 +226,7 @@
         <h2 id="participation-exit-title">Ihre Einordnung wurde noch nicht an eDebatte übertragen.</h2>
         <p>Vote4Gov speichert keine öffentliche Stimme. Ohne Übertragung oder ausdrückliches Merken wird Ihre Auswahl beim Schließen dieser Sitzung verworfen.</p>
         <div class="participation-exit-actions">
-          <button type="button" class="participation-exit-primary" data-exit-edebate>Bei eDebatte weiter</button>
+          <button type="button" class="participation-exit-primary" data-exit-edebate disabled>eDebatte-Kontext wird vorbereitet</button>
           <button type="button" data-exit-remember>Auf diesem Gerät merken</button>
           <button type="button" data-exit-discard>Ohne Übertragung fortfahren</button>
         </div>
@@ -224,8 +242,9 @@
     };
 
     dialog.querySelector("[data-exit-edebate]").addEventListener("click", () => {
-      const first = [...pending.values()][0];
-      if (first?.edebateUrl) window.open(first.edebateUrl, "_blank", "noopener,noreferrer");
+      const first = firstPendingHandoff();
+      if (!first?.edebateUrl) return;
+      window.open(first.edebateUrl, "_blank", "noopener,noreferrer");
       pending.clear();
       persistSession();
       continueNavigation();
@@ -257,6 +276,12 @@
     event.preventDefault();
     pendingNavigation = link.href;
     const dialog = ensureExitDialog();
+    const handoff = firstPendingHandoff();
+    const handoffButton = dialog.querySelector("[data-exit-edebate]");
+    if (handoffButton) {
+      handoffButton.disabled = !handoff;
+      handoffButton.textContent = handoff ? "Bei eDebatte weiter" : "eDebatte-Kontext wird vorbereitet";
+    }
     if (typeof dialog.showModal === "function") dialog.showModal();
   });
 
