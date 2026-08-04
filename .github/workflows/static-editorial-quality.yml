@@ -12,6 +12,7 @@ permissions:
 jobs:
   validate:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -22,9 +23,9 @@ jobs:
           node-version: 20
 
       - name: Check JavaScript syntax
-        run: find . -type f \( -name '*.js' -o -name '*.mjs' \) -not -path './.git/*' -exec node --check {} \;
+        run: find . -type f \( -name '*.js' -o -name '*.mjs' \) -not -path './.git/*' -not -path './node_modules/*' -exec node --check {} \;
 
-      - name: Validate editorial architecture, atlas and routing
+      - name: Validate issue 01 editorial architecture and routing
         run: node scripts/validate-static-site.mjs
 
       - name: Validate Vercel configuration JSON
@@ -48,7 +49,7 @@ jobs:
           cat /tmp/vote4gov-http.log
           exit 1
 
-      - name: Run desktop, mobile and multilingual browser regressions
+      - name: Run atlas-free, responsive and multilingual browser regressions
         env:
           VOTE4GOV_BASE_URL: http://127.0.0.1:4173
         run: |
