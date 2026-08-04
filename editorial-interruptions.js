@@ -121,6 +121,7 @@
         <div class="editorial-access-actions">
           <button class="editorial-access-button primary" type="button" data-access-free>Kostenfrei weiterlesen</button>
           <a class="editorial-access-button" href="https://www.voiceopengov.org/" target="_blank" rel="noreferrer">VoiceOpenGov-Mitglied werden und mitgestalten</a>
+          <button class="editorial-access-button" type="button" data-privacy-open>Datenschutz transparent prüfen</button>
         </div>
         <p class="editorial-access-fineprint">Keine Zahlung und keine Registrierung sind erforderlich. Mitgliedschaft unterstützt die Arbeit, schaltet aber kein Wissen frei.</p>
       </section>
@@ -133,6 +134,7 @@
         <div class="editorial-access-actions">
           <button class="editorial-access-button primary" type="button" data-access-continue>Beitrag vollständig öffnen</button>
           <a class="editorial-access-button" href="https://www.voiceopengov.org/" target="_blank" rel="noreferrer">Mitglied werden und mitgestalten</a>
+          <button class="editorial-access-button" type="button" data-privacy-open>Datenschutz transparent prüfen</button>
         </div>
       </section>
     </div>`;
@@ -140,6 +142,7 @@
 
   const triggerHost = document.querySelector(".cover-story .journal-actions");
   let accessTrigger = null;
+  let privacyTrigger = null;
   if (triggerHost) {
     accessTrigger = document.createElement("button");
     accessTrigger.type = "button";
@@ -149,6 +152,15 @@
     accessTrigger.setAttribute("aria-controls", dialog.id);
     accessTrigger.textContent = "Freier Zugang & Mitgliedschaft";
     triggerHost.appendChild(accessTrigger);
+
+    privacyTrigger = document.createElement("button");
+    privacyTrigger.type = "button";
+    privacyTrigger.className = "journal-button editorial-access-trigger";
+    privacyTrigger.dataset.privacyOpen = "";
+    privacyTrigger.setAttribute("aria-controls", "editorial-privacy-sheet");
+    privacyTrigger.setAttribute("aria-expanded", "false");
+    privacyTrigger.textContent = "Datenschutz & Speicher";
+    triggerHost.appendChild(privacyTrigger);
   }
 
   const languageSwitch = dialog.querySelector("[data-language-switch]");
@@ -204,9 +216,10 @@
   setLanguage(previews[browserLanguage] ? browserLanguage : "de");
 
   const privacy = document.createElement("aside");
+  privacy.id = "editorial-privacy-sheet";
   privacy.className = "editorial-privacy-sheet";
   privacy.hidden = true;
-  privacy.setAttribute("role", "dialog");
+  privacy.setAttribute("role", "region");
   privacy.setAttribute("aria-labelledby", "editorial-privacy-title");
   privacy.innerHTML = `
     <div class="editorial-privacy-grid">
@@ -224,13 +237,24 @@
     </div>`;
   document.body.appendChild(privacy);
 
-  const showPrivacy = () => {
-    privacy.hidden = false;
+  let privacyReturnFocus = privacyTrigger;
+
+  const closeAccess = () => {
+    if (dialog.open) dialog.close();
   };
 
-  const closeAccess = ({ privacyNotice = true } = {}) => {
-    if (dialog.open) dialog.close();
-    if (privacyNotice) window.setTimeout(showPrivacy, 160);
+  const showPrivacy = (trigger = privacyTrigger || accessTrigger) => {
+    privacyReturnFocus = trigger || privacyTrigger || accessTrigger;
+    privacy.hidden = false;
+    privacyTrigger?.setAttribute("aria-expanded", "true");
+    privacy.querySelector("[data-privacy-close]")?.focus();
+  };
+
+  const hidePrivacy = ({ restoreFocus = true } = {}) => {
+    if (privacy.hidden) return;
+    privacy.hidden = true;
+    privacyTrigger?.setAttribute("aria-expanded", "false");
+    if (restoreFocus && privacyReturnFocus instanceof HTMLElement) privacyReturnFocus.focus();
   };
 
   dialog.querySelector("[data-access-free]")?.addEventListener("click", () => {
@@ -239,11 +263,29 @@
     dialog.querySelector("[data-access-continue]")?.focus();
   });
 
-  dialog.querySelector("[data-access-continue]")?.addEventListener("click", () => closeAccess());
-  dialog.querySelector("[data-access-close]")?.addEventListener("click", () => closeAccess());
+  dialog.querySelector("[data-access-continue]")?.addEventListener("click", closeAccess);
+  dialog.querySelector("[data-access-close]")?.addEventListener("click", closeAccess);
+
+  dialog.querySelectorAll("[data-privacy-open]").forEach((button) => {
+    button.addEventListener("click", () => {
+      closeAccess();
+      requestAnimationFrame(() => showPrivacy(privacyTrigger || accessTrigger));
+    });
+  });
+
+  privacyTrigger?.addEventListener("click", () => {
+    if (privacy.hidden) showPrivacy(privacyTrigger);
+    else hidePrivacy();
+  });
 
   privacy.querySelectorAll("[data-privacy-close]").forEach((button) => {
-    button.addEventListener("click", () => { privacy.hidden = true; });
+    button.addEventListener("click", () => hidePrivacy());
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape" || privacy.hidden) return;
+    event.preventDefault();
+    hidePrivacy();
   });
 
   dialog.addEventListener("cancel", (event) => {
@@ -252,6 +294,7 @@
   });
 
   accessTrigger?.addEventListener("click", () => {
+    hidePrivacy({ restoreFocus: false });
     dialog.querySelector('[data-access-stage="preview"]')?.removeAttribute("hidden");
     dialog.querySelector('[data-access-stage="reveal"]')?.setAttribute("hidden", "");
     if (typeof dialog.showModal === "function") dialog.showModal();
