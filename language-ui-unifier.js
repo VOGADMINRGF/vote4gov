@@ -28,11 +28,13 @@
           placeholder.setAttribute("aria-hidden", "true");
           top.appendChild(placeholder);
         }
-        control.classList.add("mobile-floating");
-        if (control.parentElement !== document.body) document.body.appendChild(control);
+        control.classList.add("mobile-sticky");
+        const aiBar = document.querySelector("[data-ai-disclosure-bar]");
+        if (aiBar && control.previousElementSibling !== aiBar) aiBar.insertAdjacentElement("afterend", control);
+        else if (!aiBar && control.parentElement !== document.body) document.body.prepend(control);
       } else {
         document.querySelectorAll("[data-language-placeholder]").forEach((placeholder) => placeholder.remove());
-        control.classList.remove("mobile-floating");
+        control.classList.remove("mobile-sticky");
         if (top && control.parentElement !== top) top.appendChild(control);
       }
     } finally {
