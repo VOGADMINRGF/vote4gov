@@ -9,7 +9,7 @@ async function walk(directory) {
   const entries = await readdir(directory);
   const files = [];
   for (const entry of entries) {
-    if ([".git", "node_modules"].includes(entry)) continue;
+    if ([".git", "node_modules", "artifacts"].includes(entry)) continue;
     const full = join(directory, entry);
     const info = await stat(full);
     if (info.isDirectory()) files.push(...await walk(full));
@@ -75,6 +75,8 @@ const indexHtml = await readFile(indexPath, "utf8");
 for (const requiredText of [
   "Unsere Gesellschaft verändert sich jeden Tag. Warum darf sie politisch meist nur alle paar Jahre antworten?",
   "Ausgabe 01",
+  "International vergleichend",
+  "Demokratiegeschichte lesen",
   "Politische Gesamtpakete",
   "Zeitlich gebündelt",
   "Vorgegebene Verfahren",
@@ -94,15 +96,34 @@ for (const requiredText of [
 ]) {
   if (!indexHtml.includes(requiredText)) fail(indexPath, `missing editorial requirement: ${requiredText}`);
 }
-for (const code of ["de", "ch", "ee", "fr"]) {
-  if (!indexHtml.includes(`data-atlas-panel="${code}"`)) fail(indexPath, `missing atlas panel ${code}`);
-  if (!indexHtml.includes(`data-atlas-country="${code}" data-atlas-tab`)) fail(indexPath, `missing mobile atlas tab ${code}`);
-  if (!indexHtml.includes(`data-atlas-country="${code}" data-atlas-globe`)) fail(indexPath, `missing globe control ${code}`);
+
+for (const forbidden of [
+  "Ausgabe 02",
+  "Weltatlas",
+  "Atlas-Prototyp",
+  'href="#welt"',
+  'id="welt"',
+  "data-atlas",
+  "data-atlas-country",
+  "data-atlas-panel",
+  "data-atlas-tab",
+  "data-atlas-globe",
+]) {
+  if (indexHtml.includes(forbidden)) fail(indexPath, `issue 01 must remain atlas-free: ${forbidden}`);
 }
-if (indexHtml.includes("Ausgabe 02")) fail(indexPath, "issue 01 still contains an Ausgabe 02 label");
-if ((indexHtml.match(/href="#welt"/gu) || []).length < 3) {
-  fail(indexPath, "header, editorial action and footer must keep visible Atlas links");
+
+for (const orderedSection of [
+  "I · Geschichte",
+  "II · Digitalwende",
+  "III · Institutionen",
+  "IV · Medien",
+  "V · Infrastruktur",
+  "VI · Ökosystem",
+  "VII · Methode",
+]) {
+  if (!indexHtml.includes(orderedSection)) fail(indexPath, `missing atlas-free section order: ${orderedSection}`);
 }
+
 for (const layer of ["Ereignis oder Primärinformation", "Journalistische Auswahl", "Nachricht", "Kontext und Einordnung", "Kommentar oder Meinung", "Prognose", "Umfrage oder Stichprobenergebnis"]) {
   if (!indexHtml.includes(layer)) fail(indexPath, `missing information layer: ${layer}`);
 }
@@ -115,26 +136,49 @@ if (!sourcesHtml.includes('id="ki-transparenz"') || !sourcesHtml.includes("KI-Au
 
 const scriptPath = join(root, "script.js");
 const script = await readFile(scriptPath, "utf8");
-for (const marker of ["data-atlas-announcer", "aria-selected", "aria-pressed", "ArrowRight", "data-ai-role", "data-journal-menu-button"]) {
+for (const marker of ["data-ai-role", "data-journal-menu-button"]) {
   if (!script.includes(marker)) fail(scriptPath, `missing interaction marker ${marker}`);
 }
+for (const forbidden of ["data-atlas-announcer", "data-atlas-globe", "selectAtlasCountry", "atlas-enhanced"]) {
+  if (script.includes(forbidden)) fail(scriptPath, `retired Atlas runtime remains in shared script: ${forbidden}`);
+}
 
-const interruptionCssPath = join(root, "editorial-interruptions.css");
-const interruptionCss = await readFile(interruptionCssPath, "utf8");
-if (/#welt\s*,|a\[href=["']#welt["']\]/u.test(interruptionCss)) {
-  fail(interruptionCssPath, "Atlas must not be hidden by the access layer");
+const configPath = join(root, "site-config.js");
+const configScript = await readFile(configPath, "utf8");
+for (const marker of [
+  'number: "01"',
+  'label: "Ausgabe 01"',
+  'version: "1.0"',
+  'source: "de"',
+  'storageKey: "vote4gov:language:v1"',
+  'visibleInIssue: false',
+  'futureSlice: "VOTE4GOV-WORLD-ATLAS-FOUNDATION-01"',
+]) {
+  if (!configScript.includes(marker)) fail(configPath, `missing canonical configuration marker ${marker}`);
+}
+
+const aiPath = join(root, "ai-transparency.js");
+const aiScript = await readFile(aiPath, "utf8");
+for (const marker of ["/site-config.js", "/on-device-translation.js", "/global-language.js", "/language-ui-unifier.js"]) {
+  if (!aiScript.includes(marker)) fail(aiPath, `missing ordered language/configuration load ${marker}`);
+}
+
+const unifierPath = join(root, "language-ui-unifier.js");
+const unifier = await readFile(unifierPath, "utf8");
+for (const marker of ["global-language-control", "v4g-language-trigger", "data-language-state-bridge", "data-language-ui"]) {
+  if (!unifier.includes(marker)) fail(unifierPath, `missing single-language-control marker ${marker}`);
 }
 
 const interruptionScriptPath = join(root, "editorial-interruptions.js");
 const interruptionScript = await readFile(interruptionScriptPath, "utf8");
-for (const marker of ["accessTrigger.dataset.accessOpen", "aria-haspopup", "showModal"] ) {
+for (const marker of ["accessTrigger.dataset.accessOpen", "aria-haspopup", "showModal"]) {
   if (!interruptionScript.includes(marker)) fail(interruptionScriptPath, `missing deliberate dialog trigger marker ${marker}`);
 }
 if (/setTimeout[\s\S]{0,180}showModal/u.test(interruptionScript)) {
   fail(interruptionScriptPath, "access dialog must not open from a timer");
 }
-if (/atlasSection|querySelectorAll\(['"]a\[href=[^)]*#welt[^)]*\)[\s\S]{0,120}remove\(/u.test(interruptionScript)) {
-  fail(interruptionScriptPath, "access layer must not remove Atlas DOM or navigation");
+if (/atlasSection|#welt|data-atlas/u.test(interruptionScript)) {
+  fail(interruptionScriptPath, "access layer must not carry retired Atlas cleanup logic");
 }
 
 const historyPath = join(root, "journal/geschichte-der-demokratie.html");
@@ -210,4 +254,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log(`Static quality validation passed for ${htmlFiles.length} HTML files.`);
+console.log(`Static quality validation passed for ${htmlFiles.length} HTML files: issue 01, atlas-free source, language UI and routing contracts.`);
