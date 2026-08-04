@@ -37,6 +37,7 @@ try {
 
   check(await home.locator(".cover-main h1").isVisible(), "desktop: hero is not immediately visible");
   check(!(await home.locator(".editorial-access-dialog").evaluate((dialog) => dialog.open)), "desktop: access dialog opened automatically");
+  check(await home.locator(".editorial-privacy-sheet").getAttribute("hidden") !== null, "desktop: privacy disclosure opened automatically");
   check(await home.locator("#welt").isVisible(), "desktop: Atlas is hidden in JavaScript mode");
   check(await home.locator('a[href="#welt"]').count() >= 3, "desktop: Atlas links disappeared from navigation or footer");
   check(await home.evaluate(() => matchMedia("(prefers-reduced-motion: reduce)").matches), "desktop: reduced-motion preference was not active");
@@ -80,13 +81,39 @@ try {
   check(await firstTab.getAttribute("aria-selected") === "true", "keyboard: Home did not select DE");
 
   const trigger = home.locator("[data-access-open]");
+  const privacyTrigger = home.locator('.cover-story [data-privacy-open]');
   check(await trigger.isVisible(), "desktop: deliberate access trigger is missing");
+  check(await privacyTrigger.isVisible(), "desktop: deliberate privacy trigger is missing");
   await trigger.click();
   check(await home.locator(".editorial-access-dialog").evaluate((dialog) => dialog.open), "desktop: deliberate action did not open the access dialog");
   check(await home.locator("[data-access-free]").isVisible(), "desktop: equal free-access action is missing");
   await home.keyboard.press("Escape");
   check(!(await home.locator(".editorial-access-dialog").evaluate((dialog) => dialog.open)), "keyboard: Escape did not close the access dialog");
+  check(await home.locator(".editorial-privacy-sheet").getAttribute("hidden") !== null, "keyboard: closing access opened a follow-up privacy overlay");
   check(await trigger.evaluate((element) => element === document.activeElement), "keyboard: dialog close did not restore focus to its trigger");
+
+  await trigger.click();
+  await home.locator("[data-access-free]").click();
+  await home.locator("[data-access-continue]").click();
+  await home.waitForTimeout(250);
+  check(!(await home.locator(".editorial-access-dialog").evaluate((dialog) => dialog.open)), "desktop: complete access action did not close the dialog");
+  check(await home.locator(".editorial-privacy-sheet").getAttribute("hidden") !== null, "desktop: complete access action opened a forced privacy overlay");
+
+  await privacyTrigger.click();
+  check(await home.locator(".editorial-privacy-sheet").isVisible(), "desktop: deliberate privacy action did not open the disclosure");
+  check(await privacyTrigger.getAttribute("aria-expanded") === "true", "desktop: privacy trigger did not expose expanded state");
+  check(await home.locator(".editorial-privacy-sheet [data-privacy-close]").first().evaluate((element) => element === document.activeElement), "desktop: privacy disclosure did not receive focus");
+  await home.keyboard.press("Escape");
+  check(!(await home.locator(".editorial-privacy-sheet").isVisible()), "keyboard: Escape did not close the privacy disclosure");
+  check(await privacyTrigger.getAttribute("aria-expanded") === "false", "keyboard: privacy trigger remained expanded after close");
+  check(await privacyTrigger.evaluate((element) => element === document.activeElement), "keyboard: privacy close did not restore focus");
+
+  for (const topicId of ["free-knowledge-access", "tracking-explicit-consent"]) {
+    const widget = home.locator(`[data-participation-pulse="${topicId}"]`);
+    check(await widget.count() === 1, `desktop: ${topicId} pulse is missing`);
+    check(await widget.locator('a[href*="/create"]').count() === 0, `desktop: ${topicId} exposes an unregistered /create handoff`);
+    check(await widget.locator('[data-pulse-action="edebate"][aria-disabled="true"]').count() === 1, `desktop: ${topicId} does not fail closed`);
+  }
 
   await home.setViewportSize({ width: 720, height: 450 });
   check(await home.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1), "200% zoom: homepage has horizontal overflow");
@@ -129,6 +156,7 @@ try {
     const page = await openPage(mobile, "/");
     check(await page.locator(".cover-main h1").isVisible(), `${viewport.width}px: hero is not immediately visible`);
     check(!(await page.locator(".editorial-access-dialog").evaluate((dialog) => dialog.open)), `${viewport.width}px: access dialog opened automatically`);
+    check(await page.locator(".editorial-privacy-sheet").getAttribute("hidden") !== null, `${viewport.width}px: privacy disclosure opened automatically`);
     check(await page.locator("#welt").isVisible(), `${viewport.width}px: Atlas is hidden`);
     await dismissStorageNotice(page);
     await page.locator("#welt").scrollIntoViewIfNeeded();
@@ -143,6 +171,11 @@ try {
       check(await page.locator(`[data-atlas-tab][data-atlas-country="${code}"]`).getAttribute("aria-selected") === "true", `${viewport.width}px touch: ${code.toUpperCase()} was not selected`);
       check(await page.locator(`[data-atlas-panel="${code}"]`).isVisible(), `${viewport.width}px touch: ${code.toUpperCase()} panel is hidden`);
     }
+    const mobilePrivacyTrigger = page.locator('.cover-story [data-privacy-open]');
+    await mobilePrivacyTrigger.tap();
+    check(await page.locator(".editorial-privacy-sheet").isVisible(), `${viewport.width}px: privacy disclosure did not open deliberately`);
+    await page.keyboard.press("Escape");
+    check(!(await page.locator(".editorial-privacy-sheet").isVisible()), `${viewport.width}px: privacy disclosure did not close by Escape`);
     check(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1), `${viewport.width}px: homepage has horizontal overflow`);
     await mobile.close();
   }
@@ -163,4 +196,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log("Browser regression passed: desktop, mobile, touch, keyboard, reduced motion, 200% zoom and no-JS.");
+console.log("Browser regression passed: desktop, mobile, touch, keyboard, deliberate privacy, reduced motion, 200% zoom and no-JS.");
