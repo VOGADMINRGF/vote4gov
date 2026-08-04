@@ -15,6 +15,7 @@
     const trigger = triggers[0];
     if (trigger) {
       trigger.dataset.languageUi = "canonical";
+      trigger.setAttribute("data-language-ui", "canonical");
       trigger.setAttribute("aria-controls", "v4g-language-dialog");
       if (!trigger.textContent?.includes(issue)) {
         const code = document.documentElement.dataset.readingLanguage || config?.language?.source || "de";
