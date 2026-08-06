@@ -119,9 +119,11 @@
 
   ensureScript("/site-config.js?v=20260804-1");
   ensureStyle("/global-language.css?v=20260804-2");
+  ensureStyle("/header-plain-language.css?v=20260806-1");
   ensureScript("/on-device-translation.js?v=20260804-2");
   ensureScript("/global-language.js?v=20260804-2");
-  ensureScript("/language-ui-unifier.js?v=20260804-2");
+  ensureScript("/language-ui-unifier.js?v=20260806-1");
   ensureScript("/language-runtime-integrity.js?v=20260804-1");
+  ensureScript("/header-plain-language.js?v=20260806-1");
   ensureScript("/editorial-participation-positioning.js?v=20260804-1");
 })();
