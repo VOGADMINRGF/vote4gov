@@ -1,0 +1,79 @@
+name: Static editorial quality
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Use Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Check JavaScript syntax
+        run: find . -type f \( -name '*.js' -o -name '*.mjs' \) -not -path './.git/*' -not -path './node_modules/*' -exec node --check {} \;
+
+      - name: Validate issue 01 editorial architecture and routing
+        run: node scripts/validate-static-site.mjs
+
+      - name: Validate Vercel configuration JSON
+        run: node -e "JSON.parse(require('fs').readFileSync('vercel.json','utf8')); console.log('vercel.json valid')"
+
+      - name: Install browser regression runtime
+        run: |
+          npm install --no-save --no-package-lock playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Start static review server
+        run: |
+          python3 -m http.server 4173 >/tmp/vote4gov-http.log 2>&1 &
+          echo $! > /tmp/vote4gov-http.pid
+          for attempt in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:4173/ >/dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/vote4gov-http.log
+          exit 1
+
+      - name: Run atlas-free, responsive and multilingual browser regressions
+        env:
+          VOTE4GOV_BASE_URL: http://127.0.0.1:4173
+        run: |
+          node scripts/browser-regression.mjs
+          node scripts/language-browser-regression.mjs
+
+      - name: Capture exact-head visual evidence
+        env:
+          VOTE4GOV_BASE_URL: http://127.0.0.1:4173
+          VOTE4GOV_VISUAL_DIR: artifacts/visual-evidence
+        run: node scripts/capture-visual-evidence.mjs
+
+      - name: Upload visual evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: vote4gov-exact-head-visual-evidence
+          path: artifacts/visual-evidence
+          if-no-files-found: warn
+          retention-days: 14
+
+      - name: Stop static review server
+        if: always()
+        run: |
+          if [ -f /tmp/vote4gov-http.pid ]; then
+            kill "$(cat /tmp/vote4gov-http.pid)" || true
+          fi

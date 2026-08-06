@@ -6,9 +6,29 @@ const loadStyle = (href) => {
   document.head.appendChild(link);
 };
 
+const loadScript = (src) => {
+  if (document.querySelector(`script[src^="${src}"]`)) return;
+  const script = document.createElement("script");
+  script.src = src;
+  script.async = false;
+  document.head.appendChild(script);
+};
+
 loadStyle("/image-tuning.css?v=20260801-1");
 loadStyle("/accessibility.css?v=20260801-1");
 loadStyle("/brand-shell.css?v=20260802-1");
+loadStyle("/editorial-interruptions.css?v=20260802-2");
+loadStyle("/ai-transparency.css?v=20260802-1");
+loadStyle("/participation-pulse.css?v=20260802-1");
+loadStyle("/storage-transparency.css?v=20260802-1");
+loadStyle("/global-language.css?v=20260804-1");
+window.VOTE4GOV_PRIVACY_MODE = true;
+loadScript("/editorial-interruptions.js?v=20260804-2");
+loadScript("/site-config.js?v=20260804-1");
+loadScript("/ai-transparency.js?v=20260804-2");
+loadScript("/vote4gov-handoff.js?v=20260803-1");
+loadScript("/participation-pulse.js?v=20260804-2");
+loadScript("/storage-transparency.js?v=20260802-1");
 
 const canonicalHrefRewrites = new Map([
   ["https://compdemocracy.org/Polis/", "https://compdemocracy.org/polis/"],
@@ -19,62 +39,47 @@ document.querySelectorAll("a[href]").forEach((link) => {
   if (replacement) link.href = replacement;
 });
 
-const atlasProfiles = {
-  de: {
-    title: "Deutschland",
-    intro: "Das Profil untersucht nicht nur Wahlen, sondern auch die Wege zwischen kommunaler Betroffenheit, föderaler Zuständigkeit und europäischer Mitwirkung.",
-    question: "Wie greifen Bund, Länder, Kommunen und europäische Zuständigkeiten ineinander – und wo kann Beteiligung verständlicher werden?",
-    focus: "politische Ebenen und Rückkopplung",
-    language: "Originalquellen plus mehrsprachige Lesefassung",
-  },
-  ch: {
-    title: "Schweiz",
-    intro: "Das Profil fragt, wie repräsentative Institutionen, föderale Ebenen und direktdemokratische Instrumente im politischen Alltag zusammenspielen.",
-    question: "Welche Voraussetzungen machen wiederkehrende Abstimmungen verständlich, zugänglich und institutionell wirksam?",
-    focus: "Repräsentation und direkte Mitwirkung",
-    language: "mehrsprachige Begriffe im jeweiligen Rechtskontext",
-  },
-  ee: {
-    title: "Estland",
-    intro: "Das Profil betrachtet die Verbindung von digitaler Staatlichkeit, Identität, Vertrauen, öffentlicher Infrastruktur und demokratischer Kontrolle.",
-    question: "Welche technischen und institutionellen Grundlagen braucht digitale Beteiligung, damit Bequemlichkeit nicht auf Kosten von Vertrauen geht?",
-    focus: "digitale Voraussetzungen und öffentliche Kontrolle",
-    language: "Originalquellen, Übersetzungsstatus und Begriffserklärung",
-  },
-  fr: {
-    title: "Frankreich",
-    intro: "Das Profil untersucht das Verhältnis von nationaler Steuerung, regionalen Ebenen, politischer Repräsentation und zusätzlicher Bürgerbeteiligung.",
-    question: "Wie können nationale Entscheidungsfähigkeit und regionale Rückkopplung verbunden werden, ohne Zuständigkeiten zu verwischen?",
-    focus: "Zentralität, Regionen und Beteiligungswege",
-    language: "lokale Fachbegriffe plus verständliche Lesefassung",
-  },
-};
-
-const atlasButtons = document.querySelectorAll("[data-atlas-country]");
-const atlasTitle = document.querySelector("[data-atlas-title]");
-const atlasIntro = document.querySelector("[data-atlas-intro]");
-const atlasQuestion = document.querySelector("[data-atlas-question]");
-const atlasFocus = document.querySelector("[data-atlas-focus]");
-const atlasLanguage = document.querySelector("[data-atlas-language]");
-
-const selectAtlasCountry = (code) => {
-  const profile = atlasProfiles[code];
-  if (!profile) return;
-  if (atlasTitle) atlasTitle.textContent = profile.title;
-  if (atlasIntro) atlasIntro.textContent = profile.intro;
-  if (atlasQuestion) atlasQuestion.textContent = profile.question;
-  if (atlasFocus) atlasFocus.textContent = profile.focus;
-  if (atlasLanguage) atlasLanguage.textContent = profile.language;
-  atlasButtons.forEach((button) => {
-    const active = button.dataset.atlasCountry === code;
-    button.classList.toggle("is-active", active);
-    if (button.matches("button")) button.setAttribute("aria-pressed", String(active));
-  });
-};
-atlasButtons.forEach((button) => button.addEventListener("click", () => selectAtlasCountry(button.dataset.atlasCountry)));
-
 const year = document.querySelector("[data-year]");
 if (year) year.textContent = String(new Date().getFullYear());
+
+document.querySelectorAll(".journal-nav").forEach((journalNav, index) => {
+  const links = journalNav.querySelector(".journal-nav-inner");
+  if (!links || journalNav.querySelector("[data-journal-menu-button]")) return;
+  const linksId = links.id || `journal-navigation-${index + 1}`;
+  links.id = linksId;
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "journal-menu-button";
+  button.dataset.journalMenuButton = "";
+  button.setAttribute("aria-controls", linksId);
+  button.setAttribute("aria-expanded", "false");
+  button.innerHTML = '<span>Ressorts</span><span aria-hidden="true">☰</span>';
+  links.before(button);
+  journalNav.classList.add("journal-nav-enhanced");
+
+  const close = () => {
+    button.setAttribute("aria-expanded", "false");
+    links.classList.remove("is-open");
+  };
+  button.addEventListener("click", () => {
+    const open = button.getAttribute("aria-expanded") !== "true";
+    button.setAttribute("aria-expanded", String(open));
+    links.classList.toggle("is-open", open);
+  });
+  links.querySelectorAll("a").forEach((link) => link.addEventListener("click", close));
+  window.addEventListener("keydown", (event) => { if (event.key === "Escape") close(); });
+});
+
+document.querySelectorAll(".article-page .article-meta").forEach((meta) => {
+  if (meta.querySelector("[data-ai-role]")) return;
+  const disclosure = document.createElement("a");
+  disclosure.href = "/quellen.html#ki-transparenz";
+  disclosure.dataset.aiRole = "";
+  disclosure.className = "article-ai-role";
+  disclosure.textContent = "KI-Rolle: Rechercheunterstützung · Struktur · Sprachfassung";
+  disclosure.setAttribute("aria-label", "KI-Transparenz: Rechercheunterstützung, Struktur und Sprachfassung. Verfahren öffnen.");
+  meta.appendChild(disclosure);
+});
 
 const menuButton = document.querySelector("[data-menu-button]");
 const nav = document.querySelector("[data-nav]");
@@ -184,15 +189,17 @@ const openEdebateQr = (url, title) => {
   else window.open(url, "_blank", "noopener,noreferrer");
 };
 
-document.querySelectorAll("a.edebatte-link").forEach((link) => {
-  if (link.parentElement?.querySelector("[data-edebatte-qr]")) return;
-  const button = document.createElement("button");
-  button.type = "button";
-  button.dataset.edebatteQr = "";
-  button.className = "journal-button";
-  button.innerHTML = `${qrIcon}<span style="margin-left:7px">QR-Code</span>`;
-  const title = link.dataset.qrTitle || "Diskussion und Prüfung";
-  button.setAttribute("aria-label", `QR-Code für ${title} anzeigen`);
-  button.addEventListener("click", () => openEdebateQr(link.href, title));
-  link.insertAdjacentElement("afterend", button);
-});
+if (!window.VOTE4GOV_PRIVACY_MODE) {
+  document.querySelectorAll("a.edebatte-link").forEach((link) => {
+    if (link.parentElement?.querySelector("[data-edebatte-qr]")) return;
+    const button = document.createElement("button");
+    button.type = "button";
+    button.dataset.edebatteQr = "";
+    button.className = "journal-button";
+    button.innerHTML = `${qrIcon}<span style="margin-left:7px">QR-Code</span>`;
+    const title = link.dataset.qrTitle || "Diskussion und Prüfung";
+    button.setAttribute("aria-label", `QR-Code für ${title} anzeigen`);
+    button.addEventListener("click", () => openEdebateQr(link.href, title));
+    link.insertAdjacentElement("afterend", button);
+  });
+}
