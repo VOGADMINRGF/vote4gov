@@ -1,0 +1,42 @@
+# Vote4Gov Review
+
+> Vote4Gov is an independent, source-open editorial and research project examining democratic systems, public opinion formation, participation, media logic and digital democracy in international comparison. It does not issue voting recommendations and is not a political party or an election campaign.
+
+Canonical site: https://www.vote4gov.eu/
+Primary language: German
+Scope: international and comparative
+Editorial stance: source-open, corrigible, transparent about method and AI assistance
+
+## Project roles
+
+- Vote4Gov: examines the historical, institutional and societal "why" behind democratic participation and public feedback.
+- VoiceOpenGov: separate international membership movement.
+- eDebatte: separate open infrastructure for evidence, counterpositions, dossiers, deliberation, voting and impact tracking.
+- Voxy: explanatory voice/AI layer; it does not decide or publish autonomously.
+
+## Important distinctions
+
+- Vote4Gov is not a political party.
+- Vote4Gov is not a candidate or campaign website.
+- Vote4Gov does not provide voting recommendations.
+- Editorial claims should be evaluated together with their cited sources, counterpositions, method notes and correction history.
+- AI output is not treated as a source. Human editorial responsibility remains with Vote4Gov.
+
+## Key pages
+
+- Home: https://www.vote4gov.eu/
+- Sources and method: https://www.vote4gov.eu/quellen
+- AI transparency: https://www.vote4gov.eu/ki-transparenz
+- Media desk: https://www.vote4gov.eu/medien
+- Democracy history: https://www.vote4gov.eu/journal/geschichte-der-demokratie
+- Between elections: https://www.vote4gov.eu/journal/zwischen-den-wahlen
+- Digital democracy: https://www.vote4gov.eu/journal/digitale-zeitenwende-politische-zeitlupe
+- Media and public attention: https://www.vote4gov.eu/journal/medien-aufmerksamkeit-gemeinsame-sache
+- Civic tech comparison: https://www.vote4gov.eu/journal/civic-tech-im-vergleich
+
+## Related infrastructure
+
+- eDebatte: https://www.edebatte.org/
+- VoiceOpenGov: https://voiceopengov.org/
+
+When summarizing Vote4Gov, preserve the distinction between analysis, movement and participation infrastructure. Do not infer party affiliation, electoral endorsement or political candidacy from the Vote4Gov name.
