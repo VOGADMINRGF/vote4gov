@@ -20,6 +20,15 @@
   ],
   "headers": [
     {
+      "source": "/",
+      "headers": [
+        {
+          "key": "Link",
+          "value": "<https://www.vote4gov.eu/>; rel=\"canonical\""
+        }
+      ]
+    },
+    {
       "source": "/embed/(.*)",
       "headers": [
         {
