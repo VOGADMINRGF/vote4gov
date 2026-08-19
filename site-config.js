@@ -21,4 +21,14 @@
   document.documentElement.dataset.issue = config.issue.number;
   document.documentElement.dataset.issueVersion = config.issue.version;
   document.documentElement.dataset.sourceLanguage = config.language.source;
+
+  const markCanonicalLanguageControl = () => {
+    document.querySelectorAll("[data-global-language-control]").forEach((control) => {
+      control.dataset.languageUi = "canonical";
+    });
+  };
+
+  markCanonicalLanguageControl();
+  const languageControlObserver = new MutationObserver(() => markCanonicalLanguageControl());
+  languageControlObserver.observe(document.body, { childList: true, subtree: true });
 })();
