@@ -67,6 +67,9 @@ for (const file of htmlFiles) {
     if (rel !== "journal/geschichte-der-demokratie.html" && !html.includes("https://www.edebatte.org/")) {
       fail(file, "article lacks direct eDebatte handoff");
     }
+    if (/href=["']\/#[^"']+["']/i.test(html)) {
+      fail(file, "article still links to a section on the campaign homepage instead of /vision.html");
+    }
   }
 
   for (const match of html.matchAll(/<a\b[^>]*class=["'][^"']*\bedebatte-link\b[^"']*["'][^>]*href=["']([^"']+)["']/gi)) {
@@ -94,6 +97,17 @@ for (const requiredText of [
   "/ueber-mich.html",
 ]) {
   if (!indexHtml.includes(requiredText)) fail(indexPath, `missing start-page requirement: ${requiredText}`);
+}
+
+const homeCssPath = join(root, "home.css");
+const homeCss = await readFile(homeCssPath, "utf8");
+const homeScriptPath = join(root, "home.js");
+const homeScript = await readFile(homeScriptPath, "utf8");
+if (!homeCss.includes(".home-page .reveal") || !homeCss.includes(".js-enabled .home-page .reveal:not(.is-visible)")) {
+  fail(homeCssPath, "campaign reveal effects must preserve visible content without JavaScript");
+}
+if (!homeScript.includes('classList.add("js-enabled")')) {
+  fail(homeScriptPath, "campaign script must opt in to reveal effects");
 }
 
 const visionPath = join(root, "vision.html");

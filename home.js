@@ -1,3 +1,5 @@
+document.documentElement.classList.add("js-enabled");
+
 const header = document.querySelector("[data-header]");
 const menuButton = document.querySelector("[data-menu-button]");
 const navigation = document.querySelector("[data-nav]");

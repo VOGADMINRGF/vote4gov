@@ -522,6 +522,17 @@
   .home-contact > a { font-size: 22px; }
 }
 
+/* Campaign content stays readable when JavaScript is unavailable. */
+.home-page .reveal {
+  opacity: 1;
+  transform: none;
+}
+
+.js-enabled .home-page .reveal:not(.is-visible) {
+  opacity: 0;
+  transform: translateY(22px);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
 }
