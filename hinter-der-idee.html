@@ -8,6 +8,9 @@
   <title>Mission – Vote4Gov, VoiceOpenGov und eDebatte</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/i18n.css" />
+  <link rel="stylesheet" href="/mission-refinement.css" />
+  <script src="/i18n.js" defer></script>
   <script src="/script.js" defer></script>
 </head>
 <body>
@@ -22,6 +25,7 @@
       <a href="#umsetzung">Voxy &amp; eDebatte</a>
       <a class="nav-cta" href="https://www.voiceopengov.org/mitglied-werden" target="_blank" rel="noreferrer">Mitmachen</a>
     </nav>
+    <div class="language-switcher-wrap" data-language-switcher></div>
   </header>
 
   <main id="main">
@@ -32,7 +36,7 @@
           <p class="eyebrow">Die Mission hinter der Bewerbung.</p>
           <h1 id="hero-title">Für alle.<br />Überall.<span>•</span></h1>
           <p class="hero-trust">Ich möchte nicht, dass du mir glaubst.<br /><strong>Ich möchte, dass du alles prüfen kannst.</strong></p>
-          <p class="hero-intro">Ich bin <strong>Ricky Gerd Fleischer</strong>. Diese Seite dokumentiert den persönlichen Ausgangspunkt hinter VoiceOpenGov und eDebatte.</p>
+          <p class="hero-intro">Ich bin <strong>Ricky Gerd Fleischer</strong>. Diese Seite erklärt, warum VoiceOpenGov, eDebatte und Vote4Gov entstanden sind – und welche überprüfbaren Prinzipien dahinterstehen.</p>
           <div class="hero-actions">
             <a class="button button-primary" href="https://www.voiceopengov.org/mitglied-werden" target="_blank" rel="noreferrer">VoiceOpenGov beitreten</a>
             <a class="button button-ghost" href="/vision.html">Die Vision prüfen</a>
@@ -44,7 +48,7 @@
           </div>
         </div>
         <div class="hero-portrait reveal" aria-label="Ricky Gerd Fleischer">
-          <img src="/assets/hero-portrait.svg" alt="Ricky Gerd Fleischer in einem hochwertigen Porträt" />
+          <img src="/assets/hero-portrait.svg" alt="Ricky Gerd Fleischer" />
           <div class="portrait-signature">Ricky Gerd Fleischer</div>
           <div class="portrait-caption"><p>Initiator von VoiceOpenGov und eDebatte.</p><span>Parteilos. Grenzenübergreifend. Mensch.</span></div>
         </div>
@@ -83,22 +87,33 @@
     <section class="implementation page-shell" id="umsetzung">
       <div class="implementation-head reveal"><p class="section-kicker">Die Antwort ist keine weitere Partei</p><h2>Eine offene Infrastruktur, in der Menschen verstehen, widersprechen und mitentscheiden können.</h2></div>
       <div class="implementation-grid">
-        <article class="system-card reveal"><span class="system-index">01</span><h3>VoiceOpenGov</h3><p>Eine unabhängige internationale Gemeinschaft für Menschen, Partner und Institutionen.</p><a href="https://www.voiceopengov.org/mitglied-werden" target="_blank" rel="noreferrer">Mitglied werden →</a></article>
-        <article class="system-card reveal"><span class="system-index">02</span><h3>eDebatte</h3><p>Ein Ort, an dem Anliegen, Quellen, Argumente, offene Fragen und Entscheidungen nachvollziehbar miteinander verbunden werden.</p><a href="https://www.edebatte.org/create" target="_blank" rel="noreferrer">Anliegen einbringen →</a></article>
+        <article class="system-card reveal"><span class="system-index">01</span><h3>VoiceOpenGov</h3><p>Die unabhängige internationale Gemeinschaft: Menschen, Partner und Institutionen, die demokratische Beteiligung weiterdenken.</p><a href="https://www.voiceopengov.org/mitglied-werden" target="_blank" rel="noreferrer">Mitglied werden →</a></article>
+        <article class="system-card reveal"><span class="system-index">02</span><h3>eDebatte</h3><p>Die Infrastruktur: Anliegen, Quellen, Argumente, Alternativen, offene Fragen und Entscheidungen nachvollziehbar miteinander verbinden.</p><a href="https://www.edebatte.org/create" target="_blank" rel="noreferrer">Anliegen einbringen →</a></article>
         <article class="system-card voxy-card reveal"><img src="/assets/voxy.svg" alt="Voxy" /><span class="system-index">03</span><h3>Voxy</h3><p>Der verständliche Zugang zu komplexen Zusammenhängen – als Hilfe zum Prüfen, nicht als Ersatz für die eigene Entscheidung.</p><a href="https://www.edebatte.org/" target="_blank" rel="noreferrer">Voxy kennenlernen →</a></article>
+      </div>
+      <div class="mission-map reveal" aria-label="Vom Anliegen bis zur Wirkung">
+        <p class="section-kicker">Der nachvollziehbare Kreislauf</p>
+        <div class="mission-map-flow">
+          <div class="mission-node"><span>01</span><strong>Anliegen</strong></div>
+          <div class="mission-node"><span>02</span><strong>Quellen &amp; Fakten</strong></div>
+          <div class="mission-node"><span>03</span><strong>Gegenpositionen</strong></div>
+          <div class="mission-node"><span>04</span><strong>Debatte &amp; Alternativen</strong></div>
+          <div class="mission-node"><span>05</span><strong>Entscheidung</strong></div>
+          <div class="mission-node"><span>06</span><strong>Wirkung &amp; Rechenschaft</strong></div>
+        </div>
+        <p class="mission-map-note">Nicht die lauteste Position soll gewinnen, sondern ein Prozess, dessen Quellen, Abwägungen, Entscheidungen und Folgen nachvollziehbar bleiben.</p>
       </div>
     </section>
 
     <section class="three-questions page-shell" aria-label="Mit wem, wie und für wen">
       <article class="question-card reveal"><p class="section-kicker">Mit wem?</p><h3>Mit allen, die Verantwortung übernehmen wollen.</h3><p>Bürgerinnen und Bürger, Wissenschaft, Medien, Zivilgesellschaft, Verwaltung, Institutionen, Unternehmen und Technologiepartner.</p><strong>Gemeinsam. Nicht gegeneinander.</strong></article>
       <article class="question-card reveal"><p class="section-kicker">Wie?</p><h3>Durch nachvollziehbare Prozesse.</h3><p>Quellenprüfung, verständliche Zusammenhänge, konstruktive Debatten, Beteiligung, Abstimmung und ein sichtbarer Arbeitsstand.</p><strong>Technologie befähigt. Menschen entscheiden.</strong></article>
-      <article class="question-card purpose-card reveal"><p class="section-kicker">Für wen?</p><h3>Für jede Generation. Für meinen Sohn.</h3><p>Ich möchte, dass er in einer Welt aufwächst, in der Wahrheit stärker ist als Manipulation und jeder Mensch wirksam mitgestalten kann.</p></article>
+      <article class="question-card purpose-card reveal"><p class="section-kicker">Für wen?</p><h3>Für jede Generation. Für unsere gemeinsame Zukunft.</h3><p>Demokratische Strukturen sollten nicht nur die nächste Wahl überstehen, sondern auch für Menschen funktionieren, die heute noch keine politische Stimme haben.</p><div class="purpose-horizon" aria-hidden="true"><span></span><span></span><span></span></div></article>
     </section>
 
-    <section class="person-section" id="person">
+    <section class="person-section mission-person" id="person">
       <div class="page-shell person-grid">
-        <div class="person-image reveal"><img src="/assets/person.svg" alt="Ricky Gerd Fleischer im professionellen Porträt" /></div>
-        <div class="person-copy reveal"><p class="section-kicker">Der Mensch hinter der Idee</p><h2>Ich komme nicht aus dem Politikbetrieb. Vielleicht ist genau das mein wichtigster Ausgangspunkt.</h2><p>Ich habe mehr als 15 Jahre in Handel, Vertrieb, Business Development, Commercial Leadership und Transformation gearbeitet. Ich habe Teams geführt, neue Geschäftsfelder aufgebaut, Strukturen verändert und gelernt, dass Verantwortung nicht darin besteht, Probleme eloquent zu beschreiben.</p><p>Verantwortung beginnt dort, wo jemand Entscheidungen begründet, Strukturen verbessert und sich an Ergebnissen messen lässt.</p><div class="profile-facts"><span>15+ Jahre Führung und Vertrieb</span><span>B2B, B2G und regulierte Märkte</span><span>Aufbau, Transformation und Umsetzung</span><span>Berlin · Europa · grenzenübergreifend</span></div><div class="person-actions"><a class="button button-ghost" href="/ueber-mich.html">Mehr über mich</a><a class="button button-ghost" href="/cv.html">Beruflicher Weg</a></div><span class="signature signature-large">Ricky Gerd Fleischer</span></div>
+        <div class="person-copy reveal"><p class="section-kicker">Der Mensch hinter der Idee</p><h2>Ich komme nicht aus dem Politikbetrieb. Vielleicht ist genau das mein wichtigster Ausgangspunkt.</h2><p>Ich habe mehr als 15 Jahre in Handel, Vertrieb, Business Development, Commercial Leadership und Transformation gearbeitet. Ich habe Teams geführt, neue Geschäftsfelder aufgebaut, Strukturen verändert und gelernt, dass Verantwortung nicht darin besteht, Probleme eloquent zu beschreiben.</p><p>Verantwortung beginnt dort, wo jemand Entscheidungen begründet, Strukturen verbessert und sich an Ergebnissen messen lässt. Deshalb braucht diese Seite kein zweites inszeniertes Porträt, sondern überprüfbare Aussagen über Erfahrung, Haltung und Vorgehen.</p><div class="mission-person-note"><div><span>Erfahrung</span><strong>Aufbau, Vertrieb, Transformation und operative Verantwortung.</strong></div><div><span>Prinzip</span><strong>Begründungen und Ergebnisse müssen stärker sein als Selbstdarstellung.</strong></div><div><span>Anspruch</span><strong>Widerspruch sichtbar machen und Entscheidungen überprüfbar halten.</strong></div></div><div class="profile-facts"><span>15+ Jahre Führung und Vertrieb</span><span>B2B, B2G und regulierte Märkte</span><span>Aufbau, Transformation und Umsetzung</span><span>Berlin · Europa · grenzenübergreifend</span></div><div class="person-actions"><a class="button button-ghost" href="/ueber-mich.html">Mehr über mich</a><a class="button button-ghost" href="/cv.html">Beruflicher Weg</a></div><span class="signature signature-large">Ricky Gerd Fleischer</span></div>
       </div>
     </section>
 
