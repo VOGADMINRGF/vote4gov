@@ -89,13 +89,19 @@
         option.selected = code === lang;
         select.append(option);
       });
-      select.addEventListener("change", () => apply(catalog, select.value));
+      select.addEventListener("change", () => {
+        const next = select.value;
+        apply(catalog, next);
+        document.querySelectorAll("[data-language-switcher] select").forEach((other) => { other.value = next; });
+      });
       label.append(sr, select);
       host.append(label);
     });
   };
 
   const init = async () => {
+    const hasTranslatableContent = document.querySelector("[data-i18n],[data-i18n-html],[data-i18n-alt],[data-i18n-aria]");
+    if (!hasTranslatableContent) return;
     try {
       const catalog = await loadCatalog();
       const lang = resolveLanguage();
