@@ -6,23 +6,23 @@
 
 ## 1. Rolle und harte Abgrenzung
 
-Vote4Gov ist die wissenschaftlich-redaktionelle Begründungs- und Reflexionsebene des Ökosystems. Es untersucht weltweit, wie demokratische Selbstregierung entstand, welche Leistungen repräsentative und rechtsstaatliche Institutionen erbracht haben, wo strukturelle Grenzen bestehen und welche zusätzlichen demokratischen Rückkanäle im 21. Jahrhundert verantwortbar sind.
+Vote4Gov ist die persönliche, öffentliche und überprüfbare Bewerbung von Ricky Gerd Fleischer um eine neue Form demokratischer Verantwortung. Die Startseite erklärt Person, Haltung, Versprechen und den Weg zur Mitwirkung. Die wissenschaftlich-redaktionelle Begründungs- und Reflexionsebene bleibt als eigenständiger Unterpunkt „Vision“ erhalten. Sie untersucht weltweit, wie demokratische Selbstregierung entstand, welche Leistungen repräsentative und rechtsstaatliche Institutionen erbracht haben, wo strukturelle Grenzen bestehen und welche zusätzlichen demokratischen Rückkanäle im 21. Jahrhundert verantwortbar sind.
 
-**Vote4Gov ist keine eigene Beteiligungs- oder Abstimmungsplattform.**
+**Vote4Gov ist weder Partei noch eigene Beteiligungs- oder Abstimmungsplattform.**
 
 **Alle Diskussionen, Korrekturen mit gesellschaftlichem Inhalt und Abstimmungen finden ausschließlich bei eDebatte statt.**
 
 Der verbindliche Rollenkanon lautet:
 
-> **Vote4Gov untersucht. VoiceOpenGov verbindet. eDebatte beteiligt.**
+> **Vote4Gov bewirbt und begründet. VoiceOpenGov verbindet. eDebatte beteiligt.**
 
 Ergänzend gilt:
 
-- **VoiceOpenGov** ist die internationale Mitgliederbewegung. Ihre 50 Grundfragen bilden das Fundament der gemeinsamen Arbeit und werden im VOG-Bereich des eDebatte-Kosmos beraten und abgestimmt.
+- **VoiceOpenGov** ist die unabhängige internationale Gemeinschaft und Infrastruktur. Ihre 50 Grundfragen bilden das Fundament der gemeinsamen Arbeit und werden im VOG-Bereich des eDebatte-Kosmos beraten und abgestimmt.
 - **eDebatte** ist das autarke System für allgemeine und VOG-bezogene Themen: Anliegen, Quellen, Gegenpositionen, Dossiers, Runden, Abstimmungen, Ergebnisse und Wirkung.
 - **Voxy** erklärt, strukturiert und unterstützt sprachbasierten Zugang. Voxy entscheidet und veröffentlicht nicht autonom.
 
-Vote4Gov besitzt keine eigene Community, keine Kommentare, keine Anlassräume, keine Abstimmungen und keine parallele Beitrags- oder Ergebnisdatenbank.
+Vote4Gov besitzt keine eigene Community, keine Kommentare, keine Anlassräume, keine Abstimmungen und keine parallele Beitrags- oder Ergebnisdatenbank. Persönliche Bewerbung und neutrale Infrastruktur werden sichtbar getrennt: Vote4Gov spricht für Ricky Gerd Fleischer; VoiceOpenGov und eDebatte gehören keinem persönlichen Mandat.
 
 ## 2. Leitfrage
 
@@ -42,7 +42,7 @@ Diese These fordert nicht die Abschaffung von Parlamenten, Parteien, Verwaltunge
 
 ## 3. Zeitung als Darstellungsform
 
-Vote4Gov verwendet ein modernes, hochwertiges Zeitungs- und Magazindesign im gemeinsamen Blau-/Türkis-Ökosystem.
+Der persönliche Einstieg verwendet ein hochwertiges, dunkles Kampagnen- und Dossierdesign. Der Unterpunkt „Vision“ verwendet weiterhin ein modernes Zeitungs- und Magazindesign im gemeinsamen Blau-/Türkis-Ökosystem.
 
 Ziele:
 

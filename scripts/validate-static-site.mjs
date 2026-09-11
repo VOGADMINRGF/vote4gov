@@ -48,6 +48,12 @@ for (const file of htmlFiles) {
     if (!localTargetExists(href)) fail(file, `broken internal link ${href}`);
   }
 
+  for (const match of html.matchAll(/src\s*=\s*["']([^"']+)["']/gi)) {
+    const src = match[1];
+    if (/^(https?:|data:)/i.test(src)) continue;
+    if (!localTargetExists(src)) fail(file, `broken local asset ${src}`);
+  }
+
   if (!legacy && /href\s*=\s*["'][^"']*\/anlassraeume/i.test(html)) {
     fail(file, "active editorial page still links to a Vote4Gov Anlassraum");
   }
@@ -73,6 +79,26 @@ for (const file of htmlFiles) {
 const indexPath = join(root, "index.html");
 const indexHtml = await readFile(indexPath, "utf8");
 for (const requiredText of [
+  "Für alle.",
+  "Überall.",
+  "Eine neue Form der Repräsentation.",
+  "Politik hat ein Problem.",
+  "Die Antwort ist keine Partei.",
+  "VoiceOpenGov",
+  "eDebatte",
+  "Voxy",
+  "Meine Bewerbung",
+  "Werde Teil",
+  "/vision.html",
+  "/hinter-der-idee.html",
+  "/ueber-mich.html",
+]) {
+  if (!indexHtml.includes(requiredText)) fail(indexPath, `missing start-page requirement: ${requiredText}`);
+}
+
+const visionPath = join(root, "vision.html");
+const visionHtml = await readFile(visionPath, "utf8");
+for (const requiredText of [
   "Unsere Gesellschaft verändert sich jeden Tag. Warum darf sie politisch meist nur alle paar Jahre antworten?",
   "Ausgabe 01",
   "International vergleichend",
@@ -94,7 +120,7 @@ for (const requiredText of [
   "Nichtantworten oder Ausschöpfung",
   "KI-Ausgaben gelten nicht als Quelle",
 ]) {
-  if (!indexHtml.includes(requiredText)) fail(indexPath, `missing editorial requirement: ${requiredText}`);
+  if (!visionHtml.includes(requiredText)) fail(visionPath, `missing editorial requirement: ${requiredText}`);
 }
 
 for (const forbidden of [
@@ -109,7 +135,7 @@ for (const forbidden of [
   "data-atlas-tab",
   "data-atlas-globe",
 ]) {
-  if (indexHtml.includes(forbidden)) fail(indexPath, `issue 01 must remain atlas-free: ${forbidden}`);
+  if (visionHtml.includes(forbidden)) fail(visionPath, `issue 01 must remain atlas-free: ${forbidden}`);
 }
 
 for (const orderedSection of [
@@ -121,11 +147,11 @@ for (const orderedSection of [
   "VI · Ökosystem",
   "VII · Methode",
 ]) {
-  if (!indexHtml.includes(orderedSection)) fail(indexPath, `missing atlas-free section order: ${orderedSection}`);
+  if (!visionHtml.includes(orderedSection)) fail(visionPath, `missing atlas-free section order: ${orderedSection}`);
 }
 
 for (const layer of ["Ereignis oder Primärinformation", "Journalistische Auswahl", "Nachricht", "Kontext und Einordnung", "Kommentar oder Meinung", "Prognose", "Umfrage oder Stichprobenergebnis"]) {
-  if (!indexHtml.includes(layer)) fail(indexPath, `missing information layer: ${layer}`);
+  if (!visionHtml.includes(layer)) fail(visionPath, `missing information layer: ${layer}`);
 }
 
 const sourcesPath = join(root, "quellen.html");
@@ -241,9 +267,9 @@ if (!JSON.stringify(vercel).includes("frame-ancestors *")) {
 const northStarPath = join(root, "docs/VOTE4GOV_NORTH_STAR.md");
 const northStar = await readFile(northStarPath, "utf8");
 for (const principle of [
-  "keine eigene Beteiligungs- oder Abstimmungsplattform",
+  "weder Partei noch eigene Beteiligungs- oder Abstimmungsplattform",
   "Alle Diskussionen, Korrekturen mit gesellschaftlichem Inhalt und Abstimmungen finden ausschließlich bei eDebatte statt",
-  "Vote4Gov untersucht. VoiceOpenGov verbindet. eDebatte beteiligt.",
+  "Vote4Gov bewirbt und begründet. VoiceOpenGov verbindet. eDebatte beteiligt.",
 ]) {
   if (!northStar.includes(principle)) fail(northStarPath, `missing canonical principle: ${principle}`);
 }
@@ -254,4 +280,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log(`Static quality validation passed for ${htmlFiles.length} HTML files: issue 01, atlas-free source, language UI and routing contracts.`);
+console.log(`Static quality validation passed for ${htmlFiles.length} HTML files: campaign start page, vision issue 01, language UI and routing contracts.`);
