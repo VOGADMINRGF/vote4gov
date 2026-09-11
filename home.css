@@ -489,8 +489,10 @@
   .home-hero-copy { width: 100%; padding: 20px 0 26px; }
   .home-hero h1 { font-size: clamp(68px, 19vw, 104px); }
   .home-lead { max-width: 560px; font-size: 18px; }
-  .home-portrait { width: 100%; min-height: 540px; }
-  .home-portrait > img { left: 50%; right: auto; width: min(94vw, 620px); transform: translateX(-43%); }
+  .home-portrait { width: 100%; min-height: 170px; }
+  .home-portrait > img { display: none; }
+  .home-portrait .home-signature { right: 1%; bottom: 86px; }
+  .home-portrait > p { right: 1%; bottom: 28px; }
   .home-three { grid-template-columns: 1fr; }
   .compact-panel { min-height: auto; }
   .purpose-panel img { height: 260px; margin-top: 28px; }
@@ -510,9 +512,9 @@
   .home-principles { grid-template-columns: 1fr; }
   .home-principles div { padding: 17px 0; border-bottom: 1px solid rgba(255,255,255,.1); }
   .home-principles div + div { padding-left: 0; border-left: 0; }
-  .home-portrait { min-height: 470px; }
-  .home-portrait .home-signature { right: 1%; bottom: 19%; }
-  .home-portrait > p { right: 1%; bottom: 7%; max-width: 270px; }
+  .home-portrait { min-height: 160px; }
+  .home-portrait .home-signature { bottom: 82px; }
+  .home-portrait > p { bottom: 24px; max-width: 270px; }
   .mission-panel { grid-template-columns: 1fr; }
   .voxy-home { grid-column: auto; grid-template-columns: 1fr; text-align: center; }
   .join-panel { grid-template-columns: 1fr; gap: 26px; }
