@@ -20,7 +20,9 @@ if (menuButton && navigation) {
     navigation.classList.toggle("is-open", open);
   });
 
-  navigation.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
+  navigation.addEventListener("click", (event) => {
+    if (event.target.closest("a")) closeMenu();
+  });
   window.addEventListener("keydown", (event) => { if (event.key === "Escape") closeMenu(); });
 }
 
@@ -38,5 +40,8 @@ if ("IntersectionObserver" in window) {
   revealItems.forEach((item) => item.classList.add("is-visible"));
 }
 
-const year = document.querySelector("[data-year]");
-if (year) year.textContent = String(new Date().getFullYear());
+const updateYear = () => document.querySelectorAll("[data-year]").forEach((year) => {
+  year.textContent = String(new Date().getFullYear());
+});
+updateYear();
+document.addEventListener("vote4gov:language-changed", updateYear);
