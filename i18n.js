@@ -70,6 +70,7 @@
     else url.searchParams.set("lang", lang);
     history.replaceState({}, "", url);
     localStorage.setItem(storageKey, lang);
+    document.dispatchEvent(new CustomEvent("vote4gov:language-changed", { detail: { lang } }));
   };
 
   const mountSwitcher = (catalog, lang) => {
