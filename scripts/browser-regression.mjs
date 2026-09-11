@@ -51,7 +51,7 @@ try {
   const campaign = await openPage(desktop, "/");
 
   check(await campaign.locator(".home-hero h1").isVisible(), "campaign desktop: hero is not visible");
-  check(await campaign.getByText("Für alle.", { exact: true }).count() === 1, "campaign desktop: primary claim is missing");
+  check((await campaign.locator("#hero-title").textContent())?.includes("Für alle."), "campaign desktop: primary claim is missing");
   check(await campaign.locator('nav a[href="/vision.html"]').count() === 1, "campaign desktop: vision route is missing");
   check(await campaign.locator('nav a[href="/hinter-der-idee.html"]').count() === 1, "campaign desktop: mission route is missing");
   check(await campaign.locator('nav a[href="/ueber-mich.html"]').count() === 1, "campaign desktop: person route is missing");
@@ -167,7 +167,7 @@ try {
   const noJs = await browser.newContext({ viewport: { width: 390, height: 844 }, javaScriptEnabled: false });
   const noJsCampaign = await openPage(noJs, "/");
   check(await noJsCampaign.locator(".home-hero h1").isVisible(), "campaign no-JS: hero is not readable");
-  check(await noJsCampaign.getByText("Für alle.", { exact: true }).count() === 1, "campaign no-JS: primary claim is missing");
+  check((await noJsCampaign.locator("#hero-title").textContent())?.includes("Für alle."), "campaign no-JS: primary claim is missing");
   await noJsCampaign.close();
   const noJsPage = await openPage(noJs, "/vision.html");
   check(await noJsPage.locator(".cover-main h1").isVisible(), "no-JS: hero is not readable");
