@@ -37,41 +37,51 @@ const browser = await chromium.launch({ headless: true });
 try {
   const desktop = await browser.newContext({ viewport: { width: 1440, height: 900 }, reducedMotion: "reduce" });
   const home = await desktop.newPage();
-  await prepare(home);
+  await home.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+  await home.waitForTimeout(200);
   await home.screenshot({ path: `${outputDir}/01-home-desktop.png`, fullPage: true });
 
-  await home.locator("[data-access-open]").click();
-  const accessDialog = home.locator(".editorial-access-dialog");
+  const vision = await desktop.newPage();
+  await prepare(vision, "/vision.html");
+
+  await vision.locator("[data-access-open]").click();
+  const accessDialog = vision.locator(".editorial-access-dialog");
   await accessDialog.screenshot({ path: `${outputDir}/02-access-dialog-de-top.png` });
   await accessDialog.evaluate((element) => { element.scrollTop = element.scrollHeight; });
   await accessDialog.screenshot({ path: `${outputDir}/03-access-dialog-de-bottom.png` });
-  await home.keyboard.press("Escape");
+  await vision.keyboard.press("Escape");
 
-  await chooseLanguage(home, "ar");
-  await home.locator("[data-access-open]").click();
-  await home.locator(".editorial-access-dialog").screenshot({ path: `${outputDir}/04-access-dialog-ar-rtl.png` });
-  await home.keyboard.press("Escape");
+  await chooseLanguage(vision, "ar");
+  await vision.locator("[data-access-open]").click();
+  await vision.locator(".editorial-access-dialog").screenshot({ path: `${outputDir}/04-access-dialog-ar-rtl.png` });
+  await vision.keyboard.press("Escape");
 
-  await home.locator('.cover-story [data-privacy-open]').click();
-  await home.locator(".editorial-privacy-sheet").screenshot({ path: `${outputDir}/05-privacy-ar-rtl.png` });
-  await home.keyboard.press("Escape");
+  await vision.locator('.cover-story [data-privacy-open]').click();
+  await vision.locator(".editorial-privacy-sheet").screenshot({ path: `${outputDir}/05-privacy-ar-rtl.png` });
+  await vision.keyboard.press("Escape");
 
   const article = await desktop.newPage();
   await prepare(article, "/journal/geschichte-der-demokratie.html");
   await article.screenshot({ path: `${outputDir}/06-article-desktop.png`, fullPage: true });
   await article.close();
+  await vision.close();
   await home.close();
   await desktop.close();
 
   const mobile = await browser.newContext({ viewport: { width: 390, height: 844 }, screen: { width: 390, height: 844 }, hasTouch: true, reducedMotion: "reduce" });
   const mobileHome = await mobile.newPage();
-  await prepare(mobileHome);
+  await mobileHome.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+  await mobileHome.waitForTimeout(200);
   await mobileHome.screenshot({ path: `${outputDir}/07-home-mobile.png`, fullPage: true });
-  await mobileHome.locator("[data-access-open]").tap();
-  const mobileDialog = mobileHome.locator(".editorial-access-dialog");
+
+  const mobileVision = await mobile.newPage();
+  await prepare(mobileVision, "/vision.html");
+  await mobileVision.locator("[data-access-open]").tap();
+  const mobileDialog = mobileVision.locator(".editorial-access-dialog");
   await mobileDialog.screenshot({ path: `${outputDir}/08-access-dialog-mobile-top.png` });
   await mobileDialog.evaluate((element) => { element.scrollTop = element.scrollHeight; });
   await mobileDialog.screenshot({ path: `${outputDir}/09-access-dialog-mobile-bottom.png` });
+  await mobileVision.close();
   await mobileHome.close();
   await mobile.close();
 } finally {
