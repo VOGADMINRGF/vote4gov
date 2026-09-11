@@ -34,7 +34,7 @@ async function chooseLanguage(page, code) {
 const browser = await chromium.launch({ headless: true });
 try {
   const context = await browser.newContext({ viewport: { width: 1440, height: 900 } });
-  const home = await openPage(context, "/");
+  const home = await openPage(context, "/vision.html");
   const selector = home.locator("[data-global-language-control] select");
   const languageControl = home.locator(".global-language-control");
 

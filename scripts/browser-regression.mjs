@@ -48,7 +48,19 @@ async function checkSingleVisibleLanguageControl(page, label) {
 const browser = await chromium.launch({ headless: true });
 try {
   const desktop = await browser.newContext({ viewport: { width: 1440, height: 900 }, reducedMotion: "reduce" });
-  const home = await openPage(desktop, "/");
+  const campaign = await openPage(desktop, "/");
+
+  check(await campaign.locator(".home-hero h1").isVisible(), "campaign desktop: hero is not visible");
+  check((await campaign.locator("#hero-title").textContent())?.includes("Für alle."), "campaign desktop: primary claim is missing");
+  check(await campaign.locator('nav a[href="/vision.html"]').count() === 1, "campaign desktop: vision route is missing");
+  check(await campaign.locator('nav a[href="/hinter-der-idee.html"]').count() === 1, "campaign desktop: mission route is missing");
+  check(await campaign.locator('nav a[href="/ueber-mich.html"]').count() === 1, "campaign desktop: person route is missing");
+  check(await campaign.locator('#voxy img[src="/assets/voxy.svg"]').count() === 1, "campaign desktop: Voxy module is missing");
+  check(await campaign.locator('#mitmachen').count() === 1 && await campaign.locator('#kontakt').count() === 1, "campaign desktop: action routes are incomplete");
+  check(await campaign.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1), "campaign desktop: horizontal overflow");
+  await campaign.close();
+
+  const home = await openPage(desktop, "/vision.html");
 
   check(await home.locator(".cover-main h1").isVisible(), "desktop: hero is not visible");
   check(await home.getByText("Ausgabe 01", { exact: true }).count() >= 1, "desktop: issue 01 is missing");
@@ -130,7 +142,12 @@ try {
 
   for (const viewport of [{ width: 390, height: 844 }, { width: 320, height: 700 }]) {
     const mobile = await browser.newContext({ viewport, screen: viewport, hasTouch: true, reducedMotion: "reduce" });
-    const page = await openPage(mobile, "/");
+    const campaignPage = await openPage(mobile, "/");
+    check(await campaignPage.locator(".home-hero h1").isVisible(), `${viewport.width}px campaign: hero is not visible`);
+    check(await campaignPage.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1), `${viewport.width}px campaign: horizontal overflow`);
+    await campaignPage.close();
+
+    const page = await openPage(mobile, "/vision.html");
     check(await page.locator(".cover-main h1").isVisible(), `${viewport.width}px: hero is not visible`);
     check(!(await page.locator(".editorial-access-dialog").evaluate((dialog) => dialog.open)), `${viewport.width}px: access dialog opened automatically`);
     check(await page.locator(".editorial-privacy-sheet").getAttribute("hidden") !== null, `${viewport.width}px: privacy disclosure opened automatically`);
@@ -148,7 +165,11 @@ try {
   }
 
   const noJs = await browser.newContext({ viewport: { width: 390, height: 844 }, javaScriptEnabled: false });
-  const noJsPage = await openPage(noJs, "/");
+  const noJsCampaign = await openPage(noJs, "/");
+  check(await noJsCampaign.locator(".home-hero h1").isVisible(), "campaign no-JS: hero is not readable");
+  check((await noJsCampaign.locator("#hero-title").textContent())?.includes("Für alle."), "campaign no-JS: primary claim is missing");
+  await noJsCampaign.close();
+  const noJsPage = await openPage(noJs, "/vision.html");
   check(await noJsPage.locator(".cover-main h1").isVisible(), "no-JS: hero is not readable");
   check(await noJsPage.getByText("Ausgabe 01", { exact: true }).count() >= 1, "no-JS: issue 01 is missing");
   await checkAtlasFree(noJsPage, "no-JS");
@@ -163,4 +184,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log("Browser regression passed: atlas-free issue 01, one visible language selector, desktop, mobile, keyboard, privacy, participation, reduced motion, 200% zoom and no-JS.");
+console.log("Browser regression passed: campaign home, atlas-free vision issue 01, one visible language selector, desktop, mobile, keyboard, privacy, participation, reduced motion, 200% zoom and no-JS.");

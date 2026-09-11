@@ -3,268 +3,137 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Unsere Gesellschaft verändert sich jeden Tag. Vote4Gov untersucht international vergleichend, warum demokratische Rückkopplung meist langsamer bleibt – quellenoffen und ohne Wahlempfehlung." />
-  <meta name="theme-color" content="#f3f0e8" />
+  <meta name="description" content="Die öffentliche Bewerbung von Ricky Gerd Fleischer für eine neue Form überprüfbarer, parteiloser und grenzenübergreifender Repräsentation." />
+  <meta name="theme-color" content="#020611" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="de_DE" />
-  <meta property="og:title" content="Vote4Gov Review – Warum darf Gesellschaft politisch meist nur alle paar Jahre antworten?" />
-  <meta property="og:description" content="Wahlen, Protest, Beteiligungsverfahren, Medienlogik und Umfragen: Wie wird gesellschaftlicher Wille sichtbar – und wo braucht Demokratie neue Rückkanäle?" />
-  <title>Vote4Gov Review – Gesellschaft im Wandel, Demokratie in Zeitlupe</title>
+  <meta property="og:title" content="Vote4Gov – Für alle. Überall." />
+  <meta property="og:description" content="Die repräsentative Stimme der Menschen – parteilos, transparent und überprüfbar." />
+  <title>Vote4Gov – Für alle. Überall.</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="/thinktank.css" />
-  <link rel="stylesheet" href="/democracy-future.css" />
-  <link rel="stylesheet" href="/journal.css" />
-  <link rel="stylesheet" href="/journal-v2.css" />
-  <script src="/script.js" defer></script>
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/home.css" />
+  <script src="/home.js" defer></script>
 </head>
-<body class="journal journal-home journal-v2">
+<body class="home-page">
   <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
-  <div class="journal-shell">
-    <div class="journal-topline" aria-label="Ausgabeninformation">
-      <div><strong>Vote4Gov Review</strong><span>Demokratie im 21. Jahrhundert</span><span>Ausgabe 01</span></div>
-      <div><span>International vergleichend</span><span>Quellenoffen</span><span>Ohne Wahlempfehlung</span></div>
-    </div>
-    <header class="journal-masthead">
-      <a href="/" aria-label="Vote4Gov Review Startseite">
-        <span class="journal-masthead-word">vote<i>4</i>gov</span>
-        <span class="journal-masthead-sub">Geschichte · Systeme · Öffentlichkeit · digitale Demokratie</span>
-      </a>
-    </header>
-  </div>
-
-  <nav class="journal-nav" aria-label="Hauptnavigation">
-    <div class="journal-shell journal-nav-inner">
-      <a href="#leitfrage">Leitfrage</a>
-      <a href="#geschichte">Geschichte</a>
-      <a href="#digitalwende">Digitalwende</a>
-      <a href="#strukturen">Institutionen</a>
-      <a href="#medien">Medien</a>
-      <a href="#infrastruktur">eDebatte</a>
-      <a href="/medien.html">Media Desk</a>
-      <a class="journal-nav-cta" href="/quellen.html">Quellen &amp; Methode</a>
-    </div>
-  </nav>
+  <header class="site-header home-header" data-header>
+    <a class="brand" href="/" aria-label="Vote4Gov Startseite">vote<span>4</span>gov</a>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-button>
+      <span class="sr-only">Navigation öffnen</span><span></span><span></span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="Hauptnavigation" data-nav>
+      <a href="/vision.html">Vision</a>
+      <a href="/hinter-der-idee.html">Mission</a>
+      <a href="/ueber-mich.html">Person</a>
+      <a href="#voxy">Voxy</a>
+      <a href="https://www.edebatte.org/" target="_blank" rel="noreferrer">eDebatte</a>
+      <a href="#mitmachen">Mitmachen</a>
+      <a class="nav-cta" href="#kontakt">Kontakt</a>
+    </nav>
+  </header>
 
   <main id="main">
-    <section class="cover-story" id="leitfrage">
-      <div class="journal-shell hook-cover">
-        <article class="cover-main">
-          <p class="journal-kicker">Titelgeschichte · Gesellschaft im Wandel</p>
-          <h1>Unsere Gesellschaft verändert sich jeden Tag. Warum darf sie politisch meist nur alle paar Jahre antworten?</h1>
-          <p class="cover-deck">Wir wählen politische Gesamtpakete, reagieren auf vorgegebene Fragen und erfahren gesellschaftliche Stimmung über Schlagzeilen und begrenzte Stichproben. Vote4Gov untersucht international vergleichend, wie diese Ordnung entstanden ist, was sie geleistet hat und warum demokratische Mitwirkung heute weitergehen muss.</p>
-          <div class="journal-byline"><span>Vote4Gov Review</span><span>Ausgabe 01 · Version 1.0</span><span>historisch · vergleichend · korrigierbar</span></div>
-          <div class="hook-evidence" role="list" aria-label="Fünf Formen, in denen gesellschaftlicher Wille heute sichtbar wird">
-            <article role="listitem"><span>01 · Politische Gesamtpakete</span><h2>Eine Wahl bündelt viele Entscheidungen.</h2><p>Gewählt wird ein Paket aus Personen, Programmen und späteren Kompromissen. Einfluss auf einzelne Sachfragen bleibt begrenzt.</p></article>
-            <article role="listitem"><span>02 · Zeitlich gebündelt</span><h2>Protest schafft Sichtbarkeit – oft im Zeitfenster.</h2><p>Protest, Bürgerinitiative und Kampagne sind demokratisch wichtig. Ihre Wirkung bleibt häufig an Anlass, Mobilisierung und Aufmerksamkeit gebunden.</p></article>
-            <article role="listitem"><span>03 · Vorgegebene Verfahren</span><h2>Die Beteiligung beginnt häufig nach der Festlegung.</h2><p>Frage, Zuständigkeit, Phase und Ja/Nein-, Multiple-Choice- oder andere Antwortoptionen stehen oft schon fest.</p></article>
-            <article role="listitem"><span>04 · Medienlogik</span><h2>Aus Ereignissen wird nicht ohne Auswahl Öffentlichkeit.</h2><p>Primärinformation, Nachricht, Einordnung, Kommentar und Prognose erfüllen unterschiedliche Aufgaben und brauchen sichtbare Kennzeichnung.</p></article>
-            <article role="listitem"><span>05 · Umfragen</span><h2>Eine Stichprobe ist ein Befund – nicht automatisch der Wille aller.</h2><p>Auch kleinere Stichproben können methodisch wertvoll sein. Auswahl, Frage, Erhebung, Unsicherheit und Auftraggeber bestimmen ihre Aussagekraft.</p></article>
+    <section class="home-hero" aria-labelledby="hero-title">
+      <div class="home-hero-earth" aria-hidden="true"></div>
+      <div class="home-shell home-hero-grid">
+        <div class="home-hero-copy reveal">
+          <p class="home-eyebrow">Eine neue Form der Repräsentation.</p>
+          <h1 id="hero-title">Für alle.<br />Überall.</h1>
+          <p class="home-lead">Ich bewerbe mich um die höchste Verantwortung, die wir haben können: die repräsentative Stimme der Menschen auf diesem Planeten.</p>
+          <div class="home-principles" aria-label="Grundprinzipien">
+            <div><span aria-hidden="true">◎</span><p>Für jeden Menschen<br />auf der Welt.</p></div>
+            <div><span aria-hidden="true">◉</span><p>Ohne Parteibuch.<br />Ohne Ideologie.</p></div>
+            <div><span aria-hidden="true">◇</span><p>Mit Verantwortung.<br />Mit Transparenz.</p></div>
           </div>
-          <blockquote class="hook-question">Die Frage ist nicht, ob Parlamente, Medien, Umfragen, Protest oder Bürgerinitiativen abgeschafft werden sollten. Die Frage ist, warum sie fast allein bestimmen, wie gesellschaftlicher Wille sichtbar wird.</blockquote>
-          <div class="journal-actions">
-            <a class="journal-button primary" href="/journal/geschichte-der-demokratie.html">Demokratiegeschichte lesen</a>
-            <a class="journal-button" href="/journal/zwischen-den-wahlen.html">Zwischen den Wahlen vertiefen</a>
-          </div>
+        </div>
+        <div class="home-portrait reveal" aria-label="Ricky Gerd Fleischer">
+          <img src="/assets/hero-portrait.svg" alt="Ricky Gerd Fleischer im Anzug" />
+          <div class="home-signature">Ricky Gerd Fleischer</div>
+          <p>Gründer von VoiceOpenGov und eDebatte.<br /><span>Parteilos. Grenzenübergreifend. Mensch.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <div class="home-shell home-stack">
+      <section class="home-panel problem-panel reveal" aria-labelledby="problem-title">
+        <div class="panel-heading">
+          <p class="home-eyebrow">Der Ausgangspunkt</p>
+          <h2 id="problem-title">Politik hat ein Problem.</h2>
+          <p class="panel-accent">Vertrauen. Souveränität. Teilhabe.</p>
+        </div>
+        <div class="problem-grid">
+          <article><span class="panel-icon">◇</span><h3>Vertrauen</h3><p>Viele Menschen haben nicht das Interesse an Politik verloren. Sie haben das Vertrauen in Politik verloren.</p></article>
+          <article><span class="panel-icon">◎</span><h3>Nähe</h3><p>Entscheidungen wirken weit entfernt. Kommunikation bleibt abstrakt. Verantwortung wird weitergereicht.</p></article>
+          <article><span class="panel-icon">◉</span><h3>Wirkung</h3><p>Wer sich nicht gehört, nicht verstanden und nicht wirksam erlebt, zieht sich zurück. Damit verliert unsere Gesellschaft ihr stärkstes Fundament.</p></article>
+        </div>
+      </section>
+
+      <section class="home-panel mission-panel reveal" id="mission" aria-labelledby="mission-title">
+        <div>
+          <p class="home-eyebrow">Die Mission</p>
+          <h2 id="mission-title">Die Antwort ist keine Partei. Sondern eine neue Infrastruktur für Demokratie.</h2>
+        </div>
+        <div class="mission-copy">
+          <p>VoiceOpenGov schafft mit eDebatte einen Raum, in dem Menschen verstehen, einordnen, mitentscheiden und Verantwortung übernehmen können.</p>
+          <p>Offen. Transparent. Evidenzbasiert. Sicher. Über Ländergrenzen, Kulturen und Systeme hinweg.</p>
+          <a href="/hinter-der-idee.html">Mission im Detail →</a>
+        </div>
+        <div class="voxy-home" id="voxy">
+          <img src="/assets/voxy.svg" alt="Voxy, die erklärende Stimme von VoiceOpenGov und eDebatte" />
+          <p>Voxy macht komplexe Zusammenhänge verständlich – ohne Menschen die Entscheidung abzunehmen.</p>
+        </div>
+      </section>
+
+      <section class="home-three" aria-label="Mit wem, wie und für wen">
+        <article class="home-panel compact-panel reveal">
+          <p class="home-eyebrow">Mit wem?</p>
+          <h2>Gemeinsam mit allen, die Verantwortung übernehmen.</h2>
+          <ul><li>Bürgerinnen und Bürger</li><li>Wissenschaft und Bildung</li><li>Medien und Journalismus</li><li>Zivilgesellschaft und Initiativen</li><li>Verwaltung und öffentliche Institutionen</li><li>Unternehmen und Technologieteams</li></ul>
         </article>
-      </div>
-    </section>
+        <article class="home-panel compact-panel reveal">
+          <p class="home-eyebrow">Wie?</p>
+          <h2>Nachvollziehbar vom Anliegen bis zur Wirkung.</h2>
+          <ul><li>Mit eDebatte</li><li>Quellenprüfung und Einordnung</li><li>Verständliche Zusammenhänge</li><li>Konstruktive Debattenräume</li><li>Beteiligung und Abstimmung</li><li>Transparente Prozesse</li></ul>
+        </article>
+        <article class="home-panel compact-panel purpose-panel reveal">
+          <p class="home-eyebrow">Für wen?</p>
+          <h2>Für jede Generation. Für meinen Sohn.</h2>
+          <img src="/assets/father-son-v2.webp" alt="Ricky Gerd Fleischer mit seinem Sohn" />
+        </article>
+      </section>
 
-    <section class="journal-section" id="geschichte">
-      <div class="journal-shell">
-        <div class="journal-section-head">
-          <div class="journal-section-number">I · Geschichte</div>
-          <div class="journal-section-title">
-            <h2>Vom Mitreden weniger zur Gleichheit aller – zumindest dem Anspruch nach.</h2>
-            <p>Die Geschichte der Demokratie ist weder ausschließlich griechisch noch ausschließlich westlich. Sie umfasst Versammlungen, Ratsformen, Machtbegrenzung, Repräsentation, soziale Bewegungen, Dekolonisierung und den langen Kampf um gleiche Rechte.</p>
-          </div>
+      <section class="home-panel application-panel reveal" aria-labelledby="application-title">
+        <div>
+          <p class="home-eyebrow">Meine Bewerbung</p>
+          <h2 id="application-title">Ich bewerbe mich um die höchste Position, die wir als Menschheit vergeben können: die Stimme der Menschen.</h2>
         </div>
-        <div class="history-century-grid">
-          <article><span>Frühe Gemeinwesen</span><h3>Gemeinsame Entscheidung ohne allgemeine Gleichheit</h3><p>Versammlungen und Räte schufen Formen gemeinsamer Ordnung. Zugang, Status und Geschlecht begrenzten die Teilhabe jedoch fast immer.</p></article>
-          <article><span>Verfassungsdenken</span><h3>Macht wird an Recht und Institutionen gebunden</h3><p>Rechte, Gerichte, Gewaltenteilung und öffentliche Rechenschaft sollten Herrschaft begrenzen – nicht bloß Mehrheiten organisieren.</p></article>
-          <article><span>Repräsentative Moderne</span><h3>Parlamente übersetzen Bevölkerung in Entscheidung</h3><p>Repräsentation wurde zur Antwort auf große Territorien, komplexe Aufgaben und arbeitsteilige Politik.</p></article>
-          <article><span>Universalisierung</span><h3>Politische Gleichheit wird erkämpft</h3><p>Arbeiter-, Frauen-, Bürgerrechts- und antikoloniale Bewegungen erweiterten, wer wählen, sprechen und öffentliche Macht beanspruchen durfte.</p></article>
-          <article><span>Mediengesellschaft</span><h3>Öffentlichkeit verbindet Regierte und Regierende</h3><p>Presse, Rundfunk und Fernsehen machten Politik massenöffentlich, blieben aber von Zugang, Eigentum, Reichweite und redaktioneller Auswahl geprägt.</p></article>
-          <article class="history-century-now"><span>21. Jahrhundert</span><h3>Das technische Hindernis schrumpft. Die institutionelle Frage wächst.</h3><p>Milliarden Menschen können dauerhaft kommunizieren. Daraus folgt noch keine gute Entscheidung – aber die alte Begründung seltener Rückbindung verliert an Gewicht.</p></article>
-        </div>
-        <div class="editorial-note"><strong>Wissenschaftliche Vorsicht:</strong><p>Technische Machbarkeit ist kein demokratischer Beweis. Beteiligung benötigt weiterhin Grundrechte, Repräsentativität, Expertise, Minderheitenschutz, überprüfbare Verfahren und klare Verantwortung.</p></div>
-      </div>
-    </section>
+        <div><h3>Ich stehe für</h3><ul><li>Transparenz statt Hinterzimmer</li><li>Verantwortung statt Macht</li><li>Fakten statt Propaganda</li><li>Dialog statt Polarisierung</li><li>Befähigung statt Bevormundung</li></ul></div>
+        <div><h3>Ich verspreche</h3><ul><li>Zuzuhören, bevor ich entscheide</li><li>Zu erklären, bevor ich handle</li><li>Einzubinden, bevor ich vorgehe</li><li>Rechenschaft abzulegen</li><li>Zu dienen, bevor ich führe</li></ul></div>
+        <div class="application-ready"><h3>Ich bin bereit.</h3><p>Für diese Verantwortung.<br />Für euch. Für uns alle.</p><span class="home-signature">Ricky Gerd Fleischer</span></div>
+      </section>
 
-    <section class="journal-section digital-turn" id="digitalwende">
-      <div class="journal-shell">
-        <div class="journal-section-head">
-          <div class="journal-section-number">II · Digitalwende</div>
-          <div class="journal-section-title">
-            <h2>Die digitale Zeitenwende fand überall statt – nur demokratische Rückbindung blieb Stückwerk.</h2>
-            <p>Wir kaufen, lernen, arbeiten, übersetzen, navigieren und publizieren mobil. Politische Beteiligung beginnt dagegen häufig erst, wenn eine Institution ein Verfahren eröffnet, eine Frage formuliert und einen begrenzten Zeitraum festlegt.</p>
-          </div>
+      <section class="home-panel join-panel reveal" id="mitmachen" aria-labelledby="join-title">
+        <div class="join-title"><span class="join-symbol" aria-hidden="true">◎</span><h2 id="join-title">Werde Teil<br />der Bewegung.</h2></div>
+        <p>Ob mit deiner Stimme, deiner Expertise oder deiner Plattform – jede aktive Beteiligung stärkt unsere gemeinsame Zukunft.</p>
+        <div class="join-actions">
+          <a class="button button-primary" href="https://www.voiceopengov.org/mitglied-werden" target="_blank" rel="noreferrer">Mitmachen →</a>
+          <a class="button button-ghost" href="/hinter-der-idee.html">Mehr erfahren →</a>
         </div>
-        <div class="digital-contrast">
-          <article class="digital-life"><span>Digitale Gesellschaft</span><h3>Dauerhaft, mobil, personalisiert</h3><ul><li>Information in Echtzeit</li><li>globale Kommunikation</li><li>individuelle Dienste und Benachrichtigungen</li><li>laufende Daten- und Wissensbestände</li></ul></article>
-          <div class="digital-arrow" aria-hidden="true">≠</div>
-          <article class="digital-politics"><span>Politische Willensbildung</span><h3>Periodisch, fragmentiert, institutionenzentriert</h3><ul><li>Wahl von Gesamtpaketen</li><li>wechselnde Zuständigkeiten</li><li>einzelne Konsultationen</li><li>begrenzte Nachverfolgung</li></ul></article>
-        </div>
-        <div class="big-question">
-          <span>Die offene institutionelle Frage</span>
-          <blockquote>Warum sollte eine digital vernetzte Gesellschaft ihre demokratische Verantwortung weiterhin fast ausschließlich in großen Abständen und über vorgefertigte politische Gesamtangebote ausüben?</blockquote>
-        </div>
-        <div class="journal-actions"><a class="journal-button primary" href="/journal/digitale-zeitenwende-politische-zeitlupe.html">Analyse zur digitalen Bruchstelle</a></div>
-      </div>
-    </section>
+      </section>
 
-    <section class="journal-section" id="strukturen">
-      <div class="journal-shell">
-        <div class="journal-section-head">
-          <div class="journal-section-number">III · Institutionen</div>
-          <div class="journal-section-title">
-            <h2>Doppelstrukturen sind nicht automatisch Verschwendung. Aber sie benötigen eine demokratische Rechtfertigung.</h2>
-            <p>Föderalismus, Gewaltenteilung und unabhängige Kontrolle schaffen bewusst mehrere Zuständigkeiten. Problematisch wird Überlagerung dort, wo zusätzlicher Schutz, messbarer Nutzen und klare Gesamtverantwortung nicht mehr erkennbar sind.</p>
-          </div>
-        </div>
-        <div class="legitimacy-tests">
-          <article><span>01</span><h3>Schutzfunktion</h3><p>Begrenzt die zusätzliche Ebene Macht, schützt sie Rechte oder ermöglicht sie unabhängige Kontrolle?</p></article>
-          <article><span>02</span><h3>Notwendigkeit</h3><p>Ist die Aufgabe regional, fachlich oder rechtlich tatsächlich eigenständig – oder nur historisch doppelt gewachsen?</p></article>
-          <article><span>03</span><h3>Zusatznutzen</h3><p>Verbessert die zweite Struktur Qualität, Nähe oder Resilienz in einem Ausmaß, das Kosten und Verzögerung rechtfertigt?</p></article>
-          <article><span>04</span><h3>Verantwortung</h3><p>Bleibt für Bürger sichtbar, wer entscheidet, wer finanziert und wer das Gesamtergebnis verantwortet?</p></article>
-        </div>
-        <div class="institution-quote"><p>Wo mehrere Stellen zuständig sind, muss die Öffentlichkeit nicht weniger, sondern mehr Klarheit erhalten.</p><a href="/journal/doppelstrukturen-legitimitaet.html">Dossier öffnen</a></div>
-      </div>
-    </section>
-
-    <section class="journal-section media-public-sphere" id="medien">
-      <div class="journal-shell">
-        <div class="journal-section-head">
-          <div class="journal-section-number">IV · Medien</div>
-          <div class="journal-section-title">
-            <h2>Demokratie braucht Journalismus. Aber Öffentlichkeit darf nicht an der nächsten Schlagzeile enden.</h2>
-            <p>Freie, unabhängige und pluralistische Medien sind keine Konkurrenz zur Beteiligung, sondern ihre Wissensgrundlage. Digitale Plattformen haben Reichweite erweitert – zugleich aber Tempo, algorithmische Sichtbarkeit und Aufmerksamkeit zu zentralen Verteilungsmechanismen gemacht.</p>
-          </div>
-        </div>
-        <div class="information-layers" aria-label="Ebenen öffentlicher Information">
-          <article><span>01</span><h3>Ereignis oder Primärinformation</h3><p>Was geschehen ist oder im Original vorliegt: Dokument, Datensatz, Rede, Entscheidung oder beobachtbares Ereignis.</p></article>
-          <article><span>02</span><h3>Journalistische Auswahl</h3><p>Welche Ereignisse aufgegriffen, geprüft, gewichtet und veröffentlicht werden. Auswahl ist notwendig und sollte nachvollziehbar bleiben.</p></article>
-          <article><span>03</span><h3>Nachricht</h3><p>Eine überprüfte Darstellung relevanter Tatsachen. Sie ist nicht dasselbe wie das Ereignis selbst.</p></article>
-          <article><span>04</span><h3>Kontext und Einordnung</h3><p>Vorgeschichte, Vergleich, Folgen und offene Fragen helfen, die Nachricht zu verstehen.</p></article>
-          <article><span>05</span><h3>Kommentar oder Meinung</h3><p>Eine begründete Bewertung aus erkennbarer Perspektive. Sie darf zugespitzt sein, sollte aber als Meinung kenntlich bleiben.</p></article>
-          <article><span>06</span><h3>Prognose</h3><p>Eine Aussage über mögliche künftige Entwicklungen – abhängig von Modell, Annahmen und Unsicherheit.</p></article>
-          <article class="information-layer-accent"><span>07</span><h3>Umfrage oder Stichprobenergebnis</h3><p>Eine methodisch erzeugte Schätzung oder Beschreibung der Befragten. Sie ist weder Nachricht noch automatisch der Wille der Gesamtbevölkerung.</p></article>
-        </div>
-        <div class="survey-standard">
-          <div><p class="journal-kicker">Transparenzmaßstab für Umfragen</p><h3>Kleine Stichproben sind nicht grundsätzlich wertlos. Unsichtbare Methoden sind das Problem.</h3><p>Die Aussagekraft hängt nicht allein von der absoluten Teilnehmerzahl ab. Auswahl, Erhebung und Auswertung entscheiden mit. Deshalb gehören diese Angaben sichtbar zum Ergebnis:</p></div>
-          <ul aria-label="Erforderliche Qualitätsangaben bei Umfragen"><li>Grundgesamtheit</li><li>Auswahlverfahren</li><li>Stichprobengröße</li><li>Erhebungsmethode</li><li>Feldzeit</li><li>genaue Frageformulierung</li><li>Gewichtung</li><li>Unsicherheitsbereich</li><li>Auftraggeber</li><li>Nichtantworten oder Ausschöpfung, soweit vorhanden</li></ul>
-        </div>
-        <div class="media-principle"><strong>Gemeinsame Evidenz bedeutet nicht gemeinsame Meinung.</strong><p>Freie Medien bleiben unabhängige demokratische Infrastruktur. Sichtbare Ebenen helfen dem Publikum, Primärinformation, journalistische Leistung, Bewertung, Prognose und Stichprobenergebnis jeweils nach dem passenden Maßstab zu prüfen.</p></div>
-        <div class="journal-actions">
-          <a class="journal-button primary" href="/journal/medien-aufmerksamkeit-gemeinsame-sache.html">Medienessay lesen</a>
-          <a class="journal-button" href="/medien.html">Module für Magazine &amp; Podcasts</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="journal-section" id="infrastruktur">
-      <div class="journal-shell">
-        <div class="journal-section-head">
-          <div class="journal-section-number">V · Infrastruktur</div>
-          <div class="journal-section-title">
-            <h2>Gute Open-Source-Werkzeuge existieren. Der nächste Schritt ist eine mobile öffentliche Prozesskette.</h2>
-            <p>Offene Beteiligungssoftware hat bewiesen, dass Vorschläge, Debatten, Budgets, Versammlungen und Abstimmungen transparent organisiert werden können. Viele reale Einsätze beginnen jedoch innerhalb eines von Kommunen, Städten oder anderen Institutionen eingerichteten Verfahrens.</p>
-          </div>
-        </div>
-        <div class="open-source-editorial">
-          <article><span>Bestehende Stärke</span><h3>Offene Software macht Verfahren nachvollziehbarer und wiederverwendbar.</h3><p>Das ist ein demokratischer Fortschritt. Der institutionelle Betreiber legt jedoch häufig Thema, Raum, Zeitraum, Zuständigkeit und Wirkung fest.</p></article>
-          <article class="dark"><span>Offene Lücke</span><h3>Wer öffnet den Weg, bevor das Verfahren existiert?</h3><p>Menschen beginnen nicht mit einem Verwaltungsprozess. Sie beginnen mit einem Problem, einer Erfahrung, einer Frage oder einer Quelle.</p></article>
-        </div>
-        <div class="mobile-infrastructure">
-          <div class="mobile-phone" aria-hidden="true"><span>Das beschäftigt mich.</span><span>Wo gehört es hin?</span><span>Welche Evidenz gibt es?</span><span>Wer widerspricht?</span><span>Was folgt daraus?</span></div>
-          <div class="mobile-copy">
-            <p class="journal-kicker">eDebatte · mobile-first Entwicklungsziel</p>
-            <h3>Eine Anwendung, die Anliegen sammelt, ordnet, mit Evidenzen verbindet und in den passenden demokratischen Prozess führt.</h3>
-            <p>eDebatte soll allgemeine gesellschaftliche Themen und VOG-bezogene Grundfragen in derselben Infrastruktur bearbeiten – ohne sie inhaltlich zu vermischen. Der Einstieg bleibt einfach; Quellen, Gegenpositionen, Zuständigkeiten und Wirkungsstatus bleiben sichtbar.</p>
-            <div class="status-ledger">
-              <div><span>Freier Anliegen-Einstieg</span><strong class="status-chip status-live">produktiver Kern</strong></div>
-              <div><span>Quellen- und Gegenpositionslogik</span><strong class="status-chip status-alpha">Pilot / Ausbau</strong></div>
-              <div><span>Regionale und thematische Zuordnung</span><strong class="status-chip status-alpha">Pilot</strong></div>
-              <div><span>Dossier, Runde und Abstimmung</span><strong class="status-chip status-alpha">teilweise produktiv</strong></div>
-              <div><span>Wirkungs- und Antwortverfolgung</span><strong class="status-chip status-planned">Ausbauziel</strong></div>
-              <div><span>Voice, Vorlesen und persönliche Updates</span><strong class="status-chip status-planned">Alpha-Ziel</strong></div>
-            </div>
-            <div class="journal-actions"><a class="journal-button primary edebatte-link" data-qr-title="Digitale Demokratie bei eDebatte prüfen" href="https://www.edebatte.org/create?source=vote4gov&amp;source_id=digital-democracy-review&amp;title=Welche%20demokratische%20Infrastruktur%20braucht%20das%2021.%20Jahrhundert%3F" target="_blank" rel="noreferrer">These bei eDebatte prüfen ↗</a><a class="journal-button" href="/journal/civic-tech-im-vergleich.html">Hintergrund zu offener Civic Tech</a></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="journal-section ecosystem-spread" id="oekosystem">
-      <div class="journal-shell">
-        <div class="journal-section-head">
-          <div class="journal-section-number">VI · Ökosystem</div>
-          <div class="journal-section-title">
-            <h2>Eine Begründungsebene, eine Bewegung, ein autarkes System.</h2>
-            <p>Die Rollen bleiben getrennt, damit aus wissenschaftlicher Analyse keine versteckte Abstimmung und aus einer Mitgliederbewegung keine geschlossene politische Parallelwelt entsteht.</p>
-          </div>
-        </div>
-        <div class="ecosystem-four">
-          <article><span>Vote4Gov</span><h3>Untersucht.</h3><p>Geschichte, internationale Systeme, Medienentwicklung und strukturelle Missstände – mit Quellen, Gegenposition und sichtbarer These.</p></article>
-          <article><span>VoiceOpenGov</span><h3>Verbindet.</h3><p>Die Mitgliederbewegung entwickelt ihr Fundament über 50 Grundfragen im VOG-Bereich des eDebatte-Kosmos.</p></article>
-          <article class="ecosystem-core"><span>eDebatte</span><h3>Bearbeitet.</h3><p>Das autarke System führt allgemeine und VOG-bezogene Themen durch Evidenz, Widerspruch, Dossier, Runde, Abstimmung und Wirkung.</p></article>
-          <article><span>Voxy</span><h3>Erklärt.</h3><p>Die Sprach- und KI-Ebene unterstützt Zugang, Einordnung und Updates – sie entscheidet nicht und veröffentlicht nicht autonom.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="journal-section" id="methode">
-      <div class="journal-shell">
-        <div class="journal-section-head">
-          <div class="journal-section-number">VII · Methode</div>
-          <div class="journal-section-title">
-            <h2>Für Politikwissenschaft, Ökonomie – und für Menschen ohne Fachsprache.</h2>
-            <p>Komplexität wird nicht versteckt. Sie wird in zwei Ebenen dargestellt: eine verständliche Kernaussage und eine überprüfbare wissenschaftliche Vertiefung.</p>
-          </div>
-        </div>
-        <div class="method-ledger method-ledger-six">
-          <article><span>01</span><h3>Primärquelle</h3><p>Recht, offizielle Daten und Originaldokumente zuerst.</p></article>
-          <article><span>02</span><h3>Forschung</h3><p>Peer Review, anerkannte Institute und vergleichende Daten.</p></article>
-          <article><span>03</span><h3>Kontext</h3><p>Land, Zeit, Ebene, Begriffe und Datenlücken.</p></article>
-          <article><span>04</span><h3>Gegenposition</h3><p>Der stärkste begründete Einwand gehört in den Kern.</p></article>
-          <article><span>05</span><h3>Übersetzung</h3><p>Fachsprache wird erklärt, nicht durch Scheingenauigkeit ersetzt.</p></article>
-          <article><span>06</span><h3>Korrektur</h3><p>Version, Änderung und Begründung bleiben sichtbar.</p></article>
-        </div>
-        <aside class="ai-transparency" id="ki-transparenz" aria-labelledby="ai-transparency-title">
-          <div><p class="journal-kicker">Redaktionelle KI-Transparenz</p><h3 id="ai-transparency-title">Werkzeug für Zugang und redaktionelle Arbeit. Keine Quelle und kein Ersatz für Verantwortung.</h3></div>
-          <div><p>Dieser Beitrag wurde unter Verwendung KI-gestützter Recherche-, Strukturierungs-, Übersetzungs- oder Sprachwerkzeuge erstellt. Quellenwahl, Bewertung, Schlussfolgerungen, Veröffentlichung und Verantwortung liegen bei Vote4Gov. KI-Ausgaben gelten nicht als Quelle.</p><p>KI wird für ein besseres Nutzungserlebnis und effizientere redaktionelle Arbeit eingesetzt. Sie ersetzt weder Quellen noch menschliche Verantwortung. Artikel kennzeichnen die eingesetzten Rollen kompakt; eine automatische Faktenprüfung wird nicht behauptet.</p><a href="/quellen.html#ki-transparenz">Verfahren und Verantwortungsgrenzen</a></div>
-        </aside>
-        <div class="journal-actions"><a class="journal-button primary" href="/quellen.html">Quellen- und Methodenregister</a></div>
-      </div>
-    </section>
-
-    <section class="journal-section publisher-section">
-      <div class="journal-shell publisher-desk">
-        <div class="publisher-card">
-          <p class="journal-kicker">Für Redaktionen, Podcasts und Bildungsangebote</p>
-          <h3>Eine Demokratiezeitung, die sich in andere Medien integrieren lässt.</h3>
-          <p>Vote4Gov stellt zitierfähige Kurzthesen, Quellenpakete, Gegenpositionen, Podcast-Briefings und datensparsame Einbettungen bereit. Nicht als fertige Meinung, sondern als belastbaren Ausgangspunkt für eigene redaktionelle Arbeit.</p>
-          <div class="journal-actions"><a class="journal-button primary" href="/medien.html">Media &amp; Podcast Desk</a></div>
-        </div>
-        <div class="publisher-preview">
-          <p class="journal-kicker">Einbettbare Erkenntniskarte</p>
-          <blockquote>„Die digitale Gesellschaft hat das Informationsproblem verändert. Die Demokratie muss nun ihr Rückbindungsproblem neu beantworten.“</blockquote>
-          <footer>Vote4Gov Review · Quellen · Gegenposition · Versionsstand · vollständiger Kontext</footer>
-        </div>
-      </div>
-    </section>
+      <section class="home-contact reveal" id="kontakt" aria-labelledby="contact-title">
+        <p class="home-eyebrow">Direkter Kontakt</p>
+        <h2 id="contact-title">Lass uns darüber sprechen.</h2>
+        <p>Für Mitwirkung, Medienanfragen, Partnerschaften oder konstruktiven Widerspruch.</p>
+        <a href="mailto:rgf@voiceopengov.org">rgf@voiceopengov.org</a>
+      </section>
+    </div>
   </main>
 
-  <footer class="journal-footer">
-    <div class="journal-shell">
-      <div class="journal-footer-grid">
-        <div><h2>Vote4Gov Review</h2><p>Wissenschaftlich-redaktionelle Untersuchung demokratischer Geschichte, institutioneller Leistungen und struktureller Grenzen im 21. Jahrhundert.</p></div>
-        <nav><strong>Ressorts</strong><a href="#geschichte">Geschichte</a><a href="#digitalwende">Digitalwende</a><a href="#medien">Medien</a></nav>
-        <nav><strong>Transparenz</strong><a href="/quellen.html">Quellen &amp; Methode</a><a href="mailto:rgf@voiceopengov.org?subject=Vote4Gov%20Korrektur">Korrektur melden</a></nav>
-        <nav><strong>Ökosystem</strong><a href="https://www.voiceopengov.org/" target="_blank" rel="noreferrer">VoiceOpenGov ↗</a><a href="https://www.edebatte.org/" target="_blank" rel="noreferrer">eDebatte ↗</a><a href="/medien.html">Media Desk</a></nav>
-      </div>
-      <div class="journal-footer-bottom"><span>© <span data-year></span> Vote4Gov</span><span>Keine eigene Beteiligungsplattform · Keine Wahlempfehlung · Keine persönliche Abrechnung</span></div>
-    </div>
+  <footer class="site-footer home-footer">
+    <div class="home-shell"><p>© <span data-year></span> Ricky Gerd Fleischer · Vote4Gov</p><div><a href="/vision.html">Vision</a><a href="/ueber-mich.html">Person</a><a href="#kontakt">Kontakt</a><a href="https://www.voiceopengov.org/impressum" target="_blank" rel="noreferrer">Impressum</a><a href="https://www.voiceopengov.org/datenschutz" target="_blank" rel="noreferrer">Datenschutz</a></div></div>
   </footer>
 </body>
 </html>
