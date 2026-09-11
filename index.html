@@ -3,16 +3,19 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Die öffentliche Bewerbung von Ricky Gerd Fleischer für eine neue Form überprüfbarer, parteiloser und grenzenübergreifender Repräsentation." />
+  <meta name="description" content="Vote4Gov denkt demokratische Repräsentation, Verantwortung und Beteiligung international und überprüfbar weiter." />
   <meta name="theme-color" content="#020611" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="de_DE" />
   <meta property="og:title" content="Vote4Gov – Für alle. Überall." />
-  <meta property="og:description" content="Die repräsentative Stimme der Menschen – parteilos, transparent und überprüfbar." />
+  <meta property="og:description" content="Demokratie weiterdenken: transparent, überprüfbar, international und offen für Widerspruch." />
   <title>Vote4Gov – Für alle. Überall.</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="/styles.css" />
   <link rel="stylesheet" href="/home.css" />
+  <link rel="stylesheet" href="/i18n.css" />
+  <link rel="stylesheet" href="/home-refinement.css" />
+  <script src="/i18n.js" defer></script>
   <script src="/home.js" defer></script>
 </head>
 <body class="home-page">
@@ -23,7 +26,7 @@
     <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-button>
       <span class="sr-only">Navigation öffnen</span><span></span><span></span>
     </button>
-    <nav class="site-nav" id="site-nav" aria-label="Hauptnavigation" data-nav>
+    <nav class="site-nav" id="site-nav" aria-label="Hauptnavigation" data-nav data-i18n-html="nav">
       <a href="/vision.html">Vision</a>
       <a href="/hinter-der-idee.html">Mission</a>
       <a href="/ueber-mich.html">Person</a>
@@ -32,16 +35,17 @@
       <a href="#mitmachen">Mitmachen</a>
       <a class="nav-cta" href="#kontakt">Kontakt</a>
     </nav>
+    <div class="language-switcher-wrap" data-language-switcher></div>
   </header>
 
   <main id="main">
     <section class="home-hero" aria-labelledby="hero-title">
       <div class="home-hero-earth" aria-hidden="true"></div>
       <div class="home-shell home-hero-grid">
-        <div class="home-hero-copy reveal">
+        <div class="home-hero-copy reveal" data-i18n-html="home.hero">
           <p class="home-eyebrow">Eine neue Form der Repräsentation.</p>
           <h1 id="hero-title">Für alle.<br />Überall.</h1>
-          <p class="home-lead">Ich bewerbe mich um die höchste Verantwortung, die wir haben können: die repräsentative Stimme der Menschen auf diesem Planeten.</p>
+          <p class="home-lead">Ich bewerbe mich nicht um ein Parteiamt. Ich stelle eine größere Frage: Wie kann demokratische Repräsentation im 21. Jahrhundert überprüfbarer, näher und wirksamer werden?</p>
           <div class="home-principles" aria-label="Grundprinzipien">
             <div><span aria-hidden="true">◎</span><p>Für jeden Menschen<br />auf der Welt.</p></div>
             <div><span aria-hidden="true">◉</span><p>Ohne Parteibuch.<br />Ohne Ideologie.</p></div>
@@ -49,15 +53,15 @@
           </div>
         </div>
         <div class="home-portrait reveal" aria-label="Ricky Gerd Fleischer">
-          <img src="/assets/hero-portrait.svg" alt="Ricky Gerd Fleischer im Anzug" />
+          <img src="/assets/hero-portrait.svg" alt="Ricky Gerd Fleischer" />
           <div class="home-signature">Ricky Gerd Fleischer</div>
-          <p>Gründer von VoiceOpenGov und eDebatte.<br /><span>Parteilos. Grenzenübergreifend. Mensch.</span></p>
+          <p>Initiator von VoiceOpenGov und eDebatte.<br /><span>Parteilos. Grenzenübergreifend. Mensch.</span></p>
         </div>
       </div>
     </section>
 
     <div class="home-shell home-stack">
-      <section class="home-panel problem-panel reveal" aria-labelledby="problem-title">
+      <section class="home-panel problem-panel reveal" aria-labelledby="problem-title" data-i18n-html="home.problem">
         <div class="panel-heading">
           <p class="home-eyebrow">Der Ausgangspunkt</p>
           <h2 id="problem-title">Politik hat ein Problem.</h2>
@@ -70,23 +74,23 @@
         </div>
       </section>
 
-      <section class="home-panel mission-panel reveal" id="mission" aria-labelledby="mission-title">
+      <section class="home-panel mission-panel reveal" id="mission" aria-labelledby="mission-title" data-i18n-html="home.mission">
         <div>
           <p class="home-eyebrow">Die Mission</p>
           <h2 id="mission-title">Die Antwort ist keine Partei. Sondern eine neue Infrastruktur für Demokratie.</h2>
         </div>
         <div class="mission-copy">
-          <p>VoiceOpenGov schafft mit eDebatte einen Raum, in dem Menschen verstehen, einordnen, mitentscheiden und Verantwortung übernehmen können.</p>
+          <p>VoiceOpenGov verbindet Menschen. eDebatte macht Themen, Quellen, Gegenpositionen und Entscheidungen nachvollziehbar. Vote4Gov stellt die Systemfragen dahinter.</p>
           <p>Offen. Transparent. Evidenzbasiert. Sicher. Über Ländergrenzen, Kulturen und Systeme hinweg.</p>
           <a href="/hinter-der-idee.html">Mission im Detail →</a>
         </div>
         <div class="voxy-home" id="voxy">
-          <img src="/assets/voxy.svg" alt="Voxy, die erklärende Stimme von VoiceOpenGov und eDebatte" />
+          <img src="/assets/voxy.svg" alt="Voxy" />
           <p>Voxy macht komplexe Zusammenhänge verständlich – ohne Menschen die Entscheidung abzunehmen.</p>
         </div>
       </section>
 
-      <section class="home-three" aria-label="Mit wem, wie und für wen">
+      <section class="home-three" aria-label="Mit wem, wie und für wen" data-i18n-html="home.three">
         <article class="home-panel compact-panel reveal">
           <p class="home-eyebrow">Mit wem?</p>
           <h2>Gemeinsam mit allen, die Verantwortung übernehmen.</h2>
@@ -104,17 +108,33 @@
         </article>
       </section>
 
-      <section class="home-panel application-panel reveal" aria-labelledby="application-title">
+      <section class="home-panel application-panel reveal" aria-labelledby="application-title" data-i18n-html="home.application">
         <div>
-          <p class="home-eyebrow">Meine Bewerbung</p>
-          <h2 id="application-title">Ich bewerbe mich um die höchste Position, die wir als Menschheit vergeben können: die Stimme der Menschen.</h2>
+          <p class="home-eyebrow">Meine Verantwortung</p>
+          <h2 id="application-title">Nicht überzeugen um jeden Preis. Sondern Positionen offenlegen, prüfen lassen und Verantwortung sichtbar machen.</h2>
         </div>
         <div><h3>Ich stehe für</h3><ul><li>Transparenz statt Hinterzimmer</li><li>Verantwortung statt Macht</li><li>Fakten statt Propaganda</li><li>Dialog statt Polarisierung</li><li>Befähigung statt Bevormundung</li></ul></div>
-        <div><h3>Ich verspreche</h3><ul><li>Zuzuhören, bevor ich entscheide</li><li>Zu erklären, bevor ich handle</li><li>Einzubinden, bevor ich vorgehe</li><li>Rechenschaft abzulegen</li><li>Zu dienen, bevor ich führe</li></ul></div>
-        <div class="application-ready"><h3>Ich bin bereit.</h3><p>Für diese Verantwortung.<br />Für euch. Für uns alle.</p><span class="home-signature">Ricky Gerd Fleischer</span></div>
+        <div><h3>Ich verspreche</h3><ul><li>Zuzuhören, bevor ich entscheide</li><li>Zu erklären, bevor ich handle</li><li>Einzubinden, bevor ich vorgehe</li><li>Rechenschaft abzulegen</li><li>Mich an Wirkung messen zu lassen</li></ul></div>
+        <div class="application-ready"><h3>Prüfbar statt glaubwürdig.</h3><p>Ich möchte nicht, dass du mir einfach glaubst.<br />Ich möchte, dass du alles prüfen kannst.</p><span class="home-signature">Ricky Gerd Fleischer</span></div>
       </section>
 
-      <section class="home-panel join-panel reveal" id="mitmachen" aria-labelledby="join-title">
+      <section class="home-panel vision-panel reveal" aria-labelledby="vision-home-title" data-i18n-html="home.vision">
+        <div class="vision-intro">
+          <p class="home-eyebrow">Die größere Vision</p>
+          <h2 id="vision-home-title">Demokratie nicht ersetzen. Demokratie überprüfbar weiterentwickeln.</h2>
+          <p>Vote4Gov ist kein Wahlprogramm und kein fertiges Gesellschaftsmodell. Es ist ein öffentlicher Raum für die Fragen, die wir stellen müssen, bevor wir über neue demokratische Strukturen entscheiden.</p>
+          <div class="vision-quote">„Vielleicht brauchen wir keine neue Ideologie. Vielleicht brauchen wir eine neue Art, Demokratie zu organisieren.“</div>
+          <a class="vision-link" href="/vision.html">Die Vision und offenen Systemfragen prüfen →</a>
+        </div>
+        <div class="vision-grid">
+          <article class="vision-question"><span>01</span><h3>Was bedeutet Wählen im 21. Jahrhundert?</h3><p>Reicht eine Stimme alle paar Jahre – oder braucht Repräsentation dauerhafte Rückkopplung?</p></article>
+          <article class="vision-question"><span>02</span><h3>Wie bleibt Verantwortung sichtbar?</h3><p>Entscheidungen, Zuständigkeiten und Wirkungen müssen nachvollziehbar verbunden bleiben.</p></article>
+          <article class="vision-question"><span>03</span><h3>Wie wirkt Beteiligung zwischen Wahlen?</h3><p>Menschen sollen Themen anstoßen, prüfen, widersprechen und Prioritäten sichtbar machen können.</p></article>
+          <article class="vision-question"><span>04</span><h3>Welche Rolle darf KI spielen?</h3><p>KI kann ordnen und erklären. Demokratische Entscheidungen müssen bei Menschen bleiben.</p></article>
+        </div>
+      </section>
+
+      <section class="home-panel join-panel reveal" id="mitmachen" aria-labelledby="join-title" data-i18n-html="home.join">
         <div class="join-title"><span class="join-symbol" aria-hidden="true">◎</span><h2 id="join-title">Werde Teil<br />der Bewegung.</h2></div>
         <p>Ob mit deiner Stimme, deiner Expertise oder deiner Plattform – jede aktive Beteiligung stärkt unsere gemeinsame Zukunft.</p>
         <div class="join-actions">
@@ -123,7 +143,7 @@
         </div>
       </section>
 
-      <section class="home-contact reveal" id="kontakt" aria-labelledby="contact-title">
+      <section class="home-contact reveal" id="kontakt" aria-labelledby="contact-title" data-i18n-html="home.contact">
         <p class="home-eyebrow">Direkter Kontakt</p>
         <h2 id="contact-title">Lass uns darüber sprechen.</h2>
         <p>Für Mitwirkung, Medienanfragen, Partnerschaften oder konstruktiven Widerspruch.</p>
@@ -133,7 +153,7 @@
   </main>
 
   <footer class="site-footer home-footer">
-    <div class="home-shell"><p>© <span data-year></span> Ricky Gerd Fleischer · Vote4Gov</p><div><a href="/vision.html">Vision</a><a href="/ueber-mich.html">Person</a><a href="#kontakt">Kontakt</a><a href="https://www.voiceopengov.org/impressum" target="_blank" rel="noreferrer">Impressum</a><a href="https://www.voiceopengov.org/datenschutz" target="_blank" rel="noreferrer">Datenschutz</a></div></div>
+    <div class="home-shell" data-i18n-html="footer"><p>© <span data-year></span> Ricky Gerd Fleischer · Vote4Gov</p><div><a href="/vision.html">Vision</a><a href="/ueber-mich.html">Person</a><a href="#kontakt">Kontakt</a><a href="https://www.voiceopengov.org/impressum" target="_blank" rel="noreferrer">Impressum</a><a href="https://www.voiceopengov.org/datenschutz" target="_blank" rel="noreferrer">Datenschutz</a></div></div>
   </footer>
 </body>
 </html>
