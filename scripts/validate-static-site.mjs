@@ -221,7 +221,7 @@ for (const principle of [
   "Vote4Gov = Ricky: persönlicher Systemblick, Thesen und Ordnungsentwurf.",
   "VoiceOpenGov = Bewegung: Community, Regionen, Präsenz und programmatische Willensbildung.",
   "eDebatte = unabhängiges Instrument: Evidenz, Dossiers, Gegenpositionen, Beteiligung und Wirkung.",
-  "Vote4Gov ist keine Partei",
+  "Vote4Gov ist **keine Partei**",
   "Ein eDebatte-Ergebnis ist weder automatisch eine Vote4Gov-Position noch automatisch eine VoiceOpenGov-Position.",
   "Auf Mobilgeräten darf das Autorenporträt der Vote4Gov-Startseite nicht ausgeblendet werden.",
 ]) {
