@@ -219,10 +219,11 @@ const northStarPath = join(root, "docs/VOTE4GOV_NORTH_STAR.md");
 const northStar = await readFile(northStarPath, "utf8");
 for (const principle of [
   "Vote4Gov = Ricky: persönlicher Systemblick, Thesen und Ordnungsentwurf.",
-  "VoiceOpenGov = Bewegung: Community, Regionen, Präsenz und programmatische Willensbildung.",
-  "eDebatte = unabhängiges Instrument: Evidenz, Dossiers, Gegenpositionen, Beteiligung und Wirkung.",
+  "eDebatte = unabhängiger Evidenz-, Beteiligungs- und Entscheidungsraum.",
+  "VoiceOpenGov = politische Repräsentations- und Umsetzungsschicht für gültige eDebatte-Mandate.",
   "Vote4Gov ist **keine Partei**",
-  "Ein eDebatte-Ergebnis ist weder automatisch eine Vote4Gov-Position noch automatisch eine VoiceOpenGov-Position.",
+  "Ein nach den veröffentlichten Regeln gültig abgeschlossenes eDebatte-Ergebnis ist innerhalb seines definierten sachlichen und regionalen Geltungsbereichs der verbindliche politische Repräsentationsauftrag für VoiceOpenGov.",
+  "VoiceOpenGov darf ein gültiges eDebatte-Mandat nicht durch eine interne Gegenposition ersetzen.",
   "Auf Mobilgeräten darf das Autorenporträt der Vote4Gov-Startseite nicht ausgeblendet werden.",
 ]) {
   if (!northStar.includes(principle)) fail(northStarPath, `missing canonical principle: ${principle}`);
@@ -239,4 +240,4 @@ if (failures.length) {
   failures.forEach((failure) => console.error(`- ${failure}`));
   process.exit(1);
 }
-console.log(`Static quality validation passed for ${htmlFiles.length} HTML files: personal Vote4Gov role, independent eDebatte boundary, VoiceOpenGov movement boundary, mobile author portrait, SEO metadata, world comparison and vision issue 01.`);
+console.log(`Static quality validation passed for ${htmlFiles.length} HTML files: personal Vote4Gov role, independent eDebatte decision boundary, eDebatte-bound VoiceOpenGov representation, mobile author portrait, SEO metadata, world comparison and vision issue 01.`);

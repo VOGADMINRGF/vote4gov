@@ -1,39 +1,65 @@
 # Vote4Gov.eu
 
-Die öffentliche, überprüfbare Bewerbung von Ricky Gerd Fleischer um eine neue Form demokratischer Verantwortung – verbunden mit der neutralen Infrastruktur von VoiceOpenGov und eDebatte.
+Vote4Gov ist der persönliche, öffentlich überprüfbare Denk- und Entwurfsraum von Ricky Gerd Fleischer zu Demokratie, Staat und politischer Ordnung.
 
 > Ich möchte nicht, dass du mir glaubst. Ich möchte, dass du alles prüfen kannst.
+
+## Rolle von Vote4Gov
+
+Vote4Gov zeigt ausdrücklich Rickys persönliche Sicht:
+
+- eigene politische Thesen und Systemkritik,
+- historische Herleitungen,
+- internationale Vergleiche,
+- stärkste Gegenpositionen,
+- einen persönlichen, korrigierbaren Ordnungsentwurf,
+- Quellen, Datenlücken und einen sichtbaren Korrekturweg.
+
+Vote4Gov ist keine Partei, keine Mitgliederorganisation und keine Abstimmungsplattform. Eine persönliche Vote4Gov-These ist weder automatisch eine eDebatte-Mehrheitsposition noch ein VoiceOpenGov-Mandat.
+
+## Verhältnis zu eDebatte und VoiceOpenGov
+
+Der verbindliche Rollenkanon lautet:
+
+> **Vote4Gov denkt und hinterfragt.**  
+> **eDebatte prüft, beteiligt und bildet den gültigen Mehrheitswillen ab.**  
+> **VoiceOpenGov vertritt und verantwortet dessen politische Umsetzung.**  
+> **Voxy macht es verständlich.**
+
+Eine Vote4Gov-These kann in eDebatte zur offenen gesellschaftlichen Prüfung gestellt werden. Dort zählen Quellen, Gegenpositionen, Alternativen und Beteiligung – nicht die Person, von der eine These stammt.
+
+Ein nach den veröffentlichten Regeln gültig abgeschlossenes eDebatte-Ergebnis bindet VoiceOpenGov innerhalb des definierten sachlichen und regionalen Geltungsbereichs. Ein VOG-Repräsentant darf vorher eine eigene Position vertreten; danach ist der gültige Mehrheitsauftrag maßgeblich. Relevante Minderheitenpositionen bleiben sichtbar.
+
+VoiceOpenGov führt deshalb kein von eDebatte unabhängiges, eingefrorenes Parteiprogramm. Sein öffentlicher Programmstand ist dynamisch und versioniert: Neue gültige eDebatte-Entscheidungen dürfen frühere Positionen ergänzen, präzisieren, ersetzen oder aufheben.
 
 ## Öffentliche Landingpage
 
 Die Startseite konzentriert sich auf:
 
-- die persönliche Bewerbung und den politischen Ursprung als primären Einstieg,
-- die bewusste Entscheidung für `vote4gov.eu`,
-- klare Kritik an Lagerlogik, Parteipaketen, seltenen Wahlen und unklarer Verantwortung,
-- überprüfbare Grundsätze statt eines geschlossenen Parteiprogramms,
-- den persönlichen Antrieb als Vater,
-- eine kompakte Übersicht mit klaren Unterpunkten für Vision, Mission, Person, Voxy, eDebatte, Mitmachen und Kontakt,
-- direkte Handlungswege zu VoiceOpenGov und eDebatte,
-- einen unverbindlichen Unterstützerkreis mit Perspektive 2029,
-- Kontakt und ein künftig öffentliches Transparenzregister.
+- Rickys persönlichen Blick und seine Motivation,
+- Geschichte und institutionelle Entwicklung,
+- weltweite Vergleiche ohne Blaupausenlogik,
+- klar gekennzeichnete persönliche Thesen,
+- ernsthafte Gegenargumente,
+- einen persönlichen Ordnungsentwurf,
+- den Handoff zu eDebatte zur unabhängigen Prüfung,
+- VoiceOpenGov als politische Repräsentations- und Umsetzungsschicht für gültige eDebatte-Mandate.
 
-Reinickendorf ist eine mögliche lokale Vision, aber kein behaupteter Pilot, keine laufende Kandidatur und kein Beleg auf der Landingpage.
+Regionale Community, Anlaufstellen und politische Repräsentation gehören zu VoiceOpenGov und dürfen auf Vote4Gov nicht als eigene Struktur dargestellt werden.
 
 ## Öffentliche Handlungswege
 
-1. **VoiceOpenGov beitreten** — Mitgliedschaft und gemeinschaftliche Mitwirkung.
-2. **Bei eDebatte ein Anliegen einreichen** — Frage, Problem oder Vorschlag an die Gesellschaft richten.
-3. **Mitmachen** — unverbindliche Mitwirkung und Kontaktaufnahme; keine amtliche Unterstützungsunterschrift.
+1. **Eine These prüfen oder widersprechen** — über eDebatte.
+2. **Politische Umsetzung und regionale Repräsentation mittragen** — über VoiceOpenGov.
+3. **Rickys Begründung und Gegenentwurf verstehen** — auf Vote4Gov.
 
 ## Seitenstruktur
 
-- `/` — persönliche Bewerbung und Gesamtüberblick
-- `/vision.html` — ausführliche wissenschaftlich-redaktionelle Demokratieanalyse
-- `/hinter-der-idee.html` — Mission, Haltung und Umsetzungsmodell
+- `/` — persönlicher Systemblick und Gesamtüberblick
+- `/vision.html` — wissenschaftlich-redaktionelle Demokratieanalyse
+- `/systemfragen.html` — persönliche Thesen und Gegenprüfung
+- `/systeme-laender.html` — historische und internationale Vergleichsräume
 - `/ueber-mich.html` und `/cv.html` — Person und beruflicher Weg
-- VoiceOpenGov — unabhängige Gemeinschaft und Mitgliedschaft
-- eDebatte — Anliegen, Debatte und Beteiligung
 
 Das Repository und interne Entwicklungsdokumente werden auf der öffentlichen Landingpage nicht verlinkt.
 
@@ -55,11 +81,10 @@ Lokal kann die Seite beispielsweise mit `python3 -m http.server 4173` geöffnet 
 
 Alle Weiterentwicklungen müssen [`docs/VOTE4GOV_NORTH_STAR.md`](docs/VOTE4GOV_NORTH_STAR.md) entsprechen.
 
-## Noch zu finalisieren
+## Harte Grenzen
 
-- bestätigte persönliche Kontaktadresse für Vote4Gov.eu,
-- LinkedIn oder ein anderes freigegebenes öffentliches Profil,
-- optional eine freigegebene Telefonnummer,
-- Impressum und Datenschutz mit vollständigen Betreiberangaben,
-- reale Einträge im Transparenzregister,
-- eigener Formularprozess für den Unterstützerkreis 2029.
+- Vote4Gov spricht persönlich, nicht stellvertretend für eDebatte oder VoiceOpenGov.
+- eDebatte bleibt als Entscheidungsraum unabhängig von Rickys persönlicher Position.
+- VoiceOpenGov darf ein gültiges eDebatte-Mehrheitsmandat nicht durch eine interne Gegenposition ersetzen.
+- Ein Draft, laufender Diskurs oder bloßes Stimmungsbild ist kein bindendes Mandat.
+- Zukunftsstrukturen werden nicht als bestehende Realität dargestellt.
