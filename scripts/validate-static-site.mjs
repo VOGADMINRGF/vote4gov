@@ -80,17 +80,12 @@ const indexHtml = await readFile(indexPath, "utf8");
 for (const requiredText of [
   "Mein Blick auf Demokratie, Staat und politische Ordnung.",
   "Fragen, die",
-  "Vote4Gov ist mein öffentlicher Denk- und Entwurfsraum.",
   "Vote4Gov spricht für mich.",
-  "VoiceOpenGov",
-  "eDebatte",
-  "Geschichte &amp; Weltvergleich",
-  "Meine kritischen Thesen",
-  "Mein Ordnungsmodell",
-  "Vote4Gov · mein Blick",
   "VoiceOpenGov · die Bewegung",
   "eDebatte · das unabhängige Instrument",
-  "Meine Regeln für starke Thesen",
+  "Meine kritischen Thesen",
+  "Mein Ordnungsmodell",
+  "Arbeitsentwurf · Version 0.1 · Stand 17.09.2026",
   'id="mission"',
   'id="ordnungsmodell"',
   "/vision.html",
@@ -103,26 +98,68 @@ for (const requiredText of [
 for (const forbidden of ["/regionen.html", "/de/deutschland/", "/de/europa/", "/de/weltweit/"]) {
   if (indexHtml.includes(forbidden)) fail(indexPath, `territorial community route remains on Vote4Gov start page: ${forbidden}`);
 }
+for (const seoMarker of [
+  'meta name="author" content="Ricky Gerd Fleischer"',
+  'meta property="og:image"',
+  'meta name="twitter:card" content="summary_large_image"',
+  '"@type":"WebPage"',
+  '"@type":"Person"',
+  'fetchpriority="high"',
+]) {
+  if (!indexHtml.includes(seoMarker)) fail(indexPath, `missing homepage SEO/performance marker: ${seoMarker}`);
+}
+if (indexHtml.includes('"sameAs":["https://www.voiceopengov.org/","https://www.edebatte.org/"]')) {
+  fail(indexPath, "Person structured data must not identify separate projects as the same person entity");
+}
+
+const coreSeoFiles = [
+  ["systemfragen.html", "https://www.vote4gov.eu/systemfragen"],
+  ["systeme-laender.html", "https://www.vote4gov.eu/systeme-laender"],
+  ["ueber-mich.html", "https://www.vote4gov.eu/ueber-mich"],
+];
+for (const [rel, canonical] of coreSeoFiles) {
+  const path = join(root, rel);
+  const html = await readFile(path, "utf8");
+  for (const marker of [
+    `<link rel="canonical" href="${canonical}"`,
+    'meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"',
+    'meta property="og:image"',
+    'meta name="twitter:card" content="summary_large_image"',
+    'application/ld+json',
+  ]) {
+    if (!html.includes(marker)) fail(path, `missing core SEO marker: ${marker}`);
+  }
+}
 
 const systemQuestionsPath = join(root, "systemfragen.html");
 const systemQuestions = await readFile(systemQuestionsPath, "utf8");
-for (const marker of ["Meine These:", "Stärkster Einwand:", "Prüfmaßstab:", "Meine Position ist kein eDebatte-Ergebnis", "eDebatte bleibt unabhängig", "These bei eDebatte gegenprüfen"]) {
-  if (!systemQuestions.includes(marker)) fail(systemQuestionsPath, `missing personal system-thesis contract marker: ${marker}`);
+for (const marker of ["Meine These:", "Stärkster Einwand:", "Prüfmaßstab:", "eDebatte bleibt unabhängig", "These bei eDebatte gegenprüfen"]) {
+  if (!systemQuestions.includes(marker)) fail(systemQuestionsPath, `missing personal system-question contract marker: ${marker}`);
 }
 
 const systemsCountriesPath = join(root, "systeme-laender.html");
 const systemsCountries = await readFile(systemsCountriesPath, "utf8");
-for (const marker of ["Was lässt sich aus anderen politischen Ordnungen lernen", "Deutschland", "Europa", "International", "Vier Regeln für meinen Weltvergleich", "Regionale Community, Teams und politische Präsenz gehören zu VoiceOpenGov"]) {
+for (const marker of ["Was lässt sich aus anderen politischen Ordnungen lernen – und was nicht?", "Deutschland", "Europa", "International", "Keine regionale Bewegung auf Vote4Gov"]) {
   if (!systemsCountries.includes(marker)) fail(systemsCountriesPath, `missing world-comparison contract marker: ${marker}`);
 }
 
+const aboutPath = join(root, "ueber-mich.html");
+const aboutHtml = await readFile(aboutPath, "utf8");
+for (const marker of ["Mein persönlicher Systemblick", "Die Bewegung für Community, Regionen, Präsenz", "Die unabhängige Infrastruktur für Evidenz"]) {
+  if (!aboutHtml.includes(marker)) fail(aboutPath, `person page role contract is stale: ${marker}`);
+}
+if (aboutHtml.includes("/hinter-der-idee.html")) fail(aboutPath, "person page still links to retired mission route");
+
 const homeCssPath = join(root, "home.css");
 const homeCss = await readFile(homeCssPath, "utf8");
+const homeRefinementPath = join(root, "home-refinement.css");
+const homeRefinement = await readFile(homeRefinementPath, "utf8");
 const homeScriptPath = join(root, "home.js");
 const homeScript = await readFile(homeScriptPath, "utf8");
 if (!homeCss.includes(".home-page .reveal") || !homeCss.includes(".js-enabled .home-page .reveal:not(.is-visible)")) {
   fail(homeCssPath, "campaign reveal effects must preserve visible content without JavaScript");
 }
+if (!homeRefinement.includes(".home-portrait>img{display:block")) fail(homeRefinementPath, "mobile hero portrait override is missing");
 if (!homeScript.includes('classList.add("js-enabled")')) fail(homeScriptPath, "campaign script must opt in to reveal effects");
 
 const visionPath = join(root, "vision.html");
@@ -197,12 +234,20 @@ if (!redirects.some((item) => item.source === "/hinter-der-idee" && item.destina
 if (JSON.stringify(vercel).includes("X-Frame-Options")) fail(vercelPath, "X-Frame-Options blocks supported embed cards");
 if (!JSON.stringify(vercel).includes("frame-ancestors *")) fail(vercelPath, "embed frame-ancestors policy is missing");
 
+const sitemapPath = join(root, "sitemap.xml");
+const sitemap = await readFile(sitemapPath, "utf8");
+for (const loc of ["https://www.vote4gov.eu/", "https://www.vote4gov.eu/vision", "https://www.vote4gov.eu/systemfragen", "https://www.vote4gov.eu/systeme-laender", "https://www.vote4gov.eu/ueber-mich"]) {
+  if (!sitemap.includes(`<loc>${loc}</loc>`)) fail(sitemapPath, `core URL missing from sitemap: ${loc}`);
+}
+if ((sitemap.match(/<lastmod>2026-09-17<\/lastmod>/g) ?? []).length < 5) fail(sitemapPath, "updated core sitemap entries need accurate 2026-09-17 lastmod markers");
+
 const northStarPath = join(root, "docs/VOTE4GOV_NORTH_STAR.md");
 const northStar = await readFile(northStarPath, "utf8");
 for (const principle of [
-  "weder Partei noch eigene Beteiligungs- oder Abstimmungsplattform",
-  "Alle Diskussionen, Korrekturen mit gesellschaftlichem Inhalt und Abstimmungen finden ausschließlich bei eDebatte statt",
-  "Vote4Gov bewirbt und begründet. VoiceOpenGov verbindet. eDebatte beteiligt.",
+  "Vote4Gov = Rickys persönlicher Systemblick, Thesen und Ordnungsentwurf.",
+  "VoiceOpenGov = Bewegung, Regionen, Präsenz und programmatische Willensbildung.",
+  "eDebatte = unabhängige Evidenz-, Dossier-, Beteiligungs- und Entscheidungsinfrastruktur.",
+  "Die persönliche Autorenschaft darf auf Mobilgeräten nicht verschwinden",
 ]) {
   if (!northStar.includes(principle)) fail(northStarPath, `missing canonical principle: ${principle}`);
 }
@@ -212,4 +257,4 @@ if (failures.length) {
   failures.forEach((failure) => console.error(`- ${failure}`));
   process.exit(1);
 }
-console.log(`Static quality validation passed for ${htmlFiles.length} HTML files: personal Vote4Gov system view, falsifiable theses, world comparison, vision issue 01 and routing contracts.`);
+console.log(`Static quality validation passed for ${htmlFiles.length} HTML files: personal Vote4Gov canon, mobile authorship, SEO metadata, world comparison, vision issue 01 and routing contracts.`);
