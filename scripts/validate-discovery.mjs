@@ -36,8 +36,9 @@ for (const file of journalFiles) {
   check(!html.includes("VoiceOpenGov folgt gültigen eDebatte-Mandaten"), `${file}: retired eDebatte->VOG binding remains`);
   check(!html.includes("verpflichtet seine politische Repräsentation an gültige eDebatte-Mandate"), `${file}: retired eDebatte->VOG binding remains`);
 
-  if (html.includes("article-sources")) {
-    check(html.includes('"citation":['), `${file}: source section exists but Article JSON-LD has no citation array`);
+  const sourceSection = html.match(/<section\b[^>]*class=["'][^"']*\barticle-sources\b[^"']*["'][^>]*>([\s\S]*?)<\/section>/i)?.[1] || "";
+  if (/href=["']https?:\/\//i.test(sourceSection)) {
+    check(html.includes('"citation":['), `${file}: linked external sources exist but Article JSON-LD has no citation array`);
   }
 }
 
