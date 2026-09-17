@@ -50,8 +50,12 @@ try {
   check(await campaign.locator('#systemfragen').count() === 1, "campaign desktop: personal theses preview is missing");
   check(await campaign.locator('#ordnungsmodell').count() === 1, "campaign desktop: personal order model is missing");
   check((await campaign.locator('#mission').textContent())?.includes("Vote4Gov spricht für mich"), "campaign desktop: personal authorship is not explicit");
-  check((await campaign.locator("body").textContent())?.includes("eDebatte · der Entscheidungsraum"), "campaign desktop: eDebatte decision-space role is not explicit");
-  check((await campaign.locator("body").textContent())?.includes("VoiceOpenGov · Repräsentation"), "campaign desktop: VoiceOpenGov representation role is not explicit");
+  const campaignText = await campaign.locator("body").textContent();
+  check(campaignText?.includes("eDebatte · unabhängiger Prüf- und Beteiligungsraum"), "campaign desktop: independent eDebatte role is not explicit");
+  check(campaignText?.includes("VoiceOpenGov · Bewegung & Repräsentation"), "campaign desktop: VoiceOpenGov movement role is not explicit");
+  check(campaignText?.includes("entscheidet seinen eigenen Programmstand aber nach den eigenen Governance-Regeln"), "campaign desktop: VOG own-governance boundary is missing");
+  check(!campaignText?.includes("verpflichtet seine politische Repräsentation an gültige eDebatte-Mandate"), "campaign desktop: retired automatic eDebatte mandate binding remains");
+  check(!campaignText?.includes("politische Repräsentations- und Umsetzungsschicht für gültige eDebatte-Mandate"), "campaign desktop: retired eDebatte-bound VOG layer remains");
   check(await campaign.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1), "campaign desktop: horizontal overflow");
   await campaign.close();
 
@@ -60,8 +64,11 @@ try {
   check(await questions.getByText("Meine These:", { exact: true }).count() >= 1, "system questions: personal thesis marker is missing");
   check(await questions.getByText("Stärkster Einwand:", { exact: true }).count() >= 1, "system questions: strongest-objection marker is missing");
   check(await questions.getByText("Prüfmaßstab:", { exact: true }).count() >= 1, "system questions: test-criterion marker is missing");
-  check((await questions.locator("body").textContent())?.includes("eDebatte bleibt unabhängig"), "system questions: eDebatte independence boundary is missing");
-  check((await questions.locator("body").textContent())?.includes("VoiceOpenGov folgt gültigen eDebatte-Mandaten"), "system questions: VOG mandate binding is missing");
+  const questionsText = await questions.locator("body").textContent();
+  check(questionsText?.includes("eDebatte bleibt unabhängig"), "system questions: eDebatte independence boundary is missing");
+  check(questionsText?.includes("VoiceOpenGov entscheidet seinen eigenen Programmstand"), "system questions: VOG own-program boundary is missing");
+  check(questionsText?.includes("Ein eDebatte-Ergebnis bindet VoiceOpenGov aber nicht automatisch"), "system questions: nonbinding eDebatte boundary is missing");
+  check(!questionsText?.includes("VoiceOpenGov folgt gültigen eDebatte-Mandaten"), "system questions: retired VOG mandate binding remains");
   await questions.close();
 
   const systems = await openPage(desktop, "/systeme-laender.html");
@@ -132,4 +139,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log("Browser regression passed: personal Vote4Gov role, clean eDebatte/VOG role split, mobile author portrait, falsifiable theses, world comparison boundary, atlas-free vision, desktop, mobile, 200% zoom and no-JS.");
+console.log("Browser regression passed: personal Vote4Gov role, independent nonbinding eDebatte/VOG boundary, mobile author portrait, falsifiable theses, world comparison boundary, atlas-free vision, desktop, mobile, 200% zoom and no-JS.");
