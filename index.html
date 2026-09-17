@@ -15,12 +15,15 @@
   <meta property="og:url" content="https://www.vote4gov.eu/" />
   <meta property="og:title" content="Vote4Gov – Politik und Demokratie für alle. Überall." />
   <meta property="og:description" content="Demokratie weiterdenken: lokal, regional, national und international – transparent, überprüfbar und offen für Widerspruch." />
+  <meta property="og:image" content="https://www.vote4gov.eu/assets/hero-earth-v2.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
   <title>Vote4Gov – Demokratie & Politik neu denken | Für alle. Überall.</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="/styles.css" />
   <link rel="stylesheet" href="/home.css" />
-  <link rel="stylesheet" href="/i18n.css" />
   <link rel="stylesheet" href="/home-refinement.css" />
+  <link rel="stylesheet" href="/home-consolidation.css" />
+  <link rel="stylesheet" href="/global-language.css" />
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -30,7 +33,7 @@
     ]
   }
   </script>
-  <script src="/i18n.js" defer></script>
+  <script src="/global-language.js" defer></script>
   <script src="/home.js" defer></script>
 </head>
 <body class="home-page">
@@ -41,23 +44,23 @@
     <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-button>
       <span class="sr-only">Navigation öffnen</span><span></span><span></span>
     </button>
-    <nav class="site-nav" id="site-nav" aria-label="Hauptnavigation" data-nav data-i18n-html="nav">
+    <nav class="site-nav" id="site-nav" aria-label="Hauptnavigation" data-nav>
       <a href="/vision.html">Vision</a>
-      <a href="/hinter-der-idee.html">Mission</a>
+      <a href="#mission">Mission</a>
+      <a href="/regionen.html">Regionen</a>
       <a href="/ueber-mich.html">Person</a>
-      <a href="#voxy">Voxy</a>
       <a href="https://www.edebatte.org/" target="_blank" rel="noreferrer">eDebatte</a>
       <a href="#mitmachen">Mitmachen</a>
       <a class="nav-cta" href="#kontakt">Kontakt</a>
     </nav>
-    <div class="language-switcher-wrap" data-language-switcher></div>
+    <div class="journal-topline home-language-slot" aria-label="Lesesprache"></div>
   </header>
 
   <main id="main">
     <section class="home-hero" aria-labelledby="hero-title">
       <div class="home-hero-earth" aria-hidden="true"></div>
       <div class="home-shell home-hero-grid">
-        <div class="home-hero-copy reveal" data-i18n-html="home.hero">
+        <div class="home-hero-copy reveal">
           <p class="home-eyebrow">Eine neue Form der Repräsentation.</p>
           <h1 id="hero-title">Für alle.<br />Überall.</h1>
           <p class="home-lead">Politik und Demokratie neu denken – lokal, regional, national und international. Ich bewerbe mich nicht um ein Parteiamt. Ich stelle eine größere Frage: Wie kann demokratische Repräsentation im 21. Jahrhundert überprüfbarer, näher und wirksamer werden?</p>
@@ -76,15 +79,23 @@
     </section>
 
     <div class="home-shell home-stack">
-      <section class="home-panel problem-panel reveal" aria-labelledby="problem-title" data-i18n-html="home.problem">
+      <section class="home-panel problem-panel reveal" aria-labelledby="problem-title">
         <div class="panel-heading"><p class="home-eyebrow">Der Ausgangspunkt</p><h2 id="problem-title">Wo Politik Vertrauen verliert.</h2><p class="panel-accent">Drei wiederkehrende Bruchstellen: Vertrauen. Nähe. Wirkung.</p></div>
         <div class="problem-grid"><article><span class="panel-icon">◇</span><h3>Vertrauen</h3><p>Viele Menschen haben nicht das Interesse an Politik verloren. Sie haben das Vertrauen in politische Prozesse verloren.</p></article><article><span class="panel-icon">◎</span><h3>Nähe</h3><p>Entscheidungen wirken weit entfernt. Kommunikation bleibt abstrakt. Verantwortung wird weitergereicht.</p></article><article><span class="panel-icon">◉</span><h3>Wirkung</h3><p>Wer sich nicht gehört, nicht verstanden und nicht wirksam erlebt, zieht sich zurück. Damit verliert Demokratie ihr stärkstes Fundament.</p></article></div>
       </section>
 
-      <section class="home-panel mission-panel reveal" id="mission" aria-labelledby="mission-title" data-i18n-html="home.mission">
+      <section class="home-panel mission-panel reveal" id="mission" aria-labelledby="mission-title">
         <div><p class="home-eyebrow">Die Mission</p><h2 id="mission-title">Die Antwort ist keine Partei. Sondern eine neue Infrastruktur für Demokratie.</h2></div>
-        <div class="mission-copy"><p>VoiceOpenGov verbindet Menschen. eDebatte macht Themen, Quellen, Gegenpositionen und Entscheidungen nachvollziehbar. Vote4Gov stellt die Systemfragen dahinter.</p><p>Offen. Transparent. Evidenzbasiert. Sicher. Über Ländergrenzen, Kulturen und Systeme hinweg.</p><a href="/hinter-der-idee.html">Mission im Detail →</a></div>
+        <div class="mission-copy"><p>VoiceOpenGov verbindet Menschen. eDebatte macht Themen, Quellen, Gegenpositionen und Entscheidungen nachvollziehbar. Vote4Gov stellt die Systemfragen dahinter.</p><p>Offen. Transparent. Evidenzbasiert. Sicher. Über Ländergrenzen, Kulturen und Systeme hinweg.</p><a href="/vision.html">Vision und Systemfragen prüfen →</a></div>
         <div class="voxy-home" id="voxy"><img src="/assets/voxy.svg" alt="Voxy" /><p>Voxy macht komplexe Zusammenhänge verständlich – ohne Menschen die Entscheidung abzunehmen.</p></div>
+        <div class="home-mission-flow" data-mission-flow aria-label="Vom Anliegen bis zur Wirkung">
+          <div><span>01</span><strong>Anliegen</strong></div>
+          <div><span>02</span><strong>Quellen &amp; Fakten</strong></div>
+          <div><span>03</span><strong>Gegenpositionen</strong></div>
+          <div><span>04</span><strong>Debatte &amp; Alternativen</strong></div>
+          <div><span>05</span><strong>Entscheidung</strong></div>
+          <div><span>06</span><strong>Wirkung &amp; Rechenschaft</strong></div>
+        </div>
       </section>
 
       <section class="home-panel region-home-panel reveal" aria-labelledby="region-home-title">
@@ -95,27 +106,42 @@
           <a class="vision-link" href="/regionen.html">Regionen entdecken →</a>
         </div>
         <div class="region-home-links">
-          <a href="/de/deutschland/"><span>Deutschland</span><strong>Bund & 16 Länder →</strong></a>
+          <a href="/de/deutschland/"><span>Deutschland</span><strong>Bund &amp; 16 Länder →</strong></a>
           <a href="/de/europa/"><span>Europa</span><strong>Grenzüberschreitende Politik →</strong></a>
           <a href="/de/weltweit/"><span>Weltweit</span><strong>Globale Fragen →</strong></a>
         </div>
       </section>
 
-      <section class="home-three" aria-label="Mit wem, wie und für wen" data-i18n-html="home.three">
-        <article class="home-panel compact-panel reveal"><p class="home-eyebrow">Mit wem?</p><h2>Gemeinsam mit allen, die Verantwortung übernehmen.</h2><ul><li>Bürgerinnen und Bürger</li><li>Wissenschaft und Bildung</li><li>Medien und Journalismus</li><li>Zivilgesellschaft und Initiativen</li><li>Verwaltung und öffentliche Institutionen</li><li>Unternehmen und Technologieteams</li></ul></article>
-        <article class="home-panel compact-panel reveal"><p class="home-eyebrow">Wie?</p><h2>Nachvollziehbar vom Anliegen bis zur Wirkung.</h2><ul><li>Mit eDebatte</li><li>Quellenprüfung und Einordnung</li><li>Verständliche Zusammenhänge</li><li>Konstruktive Debattenräume</li><li>Beteiligung und Abstimmung</li><li>Transparente Prozesse</li></ul></article>
-        <article class="home-panel compact-panel purpose-panel reveal"><p class="home-eyebrow">Für wen?</p><h2>Für jede Generation. Für unsere gemeinsame Zukunft.</h2><p class="generation-note">Nicht für eine einzelne Person, Partei oder Altersgruppe – sondern für eine Demokratie, die heute funktioniert und morgen noch trägt.</p><div class="generation-visual" aria-label="Heute, morgen und nächste Generation"><div class="generation-step"><span>Heute</span></div><div class="generation-step"><span>Morgen</span></div><div class="generation-step"><span>Nächste Generation</span></div></div></article>
+      <section class="home-three home-three-condensed" aria-label="Mit wem, für wen und nach welchem Grundprinzip">
+        <article class="home-panel compact-panel reveal"><p class="home-eyebrow">Mit wem?</p><h2>Gemeinsam mit allen, die Verantwortung übernehmen.</h2><p>Bürgerinnen und Bürger, Wissenschaft, Medien, Zivilgesellschaft, Verwaltung, Institutionen, Unternehmen und Technologieteams.</p></article>
+        <article class="home-panel compact-panel purpose-panel reveal"><p class="home-eyebrow">Für wen?</p><h2>Für jede Generation. Für unsere gemeinsame Zukunft.</h2><p class="generation-note">Nicht für eine einzelne Person, Partei oder Altersgruppe – sondern für eine Demokratie, die heute funktioniert und morgen noch trägt.</p></article>
+        <article class="home-panel compact-panel reveal"><p class="home-eyebrow">Grundprinzip</p><h2>Technologie befähigt. Menschen entscheiden.</h2><p>Werkzeuge dürfen ordnen, erklären und Zugänge vereinfachen. Verantwortung, Abwägung und demokratische Entscheidung bleiben beim Menschen.</p></article>
       </section>
 
-      <section class="home-panel application-panel reveal" aria-labelledby="application-title" data-i18n-html="home.application"><div><p class="home-eyebrow">Meine Verantwortung</p><h2 id="application-title">Nicht überzeugen um jeden Preis. Sondern Positionen offenlegen, prüfen lassen und Verantwortung sichtbar machen.</h2></div><div><h3>Ich stehe für</h3><ul><li>Transparenz statt Hinterzimmer</li><li>Verantwortung statt Macht</li><li>Fakten statt Propaganda</li><li>Dialog statt Polarisierung</li><li>Befähigung statt Bevormundung</li></ul></div><div><h3>Ich verspreche</h3><ul><li>Zuzuhören, bevor ich entscheide</li><li>Zu erklären, bevor ich handle</li><li>Einzubinden, bevor ich vorgehe</li><li>Rechenschaft abzulegen</li><li>Mich an Wirkung messen zu lassen</li></ul></div><div class="application-ready"><h3>Prüfbar statt glaubwürdig.</h3><p>Ich möchte nicht, dass du mir einfach glaubst.<br />Ich möchte, dass du alles prüfen kannst.</p><span class="home-signature">Ricky Gerd Fleischer</span></div></section>
+      <section class="home-panel application-panel reveal" aria-labelledby="application-title">
+        <div><p class="home-eyebrow">Meine Verantwortung</p><h2 id="application-title">Nicht überzeugen um jeden Preis. Sondern Positionen offenlegen, prüfen lassen und Verantwortung sichtbar machen.</h2></div>
+        <div><h3>Ich stehe für</h3><ul><li>Transparenz statt Hinterzimmer</li><li>Verantwortung statt Macht</li><li>Fakten statt Propaganda</li><li>Dialog statt Polarisierung</li><li>Befähigung statt Bevormundung</li></ul></div>
+        <div><h3>Ich verspreche</h3><ul><li>Zuzuhören, bevor ich entscheide</li><li>Zu erklären, bevor ich handle</li><li>Einzubinden, bevor ich vorgehe</li><li>Rechenschaft abzulegen</li><li>Mich an Wirkung messen zu lassen</li></ul></div>
+        <div class="application-ready"><h3>Prüfbar statt glaubwürdig.</h3><p>Ich möchte nicht, dass du mir einfach glaubst.<br />Ich möchte, dass du alles prüfen kannst.</p><span class="home-signature">Ricky Gerd Fleischer</span></div>
+        <div class="accountability-commitments" data-accountability-commitments>
+          <p class="home-eyebrow">Überprüfbare Verpflichtungen</p>
+          <ol>
+            <li>Keine Entscheidung ohne nachvollziehbare Begründung.</li>
+            <li>Keine Zuständigkeit ohne sichtbare Verantwortung.</li>
+            <li>Keine politische Ebene ohne belegbaren Nutzen.</li>
+            <li>Keine Selbstdarstellung als Ersatz für Ergebnisse.</li>
+            <li>Keine Beteiligung, die anschließend folgenlos verschwindet.</li>
+          </ol>
+        </div>
+      </section>
 
-      <section class="home-panel vision-panel reveal" aria-labelledby="vision-home-title" data-i18n-html="home.vision"><div class="vision-intro"><p class="home-eyebrow">Die größere Vision</p><h2 id="vision-home-title">Demokratie nicht ersetzen. Demokratie überprüfbar weiterentwickeln.</h2><p>Vote4Gov ist kein Wahlprogramm und kein fertiges Gesellschaftsmodell. Es ist ein öffentlicher Raum für die Fragen, die wir stellen müssen, bevor wir über neue demokratische Strukturen entscheiden.</p><div class="vision-quote">„Vielleicht brauchen wir keine neue Ideologie. Vielleicht brauchen wir eine neue Art, Demokratie zu organisieren.“</div><a class="vision-link" href="/vision.html">Die Vision und offenen Systemfragen prüfen →</a></div><div class="vision-grid"><article class="vision-question"><span>01</span><h3>Was bedeutet Wählen im 21. Jahrhundert?</h3><p>Reicht eine Stimme alle paar Jahre – oder braucht Repräsentation dauerhafte Rückkopplung?</p></article><article class="vision-question"><span>02</span><h3>Wie bleibt Verantwortung sichtbar?</h3><p>Entscheidungen, Zuständigkeiten und Wirkungen müssen nachvollziehbar verbunden bleiben.</p></article><article class="vision-question"><span>03</span><h3>Wie wirkt Beteiligung zwischen Wahlen?</h3><p>Menschen sollen Themen anstoßen, prüfen, widersprechen und Prioritäten sichtbar machen können.</p></article><article class="vision-question"><span>04</span><h3>Welche Rolle darf KI spielen?</h3><p>KI kann ordnen und erklären. Demokratische Entscheidungen müssen bei Menschen bleiben.</p></article></div></section>
+      <section class="home-panel vision-panel reveal" aria-labelledby="vision-home-title"><div class="vision-intro"><p class="home-eyebrow">Die größere Vision</p><h2 id="vision-home-title">Demokratie nicht ersetzen. Demokratie überprüfbar weiterentwickeln.</h2><p>Vote4Gov ist kein Wahlprogramm und kein fertiges Gesellschaftsmodell. Es ist ein öffentlicher Raum für die Fragen, die wir stellen müssen, bevor wir über neue demokratische Strukturen entscheiden.</p><div class="vision-quote">„Vielleicht brauchen wir keine neue Ideologie. Vielleicht brauchen wir eine neue Art, Demokratie zu organisieren.“</div><a class="vision-link" href="/vision.html">Die Vision und offenen Systemfragen prüfen →</a></div><div class="vision-grid"><article class="vision-question"><span>01</span><h3>Was bedeutet Wählen im 21. Jahrhundert?</h3><p>Reicht eine Stimme alle paar Jahre – oder braucht Repräsentation dauerhafte Rückkopplung?</p></article><article class="vision-question"><span>02</span><h3>Wie bleibt Verantwortung sichtbar?</h3><p>Entscheidungen, Zuständigkeiten und Wirkungen müssen nachvollziehbar verbunden bleiben.</p></article><article class="vision-question"><span>03</span><h3>Wie wirkt Beteiligung zwischen Wahlen?</h3><p>Menschen sollen Themen anstoßen, prüfen, widersprechen und Prioritäten sichtbar machen können.</p></article><article class="vision-question"><span>04</span><h3>Welche Rolle darf KI spielen?</h3><p>KI kann ordnen und erklären. Demokratische Entscheidungen müssen bei Menschen bleiben.</p></article></div></section>
 
-      <section class="home-panel join-panel reveal" id="mitmachen" aria-labelledby="join-title" data-i18n-html="home.join"><div class="join-title"><span class="join-symbol" aria-hidden="true">◎</span><h2 id="join-title">Gestalte mit.</h2></div><p>Demokratie verändert sich nicht durch eine Person. Sie verändert sich, wenn Menschen Fragen stellen, widersprechen, Wissen beitragen und Verantwortung übernehmen.</p><div class="join-actions"><a class="button button-primary" href="https://www.voiceopengov.org/mitglied-werden" target="_blank" rel="noreferrer">Mitmachen →</a><a class="button button-ghost" href="/vision.html">Vision prüfen →</a></div></section>
+      <section class="home-panel join-panel reveal" id="mitmachen" aria-labelledby="join-title"><div class="join-title"><span class="join-symbol" aria-hidden="true">◎</span><h2 id="join-title">Gestalte mit.</h2></div><p>Demokratie verändert sich nicht durch eine Person. Sie verändert sich, wenn Menschen Fragen stellen, widersprechen, Wissen beitragen und Verantwortung übernehmen.</p><div class="join-actions"><a class="button button-primary" href="https://www.voiceopengov.org/mitglied-werden" target="_blank" rel="noreferrer">Mitmachen →</a><a class="button button-ghost" href="/vision.html">Vision prüfen →</a></div></section>
 
-      <section class="home-contact reveal" id="kontakt" aria-labelledby="contact-title" data-i18n-html="home.contact"><p class="home-eyebrow">Direkter Kontakt</p><h2 id="contact-title">Lass uns darüber sprechen.</h2><p>Für Mitwirkung, Medienanfragen, Partnerschaften oder konstruktiven Widerspruch.</p><a href="mailto:rgf@voiceopengov.org">rgf@voiceopengov.org</a></section>
+      <section class="home-contact reveal" id="kontakt" aria-labelledby="contact-title"><p class="home-eyebrow">Direkter Kontakt</p><h2 id="contact-title">Lass uns darüber sprechen.</h2><p>Für Mitwirkung, Medienanfragen, Partnerschaften oder konstruktiven Widerspruch.</p><a href="mailto:rgf@voiceopengov.org">rgf@voiceopengov.org</a></section>
     </div>
   </main>
-  <footer class="site-footer home-footer"><div class="home-shell" data-i18n-html="footer"><p>© <span data-year></span> Ricky Gerd Fleischer · Vote4Gov</p><div><a href="/vision.html">Vision</a><a href="/regionen.html">Regionen</a><a href="/ueber-mich.html">Person</a><a href="#kontakt">Kontakt</a><a href="https://www.voiceopengov.org/impressum" target="_blank" rel="noreferrer">Impressum</a><a href="https://www.voiceopengov.org/datenschutz" target="_blank" rel="noreferrer">Datenschutz</a></div></div></footer>
+  <footer class="site-footer home-footer"><div class="home-shell"><p>© <span data-year></span> Ricky Gerd Fleischer · Vote4Gov</p><div><a href="/vision.html">Vision</a><a href="/regionen.html">Regionen</a><a href="/ueber-mich.html">Person</a><a href="#kontakt">Kontakt</a><a href="https://www.voiceopengov.org/impressum" target="_blank" rel="noreferrer">Impressum</a><a href="https://www.voiceopengov.org/datenschutz" target="_blank" rel="noreferrer">Datenschutz</a></div></div></footer>
 </body>
 </html>
