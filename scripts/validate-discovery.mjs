@@ -9,6 +9,13 @@ function check(condition, message) {
   if (!condition) failures.push(message);
 }
 
+const retiredSelfGovernanceSignals = [
+  "VoiceOpenGov decides its own program state under its own governance rules",
+  "an eDebatte result does not automatically become a VoiceOpenGov position",
+  "VoiceOpenGov entscheidet seinen eigenen Programmstand",
+  "Ein eDebatte-Ergebnis bindet VoiceOpenGov aber nicht automatisch",
+];
+
 const journalDir = join(root, "journal");
 const journalFiles = (await readdir(journalDir)).filter((name) => name.endsWith(".html")).sort();
 check(journalFiles.length >= 10, `expected at least 10 journal articles, found ${journalFiles.length}`);
@@ -33,8 +40,9 @@ for (const file of journalFiles) {
   ];
   for (const marker of required) check(html.includes(marker), `${file}: missing discovery marker ${marker}`);
 
-  check(!html.includes("VoiceOpenGov folgt gültigen eDebatte-Mandaten"), `${file}: retired eDebatte->VOG binding remains`);
-  check(!html.includes("verpflichtet seine politische Repräsentation an gültige eDebatte-Mandate"), `${file}: retired eDebatte->VOG binding remains`);
+  for (const retired of retiredSelfGovernanceSignals) {
+    check(!html.includes(retired), `${file}: retired VOG self-governance boundary remains: ${retired}`);
+  }
 
   const sourceSection = html.match(/<section\b[^>]*class=["'][^"']*\barticle-sources\b[^"']*["'][^>]*>([\s\S]*?)<\/section>/i)?.[1] || "";
   if (/href=["']https?:\/\//i.test(sourceSection)) {
@@ -49,12 +57,18 @@ check(robots.includes("Sitemap: https://www.vote4gov.eu/sitemap.xml"), "robots.t
 const llms = await readFile(join(root, "llms.txt"), "utf8");
 for (const marker of [
   "Vote4Gov is the personal public thought and design space of Ricky Gerd Fleischer",
-  "VoiceOpenGov decides its own program state under its own governance rules",
   "eDebatte is independent",
+  "VoiceOpenGov's political representation is bound to validly concluded eDebatte decisions",
+  "Drafts, ongoing deliberations, incomplete votes, informal sentiment and unverified snapshots do not create a binding VoiceOpenGov mandate.",
+  "without automatically rewriting Ricky Gerd Fleischer's personal belief on Vote4Gov",
+  "A majority percentage must not be generalized to a majority of all residents or the whole population",
   "https://www.vote4gov.eu/feed.xml",
   "https://www.vote4gov.eu/feed.json",
 ]) {
   check(llms.includes(marker), `llms.txt missing boundary/discovery marker: ${marker}`);
+}
+for (const retired of retiredSelfGovernanceSignals) {
+  check(!llms.includes(retired), `llms.txt contains retired VOG self-governance signal: ${retired}`);
 }
 
 const rss = await readFile(join(root, "feed.xml"), "utf8");
@@ -71,4 +85,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log(`Discovery validation passed for ${journalFiles.length} journal articles, RSS, JSON Feed, OAI-SearchBot and llms.txt boundaries.`);
+console.log(`Discovery validation passed for ${journalFiles.length} journal articles, RSS, JSON Feed, OAI-SearchBot and the valid scoped eDebatte-to-VOG mandate boundary.`);
