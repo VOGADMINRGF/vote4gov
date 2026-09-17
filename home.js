@@ -1,5 +1,12 @@
 document.documentElement.classList.add("js-enabled");
 
+if (!document.querySelector('link[href^="/home-consolidation.css"]')) {
+  const consolidationStyle = document.createElement("link");
+  consolidationStyle.rel = "stylesheet";
+  consolidationStyle.href = "/home-consolidation.css?v=20260917-1";
+  document.head.appendChild(consolidationStyle);
+}
+
 const header = document.querySelector("[data-header]");
 const menuButton = document.querySelector("[data-menu-button]");
 const navigation = document.querySelector("[data-nav]");
