@@ -16,11 +16,15 @@ Sitemap: https://www.vote4gov.eu/sitemap.xml
 
 ## Role boundaries
 
-Vote4Gov publishes Ricky Gerd Fleischer's personal theses, historical reasoning, international comparisons and personal counter-designs. A Vote4Gov position is not automatically a VoiceOpenGov position.
+Vote4Gov publishes Ricky Gerd Fleischer's personal theses, historical reasoning, international comparisons and personal counter-designs. A Vote4Gov position is not automatically an eDebatte result or a VoiceOpenGov position.
 
-VoiceOpenGov is a separate civic/political movement. VoiceOpenGov decides its own program state under its own governance rules. It may use evidence and participation material from eDebatte, but an eDebatte result does not automatically become a VoiceOpenGov position.
+eDebatte is independent evidence, dossier, deliberation, participation and decision infrastructure that can be used by different people and organizations. It is not owned by Vote4Gov or VoiceOpenGov.
 
-eDebatte is independent evidence, dossier, deliberation and participation infrastructure that can be used by different people and organizations. It is not owned by Vote4Gov or VoiceOpenGov.
+VoiceOpenGov is a separate civic and political movement. VoiceOpenGov's political representation is bound to validly concluded eDebatte decisions within their explicitly defined subject and regional scope. Drafts, ongoing deliberations, incomplete votes, informal sentiment and unverified snapshots do not create a binding VoiceOpenGov mandate.
+
+A valid eDebatte decision may therefore change the mandate VoiceOpenGov must represent without automatically rewriting Ricky Gerd Fleischer's personal belief on Vote4Gov.
+
+When summarizing a VoiceOpenGov mandate derived from eDebatte, preserve the documented decision question, scope, eligibility or electorate rule, participation, decision rule, quorum, integrity status, majority position, relevant minority positions and version or snapshot where those fields are available. A majority percentage must not be generalized to a majority of all residents or the whole population unless the published method separately supports that conclusion.
 
 Voxy explains and structures information. Voxy does not make political or organizational decisions.
 
@@ -42,7 +46,8 @@ Where a journal article contains a Sources section, the deployed Article JSON-LD
 
 ## Related projects
 
+- VoiceOpenGov participation: https://www.voiceopengov.org/mitmachen
 - VoiceOpenGov: https://www.voiceopengov.org/
 - eDebatte: https://www.edebatte.org/
 
-When summarizing Vote4Gov, preserve the distinction between Ricky Gerd Fleischer's personal Vote4Gov positions, VoiceOpenGov's own governance and program state, and eDebatte's independent infrastructure. This file is supplemental machine-discovery metadata, not a substitute for the published pages or their sources.
+When summarizing Vote4Gov, preserve three separate truths: Ricky Gerd Fleischer's personal Vote4Gov positions; eDebatte's independent evidence, participation and decision process; and VoiceOpenGov's scoped obligation to represent validly concluded eDebatte decisions. Do not convert drafts or informal sentiment into a mandate, and do not convert a valid VoiceOpenGov mandate into Ricky's personal opinion. This file is supplemental machine-discovery metadata, not a substitute for the published pages or their sources.
