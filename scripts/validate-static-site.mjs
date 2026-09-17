@@ -78,17 +78,21 @@ for (const file of htmlFiles) {
 const indexPath = join(root, "index.html");
 const indexHtml = await readFile(indexPath, "utf8");
 for (const requiredText of [
-  "Kritischer Denkraum für Demokratie.",
+  "Mein Blick auf Demokratie, Staat und politische Ordnung.",
   "Fragen, die",
-  "Systemfragen statt",
-  "Vote4Gov untersucht.",
-  "VoiceOpenGov verbindet Menschen und Regionen.",
-  "eDebatte bearbeitet Themen",
-  "Systeme &amp; Länder",
-  "Offene Systemfragen",
-  "Vote4Gov baut keine Ortsgruppen.",
-  "Redaktionelle Verantwortung",
+  "Vote4Gov ist mein öffentlicher Denk- und Entwurfsraum.",
+  "Vote4Gov spricht für mich.",
+  "VoiceOpenGov",
+  "eDebatte",
+  "Geschichte &amp; Weltvergleich",
+  "Meine kritischen Thesen",
+  "Mein Ordnungsmodell",
+  "Vote4Gov · mein Blick",
+  "VoiceOpenGov · die Bewegung",
+  "eDebatte · das unabhängige Instrument",
+  "Meine Regeln für starke Thesen",
   'id="mission"',
+  'id="ordnungsmodell"',
   "/vision.html",
   "/systemfragen.html",
   "/systeme-laender.html",
@@ -102,14 +106,14 @@ for (const forbidden of ["/regionen.html", "/de/deutschland/", "/de/europa/", "/
 
 const systemQuestionsPath = join(root, "systemfragen.html");
 const systemQuestions = await readFile(systemQuestionsPath, "utf8");
-for (const marker of ["These:", "Gegenposition:", "Prüfmaßstab:", "Keine Regionalbewegung", "Bei eDebatte prüfen"]) {
-  if (!systemQuestions.includes(marker)) fail(systemQuestionsPath, `missing system-question contract marker: ${marker}`);
+for (const marker of ["Meine These:", "Stärkster Einwand:", "Prüfmaßstab:", "Meine Position ist kein eDebatte-Ergebnis", "eDebatte bleibt unabhängig", "These bei eDebatte gegenprüfen"]) {
+  if (!systemQuestions.includes(marker)) fail(systemQuestionsPath, `missing personal system-thesis contract marker: ${marker}`);
 }
 
 const systemsCountriesPath = join(root, "systeme-laender.html");
 const systemsCountries = await readFile(systemsCountriesPath, "utf8");
-for (const marker of ["Länder vergleichen, ohne sie zu Community-Strukturen zu machen.", "Deutschland", "Europa", "International", "Keine territoriale Organisation"]) {
-  if (!systemsCountries.includes(marker)) fail(systemsCountriesPath, `missing systems/countries contract marker: ${marker}`);
+for (const marker of ["Was lässt sich aus anderen politischen Ordnungen lernen", "Deutschland", "Europa", "International", "Vier Regeln für meinen Weltvergleich", "Regionale Community, Teams und politische Präsenz gehören zu VoiceOpenGov"]) {
+  if (!systemsCountries.includes(marker)) fail(systemsCountriesPath, `missing world-comparison contract marker: ${marker}`);
 }
 
 const homeCssPath = join(root, "home.css");
@@ -208,4 +212,4 @@ if (failures.length) {
   failures.forEach((failure) => console.error(`- ${failure}`));
   process.exit(1);
 }
-console.log(`Static quality validation passed for ${htmlFiles.length} HTML files: Vote4Gov review architecture, system questions, country comparisons, vision issue 01 and routing contracts.`);
+console.log(`Static quality validation passed for ${htmlFiles.length} HTML files: personal Vote4Gov system view, falsifiable theses, world comparison, vision issue 01 and routing contracts.`);

@@ -38,30 +38,33 @@ try {
 
   const campaign = await openPage(desktop, "/");
   check(await campaign.locator(".home-hero h1").isVisible(), "campaign desktop: hero is not visible");
-  check((await campaign.locator("#hero-title").textContent())?.includes("Fragen, die"), "campaign desktop: review-first primary claim is missing");
+  check((await campaign.locator("#hero-title").textContent())?.includes("Fragen, die"), "campaign desktop: personal-system primary claim is missing");
   check(await campaign.locator('nav a[href="/vision.html"]').count() === 1, "campaign desktop: vision route is missing");
-  check(await campaign.locator('nav a[href="/systemfragen.html"]').count() === 1, "campaign desktop: system questions route is missing");
-  check(await campaign.locator('nav a[href="/systeme-laender.html"]').count() === 1, "campaign desktop: systems/countries route is missing");
+  check(await campaign.locator('nav a[href="/systemfragen.html"]').count() === 1, "campaign desktop: personal theses route is missing");
+  check(await campaign.locator('nav a[href="/systeme-laender.html"]').count() === 1, "campaign desktop: world comparison route is missing");
   check(await campaign.locator('nav a[href="/regionen.html"]').count() === 0, "campaign desktop: territorial regions route is still primary navigation");
-  check(await campaign.locator('#mission').count() === 1, "campaign desktop: role/mission section is missing");
-  check(await campaign.locator('.home-mission-flow').count() === 1, "campaign desktop: system-question flow is missing");
-  check(await campaign.locator('.accountability-commitments').count() === 1, "campaign desktop: editorial commitments are missing");
-  check(await campaign.locator('#systemfragen').count() === 1, "campaign desktop: system-question preview is missing");
-  check((await campaign.locator('#mission').textContent())?.includes("VoiceOpenGov verbindet Menschen und Regionen"), "campaign desktop: VoiceOpenGov territorial role is not explicit");
+  check(await campaign.locator('#mission').count() === 1, "campaign desktop: personal view section is missing");
+  check(await campaign.locator('.home-mission-flow').count() === 1, "campaign desktop: history-to-draft flow is missing");
+  check(await campaign.locator('.accountability-commitments').count() === 1, "campaign desktop: public commitments are missing");
+  check(await campaign.locator('#systemfragen').count() === 1, "campaign desktop: personal theses preview is missing");
+  check(await campaign.locator('#ordnungsmodell').count() === 1, "campaign desktop: personal order model is missing");
+  check((await campaign.locator('#mission').textContent())?.includes("Vote4Gov spricht für mich"), "campaign desktop: personal authorship is not explicit");
+  check((await campaign.locator("body").textContent())?.includes("eDebatte · das unabhängige Instrument"), "campaign desktop: eDebatte independence is not explicit");
   check(await campaign.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1), "campaign desktop: horizontal overflow");
   await campaign.close();
 
   const questions = await openPage(desktop, "/systemfragen.html");
-  check(await questions.getByText("Unbequem fragen. Fair gegenprüfen.", { exact: true }).isVisible(), "system questions: hero is missing");
-  check(await questions.getByText("These:", { exact: true }).count() >= 1, "system questions: thesis marker is missing");
-  check(await questions.getByText("Gegenposition:", { exact: true }).count() >= 1, "system questions: counterposition marker is missing");
+  check(await questions.getByText("Das ist mein Blick. Widerspruch gehört dazu.", { exact: true }).isVisible(), "system questions: personal hero is missing");
+  check(await questions.getByText("Meine These:", { exact: true }).count() >= 1, "system questions: personal thesis marker is missing");
+  check(await questions.getByText("Stärkster Einwand:", { exact: true }).count() >= 1, "system questions: strongest-objection marker is missing");
   check(await questions.getByText("Prüfmaßstab:", { exact: true }).count() >= 1, "system questions: test-criterion marker is missing");
-  check((await questions.locator("body").textContent())?.includes("Keine Regionalbewegung"), "system questions: VoiceOpenGov boundary is missing");
+  check((await questions.locator("body").textContent())?.includes("eDebatte bleibt unabhängig"), "system questions: eDebatte independence boundary is missing");
   await questions.close();
 
   const systems = await openPage(desktop, "/systeme-laender.html");
-  check(await systems.getByText("Länder vergleichen, ohne sie zu Community-Strukturen zu machen.", { exact: true }).isVisible(), "systems/countries: analytical framing is missing");
-  check((await systems.locator("body").textContent())?.includes("Keine territoriale Organisation"), "systems/countries: territorial boundary is missing");
+  check(await systems.getByText("Was lässt sich aus anderen politischen Ordnungen lernen – und was nicht?", { exact: true }).isVisible(), "world comparison: personal analytical framing is missing");
+  check((await systems.locator("body").textContent())?.includes("Vier Regeln für meinen Weltvergleich"), "world comparison: personal comparison method is missing");
+  check((await systems.locator("body").textContent())?.includes("Regionale Community, Teams und politische Präsenz gehören zu VoiceOpenGov"), "world comparison: VoiceOpenGov territorial boundary is missing");
   await systems.close();
 
   const vision = await openPage(desktop, "/vision.html");
@@ -99,8 +102,9 @@ try {
   const noJs = await browser.newContext({ viewport: { width: 390, height: 844 }, javaScriptEnabled: false });
   const noJsCampaign = await openPage(noJs, "/");
   check(await noJsCampaign.locator(".home-hero h1").isVisible(), "campaign no-JS: hero is not readable");
-  check((await noJsCampaign.locator("#hero-title").textContent())?.includes("Fragen, die"), "campaign no-JS: review-first primary claim is missing");
-  check(await noJsCampaign.locator('.home-mission-flow').count() === 1, "campaign no-JS: static mission/system flow is missing");
+  check((await noJsCampaign.locator("#hero-title").textContent())?.includes("Fragen, die"), "campaign no-JS: personal-system primary claim is missing");
+  check(await noJsCampaign.locator('.home-mission-flow').count() === 1, "campaign no-JS: static personal-view flow is missing");
+  check(await noJsCampaign.locator('#ordnungsmodell').count() === 1, "campaign no-JS: personal order model is missing");
   check(await noJsCampaign.locator('.accountability-commitments').count() === 1, "campaign no-JS: static commitments are missing");
   await noJsCampaign.close();
   const noJsVision = await openPage(noJs, "/vision.html");
@@ -117,4 +121,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log("Browser regression passed: review-first campaign, system questions, systems/countries boundary, atlas-free vision, desktop, mobile, 200% zoom and no-JS.");
+console.log("Browser regression passed: personal Vote4Gov system view, falsifiable theses, world comparison boundary, atlas-free vision, desktop, mobile, 200% zoom and no-JS.");
