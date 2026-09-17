@@ -51,11 +51,13 @@ try {
   check(await campaign.locator('#ordnungsmodell').count() === 1, "campaign desktop: personal order model is missing");
   check((await campaign.locator('#mission').textContent())?.includes("Vote4Gov spricht für mich"), "campaign desktop: personal authorship is not explicit");
   const campaignText = await campaign.locator("body").textContent();
-  check(campaignText?.includes("eDebatte · unabhängiger Prüf- und Beteiligungsraum"), "campaign desktop: independent eDebatte role is not explicit");
+  check(campaignText?.includes("eDebatte · unabhängiger Prüf- und Entscheidungsraum"), "campaign desktop: independent eDebatte role is not explicit");
   check(campaignText?.includes("VoiceOpenGov · Bewegung & Repräsentation"), "campaign desktop: VoiceOpenGov movement role is not explicit");
-  check(campaignText?.includes("entscheidet seinen eigenen Programmstand aber nach den eigenen Governance-Regeln"), "campaign desktop: VOG own-governance boundary is missing");
-  check(!campaignText?.includes("verpflichtet seine politische Repräsentation an gültige eDebatte-Mandate"), "campaign desktop: retired automatic eDebatte mandate binding remains");
-  check(!campaignText?.includes("politische Repräsentations- und Umsetzungsschicht für gültige eDebatte-Mandate"), "campaign desktop: retired eDebatte-bound VOG layer remains");
+  check(campaignText?.includes("gültig abgeschlossener eDebatte-Entscheid bindet die zuständige VoiceOpenGov-Repräsentation"), "campaign desktop: valid eDebatte-to-VOG mandate binding is missing");
+  check(campaignText?.includes("Entwürfe, laufende Debatten und informelle Stimmungsbilder binden nicht"), "campaign desktop: draft/nonbinding boundary is missing");
+  check(campaignText?.includes("Meine persönliche Überzeugung auf Vote4Gov wird dadurch nicht automatisch umgeschrieben"), "campaign desktop: personal belief boundary is missing");
+  check(!campaignText?.includes("entscheidet seinen eigenen Programmstand aber nach den eigenen Governance-Regeln"), "campaign desktop: retired VOG self-governance boundary remains");
+  check(await campaign.locator('a[href="https://www.voiceopengov.org/mitmachen"]').count() >= 1, "campaign desktop: canonical VoiceOpenGov participation handoff is missing");
   check(await campaign.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1), "campaign desktop: horizontal overflow");
   await campaign.close();
 
@@ -66,9 +68,11 @@ try {
   check(await questions.getByText("Prüfmaßstab:", { exact: true }).count() >= 1, "system questions: test-criterion marker is missing");
   const questionsText = await questions.locator("body").textContent();
   check(questionsText?.includes("eDebatte bleibt unabhängig"), "system questions: eDebatte independence boundary is missing");
-  check(questionsText?.includes("VoiceOpenGov entscheidet seinen eigenen Programmstand"), "system questions: VOG own-program boundary is missing");
-  check(questionsText?.includes("Ein eDebatte-Ergebnis bindet VoiceOpenGov aber nicht automatisch"), "system questions: nonbinding eDebatte boundary is missing");
-  check(!questionsText?.includes("VoiceOpenGov folgt gültigen eDebatte-Mandaten"), "system questions: retired VOG mandate binding remains");
+  check(questionsText?.includes("Gültige eDebatte-Entscheidungen binden die zuständige VoiceOpenGov-Repräsentation"), "system questions: valid VOG mandate heading is missing");
+  check(questionsText?.includes("gültig abgeschlossenes eDebatte-Ergebnis wird innerhalb seines definierten sachlichen und regionalen Geltungsbereichs zum aktuellen VoiceOpenGov-Repräsentationsmandat"), "system questions: scoped mandate rule is missing");
+  check(questionsText?.includes("verändert aber nicht automatisch meine persönliche Überzeugung auf Vote4Gov"), "system questions: personal belief separation is missing");
+  check(!questionsText?.includes("VoiceOpenGov entscheidet seinen eigenen Programmstand"), "system questions: retired VOG own-program boundary remains");
+  check(!questionsText?.includes("Ein eDebatte-Ergebnis bindet VoiceOpenGov aber nicht automatisch"), "system questions: retired nonbinding eDebatte doctrine remains");
   await questions.close();
 
   const systems = await openPage(desktop, "/systeme-laender.html");
@@ -139,4 +143,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log("Browser regression passed: personal Vote4Gov role, independent nonbinding eDebatte/VOG boundary, mobile author portrait, falsifiable theses, world comparison boundary, atlas-free vision, desktop, mobile, 200% zoom and no-JS.");
+console.log("Browser regression passed: personal Vote4Gov role, independent eDebatte plus valid scoped VOG mandate boundary, mobile author portrait, falsifiable theses, world comparison boundary, atlas-free vision, desktop, mobile, 200% zoom and no-JS.");
