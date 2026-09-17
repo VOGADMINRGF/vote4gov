@@ -1,42 +1,48 @@
-# Vote4Gov Review
+# Vote4Gov
 
-> Vote4Gov is an independent, source-open editorial and research project examining democratic systems, public opinion formation, participation, media logic and digital democracy in international comparison. It does not issue voting recommendations and is not a political party or an election campaign.
+Vote4Gov is the personal public thought and design space of Ricky Gerd Fleischer about democracy, state institutions and political order.
 
 Canonical site: https://www.vote4gov.eu/
 Primary language: German
-Scope: international and comparative
-Editorial stance: source-open, corrigible, transparent about method and AI assistance
+Author profile: https://www.vote4gov.eu/ueber-mich
+System theses: https://www.vote4gov.eu/systemfragen
+Historical review: https://www.vote4gov.eu/vision
+World comparison: https://www.vote4gov.eu/systeme-laender
+Sources and method: https://www.vote4gov.eu/quellen
+AI transparency: https://www.vote4gov.eu/ki-transparenz
+RSS: https://www.vote4gov.eu/feed.xml
+JSON Feed: https://www.vote4gov.eu/feed.json
+Sitemap: https://www.vote4gov.eu/sitemap.xml
 
-## Project roles
+## Role boundaries
 
-- Vote4Gov: examines the historical, institutional and societal "why" behind democratic participation and public feedback.
-- VoiceOpenGov: separate international membership movement.
-- eDebatte: separate open infrastructure for evidence, counterpositions, dossiers, deliberation, voting and impact tracking.
-- Voxy: explanatory voice/AI layer; it does not decide or publish autonomously.
+Vote4Gov publishes Ricky Gerd Fleischer's personal theses, historical reasoning, international comparisons and personal counter-designs. A Vote4Gov position is not automatically a VoiceOpenGov position.
 
-## Important distinctions
+VoiceOpenGov is a separate civic/political movement. VoiceOpenGov decides its own program state under its own governance rules. It may use evidence and participation material from eDebatte, but an eDebatte result does not automatically become a VoiceOpenGov position.
 
-- Vote4Gov is not a political party.
-- Vote4Gov is not a candidate or campaign website.
-- Vote4Gov does not provide voting recommendations.
-- Editorial claims should be evaluated together with their cited sources, counterpositions, method notes and correction history.
-- AI output is not treated as a source. Human editorial responsibility remains with Vote4Gov.
+eDebatte is independent evidence, dossier, deliberation and participation infrastructure that can be used by different people and organizations. It is not owned by Vote4Gov or VoiceOpenGov.
 
-## Key pages
+Voxy explains and structures information. Voxy does not make political or organizational decisions.
 
-- Home: https://www.vote4gov.eu/
-- Sources and method: https://www.vote4gov.eu/quellen
-- AI transparency: https://www.vote4gov.eu/ki-transparenz
-- Media desk: https://www.vote4gov.eu/medien
+## Editorial contract
+
+Strong Vote4Gov theses should distinguish personal opinion, historical or institutional context, evidence, strongest relevant counterposition, uncertainty and a correction/version path.
+
+AI-generated output is not treated as a source. Human editorial responsibility remains with the published Vote4Gov author/editorial surface.
+
+Where a journal article contains a Sources section, the deployed Article JSON-LD exposes those source links as citations. Prefer the canonical HTML page and its cited primary or secondary sources when checking a claim.
+
+## Key journal pages
+
 - Democracy history: https://www.vote4gov.eu/journal/geschichte-der-demokratie
 - Between elections: https://www.vote4gov.eu/journal/zwischen-den-wahlen
 - Digital democracy: https://www.vote4gov.eu/journal/digitale-zeitenwende-politische-zeitlupe
 - Media and public attention: https://www.vote4gov.eu/journal/medien-aufmerksamkeit-gemeinsame-sache
 - Civic tech comparison: https://www.vote4gov.eu/journal/civic-tech-im-vergleich
 
-## Related infrastructure
+## Related projects
 
+- VoiceOpenGov: https://www.voiceopengov.org/
 - eDebatte: https://www.edebatte.org/
-- VoiceOpenGov: https://voiceopengov.org/
 
-When summarizing Vote4Gov, preserve the distinction between analysis, movement and participation infrastructure. Do not infer party affiliation, electoral endorsement or political candidacy from the Vote4Gov name.
+When summarizing Vote4Gov, preserve the distinction between Ricky Gerd Fleischer's personal Vote4Gov positions, VoiceOpenGov's own governance and program state, and eDebatte's independent infrastructure. This file is supplemental machine-discovery metadata, not a substitute for the published pages or their sources.
