@@ -75,12 +75,21 @@ for (const file of htmlFiles) {
   }
 }
 
-const retiredBindingSignals = [
-  "politische Repräsentations- und Umsetzungsschicht für gültige eDebatte-Mandate",
-  "verpflichtet seine politische Repräsentation an gültige eDebatte-Mandate",
-  "VoiceOpenGov folgt gültigen eDebatte-Mandaten",
-  "gültig abgeschlossener eDebatte-Entscheid bindet die zuständige VOG-Repräsentation",
+const retiredSelfGovernanceSignals = [
+  "entscheidet seinen eigenen Programmstand aber nach den eigenen Governance-Regeln",
+  "VoiceOpenGov entscheidet seinen eigenen Programmstand",
+  "Ein eDebatte-Ergebnis bindet VoiceOpenGov aber nicht automatisch",
+  "entscheidet den VoiceOpenGov-Programmstand aber nicht automatisch",
+  "VoiceOpenGov entwickelt seinen eigenen Programmstand über die eigene demokratische Governance",
+  "Ein eDebatte-Ergebnis bindet VoiceOpenGov **nicht automatisch**",
+  "Eine VoiceOpenGov-Position entsteht oder ändert sich erst nach den eigenen veröffentlichten VoiceOpenGov-Governance-Regeln",
 ];
+
+function forbidRetiredSelfGovernance(file, content) {
+  for (const forbidden of retiredSelfGovernanceSignals) {
+    if (content.includes(forbidden)) fail(file, `retired VOG self-governance signal remains: ${forbidden}`);
+  }
+}
 
 const indexPath = join(root, "index.html");
 const indexHtml = await readFile(indexPath, "utf8");
@@ -95,9 +104,12 @@ for (const requiredText of [
   "Meine kritischen Thesen",
   "Mein Ordnungsmodell",
   "Vote4Gov · mein Blick",
-  "eDebatte · unabhängiger Prüf- und Beteiligungsraum",
+  "eDebatte · unabhängiger Prüf- und Entscheidungsraum",
   "VoiceOpenGov · Bewegung &amp; Repräsentation",
-  "entscheidet seinen eigenen Programmstand aber nach den eigenen Governance-Regeln",
+  "gültig abgeschlossener eDebatte-Entscheid bindet die zuständige VoiceOpenGov-Repräsentation",
+  "Entwürfe, laufende Debatten und informelle Stimmungsbilder binden nicht",
+  "Meine persönliche Überzeugung auf Vote4Gov wird dadurch nicht automatisch umgeschrieben",
+  "gültig abgeschlossenes Verfahren erzeugt einen verbindlichen VOG-Repräsentationsauftrag",
   "Meine Regeln für starke Thesen",
   'id="mission"',
   'id="ordnungsmodell"',
@@ -116,10 +128,10 @@ for (const forbidden of [
   "/de/weltweit/",
   "https://www.voiceopengov.org/mitglied-werden",
   '"sameAs":["https://www.voiceopengov.org/","https://www.edebatte.org/"]',
-  ...retiredBindingSignals,
 ]) {
   if (indexHtml.includes(forbidden)) fail(indexPath, `retired or misleading homepage signal remains: ${forbidden}`);
 }
+forbidRetiredSelfGovernance(indexPath, indexHtml);
 for (const seoMarker of [
   'rel="canonical" href="https://www.vote4gov.eu/"',
   'name="author" content="Ricky Gerd Fleischer"',
@@ -146,17 +158,16 @@ for (const marker of [
   '"@id":"https://www.vote4gov.eu/#person"',
   "Ricky Gerd Fleischer – Über mich | Vote4Gov",
   "eDebatte als unabhängiger Evidenz-, Beteiligungs- und Entscheidungsraum",
-  "VoiceOpenGov als Bürgerbewegung mit eigener demokratischer Willensbildung",
-  "entscheidet den VoiceOpenGov-Programmstand aber nicht automatisch",
+  "gültig abgeschlossene eDebatte-Entscheidungen innerhalb ihres definierten Geltungsbereichs repräsentiert",
+  "gültig abgeschlossener eDebatte-Entscheid bindet die zuständige VoiceOpenGov-Repräsentation",
+  "ohne meine persönliche Überzeugung auf Vote4Gov automatisch zu verändern",
 ]) {
   if (!aboutHtml.includes(marker)) fail(aboutPath, `missing profile/entity marker: ${marker}`);
 }
 if (aboutHtml.includes('"sameAs":["https://www.voiceopengov.org/","https://www.edebatte.org/"]')) {
   fail(aboutPath, "ProfilePage must not claim VoiceOpenGov or eDebatte are the same Person entity");
 }
-for (const forbidden of retiredBindingSignals) {
-  if (aboutHtml.includes(forbidden)) fail(aboutPath, `retired eDebatte/VOG binding remains: ${forbidden}`);
-}
+forbidRetiredSelfGovernance(aboutPath, aboutHtml);
 
 const systemQuestionsPath = join(root, "systemfragen.html");
 const systemQuestions = await readFile(systemQuestionsPath, "utf8");
@@ -166,15 +177,14 @@ for (const marker of [
   "Prüfmaßstab:",
   "Meine Position ist kein eDebatte-Ergebnis",
   "eDebatte bleibt unabhängig",
-  "VoiceOpenGov entscheidet seinen eigenen Programmstand",
-  "Ein eDebatte-Ergebnis bindet VoiceOpenGov aber nicht automatisch",
+  "Gültige eDebatte-Entscheidungen binden die zuständige VoiceOpenGov-Repräsentation",
+  "gültig abgeschlossenes eDebatte-Ergebnis wird innerhalb seines definierten sachlichen und regionalen Geltungsbereichs zum aktuellen VoiceOpenGov-Repräsentationsmandat",
+  "verändert aber nicht automatisch meine persönliche Überzeugung auf Vote4Gov",
   "These bei eDebatte gegenprüfen",
 ]) {
   if (!systemQuestions.includes(marker)) fail(systemQuestionsPath, `missing personal system-thesis contract marker: ${marker}`);
 }
-for (const forbidden of retiredBindingSignals) {
-  if (systemQuestions.includes(forbidden)) fail(systemQuestionsPath, `retired eDebatte/VOG binding remains: ${forbidden}`);
-}
+forbidRetiredSelfGovernance(systemQuestionsPath, systemQuestions);
 
 const systemsCountriesPath = join(root, "systeme-laender.html");
 const systemsCountries = await readFile(systemsCountriesPath, "utf8");
@@ -268,27 +278,40 @@ if (!redirects.some((item) => item.source === "/hinter-der-idee" && item.destina
 if (JSON.stringify(vercel).includes("X-Frame-Options")) fail(vercelPath, "X-Frame-Options blocks supported embed cards");
 if (!JSON.stringify(vercel).includes("frame-ancestors *")) fail(vercelPath, "embed frame-ancestors policy is missing");
 
+const readmePath = join(root, "README.md");
+const readme = await readFile(readmePath, "utf8");
+for (const principle of [
+  "Vote4Gov denkt und hinterfragt.",
+  "eDebatte prüft, beteiligt und bildet den gültigen Mehrheitswillen ab.",
+  "VoiceOpenGov vertritt und verantwortet dessen politische Umsetzung.",
+  "Ein nach den veröffentlichten Regeln gültig abgeschlossenes eDebatte-Ergebnis bindet VoiceOpenGov",
+  "VoiceOpenGov darf ein gültiges eDebatte-Mehrheitsmandat nicht durch eine interne Gegenposition ersetzen.",
+]) {
+  if (!readme.includes(principle)) fail(readmePath, `missing canonical README principle: ${principle}`);
+}
+forbidRetiredSelfGovernance(readmePath, readme);
+
 const northStarPath = join(root, "docs/VOTE4GOV_NORTH_STAR.md");
 const northStar = await readFile(northStarPath, "utf8");
 for (const principle of [
   "Vote4Gov = Ricky: persönlicher Systemblick, Thesen und Ordnungsentwurf.",
-  "VoiceOpenGov = Bürgerbewegung: eigene demokratische Willensbildung, dynamischer Programmstand, regionale Präsenz und Repräsentation.",
   "eDebatte = unabhängiger Evidenz-, Dossier-, Beteiligungs- und Entscheidungsraum, den unterschiedliche Akteure nutzen können.",
+  "VoiceOpenGov = politische Bürgerbewegung sowie Repräsentations- und Umsetzungsschicht für gültige eDebatte-Mandate.",
   "Vote4Gov ist **keine Partei**",
-  "Ein eDebatte-Ergebnis bindet VoiceOpenGov **nicht automatisch**.",
-  "Eine VoiceOpenGov-Position entsteht oder ändert sich erst nach den eigenen veröffentlichten VoiceOpenGov-Governance-Regeln.",
-  "eDebatte entscheidet → VoiceOpenGov muss übernehmen.",
+  "Ein nach den veröffentlichten Regeln gültig abgeschlossener eDebatte-Entscheidungssnapshot bindet die zuständige VoiceOpenGov-Repräsentation",
+  "VoiceOpenGov darf ein solches gültiges Mandat nicht durch eine interne Gegenposition ersetzen.",
+  "Ein Draft, laufender Prozess, unvollständige Abstimmung oder informelles Stimmungsbild bindet VoiceOpenGov **nicht**.",
+  "Ein gültiges eDebatte-Ergebnis verändert Rickys persönliche Vote4Gov-Überzeugung **nicht automatisch**.",
   "Auf Mobilgeräten darf das Autorenporträt der Vote4Gov-Startseite nicht ausgeblendet werden.",
 ]) {
   if (!northStar.includes(principle)) fail(northStarPath, `missing canonical principle: ${principle}`);
 }
+forbidRetiredSelfGovernance(northStarPath, northStar);
 for (const forbidden of [
-  "VoiceOpenGov = politische Repräsentations- und Umsetzungsschicht für gültige eDebatte-Mandate.",
-  "verbindliche politische Repräsentationsauftrag für VoiceOpenGov",
-  "VoiceOpenGov darf ein gültiges eDebatte-Mandat nicht durch eine interne Gegenposition ersetzen.",
-  "Ein gültiger eDebatte-Entscheidungssnapshot bindet VoiceOpenGov",
+  "eDebatte entscheidet → VoiceOpenGov muss übernehmen.",
+  "Kein Automatismus `eDebatte → VoiceOpenGov`",
 ]) {
-  if (northStar.includes(forbidden)) fail(northStarPath, `retired binding doctrine remains: ${forbidden}`);
+  if (northStar.includes(forbidden)) fail(northStarPath, `retired anti-binding doctrine remains: ${forbidden}`);
 }
 
 const sitemapPath = join(root, "sitemap.xml");
@@ -302,4 +325,4 @@ if (failures.length) {
   failures.forEach((failure) => console.error(`- ${failure}`));
   process.exit(1);
 }
-console.log(`Static quality validation passed for ${htmlFiles.length} HTML files: personal Vote4Gov role, clean Ricky person entity, independent nonbinding eDebatte/VOG boundary, mobile author portrait, SEO metadata, world comparison and vision issue 01.`);
+console.log(`Static quality validation passed for ${htmlFiles.length} HTML files: personal Vote4Gov role, clean Ricky person entity, independent eDebatte plus valid scoped VOG mandate boundary, mobile author portrait, SEO metadata, world comparison and vision issue 01.`);
