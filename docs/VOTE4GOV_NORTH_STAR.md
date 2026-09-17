@@ -9,13 +9,13 @@
 Der verbindliche Rollenvertrag lautet:
 
 > **Vote4Gov = Ricky: persönlicher Systemblick, Thesen und Ordnungsentwurf.**  
-> **VoiceOpenGov = Bürgerbewegung: eigene demokratische Willensbildung, dynamischer Programmstand, regionale Präsenz und Repräsentation.**  
 > **eDebatte = unabhängiger Evidenz-, Dossier-, Beteiligungs- und Entscheidungsraum, den unterschiedliche Akteure nutzen können.**  
+> **VoiceOpenGov = politische Bürgerbewegung sowie Repräsentations- und Umsetzungsschicht für gültige eDebatte-Mandate.**  
 > **Voxy = Zugang: erklären, strukturieren und verständlich machen.**
 
 Kurzform:
 
-> **Vote4Gov denkt und hinterfragt. VoiceOpenGov organisiert und vertritt. eDebatte prüft und beteiligt. Voxy macht es verständlich.**
+> **Vote4Gov denkt und hinterfragt. eDebatte prüft, beteiligt und bildet gültige Entscheidungen ab. VoiceOpenGov vertritt und verantwortet deren politische Umsetzung. Voxy macht es verständlich.**
 
 Diese Rollen dürfen weder redaktionell noch technisch wieder vermischt werden.
 
@@ -25,13 +25,17 @@ Vote4Gov ist der persönliche, öffentliche und überprüfbare Denk- und Entwurf
 
 Vote4Gov ist **keine Partei**, keine regionale Bewegung, keine Mitgliederorganisation und keine eigene Beteiligungs- oder Abstimmungsplattform. Vote4Gov besitzt keine parallele Community-, Dossier-, Abstimmungs- oder Ergebnisdatenbank.
 
+Eine persönliche Vote4Gov-These ist weder automatisch ein eDebatte-Ergebnis noch automatisch eine VoiceOpenGov-Position. Ein später gültig abgeschlossenes eDebatte-Ergebnis kann die zuständige VoiceOpenGov-Repräsentation binden, ohne Rickys persönliche Überzeugung auf Vote4Gov automatisch umzuschreiben.
+
 ### VoiceOpenGov
 
-VoiceOpenGov ist die Bürger- und Mitgliederbewegung. Sie organisiert ihre **eigene demokratische Willensbildung**, baut regionale Präsenz auf und führt einen dynamischen, versionierten Programmstand.
+VoiceOpenGov ist die politische Bürger- und Mitgliederbewegung. Sie baut regionale Präsenz auf, organisiert politische Repräsentation und verfolgt die Umsetzung gültiger eDebatte-Mandate innerhalb ihres jeweiligen sachlichen und regionalen Geltungsbereichs.
 
-VoiceOpenGov kann eDebatte intensiv für Quellen, Gegenpositionen, Dossiers, Alternativen, Beteiligung und dokumentierte Entscheidungssnapshots nutzen. Daraus folgt aber **keine automatische politische Bindung**. VoiceOpenGov übernimmt oder ändert eine Position erst durch die eigenen veröffentlichten Governance-Regeln.
+VoiceOpenGov darf vor Abschluss eines Verfahrens Themen, Thesen, Gegenpositionen und eigene politische Argumente in den offenen Prozess einbringen. Erst ein nach den veröffentlichten Regeln **gültig abgeschlossenes** eDebatte-Ergebnis bindet die zuständige VoiceOpenGov-Repräsentation.
 
-Ein VoiceOpenGov-Repräsentant vertritt den für seinen sachlichen und regionalen Geltungsbereich gültigen VoiceOpenGov-Programmstand. Relevante Minderheitenpositionen und der Weg zu einer Programmänderung bleiben sichtbar.
+Entwürfe, laufende Debatten, unvollständige Abstimmungen, informelle Stimmungsbilder und unbestätigte Snapshots binden VoiceOpenGov nicht.
+
+Der öffentliche VoiceOpenGov-Programmstand ist eine dynamische, versionierte Projektion aktuell gültiger eDebatte-Mandate. Relevante Minderheitenpositionen, Geltungsbereich, Entscheidungsweg, Version, spätere Änderungen und Umsetzungsstatus bleiben nachvollziehbar.
 
 ### eDebatte
 
@@ -39,7 +43,9 @@ eDebatte ist eine unabhängige Infrastruktur für Anliegen, Quellen, Evidenz, Ge
 
 Dasselbe eDebatte-Dossier kann von Bürgerinnen und Bürgern, Medien, Wissenschaft, Verbänden, Unternehmen, Kommunen, NGOs, politischen Organisationen und politischen Gegnern genutzt werden. Weder VoiceOpenGov noch ein VoiceOpenGov-Repräsentant besitzt ein Dossier oder erhält daraus automatisch Deutungshoheit.
 
-Ein eDebatte-Ergebnis dokumentiert das Ergebnis **dieses** Verfahrens unter **dessen** Regeln, Grundgesamtheit und Geltungsbereich. Ob und wie VoiceOpenGov daraus eine eigene Position macht, entscheidet VoiceOpenGov nach den eigenen Governance-Regeln.
+Ein eDebatte-Ergebnis dokumentiert das Ergebnis **dieses** Verfahrens unter **dessen** veröffentlichten Regeln, definierter Grundgesamtheit beziehungsweise Eligibility und ausdrücklich festgelegtem Geltungsbereich. Nur ein gültig abgeschlossenes Verfahren mit den erforderlichen Legitimitäts- und Integritätsbedingungen erzeugt ein bindendes VoiceOpenGov-Repräsentationsmandat.
+
+Ein Mehrheitsanteil darf nicht als Mehrheit aller Einwohner oder der Gesamtbevölkerung beschrieben werden, wenn das veröffentlichte Verfahren das nicht belegt.
 
 ### Voxy
 
@@ -69,7 +75,7 @@ Die Startseite folgt dauerhaft dieser Reihenfolge:
 4. **Meine Thesen** – klare, als persönliche Position gekennzeichnete Systemkritik.
 5. **Stärkster Einwand** – ernsthafte Gegenposition statt Alibi-Widerspruch.
 6. **Mein Ordnungsmodell** – ein prüfbarer Gegenentwurf.
-7. **Ökosystem-Handoff** – eDebatte für unabhängige Evidenz und Beteiligung, VoiceOpenGov für eigene demokratische Willensbildung, regionale Organisation und Repräsentation.
+7. **Ökosystem-Handoff** – eDebatte für unabhängige Evidenz, Beteiligung und gültige Entscheidungen; VoiceOpenGov für regionale Präsenz, politische Repräsentation und Umsetzung gültiger Mandate.
 
 Die Seite darf nicht wieder in eine neutrale Thinktank-Selbstdarstellung kippen und darf nicht überwiegend erklären, was Vote4Gov alles nicht ist.
 
@@ -142,9 +148,11 @@ Vote4Gov entwickelt keine Ortsgruppen und keine territoriale Organisationshierar
 
 Vote4Gov kann begründen, welche Reformideen Ricky Gerd Fleischer für prüfenswert hält. Diese Ideen sind **nicht automatisch** VoiceOpenGov-Positionen.
 
-VoiceOpenGov entwickelt seinen eigenen Programmstand über die eigene demokratische Governance. eDebatte kann dafür Evidenz, Gegenpositionen, Beteiligung und dokumentierte Ergebnisse liefern; die Übernahme in den VoiceOpenGov-Programmstand ist ein eigener, nachvollziehbarer Governance-Schritt.
+Ein nach den veröffentlichten Regeln gültig abgeschlossener eDebatte-Entscheidungssnapshot bindet die zuständige VoiceOpenGov-Repräsentation innerhalb des definierten sachlichen und regionalen Geltungsbereichs. VoiceOpenGov darf ein solches gültiges Mandat nicht durch eine interne Gegenposition ersetzen.
 
-Ein VoiceOpenGov-Repräsentant vertritt den aktuell gültigen VoiceOpenGov-Programmstand seines Geltungsbereichs. Mehrheit, Minderheitenposition, Entscheidungsweg, Version und spätere Änderungen müssen nachvollziehbar bleiben.
+Der aktuelle VoiceOpenGov-Programmstand ist deshalb dynamisch und versioniert. Eine spätere gültige eDebatte-Entscheidung kann eine frühere Position ergänzen, präzisieren, ersetzen, aufheben oder erneut öffnen.
+
+Wenn eine Umsetzung an höherrangigem Recht, fehlender Zuständigkeit oder praktischer Unmöglichkeit scheitert, wird das Hindernis sichtbar gemacht. Daraus entsteht keine freie Ersatzentscheidung des Repräsentanten; die offene politische Wahl wird in einen neuen oder wiedereröffneten eDebatte-Prozess zurückgegeben.
 
 ## 9. Verhältnis zu eDebatte
 
@@ -157,14 +165,19 @@ Verbindlich:
 - Gegenpositionen dürfen zu anderen Ergebnissen führen.
 - Vote4Gov besitzt keine bevorzugte Stimme oder Deutungshoheit.
 - VoiceOpenGov besitzt kein eDebatte-Dossier und erhält dort keine automatische Deutungshoheit.
-- Ein eDebatte-Ergebnis bindet VoiceOpenGov **nicht automatisch**.
-- Eine VoiceOpenGov-Position entsteht oder ändert sich erst nach den eigenen veröffentlichten VoiceOpenGov-Governance-Regeln.
-- Relevante Minderheitenpositionen bleiben sowohl im eDebatte-Kontext als auch im übernommenen VoiceOpenGov-Programmstand sichtbar, soweit sie dort materiell sind.
-- Ein Draft oder laufender Prozess darf niemals als bereits beschlossene VoiceOpenGov-Position dargestellt werden.
+- Ein Draft, laufender Prozess, unvollständige Abstimmung oder informelles Stimmungsbild bindet VoiceOpenGov **nicht**.
+- Ein nach den veröffentlichten Regeln gültig abgeschlossenes eDebatte-Ergebnis bindet die zuständige VoiceOpenGov-Repräsentation innerhalb seines definierten Geltungsbereichs.
+- Relevante Minderheitenpositionen bleiben im eDebatte-Kontext und im daraus projizierten VoiceOpenGov-Programmstand sichtbar, soweit sie materiell sind.
+- Geltungsbereich, Eligibility, Beteiligung, Entscheidungsregel, Quorum, Integrität und Version dürfen bei der Zusammenfassung eines Mandats nicht verloren gehen.
+- Ein gültiges eDebatte-Ergebnis verändert Rickys persönliche Vote4Gov-Überzeugung **nicht automatisch**.
 
 Die ausdrücklich verbotene Architektur ist:
 
-> **eDebatte entscheidet → VoiceOpenGov muss übernehmen.**
+> **gültige eDebatte-Entscheidung → VoiceOpenGov ignoriert oder ersetzt das Ergebnis intern.**
+
+Die ebenso verbotene Gegenverkürzung ist:
+
+> **offene eDebatte / Draft / Stimmungsbild → bereits bindendes VoiceOpenGov-Mandat.**
 
 ## 10. Quellenhierarchie
 
@@ -222,7 +235,7 @@ Die visuelle Trennung bleibt bewusst:
 
 - **Startseite:** dunkler, persönlicher Kampagnen-/Dossiercharakter mit Ricky Gerd Fleischer sichtbar als Autor.
 - **Vision / Review:** redaktionelles Magazin-/Zeitungsdesign für Geschichte, Quellen und vertiefende Begründung.
-- **VoiceOpenGov:** menschliche, regionale und bewegungsorientierte Präsenz für eigene demokratische Willensbildung, Repräsentation und Umsetzung.
+- **VoiceOpenGov:** menschliche, regionale und bewegungsorientierte Präsenz für politische Repräsentation und Umsetzung gültiger eDebatte-Mandate.
 - **eDebatte:** funktionaler, unabhängiger Evidenz-, Dossier-, Beteiligungs- und Entscheidungsraum.
 
 Auf Mobilgeräten darf das Autorenporträt der Vote4Gov-Startseite nicht ausgeblendet werden. Person und Urheberschaft gehören zur inhaltlichen Identität der Seite.
@@ -237,11 +250,12 @@ Vor Veröffentlichung wird geprüft:
 - Ist der Weltvergleich kontextualisiert?
 - Ist das Ordnungsmodell als persönlicher, korrigierbarer Entwurf erkennbar?
 - Bleibt regionale Community und politische Umsetzung bei VoiceOpenGov?
-- Bleiben Evidenz, Dossiers und Beteiligung bei eDebatte unabhängig nutzbar?
+- Bleiben Evidenz, Dossiers, Beteiligung und Entscheidungsregeln bei eDebatte unabhängig nutzbar?
 - Wird ein persönlicher Vote4Gov-Vorschlag nicht als VoiceOpenGov-Position oder gesellschaftlicher Mehrheitswille dargestellt?
-- Wird klar, dass ein eDebatte-Ergebnis VoiceOpenGov **nicht automatisch bindet**?
-- Wird klar, dass VoiceOpenGov seinen eigenen Programmstand nach den eigenen Governance-Regeln bildet und versioniert?
-- Bleiben Minderheitenpositionen und Änderungen nachvollziehbar?
+- Wird klar, dass Drafts, offene Prozesse und informelle Stimmungsbilder VoiceOpenGov nicht binden?
+- Wird klar, dass ein **gültig abgeschlossenes** eDebatte-Ergebnis die zuständige VoiceOpenGov-Repräsentation im definierten Scope bindet?
+- Bleiben Majority, relevante Minderheiten, Scope, Eligibility, Beteiligung, Quorum, Integrität und Version nachvollziehbar?
+- Wird ein Verfahrensmehrheit nicht fälschlich als Mehrheit aller Einwohner dargestellt?
 - Werden geplante Funktionen nicht als bereits vorhanden dargestellt?
 - Funktionieren Desktop, Mobile, No-JS, SEO-Metadaten und interne Links?
 
@@ -250,8 +264,8 @@ Vor Veröffentlichung wird geprüft:
 Wenn eine spätere Änderung unklar ist, gilt diese Reihenfolge:
 
 > **Vote4Gov zeigt, was Ricky Gerd Fleischer über politische Ordnung denkt und warum.**  
-> **VoiceOpenGov organisiert eigene demokratische Willensbildung, einen dynamischen Programmstand, regionale Präsenz und Repräsentation.**  
-> **eDebatte liefert unabhängig Evidenz, Gegenpositionen, Dossiers, Beteiligung und dokumentierte Entscheidungen für unterschiedliche Akteure.**  
+> **eDebatte liefert unabhängig Evidenz, Gegenpositionen, Dossiers, Beteiligung und gültige Entscheidungen für unterschiedliche Akteure.**  
+> **VoiceOpenGov baut regionale Präsenz auf und vertritt sowie verantwortet die politische Umsetzung gültiger eDebatte-Mandate im jeweiligen Geltungsbereich.**  
 > **Voxy macht komplexe Zusammenhänge verständlicher, ohne selbst zu entscheiden.**
 
-Keine parallele Wahrheit. Keine Rollenvermischung. Kein False Done. Kein Automatismus `eDebatte → VoiceOpenGov`. Keine eingefrorene politische Antwort, wenn VoiceOpenGov seinen Programmstand nach den eigenen Regeln später ändert.
+Keine parallele Wahrheit. Keine Rollenvermischung. Kein False Done. Keine Bindung aus Drafts oder Stimmungsbildern. Kein internes VOG-Veto gegen ein gültiges eDebatte-Mandat. Keine automatische Veränderung von Rickys persönlicher Überzeugung.
