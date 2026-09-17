@@ -8,6 +8,16 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/hinter-der-idee",
+      "destination": "/#mission",
+      "permanent": true
+    },
+    {
+      "source": "/hinter-der-idee.html",
+      "destination": "/#mission",
+      "permanent": true
+    },
+    {
       "source": "/anlassraeume",
       "destination": "https://www.edebatte.org/create?source=vote4gov&legacy=anlassraeume",
       "permanent": false
