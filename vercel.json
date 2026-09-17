@@ -8,6 +8,16 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/hinter-der-idee",
+      "destination": "/#mission",
+      "permanent": true
+    },
+    {
+      "source": "/hinter-der-idee.html",
+      "destination": "/#mission",
+      "permanent": true
+    },
+    {
       "source": "/anlassraeume",
       "destination": "https://www.edebatte.org/create?source=vote4gov&legacy=anlassraeume",
       "permanent": false
@@ -25,6 +35,15 @@
         {
           "key": "Link",
           "value": "<https://www.vote4gov.eu/>; rel=\"canonical\""
+        }
+      ]
+    },
+    {
+      "source": "/vision",
+      "headers": [
+        {
+          "key": "Link",
+          "value": "<https://www.vote4gov.eu/vision>; rel=\"canonical\", <https://www.vote4gov.eu/vision>; rel=\"alternate\"; hreflang=\"de\", <https://www.vote4gov.eu/vision>; rel=\"alternate\"; hreflang=\"x-default\""
         }
       ]
     },

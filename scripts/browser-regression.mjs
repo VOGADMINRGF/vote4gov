@@ -53,10 +53,13 @@ try {
   check(await campaign.locator(".home-hero h1").isVisible(), "campaign desktop: hero is not visible");
   check((await campaign.locator("#hero-title").textContent())?.includes("Für alle."), "campaign desktop: primary claim is missing");
   check(await campaign.locator('nav a[href="/vision.html"]').count() === 1, "campaign desktop: vision route is missing");
-  check(await campaign.locator('nav a[href="/hinter-der-idee.html"]').count() === 1, "campaign desktop: mission route is missing");
+  check(await campaign.locator('nav a[href="#mission"]').count() === 1, "campaign desktop: consolidated mission route is missing");
+  check(await campaign.locator('nav a[href="/hinter-der-idee.html"]').count() === 0, "campaign desktop: retired mission route remains in navigation");
   check(await campaign.locator('nav a[href="/ueber-mich.html"]').count() === 1, "campaign desktop: person route is missing");
   check(await campaign.locator('#voxy img[src="/assets/voxy.svg"]').count() === 1, "campaign desktop: Voxy module is missing");
   check(await campaign.locator('#mitmachen').count() === 1 && await campaign.locator('#kontakt').count() === 1, "campaign desktop: action routes are incomplete");
+  check(await campaign.locator("[data-mission-flow]").count() === 1, "campaign desktop: mission flow is missing");
+  check(await campaign.locator("[data-accountability-commitments]").count() === 1, "campaign desktop: accountability commitments are missing");
   check(await campaign.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1), "campaign desktop: horizontal overflow");
   await campaign.close();
 
@@ -67,6 +70,9 @@ try {
   check(await home.getByText("Ausgabe 02", { exact: false }).count() === 0, "desktop: issue 02 is visible");
   check(await home.getByText("International vergleichend", { exact: true }).count() === 1, "desktop: international comparison label is missing");
   check(await home.locator('.cover-story a[href="/journal/geschichte-der-demokratie.html"]').count() >= 1, "desktop: hero does not link to democracy history");
+  check(await home.locator(".v3-global-nav").count() === 1, "desktop: Vision V3 global orientation is missing");
+  check(await home.locator(".v3-trust-strip").count() === 1, "desktop: Vision V3 trust strip is missing");
+  check(await home.locator(".v3-version-ledger").count() === 1, "desktop: Vision V3 version ledger is missing");
   await checkAtlasFree(home, "desktop");
   await checkSingleVisibleLanguageControl(home, "desktop");
 
@@ -184,4 +190,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log("Browser regression passed: campaign home, atlas-free vision issue 01, one visible language selector, desktop, mobile, keyboard, privacy, participation, reduced motion, 200% zoom and no-JS.");
+console.log("Browser regression passed: campaign home, consolidated mission, Vision V3 issue 01, one visible language selector, desktop, mobile, keyboard, privacy, participation, reduced motion, 200% zoom and no-JS.");

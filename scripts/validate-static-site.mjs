@@ -21,6 +21,10 @@ async function walk(directory) {
 const files = await walk(root);
 const htmlFiles = files.filter((file) => extname(file) === ".html");
 const fileSet = new Set(files.map((file) => relative(root, file).replaceAll("\\", "/")));
+const vercelPath = join(root, "vercel.json");
+const vercel = JSON.parse(await readFile(vercelPath, "utf8"));
+const redirects = vercel.redirects ?? [];
+const redirectSources = new Set(redirects.map((item) => item.source));
 
 function fail(file, message) {
   failures.push(`${relative(root, file)}: ${message}`);
@@ -29,7 +33,8 @@ function fail(file, message) {
 function localTargetExists(href) {
   const path = href.split("#")[0].split("?")[0];
   if (!path || path === "/") return true;
-  const clean = path.replace(/^\//, "");
+  if (redirectSources.has(path)) return true;
+  const clean = path.replace(/^\/+|\/+$/g, "");
   if (!clean) return true;
   if (fileSet.has(clean)) return true;
   if (fileSet.has(`${clean}.html`)) return true;
@@ -85,15 +90,15 @@ for (const requiredText of [
   "Für alle.",
   "Überall.",
   "Eine neue Form der Repräsentation.",
-  "Politik hat ein Problem.",
+  "Wo Politik Vertrauen verliert.",
   "Die Antwort ist keine Partei.",
   "VoiceOpenGov",
   "eDebatte",
   "Voxy",
-  "Meine Bewerbung",
-  "Werde Teil",
+  "Meine Verantwortung",
+  "Gestalte mit.",
+  'id="mission"',
   "/vision.html",
-  "/hinter-der-idee.html",
   "/ueber-mich.html",
 ]) {
   if (!indexHtml.includes(requiredText)) fail(indexPath, `missing start-page requirement: ${requiredText}`);
@@ -265,11 +270,11 @@ if (!pulseScript.includes("Eine Linköffnung überträgt oder zählt keine lokal
   fail(pulsePath, "local non-transfer truth is missing");
 }
 
-const vercelPath = join(root, "vercel.json");
-const vercel = JSON.parse(await readFile(vercelPath, "utf8"));
-const redirects = vercel.redirects ?? [];
 if (!redirects.some((item) => item.source === "/anlassraeume/:path*" && item.destination.includes("edebatte.org"))) {
   fail(vercelPath, "legacy Vote4Gov room redirect to eDebatte is missing");
+}
+if (!redirects.some((item) => item.source === "/hinter-der-idee" && item.destination === "/#mission" && item.permanent === true)) {
+  fail(vercelPath, "retired mission route must permanently redirect to the consolidated mission section");
 }
 if (JSON.stringify(vercel).includes("X-Frame-Options")) {
   fail(vercelPath, "X-Frame-Options blocks the explicitly supported embed cards");

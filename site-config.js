@@ -45,4 +45,19 @@
     systemQuestionScript.defer = true;
     document.head.appendChild(systemQuestionScript);
   }
+
+  if (document.body.classList.contains("journal-home")) {
+    if (!document.querySelector('link[href^="/vision-v3.css"]')) {
+      const visionStyle = document.createElement("link");
+      visionStyle.rel = "stylesheet";
+      visionStyle.href = "/vision-v3.css?v=20260917-1";
+      document.head.appendChild(visionStyle);
+    }
+    if (!document.querySelector('script[src^="/vision-v3.js"]')) {
+      const visionScript = document.createElement("script");
+      visionScript.src = "/vision-v3.js?v=20260917-1";
+      visionScript.defer = true;
+      document.head.appendChild(visionScript);
+    }
+  }
 })();
