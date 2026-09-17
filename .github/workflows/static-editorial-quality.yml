@@ -28,6 +28,9 @@ jobs:
       - name: Validate issue 01 editorial architecture and routing
         run: node scripts/validate-static-site.mjs
 
+      - name: Validate static truth finalization
+        run: node scripts/validate-static-truth.mjs
+
       - name: Validate Vercel configuration JSON
         run: node -e "JSON.parse(require('fs').readFileSync('vercel.json','utf8')); console.log('vercel.json valid')"
 
@@ -55,6 +58,7 @@ jobs:
         run: |
           node scripts/browser-regression.mjs
           node scripts/language-browser-regression.mjs
+          node scripts/static-truth-browser.mjs
 
       - name: Capture exact-head visual evidence
         env:
