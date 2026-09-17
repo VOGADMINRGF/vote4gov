@@ -4,7 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="Vote4Gov ist der persönliche, öffentlich prüfbare Blick von Ricky Gerd Fleischer auf Demokratie, Staat und politische Ordnung – historisch eingeordnet, international verglichen und offen für Gegenargumente." />
-  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="author" content="Ricky Gerd Fleischer" />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
   <meta name="theme-color" content="#020611" />
   <link rel="canonical" href="https://www.vote4gov.eu/" />
   <link rel="alternate" hreflang="de" href="https://www.vote4gov.eu/" />
@@ -15,6 +16,12 @@
   <meta property="og:url" content="https://www.vote4gov.eu/" />
   <meta property="og:title" content="Vote4Gov – Mein Blick auf Demokratie und politische Ordnung" />
   <meta property="og:description" content="Geschichte verstehen, Systeme weltweit vergleichen, eigene Thesen offenlegen und einen politischen Ordnungsentwurf zur Gegenprüfung stellen." />
+  <meta property="og:image" content="https://www.vote4gov.eu/assets/ricky-berlin-about.png" />
+  <meta property="og:image:alt" content="Ricky Gerd Fleischer – Vote4Gov" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Vote4Gov – Mein Blick auf Demokratie und politische Ordnung" />
+  <meta name="twitter:description" content="Geschichte, Weltvergleich, persönliche Systemthesen und ein öffentlich prüfbarer Ordnungsentwurf." />
+  <meta name="twitter:image" content="https://www.vote4gov.eu/assets/ricky-berlin-about.png" />
   <title>Vote4Gov – Ricky Gerd Fleischers Blick auf Demokratie und politische Ordnung</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="/styles.css" />
@@ -25,8 +32,34 @@
   {
     "@context":"https://schema.org",
     "@graph":[
-      {"@type":"WebSite","@id":"https://www.vote4gov.eu/#website","url":"https://www.vote4gov.eu/","name":"Vote4Gov","inLanguage":"de","description":"Persönlicher, quellenoffener Denk- und Entwurfsraum von Ricky Gerd Fleischer zu Demokratie, Staat und politischer Ordnung."},
-      {"@type":"Person","@id":"https://www.vote4gov.eu/#person","name":"Ricky Gerd Fleischer","url":"https://www.vote4gov.eu/ueber-mich.html","sameAs":["https://www.voiceopengov.org/","https://www.edebatte.org/"],"knowsAbout":["Demokratische Beteiligung","Bürgerbeteiligung","Business Development","digitale Infrastruktur"]}
+      {
+        "@type":"WebSite",
+        "@id":"https://www.vote4gov.eu/#website",
+        "url":"https://www.vote4gov.eu/",
+        "name":"Vote4Gov",
+        "inLanguage":"de",
+        "description":"Persönlicher, quellenoffener Denk- und Entwurfsraum von Ricky Gerd Fleischer zu Demokratie, Staat und politischer Ordnung.",
+        "creator":{"@id":"https://www.vote4gov.eu/#person"}
+      },
+      {
+        "@type":"WebPage",
+        "@id":"https://www.vote4gov.eu/#webpage",
+        "url":"https://www.vote4gov.eu/",
+        "name":"Vote4Gov – Mein Blick auf Demokratie und politische Ordnung",
+        "isPartOf":{"@id":"https://www.vote4gov.eu/#website"},
+        "author":{"@id":"https://www.vote4gov.eu/#person"},
+        "dateModified":"2026-09-17",
+        "inLanguage":"de"
+      },
+      {
+        "@type":"Person",
+        "@id":"https://www.vote4gov.eu/#person",
+        "name":"Ricky Gerd Fleischer",
+        "url":"https://www.vote4gov.eu/ueber-mich",
+        "image":"https://www.vote4gov.eu/assets/ricky-berlin-about.png",
+        "description":"Initiator von Vote4Gov, VoiceOpenGov und eDebatte.",
+        "knowsAbout":["Demokratische Beteiligung","Bürgerbeteiligung","politische Repräsentation","digitale Infrastruktur"]
+      }
     ]
   }
   </script>
@@ -66,7 +99,7 @@
           </div>
         </div>
         <div class="home-portrait reveal" aria-label="Ricky Gerd Fleischer">
-          <img src="/assets/hero-ricky-cutout.png" alt="Ricky Gerd Fleischer" />
+          <img src="/assets/hero-ricky-cutout.png" alt="Porträt von Ricky Gerd Fleischer" loading="eager" decoding="async" fetchpriority="high" />
           <div class="home-signature">Ricky Gerd Fleischer</div>
           <p>Initiator von VoiceOpenGov und eDebatte.<br /><span>Vote4Gov zeigt meinen persönlichen Blick auf das politische System.</span></p>
         </div>
@@ -115,7 +148,7 @@
       </section>
 
       <section class="home-panel vision-panel reveal home-order-model" id="ordnungsmodell" aria-labelledby="order-model-title">
-        <div class="vision-intro"><p class="home-eyebrow">Mein Ordnungsmodell</p><h2 id="order-model-title">Kritik ist für mich nur dann interessant, wenn daraus ein prüfbarer Gegenentwurf entsteht.</h2><p>Das hier ist kein fertiges Dogma und kein Ergebnis von eDebatte oder VoiceOpenGov. Es ist mein persönlicher Arbeitsentwurf für eine demokratische Ordnung, in der Repräsentation, laufende Rückkopplung, klare Verantwortung und Minderheitenschutz zusammen gedacht werden.</p><div class="vision-quote">„Nicht weniger Demokratie. Sondern Verantwortung, Beteiligung und Wirkung enger miteinander verbinden.“</div><a class="vision-link" href="/vision.html#infrastruktur">Begründung und Modell vertiefen →</a></div>
+        <div class="vision-intro"><p class="home-eyebrow">Mein Ordnungsmodell</p><p class="model-version">Arbeitsentwurf · Version 0.1 · Stand 17.09.2026</p><h2 id="order-model-title">Kritik ist für mich nur dann interessant, wenn daraus ein prüfbarer Gegenentwurf entsteht.</h2><p>Das hier ist kein fertiges Dogma und kein Ergebnis von eDebatte oder VoiceOpenGov. Es ist mein persönlicher Arbeitsentwurf für eine demokratische Ordnung, in der Repräsentation, laufende Rückkopplung, klare Verantwortung und Minderheitenschutz zusammen gedacht werden.</p><div class="vision-quote">„Nicht weniger Demokratie. Sondern Verantwortung, Beteiligung und Wirkung enger miteinander verbinden.“</div><a class="vision-link" href="/vision.html#infrastruktur">Begründung und Modell vertiefen →</a></div>
         <div class="vision-grid">
           <article class="vision-question"><span>01</span><h3>Repräsentation bleibt</h3><p>Parlamente und gewählte Verantwortung bleiben Teil des Modells; zusätzliche Rückkanäle sollen sie ergänzen, nicht unsichtbar ersetzen.</p></article>
           <article class="vision-question"><span>02</span><h3>Laufende Rückkopplung</h3><p>Menschen sollen zwischen Wahlen nachvollziehbar Prioritäten, Argumente und Entscheidungen mitprägen können.</p></article>
