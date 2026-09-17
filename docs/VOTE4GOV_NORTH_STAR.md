@@ -9,29 +9,31 @@
 Der verbindliche Rollenvertrag lautet:
 
 > **Vote4Gov = Ricky: persönlicher Systemblick, Thesen und Ordnungsentwurf.**  
-> **VoiceOpenGov = Bewegung: Community, Regionen, Präsenz und programmatische Willensbildung.**  
-> **eDebatte = unabhängiges Instrument: Evidenz, Dossiers, Gegenpositionen, Beteiligung und Wirkung.**  
+> **eDebatte = unabhängiger Evidenz-, Beteiligungs- und Entscheidungsraum.**  
+> **VoiceOpenGov = politische Repräsentations- und Umsetzungsschicht für gültige eDebatte-Mandate.**  
 > **Voxy = Zugang: erklären, strukturieren und verständlich machen.**
 
-Diese Rollen dürfen weder redaktionell noch technisch wieder zusammengeführt werden.
+Diese Rollen dürfen weder redaktionell noch technisch wieder vermischt werden.
 
 ### Vote4Gov
 
-Vote4Gov ist der persönliche, öffentliche und überprüfbare Denk- und Entwurfsraum von Ricky Gerd Fleischer zu Demokratie, Staat und politischer Ordnung. Vote4Gov darf klare politische Thesen und einen eigenen Ordnungsentwurf vertreten. Persönliche Wertung, historischer Befund und empirische Evidenz müssen jedoch sichtbar voneinander getrennt bleiben.
+Vote4Gov ist der persönliche, öffentliche und überprüfbare Denk- und Entwurfsraum von Ricky Gerd Fleischer zu Demokratie, Staat und politischer Ordnung. Vote4Gov darf klare politische Thesen und einen eigenen Ordnungsentwurf vertreten. Persönliche Wertung, historischer Befund und empirische Evidenz müssen sichtbar voneinander getrennt bleiben.
 
 Vote4Gov ist **keine Partei**, keine regionale Bewegung, keine Mitgliederorganisation und keine eigene Beteiligungs- oder Abstimmungsplattform. Vote4Gov besitzt keine parallele Community-, Dossier-, Abstimmungs- oder Ergebnisdatenbank.
-
-### VoiceOpenGov
-
-VoiceOpenGov ist die Bewegung. Sie verbindet Menschen, baut regionale und internationale Präsenz auf und kann Teams, Beteiligungsbüros, mobile Formate, Veranstaltungen, Ansprechpartner und lokale Strukturen entwickeln. Ihre programmatische Willensbildung kann dynamisch sein; Mehrheitspositionen und relevante Minderheitenpositionen müssen nachvollziehbar sichtbar bleiben.
-
-Vote4Gov formuliert nicht automatisch das Programm von VoiceOpenGov. Eine persönliche Vote4Gov-These kann Ausgangspunkt einer Debatte sein, ist aber nicht automatisch Position der Bewegung.
 
 ### eDebatte
 
 eDebatte ist das unabhängige Instrument für Anliegen, Quellen, Evidenz, Gegenpositionen, Dossiers, Alternativen, Beteiligung, Abstimmungen, Ergebnisse und Wirkung. Es ist weder die persönliche Plattform von Ricky Gerd Fleischer noch das exklusive Werkzeug von VoiceOpenGov.
 
-Repräsentanten, Bürger, Wissenschaft, Medien, Organisationen und andere können dieselben Themen bearbeiten. Ein eDebatte-Ergebnis ist weder automatisch eine Vote4Gov-Position noch automatisch eine VoiceOpenGov-Position.
+Ein nach den veröffentlichten Regeln gültig abgeschlossenes eDebatte-Ergebnis ist innerhalb seines definierten sachlichen und regionalen Geltungsbereichs der verbindliche politische Repräsentationsauftrag für VoiceOpenGov. Entwürfe, laufende Debatten, unvollständige Abstimmungen und bloße Stimmungsbilder sind nicht bindend.
+
+### VoiceOpenGov
+
+VoiceOpenGov ist die politische Repräsentations- und Umsetzungsschicht. Sie verbindet Menschen, baut regionale Präsenz auf und macht politische Verantwortlichkeit für gültige eDebatte-Mandate sichtbar.
+
+VoiceOpenGov führt kein von eDebatte unabhängiges, eingefrorenes Parteiprogramm. Sein öffentlicher Programmstand ist eine versionierte Sicht auf die aktuell gültigen eDebatte-Mandate. Neue gültige Entscheidungen dürfen frühere Positionen ergänzen, präzisieren, ersetzen oder aufheben.
+
+Ein VOG-Repräsentant darf vor einer Entscheidung eine eigene Meinung vertreten und eine These zur Abstimmung bringen. Nach einem gültigen Ergebnis muss die politische Repräsentation jedoch dem dokumentierten Mehrheitsauftrag folgen. Relevante Minderheitenpositionen bleiben sichtbar.
 
 ### Voxy
 
@@ -61,7 +63,7 @@ Die Startseite folgt dauerhaft dieser Reihenfolge:
 4. **Meine Thesen** – klare, als persönliche Position gekennzeichnete Systemkritik.
 5. **Stärkster Einwand** – ernsthafte Gegenposition statt Alibi-Widerspruch.
 6. **Mein Ordnungsmodell** – ein prüfbarer Gegenentwurf.
-7. **Ökosystem-Handoff** – VoiceOpenGov für Bewegung, eDebatte für unabhängige Bearbeitung.
+7. **Ökosystem-Handoff** – eDebatte für unabhängige Entscheidung, VoiceOpenGov für politische Repräsentation und Umsetzung.
 
 Die Seite darf nicht wieder in eine neutrale Thinktank-Selbstdarstellung kippen und darf nicht überwiegend erklären, was Vote4Gov alles nicht ist.
 
@@ -132,7 +134,9 @@ Der Arbeitsstand wird versioniert. Änderungen an tragenden Grundannahmen dürfe
 
 Vote4Gov entwickelt keine Ortsgruppen und keine territoriale Organisationshierarchie. Regionale Umsetzung, Community-Aufbau, Teams vor Ort, Veranstaltungen, Beteiligungsbüros und vergleichbare Präsenz gehören zu VoiceOpenGov.
 
-Vote4Gov kann jedoch begründen, welche Reformideen Ricky Gerd Fleischer für prüfenswert hält. VoiceOpenGov entscheidet seine programmatischen Positionen in seinen eigenen transparenten Verfahren.
+Vote4Gov kann begründen, welche Reformideen Ricky Gerd Fleischer für prüfenswert hält. Diese Ideen werden jedoch erst dann zu einem politischen VoiceOpenGov-Repräsentationsauftrag, wenn ein gültiges eDebatte-Verfahren innerhalb des definierten Geltungsbereichs ein entsprechendes Ergebnis festgestellt hat.
+
+VoiceOpenGov darf ein gültiges eDebatte-Mandat nicht durch eine interne Gegenposition ersetzen. Sein Programm ist dynamisch: Wenn sich ein gültiger gesellschaftlicher Mehrheitsentscheid ändert, ändert sich auch der von VoiceOpenGov zu vertretende Programmstand.
 
 ## 9. Verhältnis zu eDebatte
 
@@ -142,8 +146,11 @@ Verbindlich:
 
 - eDebatte bleibt unabhängig von der persönlichen Vote4Gov-Position.
 - Gegenpositionen dürfen zu anderen Ergebnissen führen.
-- Ergebnisse von eDebatte werden nicht still als persönliche Position übernommen.
-- VoiceOpenGov-Repräsentanten besitzen bei eDebatte keine automatische Deutungshoheit.
+- Vote4Gov besitzt keine bevorzugte Stimme oder Deutungshoheit.
+- Ein gültiger eDebatte-Entscheidungssnapshot bindet VoiceOpenGov innerhalb seines definierten Geltungsbereichs.
+- Relevante Minderheitenpositionen bleiben sichtbar.
+- Eine spätere gültige Entscheidung darf eine frühere ersetzen; die Versionshistorie bleibt nachvollziehbar.
+- Ein Draft oder laufender Prozess darf niemals als bereits bindendes VOG-Mandat dargestellt werden.
 
 ## 10. Quellenhierarchie
 
@@ -201,8 +208,8 @@ Die visuelle Trennung bleibt bewusst:
 
 - **Startseite:** dunkler, persönlicher Kampagnen-/Dossiercharakter mit Ricky Gerd Fleischer sichtbar als Autor.
 - **Vision / Review:** redaktionelles Magazin-/Zeitungsdesign für Geschichte, Quellen und vertiefende Begründung.
-- **VoiceOpenGov:** menschliche, regionale und bewegungsorientierte Präsenz.
-- **eDebatte:** funktionaler Evidenz- und Beteiligungsraum.
+- **VoiceOpenGov:** menschliche, regionale und bewegungsorientierte Präsenz für politische Repräsentation und Umsetzung.
+- **eDebatte:** funktionaler Evidenz-, Beteiligungs- und Entscheidungsraum.
 
 Auf Mobilgeräten darf das Autorenporträt der Vote4Gov-Startseite nicht ausgeblendet werden. Person und Urheberschaft gehören zur inhaltlichen Identität der Seite.
 
@@ -215,9 +222,10 @@ Vor Veröffentlichung wird geprüft:
 - Ist die stärkste relevante Gegenposition enthalten?
 - Ist der Weltvergleich kontextualisiert?
 - Ist das Ordnungsmodell als persönlicher, korrigierbarer Entwurf erkennbar?
-- Bleibt regionale Community bei VoiceOpenGov?
-- Bleibt gemeinsame Evidenz- und Dossierarbeit bei eDebatte?
-- Wird kein eDebatte-Ergebnis automatisch Ricky oder VoiceOpenGov zugerechnet?
+- Bleibt regionale Community und politische Umsetzung bei VoiceOpenGov?
+- Bleiben Evidenz, Beteiligung und gültige Entscheidungen bei eDebatte?
+- Wird ein persönlicher Vote4Gov-Vorschlag nicht vor einer gültigen Entscheidung als gesellschaftlicher Mehrheitswille dargestellt?
+- Wird klar, dass ein gültiges eDebatte-Ergebnis VoiceOpenGov bindet, nicht aber automatisch Rickys persönliche Meinung verändert?
 - Werden geplante Funktionen nicht als bereits vorhanden dargestellt?
 - Funktionieren Desktop, Mobile, No-JS, SEO-Metadaten und interne Links?
 
@@ -226,7 +234,7 @@ Vor Veröffentlichung wird geprüft:
 Wenn eine spätere Änderung unklar ist, gilt diese Reihenfolge:
 
 > **Vote4Gov zeigt, was Ricky Gerd Fleischer über politische Ordnung denkt und warum.**  
-> **VoiceOpenGov organisiert Menschen, Regionen und programmatische Willensbildung.**  
-> **eDebatte ermöglicht unabhängige gemeinsame Prüfung und Bearbeitung.**
+> **eDebatte prüft, beteiligt und bildet gültige Entscheidungen mit sichtbaren Minderheitenpositionen ab.**  
+> **VoiceOpenGov vertritt gültige eDebatte-Mandate politisch und macht Umsetzung sichtbar.**
 
-Keine parallele Wahrheit. Keine Rollenvermischung. Keine False-Done-Markierung.
+Keine parallele Wahrheit. Keine Rollenvermischung. Kein False Done. Keine eingefrorene politische Antwort, wenn ein späterer gültiger Entscheid sie ersetzt.
