@@ -103,6 +103,19 @@ for (const requiredText of [
 for (const forbidden of ["/regionen.html", "/de/deutschland/", "/de/europa/", "/de/weltweit/"]) {
   if (indexHtml.includes(forbidden)) fail(indexPath, `territorial community route remains on Vote4Gov start page: ${forbidden}`);
 }
+for (const seoMarker of [
+  'rel="canonical" href="https://www.vote4gov.eu/"',
+  'name="author" content="Ricky Gerd Fleischer"',
+  'property="og:image"',
+  'name="twitter:card" content="summary_large_image"',
+  'name="twitter:image"',
+  'rel="preload" as="image" href="/assets/hero-ricky-cutout.png"',
+  'fetchpriority="high" loading="eager"',
+  '"@type":"WebPage"',
+  '"author":{"@id":"https://www.vote4gov.eu/#person"}',
+]) {
+  if (!indexHtml.includes(seoMarker)) fail(indexPath, `missing homepage SEO/performance marker: ${seoMarker}`);
+}
 
 const systemQuestionsPath = join(root, "systemfragen.html");
 const systemQuestions = await readFile(systemQuestionsPath, "utf8");
@@ -118,12 +131,17 @@ for (const marker of ["Was lässt sich aus anderen politischen Ordnungen lernen"
 
 const homeCssPath = join(root, "home.css");
 const homeCss = await readFile(homeCssPath, "utf8");
+const homeConsolidationPath = join(root, "home-consolidation.css");
+const homeConsolidationCss = await readFile(homeConsolidationPath, "utf8");
 const homeScriptPath = join(root, "home.js");
 const homeScript = await readFile(homeScriptPath, "utf8");
 if (!homeCss.includes(".home-page .reveal") || !homeCss.includes(".js-enabled .home-page .reveal:not(.is-visible)")) {
   fail(homeCssPath, "campaign reveal effects must preserve visible content without JavaScript");
 }
 if (!homeScript.includes('classList.add("js-enabled")')) fail(homeScriptPath, "campaign script must opt in to reveal effects");
+for (const marker of ["@media(max-width:820px)", ".home-portrait>img{display:block!important", "object-fit:contain", "@media(max-width:620px)"]) {
+  if (!homeConsolidationCss.includes(marker)) fail(homeConsolidationPath, `mobile author portrait contract missing: ${marker}`);
+}
 
 const visionPath = join(root, "vision.html");
 const visionHtml = await readFile(visionPath, "utf8");
@@ -200,11 +218,20 @@ if (!JSON.stringify(vercel).includes("frame-ancestors *")) fail(vercelPath, "emb
 const northStarPath = join(root, "docs/VOTE4GOV_NORTH_STAR.md");
 const northStar = await readFile(northStarPath, "utf8");
 for (const principle of [
-  "weder Partei noch eigene Beteiligungs- oder Abstimmungsplattform",
-  "Alle Diskussionen, Korrekturen mit gesellschaftlichem Inhalt und Abstimmungen finden ausschließlich bei eDebatte statt",
-  "Vote4Gov bewirbt und begründet. VoiceOpenGov verbindet. eDebatte beteiligt.",
+  "Vote4Gov = Ricky: persönlicher Systemblick, Thesen und Ordnungsentwurf.",
+  "VoiceOpenGov = Bewegung: Community, Regionen, Präsenz und programmatische Willensbildung.",
+  "eDebatte = unabhängiges Instrument: Evidenz, Dossiers, Gegenpositionen, Beteiligung und Wirkung.",
+  "Vote4Gov ist keine Partei",
+  "Ein eDebatte-Ergebnis ist weder automatisch eine Vote4Gov-Position noch automatisch eine VoiceOpenGov-Position.",
+  "Auf Mobilgeräten darf das Autorenporträt der Vote4Gov-Startseite nicht ausgeblendet werden.",
 ]) {
   if (!northStar.includes(principle)) fail(northStarPath, `missing canonical principle: ${principle}`);
+}
+
+const sitemapPath = join(root, "sitemap.xml");
+const sitemap = await readFile(sitemapPath, "utf8");
+for (const url of ["https://www.vote4gov.eu/", "https://www.vote4gov.eu/vision", "https://www.vote4gov.eu/systemfragen", "https://www.vote4gov.eu/systeme-laender", "https://www.vote4gov.eu/ueber-mich"]) {
+  if (!sitemap.includes(`<loc>${url}</loc>`)) fail(sitemapPath, `missing canonical sitemap URL: ${url}`);
 }
 
 if (failures.length) {
@@ -212,4 +239,4 @@ if (failures.length) {
   failures.forEach((failure) => console.error(`- ${failure}`));
   process.exit(1);
 }
-console.log(`Static quality validation passed for ${htmlFiles.length} HTML files: personal Vote4Gov system view, falsifiable theses, world comparison, vision issue 01 and routing contracts.`);
+console.log(`Static quality validation passed for ${htmlFiles.length} HTML files: personal Vote4Gov role, independent eDebatte boundary, VoiceOpenGov movement boundary, mobile author portrait, SEO metadata, world comparison and vision issue 01.`);
