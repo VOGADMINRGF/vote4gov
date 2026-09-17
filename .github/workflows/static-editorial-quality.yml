@@ -16,6 +16,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
 
       - name: Use Node.js 20
         uses: actions/setup-node@v4
@@ -25,8 +27,14 @@ jobs:
       - name: Check JavaScript syntax
         run: find . -type f \( -name '*.js' -o -name '*.mjs' \) -not -path './.git/*' -not -path './node_modules/*' -exec node --check {} \;
 
+      - name: Generate canonical article discovery metadata and feeds
+        run: node scripts/enrich-public-discovery.mjs
+
       - name: Validate issue 01 editorial architecture and routing
         run: node scripts/validate-static-site.mjs
+
+      - name: Validate AI/search discovery contract
+        run: node scripts/validate-discovery.mjs
 
       - name: Validate Vercel configuration JSON
         run: node -e "JSON.parse(require('fs').readFileSync('vercel.json','utf8')); console.log('vercel.json valid')"
@@ -70,6 +78,11 @@ jobs:
           path: artifacts/visual-evidence
           if-no-files-found: warn
           retention-days: 14
+
+      - name: Notify IndexNow about changed canonical URLs
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        continue-on-error: true
+        run: node scripts/submit-indexnow.mjs "${{ github.event.before }}" "${{ github.sha }}"
 
       - name: Stop static review server
         if: always()
