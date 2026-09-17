@@ -28,6 +28,126 @@
       "permanent": true
     },
     {
+      "source": "/de/deutschland",
+      "destination": "/systeme-laender#deutschland",
+      "permanent": true
+    },
+    {
+      "source": "/de/deutschland/baden-wuerttemberg",
+      "destination": "https://www.voiceopengov.org/regionen/deutschland/baden-wuerttemberg",
+      "permanent": true
+    },
+    {
+      "source": "/de/deutschland/bayern",
+      "destination": "https://www.voiceopengov.org/regionen/deutschland/bayern",
+      "permanent": true
+    },
+    {
+      "source": "/de/deutschland/berlin",
+      "destination": "https://www.voiceopengov.org/regionen/deutschland/berlin",
+      "permanent": true
+    },
+    {
+      "source": "/de/deutschland/brandenburg",
+      "destination": "https://www.voiceopengov.org/regionen/deutschland/brandenburg",
+      "permanent": true
+    },
+    {
+      "source": "/de/deutschland/bremen",
+      "destination": "https://www.voiceopengov.org/regionen/deutschland/bremen",
+      "permanent": true
+    },
+    {
+      "source": "/de/deutschland/hamburg",
+      "destination": "https://www.voiceopengov.org/regionen/deutschland/hamburg",
+      "permanent": true
+    },
+    {
+      "source": "/de/deutschland/hessen",
+      "destination": "https://www.voiceopengov.org/regionen/deutschland/hessen",
+      "permanent": true
+    },
+    {
+      "source": "/de/deutschland/mecklenburg-vorpommern",
+      "destination": "https://www.voiceopengov.org/regionen/deutschland/mecklenburg-vorpommern",
+      "permanent": true
+    },
+    {
+      "source": "/de/deutschland/niedersachsen",
+      "destination": "https://www.voiceopengov.org/regionen/deutschland/niedersachsen",
+      "permanent": true
+    },
+    {
+      "source": "/de/deutschland/nordrhein-westfalen",
+      "destination": "https://www.voiceopengov.org/regionen/deutschland/nordrhein-westfalen",
+      "permanent": true
+    },
+    {
+      "source": "/de/deutschland/rheinland-pfalz",
+      "destination": "https://www.voiceopengov.org/regionen/deutschland/rheinland-pfalz",
+      "permanent": true
+    },
+    {
+      "source": "/de/deutschland/saarland",
+      "destination": "https://www.voiceopengov.org/regionen/deutschland/saarland",
+      "permanent": true
+    },
+    {
+      "source": "/de/deutschland/sachsen",
+      "destination": "https://www.voiceopengov.org/regionen/deutschland/sachsen",
+      "permanent": true
+    },
+    {
+      "source": "/de/deutschland/sachsen-anhalt",
+      "destination": "https://www.voiceopengov.org/regionen/deutschland/sachsen-anhalt",
+      "permanent": true
+    },
+    {
+      "source": "/de/deutschland/schleswig-holstein",
+      "destination": "https://www.voiceopengov.org/regionen/deutschland/schleswig-holstein",
+      "permanent": true
+    },
+    {
+      "source": "/de/deutschland/thueringen",
+      "destination": "https://www.voiceopengov.org/regionen/deutschland/thueringen",
+      "permanent": true
+    },
+    {
+      "source": "/de/weltweit",
+      "destination": "/systeme-laender#international",
+      "permanent": true
+    },
+    {
+      "source": "/de/europa",
+      "destination": "/systeme-laender#europa",
+      "permanent": true
+    },
+    {
+      "source": "/de/afrika",
+      "destination": "/systeme-laender#international",
+      "permanent": true
+    },
+    {
+      "source": "/de/asien",
+      "destination": "/systeme-laender#international",
+      "permanent": true
+    },
+    {
+      "source": "/de/lateinamerika-karibik",
+      "destination": "/systeme-laender#international",
+      "permanent": true
+    },
+    {
+      "source": "/de/nordamerika",
+      "destination": "/systeme-laender#international",
+      "permanent": true
+    },
+    {
+      "source": "/de/ozeanien",
+      "destination": "/systeme-laender#international",
+      "permanent": true
+    },
+    {
       "source": "/anlassraeume",
       "destination": "https://www.edebatte.org/create?source=vote4gov&legacy=anlassraeume",
       "permanent": false
