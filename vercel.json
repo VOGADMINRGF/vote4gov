@@ -18,6 +18,16 @@
       "permanent": true
     },
     {
+      "source": "/regionen",
+      "destination": "/systeme-laender",
+      "permanent": true
+    },
+    {
+      "source": "/regionen.html",
+      "destination": "/systeme-laender",
+      "permanent": true
+    },
+    {
       "source": "/anlassraeume",
       "destination": "https://www.edebatte.org/create?source=vote4gov&legacy=anlassraeume",
       "permanent": false
@@ -44,6 +54,15 @@
         {
           "key": "Link",
           "value": "<https://www.vote4gov.eu/vision>; rel=\"canonical\", <https://www.vote4gov.eu/vision>; rel=\"alternate\"; hreflang=\"de\", <https://www.vote4gov.eu/vision>; rel=\"alternate\"; hreflang=\"x-default\""
+        }
+      ]
+    },
+    {
+      "source": "/de/:path*",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, follow"
         }
       ]
     },
