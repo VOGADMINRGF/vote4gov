@@ -14,7 +14,19 @@ const retiredSelfGovernanceSignals = [
   "an eDebatte result does not automatically become a VoiceOpenGov position",
   "VoiceOpenGov entscheidet seinen eigenen Programmstand",
   "Ein eDebatte-Ergebnis bindet VoiceOpenGov aber nicht automatisch",
+  "entscheidet seinen eigenen Programmstand aber nach den eigenen Governance-Regeln",
+  "entscheidet den VoiceOpenGov-Programmstand aber nicht automatisch",
 ];
+
+const publicHtmlFiles = (await readdir(root, { recursive: true }))
+  .filter((name) => name.endsWith(".html"))
+  .filter((name) => !name.startsWith("artifacts/"));
+for (const file of publicHtmlFiles) {
+  const html = await readFile(join(root, file), "utf8");
+  for (const retired of retiredSelfGovernanceSignals) {
+    check(!html.includes(retired), `${file}: retired VOG self-governance boundary remains: ${retired}`);
+  }
+}
 
 const journalDir = join(root, "journal");
 const journalFiles = (await readdir(journalDir)).filter((name) => name.endsWith(".html")).sort();
@@ -39,10 +51,6 @@ for (const file of journalFiles) {
     'href="https://www.vote4gov.eu/feed.json"',
   ];
   for (const marker of required) check(html.includes(marker), `${file}: missing discovery marker ${marker}`);
-
-  for (const retired of retiredSelfGovernanceSignals) {
-    check(!html.includes(retired), `${file}: retired VOG self-governance boundary remains: ${retired}`);
-  }
 
   const sourceSection = html.match(/<section\b[^>]*class=["'][^"']*\barticle-sources\b[^"']*["'][^>]*>([\s\S]*?)<\/section>/i)?.[1] || "";
   if (/href=["']https?:\/\//i.test(sourceSection)) {
@@ -85,4 +93,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log(`Discovery validation passed for ${journalFiles.length} journal articles, RSS, JSON Feed, OAI-SearchBot and the valid scoped eDebatte-to-VOG mandate boundary.`);
+console.log(`Discovery validation passed across ${publicHtmlFiles.length} public HTML files and ${journalFiles.length} journal articles: RSS, JSON Feed, OAI-SearchBot and the valid scoped eDebatte-to-VOG mandate boundary are consistent.`);
