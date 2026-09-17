@@ -39,6 +39,7 @@ try {
   const campaign = await openPage(desktop, "/");
   check(await campaign.locator(".home-hero h1").isVisible(), "campaign desktop: hero is not visible");
   check((await campaign.locator("#hero-title").textContent())?.includes("Fragen, die"), "campaign desktop: personal-system primary claim is missing");
+  check(await campaign.locator(".home-portrait > img").isVisible(), "campaign desktop: author portrait is not visible");
   check(await campaign.locator('nav a[href="/vision.html"]').count() === 1, "campaign desktop: vision route is missing");
   check(await campaign.locator('nav a[href="/systemfragen.html"]').count() === 1, "campaign desktop: personal theses route is missing");
   check(await campaign.locator('nav a[href="/systeme-laender.html"]').count() === 1, "campaign desktop: world comparison route is missing");
@@ -90,6 +91,13 @@ try {
     for (const path of ["/", "/systemfragen.html", "/systeme-laender.html", "/vision.html"]) {
       const page = await openPage(mobile, path);
       check(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1), `${viewport.width}px ${path}: horizontal overflow`);
+      if (path === "/") {
+        const portrait = page.locator(".home-portrait > img");
+        check(await portrait.isVisible(), `${viewport.width}px campaign: author portrait is hidden`);
+        const box = await portrait.boundingBox();
+        check(Boolean(box && box.width >= 180 && box.height >= 260), `${viewport.width}px campaign: author portrait renders too small`);
+        check(await page.locator(".home-portrait .home-signature").isVisible(), `${viewport.width}px campaign: author signature is hidden`);
+      }
       if (path === "/vision.html") {
         await checkAtlasFree(page, `${viewport.width}px vision`);
         await checkSingleVisibleLanguageControl(page, `${viewport.width}px vision`);
@@ -103,6 +111,7 @@ try {
   const noJsCampaign = await openPage(noJs, "/");
   check(await noJsCampaign.locator(".home-hero h1").isVisible(), "campaign no-JS: hero is not readable");
   check((await noJsCampaign.locator("#hero-title").textContent())?.includes("Fragen, die"), "campaign no-JS: personal-system primary claim is missing");
+  check(await noJsCampaign.locator(".home-portrait > img").isVisible(), "campaign no-JS: author portrait is hidden");
   check(await noJsCampaign.locator('.home-mission-flow').count() === 1, "campaign no-JS: static personal-view flow is missing");
   check(await noJsCampaign.locator('#ordnungsmodell').count() === 1, "campaign no-JS: personal order model is missing");
   check(await noJsCampaign.locator('.accountability-commitments').count() === 1, "campaign no-JS: static commitments are missing");
@@ -121,4 +130,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log("Browser regression passed: personal Vote4Gov system view, falsifiable theses, world comparison boundary, atlas-free vision, desktop, mobile, 200% zoom and no-JS.");
+console.log("Browser regression passed: personal Vote4Gov role, mobile author portrait, falsifiable theses, world comparison boundary, atlas-free vision, desktop, mobile, 200% zoom and no-JS.");
