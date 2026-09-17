@@ -88,8 +88,8 @@ for (const requiredText of [
   "Meine kritischen Thesen",
   "Mein Ordnungsmodell",
   "Vote4Gov · mein Blick",
-  "VoiceOpenGov · die Bewegung",
-  "eDebatte · das unabhängige Instrument",
+  "eDebatte · der Entscheidungsraum",
+  "VoiceOpenGov · Repräsentation",
   "Meine Regeln für starke Thesen",
   'id="mission"',
   'id="ordnungsmodell"',
@@ -97,24 +97,52 @@ for (const requiredText of [
   "/systemfragen.html",
   "/systeme-laender.html",
   "/ueber-mich.html",
+  "https://www.voiceopengov.org/mitmachen",
 ]) {
   if (!indexHtml.includes(requiredText)) fail(indexPath, `missing start-page requirement: ${requiredText}`);
 }
-for (const forbidden of ["/regionen.html", "/de/deutschland/", "/de/europa/", "/de/weltweit/"]) {
-  if (indexHtml.includes(forbidden)) fail(indexPath, `territorial community route remains on Vote4Gov start page: ${forbidden}`);
+for (const forbidden of [
+  "/regionen.html",
+  "/de/deutschland/",
+  "/de/europa/",
+  "/de/weltweit/",
+  "https://www.voiceopengov.org/mitglied-werden",
+  '"sameAs":["https://www.voiceopengov.org/","https://www.edebatte.org/"]',
+]) {
+  if (indexHtml.includes(forbidden)) fail(indexPath, `retired or misleading homepage signal remains: ${forbidden}`);
 }
 for (const seoMarker of [
   'rel="canonical" href="https://www.vote4gov.eu/"',
   'name="author" content="Ricky Gerd Fleischer"',
+  '<title>Ricky Gerd Fleischer | Vote4Gov – Demokratie &amp; Systemfragen</title>',
+  'property="og:title" content="Ricky Gerd Fleischer | Vote4Gov – Demokratie & Systemfragen"',
   'property="og:image"',
   'name="twitter:card" content="summary_large_image"',
   'name="twitter:image"',
   'rel="preload" as="image" href="/assets/hero-ricky-cutout.png"',
   'fetchpriority="high" loading="eager"',
+  '"@type":"Person"',
   '"@type":"WebPage"',
   '"author":{"@id":"https://www.vote4gov.eu/#person"}',
+  '"knowsAbout":["Demokratiegeschichte","Bürgerbeteiligung","politische Repräsentation","digitale Demokratie","institutionelle Reformen"]',
 ]) {
   if (!indexHtml.includes(seoMarker)) fail(indexPath, `missing homepage SEO/performance marker: ${seoMarker}`);
+}
+
+const aboutPath = join(root, "ueber-mich.html");
+const aboutHtml = await readFile(aboutPath, "utf8");
+for (const marker of [
+  '"@type":"ProfilePage"',
+  '"mainEntity":{"@type":"Person"',
+  '"@id":"https://www.vote4gov.eu/#person"',
+  "Ricky Gerd Fleischer – Über mich | Vote4Gov",
+  "eDebatte als unabhängiger Evidenz-, Beteiligungs- und Entscheidungsraum",
+  "VoiceOpenGov als regionale politische Repräsentations- und Umsetzungsschicht",
+]) {
+  if (!aboutHtml.includes(marker)) fail(aboutPath, `missing profile/entity marker: ${marker}`);
+}
+if (aboutHtml.includes('"sameAs":["https://www.voiceopengov.org/","https://www.edebatte.org/"]')) {
+  fail(aboutPath, "ProfilePage must not claim VoiceOpenGov or eDebatte are the same Person entity");
 }
 
 const systemQuestionsPath = join(root, "systemfragen.html");
@@ -240,4 +268,4 @@ if (failures.length) {
   failures.forEach((failure) => console.error(`- ${failure}`));
   process.exit(1);
 }
-console.log(`Static quality validation passed for ${htmlFiles.length} HTML files: personal Vote4Gov role, independent eDebatte decision boundary, eDebatte-bound VoiceOpenGov representation, mobile author portrait, SEO metadata, world comparison and vision issue 01.`);
+console.log(`Static quality validation passed for ${htmlFiles.length} HTML files: personal Vote4Gov role, clean Ricky person entity, independent eDebatte decision boundary, eDebatte-bound VoiceOpenGov representation, mobile author portrait, SEO metadata, world comparison and vision issue 01.`);
