@@ -39,6 +39,15 @@
       ]
     },
     {
+      "source": "/vision",
+      "headers": [
+        {
+          "key": "Link",
+          "value": "<https://www.vote4gov.eu/vision>; rel=\"canonical\", <https://www.vote4gov.eu/vision>; rel=\"alternate\"; hreflang=\"de\", <https://www.vote4gov.eu/vision>; rel=\"alternate\"; hreflang=\"x-default\""
+        }
+      ]
+    },
+    {
       "source": "/embed/(.*)",
       "headers": [
         {
