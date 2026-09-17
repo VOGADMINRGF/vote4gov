@@ -50,7 +50,8 @@ try {
   check(await campaign.locator('#systemfragen').count() === 1, "campaign desktop: personal theses preview is missing");
   check(await campaign.locator('#ordnungsmodell').count() === 1, "campaign desktop: personal order model is missing");
   check((await campaign.locator('#mission').textContent())?.includes("Vote4Gov spricht für mich"), "campaign desktop: personal authorship is not explicit");
-  check((await campaign.locator("body").textContent())?.includes("eDebatte · das unabhängige Instrument"), "campaign desktop: eDebatte independence is not explicit");
+  check((await campaign.locator("body").textContent())?.includes("eDebatte · der Entscheidungsraum"), "campaign desktop: eDebatte decision-space role is not explicit");
+  check((await campaign.locator("body").textContent())?.includes("VoiceOpenGov · Repräsentation"), "campaign desktop: VoiceOpenGov representation role is not explicit");
   check(await campaign.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1), "campaign desktop: horizontal overflow");
   await campaign.close();
 
@@ -60,6 +61,7 @@ try {
   check(await questions.getByText("Stärkster Einwand:", { exact: true }).count() >= 1, "system questions: strongest-objection marker is missing");
   check(await questions.getByText("Prüfmaßstab:", { exact: true }).count() >= 1, "system questions: test-criterion marker is missing");
   check((await questions.locator("body").textContent())?.includes("eDebatte bleibt unabhängig"), "system questions: eDebatte independence boundary is missing");
+  check((await questions.locator("body").textContent())?.includes("VoiceOpenGov folgt gültigen eDebatte-Mandaten"), "system questions: VOG mandate binding is missing");
   await questions.close();
 
   const systems = await openPage(desktop, "/systeme-laender.html");
@@ -130,4 +132,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log("Browser regression passed: personal Vote4Gov role, mobile author portrait, falsifiable theses, world comparison boundary, atlas-free vision, desktop, mobile, 200% zoom and no-JS.");
+console.log("Browser regression passed: personal Vote4Gov role, clean eDebatte/VOG role split, mobile author portrait, falsifiable theses, world comparison boundary, atlas-free vision, desktop, mobile, 200% zoom and no-JS.");
