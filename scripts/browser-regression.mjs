@@ -32,6 +32,16 @@ async function checkSingleVisibleLanguageControl(page, label) {
   check(await page.locator('.global-language-control select:visible').count() === 1, `${label}: exactly one visible language select is required`);
 }
 
+async function checkMobilePortrait(page, label) {
+  const portrait = page.locator(".home-portrait > img");
+  check(await portrait.count() === 1, `${label}: hero portrait element is missing`);
+  check(await portrait.isVisible(), `${label}: hero portrait is hidden`);
+  const loaded = await portrait.evaluate((img) => img.complete && img.naturalWidth > 0 && img.naturalHeight > 0);
+  check(loaded, `${label}: hero portrait did not load`);
+  const box = await portrait.boundingBox();
+  check(Boolean(box && box.height >= 300 && box.width >= 240), `${label}: hero portrait is too small or collapsed`);
+}
+
 const browser = await chromium.launch({ headless: true });
 try {
   const desktop = await browser.newContext({ viewport: { width: 1440, height: 900 }, reducedMotion: "reduce" });
@@ -50,6 +60,9 @@ try {
   check(await campaign.locator('#ordnungsmodell').count() === 1, "campaign desktop: personal order model is missing");
   check((await campaign.locator('#mission').textContent())?.includes("Vote4Gov spricht für mich"), "campaign desktop: personal authorship is not explicit");
   check((await campaign.locator("body").textContent())?.includes("eDebatte · das unabhängige Instrument"), "campaign desktop: eDebatte independence is not explicit");
+  check((await campaign.locator("#ordnungsmodell").textContent())?.includes("Version 0.1"), "campaign desktop: order model version is missing");
+  check(await campaign.locator('meta[property="og:image"]').count() === 1, "campaign desktop: social preview image metadata is missing");
+  check(await campaign.locator('meta[name="twitter:card"]').count() === 1, "campaign desktop: Twitter/X card metadata is missing");
   check(await campaign.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1), "campaign desktop: horizontal overflow");
   await campaign.close();
 
@@ -66,6 +79,11 @@ try {
   check((await systems.locator("body").textContent())?.includes("Vier Regeln für meinen Weltvergleich"), "world comparison: personal comparison method is missing");
   check((await systems.locator("body").textContent())?.includes("Regionale Community, Teams und politische Präsenz gehören zu VoiceOpenGov"), "world comparison: VoiceOpenGov territorial boundary is missing");
   await systems.close();
+
+  const about = await openPage(desktop, "/ueber-mich.html");
+  check((await about.locator("body").textContent())?.includes("Mein persönlicher Systemblick"), "person page: Vote4Gov role is stale");
+  check(await about.locator('a[href="/hinter-der-idee.html"]').count() === 0, "person page: retired mission link remains");
+  await about.close();
 
   const vision = await openPage(desktop, "/vision.html");
   check(await vision.locator(".cover-main h1").isVisible(), "vision desktop: hero is not visible");
@@ -90,6 +108,7 @@ try {
     for (const path of ["/", "/systemfragen.html", "/systeme-laender.html", "/vision.html"]) {
       const page = await openPage(mobile, path);
       check(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1), `${viewport.width}px ${path}: horizontal overflow`);
+      if (path === "/") await checkMobilePortrait(page, `${viewport.width}px campaign`);
       if (path === "/vision.html") {
         await checkAtlasFree(page, `${viewport.width}px vision`);
         await checkSingleVisibleLanguageControl(page, `${viewport.width}px vision`);
@@ -106,6 +125,7 @@ try {
   check(await noJsCampaign.locator('.home-mission-flow').count() === 1, "campaign no-JS: static personal-view flow is missing");
   check(await noJsCampaign.locator('#ordnungsmodell').count() === 1, "campaign no-JS: personal order model is missing");
   check(await noJsCampaign.locator('.accountability-commitments').count() === 1, "campaign no-JS: static commitments are missing");
+  await checkMobilePortrait(noJsCampaign, "campaign no-JS mobile");
   await noJsCampaign.close();
   const noJsVision = await openPage(noJs, "/vision.html");
   check(await noJsVision.locator(".cover-main h1").isVisible(), "vision no-JS: hero is not readable");
@@ -121,4 +141,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log("Browser regression passed: personal Vote4Gov system view, falsifiable theses, world comparison boundary, atlas-free vision, desktop, mobile, 200% zoom and no-JS.");
+console.log("Browser regression passed: personal Vote4Gov canon, visible mobile portrait, social metadata, world comparison boundary, atlas-free vision, desktop, mobile, 200% zoom and no-JS.");
