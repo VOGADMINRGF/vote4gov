@@ -4,6 +4,8 @@
       number: "01",
       label: "Ausgabe 01",
       version: "1.0",
+      published: "2026-09-17",
+      updated: "2026-09-17",
     }),
     language: Object.freeze({
       source: "de",
@@ -20,6 +22,7 @@
   globalThis.Vote4GovConfig = config;
   document.documentElement.dataset.issue = config.issue.number;
   document.documentElement.dataset.issueVersion = config.issue.version;
+  document.documentElement.dataset.issueUpdated = config.issue.updated;
   document.documentElement.dataset.sourceLanguage = config.language.source;
 
   const markCanonicalLanguageControl = () => {
@@ -44,20 +47,5 @@
     systemQuestionScript.src = "/system-question.js?v=20260826-1";
     systemQuestionScript.defer = true;
     document.head.appendChild(systemQuestionScript);
-  }
-
-  if (document.body.classList.contains("journal-home")) {
-    if (!document.querySelector('link[href^="/vision-v3.css"]')) {
-      const visionStyle = document.createElement("link");
-      visionStyle.rel = "stylesheet";
-      visionStyle.href = "/vision-v3.css?v=20260917-1";
-      document.head.appendChild(visionStyle);
-    }
-    if (!document.querySelector('script[src^="/vision-v3.js"]')) {
-      const visionScript = document.createElement("script");
-      visionScript.src = "/vision-v3.js?v=20260917-1";
-      visionScript.defer = true;
-      document.head.appendChild(visionScript);
-    }
   }
 })();
