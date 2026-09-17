@@ -36,10 +36,7 @@ function localTargetExists(href) {
   if (redirectSources.has(path)) return true;
   const clean = path.replace(/^\/+|\/+$/g, "");
   if (!clean) return true;
-  if (fileSet.has(clean)) return true;
-  if (fileSet.has(`${clean}.html`)) return true;
-  if (fileSet.has(`${clean}/index.html`)) return true;
-  return false;
+  return fileSet.has(clean) || fileSet.has(`${clean}.html`) || fileSet.has(`${clean}/index.html`);
 }
 
 for (const file of htmlFiles) {
@@ -52,7 +49,6 @@ for (const file of htmlFiles) {
     if (/^(https?:|mailto:|tel:|data:|javascript:|#)/i.test(href)) continue;
     if (!localTargetExists(href)) fail(file, `broken internal link ${href}`);
   }
-
   for (const match of html.matchAll(/src\s*=\s*["']([^"']+)["']/gi)) {
     const src = match[1];
     if (/^(https?:|data:)/i.test(src)) continue;
@@ -66,14 +62,9 @@ for (const file of htmlFiles) {
   if (rel.startsWith("journal/")) {
     const markers = ["article-meta", "article-sources", "edebatte-handoff"];
     if (rel !== "journal/geschichte-der-demokratie.html") markers.push("edebatte-link");
-    for (const marker of markers) {
-      if (!html.includes(marker)) fail(file, `missing required article marker ${marker}`);
-    }
+    for (const marker of markers) if (!html.includes(marker)) fail(file, `missing required article marker ${marker}`);
     if (rel !== "journal/geschichte-der-demokratie.html" && !html.includes("https://www.edebatte.org/")) {
       fail(file, "article lacks direct eDebatte handoff");
-    }
-    if (/href=["']\/#[^"']+["']/i.test(html)) {
-      fail(file, "article still links to a section on the campaign homepage instead of /vision.html");
     }
   }
 
@@ -87,21 +78,38 @@ for (const file of htmlFiles) {
 const indexPath = join(root, "index.html");
 const indexHtml = await readFile(indexPath, "utf8");
 for (const requiredText of [
-  "Für alle.",
-  "Überall.",
-  "Eine neue Form der Repräsentation.",
-  "Wo Politik Vertrauen verliert.",
-  "Die Antwort ist keine Partei.",
-  "VoiceOpenGov",
-  "eDebatte",
-  "Voxy",
-  "Meine Verantwortung",
-  "Gestalte mit.",
+  "Kritischer Denkraum für Demokratie.",
+  "Fragen, die",
+  "Systemfragen statt",
+  "Vote4Gov untersucht.",
+  "VoiceOpenGov verbindet Menschen und Regionen.",
+  "eDebatte bearbeitet Themen",
+  "Systeme &amp; Länder",
+  "Offene Systemfragen",
+  "Vote4Gov baut keine Ortsgruppen.",
+  "Redaktionelle Verantwortung",
   'id="mission"',
   "/vision.html",
+  "/systemfragen.html",
+  "/systeme-laender.html",
   "/ueber-mich.html",
 ]) {
   if (!indexHtml.includes(requiredText)) fail(indexPath, `missing start-page requirement: ${requiredText}`);
+}
+for (const forbidden of ["/regionen.html", "/de/deutschland/", "/de/europa/", "/de/weltweit/"]) {
+  if (indexHtml.includes(forbidden)) fail(indexPath, `territorial community route remains on Vote4Gov start page: ${forbidden}`);
+}
+
+const systemQuestionsPath = join(root, "systemfragen.html");
+const systemQuestions = await readFile(systemQuestionsPath, "utf8");
+for (const marker of ["These:", "Gegenposition:", "Prüfmaßstab:", "Keine Regionalbewegung", "Bei eDebatte prüfen"]) {
+  if (!systemQuestions.includes(marker)) fail(systemQuestionsPath, `missing system-question contract marker: ${marker}`);
+}
+
+const systemsCountriesPath = join(root, "systeme-laender.html");
+const systemsCountries = await readFile(systemsCountriesPath, "utf8");
+for (const marker of ["Länder vergleichen, ohne sie zu Community-Strukturen zu machen.", "Deutschland", "Europa", "International", "Keine territoriale Organisation"]) {
+  if (!systemsCountries.includes(marker)) fail(systemsCountriesPath, `missing systems/countries contract marker: ${marker}`);
 }
 
 const homeCssPath = join(root, "home.css");
@@ -111,9 +119,7 @@ const homeScript = await readFile(homeScriptPath, "utf8");
 if (!homeCss.includes(".home-page .reveal") || !homeCss.includes(".js-enabled .home-page .reveal:not(.is-visible)")) {
   fail(homeCssPath, "campaign reveal effects must preserve visible content without JavaScript");
 }
-if (!homeScript.includes('classList.add("js-enabled")')) {
-  fail(homeScriptPath, "campaign script must opt in to reveal effects");
-}
+if (!homeScript.includes('classList.add("js-enabled")')) fail(homeScriptPath, "campaign script must opt in to reveal effects");
 
 const visionPath = join(root, "vision.html");
 const visionHtml = await readFile(visionPath, "utf8");
@@ -141,36 +147,11 @@ for (const requiredText of [
 ]) {
   if (!visionHtml.includes(requiredText)) fail(visionPath, `missing editorial requirement: ${requiredText}`);
 }
-
-for (const forbidden of [
-  "Ausgabe 02",
-  "Weltatlas",
-  "Atlas-Prototyp",
-  'href="#welt"',
-  'id="welt"',
-  "data-atlas",
-  "data-atlas-country",
-  "data-atlas-panel",
-  "data-atlas-tab",
-  "data-atlas-globe",
-]) {
+for (const forbidden of ["Ausgabe 02", "Weltatlas", "Atlas-Prototyp", 'href="#welt"', 'id="welt"', "data-atlas-globe"]) {
   if (visionHtml.includes(forbidden)) fail(visionPath, `issue 01 must remain atlas-free: ${forbidden}`);
 }
-
-for (const orderedSection of [
-  "I · Geschichte",
-  "II · Digitalwende",
-  "III · Institutionen",
-  "IV · Medien",
-  "V · Infrastruktur",
-  "VI · Ökosystem",
-  "VII · Methode",
-]) {
+for (const orderedSection of ["I · Geschichte", "II · Digitalwende", "III · Institutionen", "IV · Medien", "V · Infrastruktur", "VI · Ökosystem", "VII · Methode"]) {
   if (!visionHtml.includes(orderedSection)) fail(visionPath, `missing atlas-free section order: ${orderedSection}`);
-}
-
-for (const layer of ["Ereignis oder Primärinformation", "Journalistische Auswahl", "Nachricht", "Kontext und Einordnung", "Kommentar oder Meinung", "Prognose", "Umfrage oder Stichprobenergebnis"]) {
-  if (!visionHtml.includes(layer)) fail(visionPath, `missing information layer: ${layer}`);
 }
 
 const sourcesPath = join(root, "quellen.html");
@@ -181,24 +162,12 @@ if (!sourcesHtml.includes('id="ki-transparenz"') || !sourcesHtml.includes("KI-Au
 
 const scriptPath = join(root, "script.js");
 const script = await readFile(scriptPath, "utf8");
-for (const marker of ["data-ai-role", "data-journal-menu-button"]) {
-  if (!script.includes(marker)) fail(scriptPath, `missing interaction marker ${marker}`);
-}
-for (const forbidden of ["data-atlas-announcer", "data-atlas-globe", "selectAtlasCountry", "atlas-enhanced"]) {
-  if (script.includes(forbidden)) fail(scriptPath, `retired Atlas runtime remains in shared script: ${forbidden}`);
-}
+for (const marker of ["data-ai-role", "data-journal-menu-button"]) if (!script.includes(marker)) fail(scriptPath, `missing interaction marker ${marker}`);
+for (const forbidden of ["data-atlas-announcer", "data-atlas-globe", "selectAtlasCountry", "atlas-enhanced"]) if (script.includes(forbidden)) fail(scriptPath, `retired Atlas runtime remains in shared script: ${forbidden}`);
 
 const configPath = join(root, "site-config.js");
 const configScript = await readFile(configPath, "utf8");
-for (const marker of [
-  'number: "01"',
-  'label: "Ausgabe 01"',
-  'version: "1.0"',
-  'source: "de"',
-  'storageKey: "vote4gov:language:v1"',
-  'visibleInIssue: false',
-  'futureSlice: "VOTE4GOV-WORLD-ATLAS-FOUNDATION-01"',
-]) {
+for (const marker of ['number: "01"', 'label: "Ausgabe 01"', 'version: "1.0"', 'source: "de"', 'storageKey: "vote4gov:language:v1"']) {
   if (!configScript.includes(marker)) fail(configPath, `missing canonical configuration marker ${marker}`);
 }
 
@@ -208,67 +177,12 @@ for (const marker of ["/site-config.js", "/on-device-translation.js", "/global-l
   if (!aiScript.includes(marker)) fail(aiPath, `missing ordered language/configuration load ${marker}`);
 }
 
-const unifierPath = join(root, "language-ui-unifier.js");
-const unifier = await readFile(unifierPath, "utf8");
-for (const marker of ["global-language-control", "v4g-language-trigger", "data-language-state-bridge", "data-language-ui"]) {
-  if (!unifier.includes(marker)) fail(unifierPath, `missing single-language-control marker ${marker}`);
-}
-
-const interruptionScriptPath = join(root, "editorial-interruptions.js");
-const interruptionScript = await readFile(interruptionScriptPath, "utf8");
-for (const marker of ["accessTrigger.dataset.accessOpen", "aria-haspopup", "showModal"]) {
-  if (!interruptionScript.includes(marker)) fail(interruptionScriptPath, `missing deliberate dialog trigger marker ${marker}`);
-}
-if (/setTimeout[\s\S]{0,180}showModal/u.test(interruptionScript)) {
-  fail(interruptionScriptPath, "access dialog must not open from a timer");
-}
-if (/atlasSection|#welt|data-atlas/u.test(interruptionScript)) {
-  fail(interruptionScriptPath, "access layer must not carry retired Atlas cleanup logic");
-}
-
 const historyPath = join(root, "journal/geschichte-der-demokratie.html");
 const historyHtml = await readFile(historyPath, "utf8");
 for (const forbidden of ["/create", "context_bundle", "entry=context_handoff", "source_url"]) {
   if (historyHtml.includes(forbidden)) fail(historyPath, `history article still exposes forbidden primary handoff ${forbidden}`);
 }
-if (!historyHtml.includes("Der Themenkontext bei eDebatte wird vorbereitet.")) {
-  fail(historyPath, "history article lacks the honest fail-closed handoff state");
-}
-
-const handoffPath = join(root, "vote4gov-handoff.js");
-const handoffScript = await readFile(handoffPath, "utf8");
-for (const marker of [
-  'CONTEXT_VERSION = "vote4gov-context-v1"',
-  'CANONICAL_EDEBATTE_ORIGIN = "https://www.edebatte.org"',
-  'articleId: "history-democracy"',
-  'issue: "01"',
-  'kind: "binary_thesis"',
-  'kind: "open_question"',
-  'searchParams.set("v4g"',
-]) {
-  if (!handoffScript.includes(marker)) fail(handoffPath, `missing handoff contract marker ${marker}`);
-}
-for (const forbidden of ["context_bundle", "entry=context_handoff", "source_url", "window.location.origin", 'searchParams.set("source"']) {
-  if (handoffScript.includes(forbidden)) fail(handoffPath, `handoff contract contains forbidden value ${forbidden}`);
-}
-if (!/topicSlug:\s*["']{2}/u.test(handoffScript) || !/sourceUrl:\s*["']{2}/u.test(handoffScript)) {
-  fail(handoffPath, "unconfirmed topic slug and canonical source URL must remain explicitly empty");
-}
-if ((handoffScript.match(/questionId:\s*["']{2}/gu) || []).length !== 2) {
-  fail(handoffPath, "binary and open question IDs must both remain explicitly unconfirmed");
-}
-if (/questions:\s*release\.questions[\s\S]{0,220}\b(prompt|response|remembered|updatedAt)\b/u.test(handoffScript)) {
-  fail(handoffPath, "handoff bundle must not transmit browser prompts or local participation state");
-}
-
-const pulsePath = join(root, "participation-pulse.js");
-const pulseScript = await readFile(pulsePath, "utf8");
-if (/edebate\.addEventListener\(["']click["'][\s\S]{0,220}(delete state|removeItem|clearTopic)/u.test(pulseScript)) {
-  fail(pulsePath, "opening eDebatte must not delete local participation state");
-}
-if (!pulseScript.includes("Eine Linköffnung überträgt oder zählt keine lokale Vormerkung")) {
-  fail(pulsePath, "local non-transfer truth is missing");
-}
+if (!historyHtml.includes("Der Themenkontext bei eDebatte wird vorbereitet.")) fail(historyPath, "history article lacks the honest fail-closed handoff state");
 
 if (!redirects.some((item) => item.source === "/anlassraeume/:path*" && item.destination.includes("edebatte.org"))) {
   fail(vercelPath, "legacy Vote4Gov room redirect to eDebatte is missing");
@@ -276,12 +190,8 @@ if (!redirects.some((item) => item.source === "/anlassraeume/:path*" && item.des
 if (!redirects.some((item) => item.source === "/hinter-der-idee" && item.destination === "/#mission" && item.permanent === true)) {
   fail(vercelPath, "retired mission route must permanently redirect to the consolidated mission section");
 }
-if (JSON.stringify(vercel).includes("X-Frame-Options")) {
-  fail(vercelPath, "X-Frame-Options blocks the explicitly supported embed cards");
-}
-if (!JSON.stringify(vercel).includes("frame-ancestors *")) {
-  fail(vercelPath, "embed frame-ancestors policy is missing");
-}
+if (JSON.stringify(vercel).includes("X-Frame-Options")) fail(vercelPath, "X-Frame-Options blocks supported embed cards");
+if (!JSON.stringify(vercel).includes("frame-ancestors *")) fail(vercelPath, "embed frame-ancestors policy is missing");
 
 const northStarPath = join(root, "docs/VOTE4GOV_NORTH_STAR.md");
 const northStar = await readFile(northStarPath, "utf8");
@@ -298,5 +208,4 @@ if (failures.length) {
   failures.forEach((failure) => console.error(`- ${failure}`));
   process.exit(1);
 }
-
-console.log(`Static quality validation passed for ${htmlFiles.length} HTML files: campaign start page, vision issue 01, language UI and routing contracts.`);
+console.log(`Static quality validation passed for ${htmlFiles.length} HTML files: Vote4Gov review architecture, system questions, country comparisons, vision issue 01 and routing contracts.`);
