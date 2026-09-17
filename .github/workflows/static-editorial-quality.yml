@@ -79,9 +79,11 @@ jobs:
           if-no-files-found: warn
           retention-days: 14
 
-      - name: Notify IndexNow about changed canonical URLs
+      - name: Notify IndexNow only after exact production deployment
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node scripts/submit-indexnow.mjs "${{ github.event.before }}" "${{ github.sha }}"
 
       - name: Stop static review server
