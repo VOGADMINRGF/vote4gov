@@ -1,6 +1,6 @@
 # Vote4Gov Regional Boundary — 2026-09-17
 
-Status: SAFE BOUNDARY IMPLEMENTED / LEGACY SPLIT PENDING
+Status: LEGACY REGIONAL SPLIT IMPLEMENTED
 
 ## Canonical roles
 
@@ -8,35 +8,61 @@ Status: SAFE BOUNDARY IMPLEMENTED / LEGACY SPLIT PENDING
 - VoiceOpenGov: people, membership, regional community, local activation and territorial entry points.
 - eDebatte: sources, counterpositions, dossiers, alternatives, participation, voting and impact.
 
-## Current safe state
+## Final regional truth
 
-- `/systeme-laender` remains the canonical Vote4Gov surface for comparing political systems and levels.
-- `/regionen` and `/regionen.html` already redirect to `/systeme-laender`.
-- Vote4Gov `sitemap.xml` does not advertise the legacy `/de/*` territorial pages.
-- `vercel.json` sends `X-Robots-Tag: noindex, follow` for `/de/:path*`.
-- `/systeme-laender` now links explicitly to `https://www.voiceopengov.org/regionen` for regional community and local activation.
+- `/systeme-laender` is the canonical Vote4Gov surface for comparing political systems, levels and international contexts.
+- `/regionen` and `/regionen.html` permanently redirect to `/systeme-laender`.
+- The former Vote4Gov territorial HTML hierarchy under `/de/` has been removed from the repository.
+- The former Germany hub redirects to `/systeme-laender#deutschland`.
+- The 16 former German state URLs permanently redirect to their matching VoiceOpenGov region pages.
+- The former Europe hub redirects to `/systeme-laender#europa`.
+- The former worldwide, Africa, Asia, Latin America/Caribbean, North America and Oceania hubs redirect to `/systeme-laender#international`.
 - eDebatte remains the handoff for evidence and dossier work.
+- VoiceOpenGov remains the handoff for regional community and local activation.
 
-## Why the legacy `/de/*` pages are not bulk-redirected yet
+## Content retention decision
 
-A sample review of `/de/deutschland/berlin/` shows mixed content: part analytical system/context material, part regional participation/community framing. A blind redirect would either discard useful Vote4Gov analysis or pretend that an analytical page is equivalent to a VoiceOpenGov community page.
+The 16 state pages were reviewed as thin templated mixed pages. Their recurring analytical content was limited to general principles such as separating state/municipal responsibility, recognising city-state or district layers and keeping regional effects visible. They did not contain a distinct sourced state-specific analysis that justified maintaining a second public territorial surface at Vote4Gov.
 
-Therefore each legacy page must be classified before redirect:
+The global/continent pages contained reusable comparison principles rather than distinct dossiers. Their useful material has been consolidated into `/systeme-laender`, including:
 
-1. retain/rewrite analytical material at Vote4Gov;
-2. move community/territorial intent to VoiceOpenGov;
-3. preserve eDebatte handoffs for evidence work;
-4. only then apply a 301 where no distinct Vote4Gov analytical page remains.
+- context before model transfer;
+- subregions instead of treating continents as uniform political systems;
+- cross-border effects and shared responsibilities;
+- multilingual access without creating parallel factual realities;
+- Germany's federal/state/local layering including city-state specifics.
 
-## Definition of done for the legacy split
+## Redirect matrix
 
-A legacy territorial page is only complete when:
+### Vote4Gov analytical retention
 
-- its analytical content has an explicit keep/move/delete decision;
-- any retained Vote4Gov page has a distinct analytical title and purpose;
-- community language points to VoiceOpenGov rather than implying a Vote4Gov regional organization;
-- evidence/dossier work points to eDebatte;
-- the old URL either redirects intentionally or remains noindex for a documented reason;
-- sitemap, canonical, breadcrumbs and internal links agree with that decision.
+- `/de/deutschland` → `/systeme-laender#deutschland`
+- `/de/europa` → `/systeme-laender#europa`
+- `/de/weltweit` → `/systeme-laender#international`
+- `/de/afrika` → `/systeme-laender#international`
+- `/de/asien` → `/systeme-laender#international`
+- `/de/lateinamerika-karibik` → `/systeme-laender#international`
+- `/de/nordamerika` → `/systeme-laender#international`
+- `/de/ozeanien` → `/systeme-laender#international`
 
-No page should be marked migrated merely because a target URL exists.
+### VoiceOpenGov regional ownership
+
+All former Vote4Gov state routes under `/de/deutschland/<state>` redirect permanently to:
+
+`https://www.voiceopengov.org/regionen/deutschland/<state>`
+
+for the exact 16 German state slugs.
+
+## Definition of done
+
+The legacy regional split is considered complete only while CI proves all of the following:
+
+- no territorial `de/**/*.html` pages exist in Vote4Gov;
+- every retired German state path has an explicit permanent VoiceOpenGov redirect;
+- retired Germany/Europe/world-region hubs redirect to the retained Vote4Gov analytical surface;
+- `/systeme-laender` contains the retained comparison principles and the VoiceOpenGov/eDebatte boundary;
+- the sitemap does not advertise retired territorial URLs;
+- static links remain valid;
+- browser regression passes at desktop, mobile, 320 px and no-JS where applicable.
+
+If a future country or region deserves a Vote4Gov page, it must be an independently substantive analytical review rather than a territorial/community landing page.
