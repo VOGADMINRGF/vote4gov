@@ -202,8 +202,17 @@ if (!homeCss.includes(".home-page .reveal") || !homeCss.includes(".js-enabled .h
   fail(homeCssPath, "campaign reveal effects must preserve visible content without JavaScript");
 }
 if (!homeScript.includes('classList.add("js-enabled")')) fail(homeScriptPath, "campaign script must opt in to reveal effects");
-for (const marker of ["@media(max-width:820px)", ".home-portrait>img{display:block!important", "object-fit:contain", "@media(max-width:620px)"]) {
-  if (!homeConsolidationCss.includes(marker)) fail(homeConsolidationPath, `mobile author portrait contract missing: ${marker}`);
+const homeConsolidationCompact = homeConsolidationCss.replace(/\s+/g, "");
+for (const marker of [
+  "@media(max-width:820px)",
+  ".home-portrait>img{display:block!important",
+  "object-fit:contain",
+  "@media(max-width:620px)",
+  ".home-shell{width:min(94vw,1880px)",
+  "@media(min-width:1500px)",
+  "grid-template-columns:repeat(3,minmax(0,1fr))",
+]) {
+  if (!homeConsolidationCompact.includes(marker)) fail(homeConsolidationPath, `responsive composition contract missing: ${marker}`);
 }
 
 const visionPath = join(root, "vision.html");
