@@ -59,6 +59,17 @@ try {
   check(!campaignText?.includes("entscheidet seinen eigenen Programmstand aber nach den eigenen Governance-Regeln"), "campaign desktop: retired VOG self-governance boundary remains");
   check(await campaign.locator('a[href="https://www.voiceopengov.org/mitmachen"]').count() >= 1, "campaign desktop: canonical VoiceOpenGov participation handoff is missing");
   check(await campaign.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1), "campaign desktop: horizontal overflow");
+
+  await campaign.setViewportSize({ width: 2560, height: 1440 });
+  await campaign.waitForTimeout(150);
+  const wideShellBox = await campaign.locator(".home-shell.home-stack").boundingBox();
+  check(Boolean(wideShellBox && wideShellBox.width >= 1800), "campaign wide desktop: content rail is still too narrow");
+  check(Boolean(wideShellBox && wideShellBox.width <= 1900), "campaign wide desktop: content rail exceeds intended reading width");
+  const wideQuestionColumns = await campaign.locator("#systemfragen .vision-grid").evaluate((element) =>
+    getComputedStyle(element).gridTemplateColumns.split(" ").filter(Boolean).length
+  );
+  check(wideQuestionColumns >= 3, "campaign wide desktop: system-thesis grid does not use the wider layout");
+  check(await campaign.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1), "campaign wide desktop: horizontal overflow");
   await campaign.close();
 
   const questions = await openPage(desktop, "/systemfragen.html");
@@ -108,8 +119,15 @@ try {
         const portrait = page.locator(".home-portrait > img");
         check(await portrait.isVisible(), `${viewport.width}px campaign: author portrait is hidden`);
         const box = await portrait.boundingBox();
-        check(Boolean(box && box.width >= 180 && box.height >= 260), `${viewport.width}px campaign: author portrait renders too small`);
-        check(await page.locator(".home-portrait .home-signature").isVisible(), `${viewport.width}px campaign: author signature is hidden`);
+        check(Boolean(box && box.width >= 180 && box.height >= 350), `${viewport.width}px campaign: author portrait renders too small`);
+        const signature = page.locator(".home-portrait .home-signature");
+        check(await signature.isVisible(), `${viewport.width}px campaign: author signature is hidden`);
+        const signatureBox = await signature.boundingBox();
+        check(Boolean(signatureBox && signatureBox.x >= -1 && signatureBox.x + signatureBox.width <= viewport.width + 1), `${viewport.width}px campaign: author signature drifts outside viewport`);
+        const authorCaption = page.locator(".home-portrait > p");
+        check(await authorCaption.isVisible(), `${viewport.width}px campaign: author caption is hidden`);
+        const captionBox = await authorCaption.boundingBox();
+        check(Boolean(captionBox && captionBox.x >= -1 && captionBox.x + captionBox.width <= viewport.width + 1), `${viewport.width}px campaign: author caption drifts outside viewport`);
       }
       if (path === "/vision.html") {
         await checkAtlasFree(page, `${viewport.width}px vision`);
