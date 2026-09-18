@@ -116,6 +116,9 @@ try {
       const page = await openPage(mobile, path);
       check(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1), `${viewport.width}px ${path}: horizontal overflow`);
       if (path === "/") {
+        const portraitWrap = page.locator(".home-portrait");
+        const portraitOpacity = await portraitWrap.evaluate((element) => getComputedStyle(element).opacity);
+        check(Number(portraitOpacity) >= 0.99, `${viewport.width}px campaign: author portrait reveal keeps the block visually hidden`);
         const portrait = page.locator(".home-portrait > img");
         check(await portrait.isVisible(), `${viewport.width}px campaign: author portrait is hidden`);
         const box = await portrait.boundingBox();
